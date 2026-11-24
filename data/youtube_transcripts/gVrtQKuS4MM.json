@@ -1,0 +1,6397 @@
+{
+  "source": "youtube_captions",
+  "language": "en",
+  "is_generated": true,
+  "text": "Hi guys. My name is Bobby and you are welcome to my YouTube channel. So guys, we'll continue with our agent AI playlist and you know that so far we have completed so many concept inside our playlist. If I show you, this is my complete playlist guys. If you are completely new to my channel, please try to go through the entire playlist, okay? From the video one itself. Just try to complete all of the video. Then you can continue with this latest recording, okay? Now in this video guys, we'll try to understand one very important and interesting concept which is subgraph inside line graph, okay? I'll show you what is subgraph exactly, why it is required. But before showing you the subgraph, first of all I want to give you the idea why subgraph we have to use that. So as you can see in my playlist, the latest implementation the latest project implementation I did which is multi agent system, okay? We implemented multi agent system. And how we created the multi agent system? Because if you see my previous implementation, there I created single agent system. And you know that single agent system only works individually, right? But in multi agent system, you create multiple agents, okay? And all of the agents would be executed in parallel. And you'll be using all of the output, okay? We'll try to combine all of the output and you will use that output, okay? For the user. So this is called multi agent system, right? Instead of relying on only single agent, we we create multiple agents and we we assign the task, okay? To one specific agent for one specific task. This is the idea. So whenever you are working on these kinds of multi agent AI system, the subgraph would be very powerful and very useful concept. Why it would be very useful and powerful, I'll tell you. But before that, first of all let's try to understand about the subgraph, why subgraph is required, what is subgraph exactly, then I'm going to explain each and everything. So, if you found my content useful guys, please try to subscribe to my channel and please try to hit the like and share this playlist with your friends and family so that they can also get this kinds of opportunity to learn this kinds of concept. So guys, as you can see on my screen here, I have already written the definition of the sub graph. You can see what are sub graph in in LangGraph. A sub graph in LangGraph usually means a graph that is embedded and executed as a node inside another graph. Okay? What does it mean? Let's try to understand. See, in Agentic application, what we do basically, let's say here we'll have a goal, right? We'll have a goal. And to achieve this goal, to implement this goal, what we have to do? We have to create a workflow. We have to create a nodes, okay? Inside LangGraph, we call it as a workflow. And we'll try to break down this goal as a task. That means let's say this is our workflow we have created. Uh I'll just create a simple workflow here. Let's say this is our simple workflow. Uh nodes we have created. Each and every uh this circle is a node, okay? We call it as a node. This is called node. And the entire representation we call it as a graph. And each of the node is defined as a task. Okay? Inside LangGraph, we we define as a task, right? Each of the node will be responsible for a task. And we try to complete all of the task to achieve this goal. Okay? This is the idea. So, what happens whenever we are implementing this kinds of Agentic system? Uh we'll have a big goal, right? Especially in real-world application, definitely this this workflow should not be very simple. It will uh it will be very big workflow. And uh it's not like very easy to handle this kinds of big workflow. And whenever you are implementing that, it would be also easy it would be also hard for you to implement these kinds of big workflow, right? Uh just try to think about you are creating a multi-agent AI application and uh it is doing lots of task, right? It is doing lots of let's say uh activities. And if you define as a workflow if you define as a graph, this graph would be very big, right? For an example, let's say I'll I'll give a simple example. Let's say we are implementing a blog writing agent, right? So, we are implementing a blog writing agent. So, let's say uh this is my simple blog writing agent. So, here user will pass the input and it will generate the blog and here you will get the output. Okay? Now, let's say whenever I'm talking about blog writing agent, it's not like that it will only generate the text, right? Uh right now if you see any any website, let's say Medium or any other website, uh whenever people are writing blog, they should also add the images uh in the blog itself to represent that particular content like more visual uh visual or let's say more understanding. We have to also uh add the images as well. Okay. Now, let's say this is our blog writing workflow. This is our blog writing workflow we have implemented. Now, if I want to generate the image as well, you have two option. Either you can add this image generation option in the same same uh nodes uh itself. Okay? Let's say this is your node. This basically generates the text. You can also generate the image, but if you do that, uh you are utilizing actually single node for multiple task. This is not recommended. That's why you use multi-agent system, right? So, either what you can do, you can create another agent here. Let's say this is your blog agent, text blog agent. You create another one called let's say image blog agent. Okay? Image blog agent. So, what it does, it takes the um uh content and with respect to that it will generate the images whatever you you feel like okay this images is necessary it will generate the image. Now you have the text you have the image. Okay, both you have. Now what you will do you will just try to apply the reducer you will try to combine them together you will try to add the images inside text. Okay, then you will have the final workflow. This is the final output. Okay. So this is called multi agent system. Here we created the multi agent system. Okay, multi agent system. That's how we can easily solve this problem. Okay. But why we have to use the sub graph? Why it is required? See, now just try try to think about let's say uh with this particular image generation uh or text generation you also need to generate the code. Okay, you also need to generate the code. Let's say uh here uh I can say that say in this particular text generation only uh it is generating some kinds of let's say you are generating a blog related uh let's say transformers. Okay. And it's not like that uh you will only generate the text because in transformer blog let's say three to four passages would be text and after that one code example will come. Okay, this kinds of example will come, right? So it's not like that I will create another agent uh that will only generate the code then I will try to combine. It's not like that. Whenever text and code is like let's say I can say uh this is combined. Okay, we have to generate as a combined. That time in the single node itself we have to execute code and text as well. Right? Uh we have to generate the code and text as well. So for this what we can do? Okay, for this either you can uh write everything inside the single node itself either you can use the sub graph. That means see sub graph how it will help you? Now you will be creating another graph here. Okay, you will be creating another graph. Let's say this graph will generate the code. Okay. And this graph you will try to add inside this particular node. Okay. That means you will execute this graph from this particular node itself. You'll invoke this graph from this particular node itself when it is necessary. When it is required. Okay, this is called sub-graph. So, as you can see in this image also, I have written the same thing. That means inside a node, okay, inside a node of a graph you can add another graph. You can add another graph. Okay. You can add another graph. This is called actually sub-graph. Let's say this is the node. This is the node parent workflow node. And in this node, this is not a simple node. This is a basically a graph object. Okay. So, this is called actually sub-graph. And sub-graph helps helps us in that way. So, here I've given a simple overview, but just try to think about a very complex workflow. That time this this concept is super useful, guys. Just try to think about you are creating a big workflow and your agents are doing lots of works, right? So, that time if you can create these kinds of sub-graph, definitely it will help you a lot. Okay, I hope you clear, guys. That's why in the definition I have written a sub-graph in LangGraph usually means a graph that is embedded and executed as a node inside another graph. Okay, you can see. Let's say this is this is my nodes, okay, and here we are executing a sub-graph. And this sub-graph uh is doing some kinds of work. Let's say in this case uh we are considering this sub-graph is generating the code for us. Okay, and this particular node is generating the text. Okay. That means whenever it necessary to generate the code, it will call this sub-graph. It will invoke this sub-graph and it will get the code in the same node itself. Okay, instead of creating a separate workflow, we can create a workflow and we can connect inside the node. Okay, if it is required. Okay, this is called actually sub-graph. Okay, now let's try to understand why this uh why I'll take a another color. This is also not good. I'll take this one. So, why? Uh sub graph are needed. Let's try to understand. So, see, um we know that uh whenever we are creating a agent, uh if I'm talking about the basic workflow, what would be the basic workflow? Let's say user will give something, some kinds of output. Uh this will go to your agent, and agent is using some kinds of LLM as a brain, and it will give you the output. Right? This kinds of uh simple workflow you can consider. But, this is not complete AI agents, right? If I want to implement a agent, the agent should be more complex, right? It will have basically the tool calls. Okay? Tool calls. It will have the RAG connection, that means RAG connection. It will be having conditional Okay? Conditional routing. Okay? Conditional routing, I think you know that uh basically it will automatically decide what to do. Okay, which uh which node to execute. This is called conditional routing. Then, it will also have something called retries. Okay? Retries means let's say if one uh execution uh fails, right? Instead of uh terminating, it will retry that particular um task again. Okay? Then, it will also have a memory. Okay? Then, it will also have HITL, human in the loop. Then, evaluation. Okay? And uh at the last I can consider, let's say guardrails as well. Okay? Guardrails, that means safety, and these are the features. We'll also try to learn this guardrails evaluation, no need to worry. And just first of all, let me complete these other concept, and we'll try to also learn this concept as well. Okay? So, if you combine all of these concept, and uh if you implement something, this will have your uh advanced AI system uh agent system, okay? I hope you get it. So, see what happens. Um let's say I'll take on one example. Um let's say you are implementing a software uh software developer assistant system. Okay? Assistant system you're developing. Now, in this software developer assistant system, uh this is your goal, okay? And to develop that, you have to define a task. You have to define separate separate node, right? So, first of all, what will happen? You will have a let's say you will have uh you will have um let's say task assigner. Okay? Or let's say task list. So, first of all, what you have to do? You have to build the back end, then you have to build the front end. Okay? Back end and front end. So, that's how this task will be divided, okay? Now, once this back end and front end is implemented, you'll try to send for the testing. Okay? Testing. Testing. And once testing is completed, you will finally send for the uh code review. Okay? Code review. Then, once it is done, you will send to the DevOps team. Okay? DevOps team. Then, this application would be live that time. So, this is our workflow, right? So, in this workflow, um you have different different nodes, and each of the nodes is nothing but it's a task. It's kinds of task, okay? Let's say if I'm considering this node, backend development, okay? Backend development, um Okay, so this is my backend development and this is my frontend development. So in this backend development, what is happening? It is writing the code related backend. Here also it is writing the code related backend, okay? And to write a code, it has to do lots of work, right? So instead of relying on a single node, so what we can do, we can create a sub node, right? We can create a sub node here. Let's say this is my sub node. Uh sub graph, okay? So in this sub graph, basically we'll try to assign this graph to write the code. Okay, write the code. It will have all kinds of uh functionality to write the code. Let's say it will have uh all the libraries, uh exploration tools, all of the, let's say, testing exploration tools, all of the, let's say, uh optimization explored exploration tools, okay? Every everything it will have. So what we'll do, we'll just try to add this particular sub graph to this node. So what will happen, whenever it is it is doing the backend development, okay? It is using this particular sub graph to write the code, okay? That means in this node node itself, I'm not giving a pressure. Instead of that, I'm calling a different node, okay? And this node is helping this particular node is to Sorry, this graph is helping this particular node is to complete the backend development, okay? Now, what is the main benefit to use this sub graph? Let me write down some of these tip. The first thing is the modularity. I think you know every software will have the modularity, uh flexibility. Definitely you know what is modular, right? That means this is a module, this is another module, this is another module. This is called module. Then we have something called reusability. Reusability. Now you can see, whenever it is doing the backend development, it is writing the code. Whenever it is doing the front-end development, it is also write the code, right? Now, instead of writing the separate, let's say functionality for writing the code, right? We can use this same sub-graph here also, okay? Because what is this sub-graph is doing? It is responsible for writing the code. It has all of the tools integration, right? For writing the code. So, I can use it in the back-end development as well. I can also use it for the front-end development as well, instead of writing again and again. This is called reusability. I hope you are getting Okay, what I'm trying to say. This is the main features of the sub-graph itself, right? So, it helps you to implement your multi-AI agent agent system in a more easiest way, okay? In a more modular way, so that you can maintain your, uh, let's say workflow in a very easy manner. Then, definitely, at the last I can consider the maintainability. Maintain- ability. Okay. Now, you can easily maintain this particular graph. Let's say, um, in future you are having a problem, right? You are having a problem in inside the back-end. Back-end development code. So, simply what you will do, you will just try to open this sub-graph. You will try to see what is the issue with that. You will fix that, and your back-end and front-end will run again perfectly. Okay, this is the um, this is the actually, uh, uh, some points we can consider for this particular sub-graph. Okay? I hope you got it, guys. Now, some other benefit you will also get. Uh, I'll just also write down these are the benefit. Uh, see. You will get failure isolation. So, what is this failure isolation? Failure iso- isolation means if you're using sub-graph, let's say, in case this particular node is getting failed, okay? This node is connected with this sub-graph, right? Uh, let's say you are using a separate API here, and, uh, for this reason this this node is getting failed. It's not like that. It will terminate the entire workflow. If you're using sub graph, this will not terminate the entire workflow. If this node is getting failed, it will execute other node and it will complete the task. This is called failure isolation, right? But, if you're not using the sub graph, there is a possibility your entire node should be terminated. Okay? That's why we will be using the sub graph. Okay? Then, you will have something called state Let me write down perfectly. State isolation or separation separation. I can write separation. Separation. State separation means I think you know that to implement these kinds of workflow, I need a state, right? State is nothing but it's kinds of a variable that will store some kinds of data. Like it works as a memory, right? Uh for this particular uh work workflow to be executed. Now, whenever you're creating the sub graph, so see, this is your main main graph, right? This is your main graph. This is your sub graph. Now, for main graph, you are creating a state. Okay, let's say this is your main state. This is a separate state. For sub graph, also you can create a separate state. Let's say this is your sub state. That means this state and this state is nothing but it's a separate state right now. Now, what is happening? Whatever output it is generating, it is not uh it is not sharing in the same state. Instead of that, the main workflow is saving the state output in the main state, and the sub graph, whatever it is generating, it is saving inside the sub state. This is the biggest benefit here. Okay? That's why we call it as a state separation. And the third one is the observe ability. Okay, observability means you can uh trace each and every node separately. Let's say you can trace the main graph as well. You can also trace the sub graph as well. That means there is no limitation. That means you have to trace the entire workflow, okay? At the same time. If you want, with the help of LangSmith, you can either trace the subgraph, you can either trace the main graph, okay? So, you have these kinds of option observability. Observability would be very simple for you. Instead of relying on a I mean, the complete graph, you can separately observe, okay? Either your subgraph, either your main graph, okay? This is the flexibility you'll be getting. Okay. So, that's why uh we're exploring this particular subgraph concept, and don't worry, I will also show you the project implementation uh in my next video. There we'll try to implement real-time project, real-time agents, okay? Multi-agent system. There we'll also use the subgraph concept to implement the agent agent also, okay? Now, I'm not telling without subgraph, you can't create the agent multi-agent. You can create the agents. We have already created that, and it was working fine. But, I'm telling you, if your workflow is getting more complex, okay? More bigger, that time using subgraph be uh beneficial for these kinds of operation, modularity, reusability, maintainability, failure isolation, state separation, and observability, okay? So, if you want to add these other functionality inside your agent to care application, you can use subgraph. Otherwise, uh whatever way we have created the multi-agent system, you can also follow the same approach, okay? There is no issue with that. So, yes, uh this was the uh overview of the subgraph. I think you got to know about the subgraph, what is subgraph exactly, and why it is required. Now, we'll try to see uh practically each and everything, how subgraph uh I mean, we can develop inside LangGraph, okay? But, before that, let me show you one thing. Uh if I go to the LangChain documentation, you will see that there is a separate section for the subgraph. Uh you can see, if you see here, there are two kinds of subgraph you can implement inside LangGraph. One is call a subgraph inside a node, that means see what is happening here. Uh let me just show you. Uh yeah. Yeah. So, first of all, let's try to understand call a sub-graph inside a node. Okay? So, call a sub-graph inside a node means let's say you are having a workflow here. Let's say this is your workflow. Okay, this is your workflow. Now, what you can do um you can create a sub-graph here. Let's say this is your sub-graph. Okay, this is your sub-graph. Now, you can call this sub-graph in this particular node only. You can invoke invoke this particular sub-graph in this node only. This is called call a sub-graph inside a node. That means you are creating this sub-graph separately and you are calling inside this node. That means uh in this case, what will happen? Um in this case, actually this this is your main main workflow or let's say main graph. This is your main graph. This is your sub-graph. So, here everything is isolated, right? Everything is uh like uh separated. So, here you were creating the state, right? This state is separate. This state is also separate. Only the thing is that you are calling inside this particular node. Okay? This sub-graph you're calling inside this node. That's why we call it as a uh call a sub-graph inside a node. And they have given the code example, but don't worry. I will show you my own code example uh with the help of that you can easily understand. Now, there is another one called add a sub-graph as a node. Okay? Now, this part let's try to understand. Now, let's say you are creating another workflow. Let's say this is your workflow. You have created. Now, what you can do, instead of creating a sub-graph, you can use the sub-graph here itself. Okay? Here itself. Here you can connect this sub-graph. So, this is called actually add a sub-graph as a node. That means you are using the sub-graph as a node only. Okay? So, here the thing is that whatever state you are creating, this should be a shared state. That means your main workflow is using this this state. Your sub graph will also use the same state. This is called actually shared state. Shared state. Okay? Now, whichever you prefer, it would be good for you. You can use that. But personally, I like this one. I like this separation one. Okay, if you want to create the separation one, you can create. But I also like this shared one because sometimes for some of the agent actually I need shared shared state because let's say whatever sub graph is generating, right? I need that output for my main workflow as well. So that that time actually shared state is also good. So you can select whatever you feel like that would be good for your architecture, you can select that one. So both flexibility they have given. You can see their documentation. I'll suggest you after completing this like video, you can go through their documentation. You can understand. Okay, they have explained each and everything. So whatever I told you here, right? They have explained the same thing here. So in this video, guys, I'll try to show you both. That means the first first example and second example, both example I'll try to show you. Okay? Yeah. So guys, now we'll see the practical development of this sub graph. So for this I have already opened my Jupiter notebook here. And I already shared all of this code in my video description. From there you can check it out. Okay, you will get all of this notebook, all of the code. So see, here first of all, I'm going to show you this this one. Your first one call a sub graph inside a graph. Okay, that means this example we'll try to see first of all. This example. That means this one. Okay, I'll just try to create a separate sub graph and we'll try to call inside our node. Okay, this one we'll try to first of all learn. So here I'll just try to add the comment. So call a sub graph inside a node. Okay? So for this, uh of all, let's try to understand the uh workflow we'll be creating here. See, here I'm going to create a very simple workflow just to show you the example. Uh but don't worry, I'll also show you the practical uh project, okay? Multi-agent application will also create in the next video itself, okay? So, see here, simply we'll just try to create um system that system will try to take the user input, okay? User input. Let's say user will uh ask something and it will go to the LLM. That means our agent, and this LLM will basically uh answer this particular question. And this answer, okay, whatever answer we are getting will try to send to another LLM. Okay? And this LLM, what it will do, it will basically translate this answer to Hindi, okay? It will translate. Or let's say I can write like that. This LLM, whatever output it will generate, it will generate as a Hindi Hindi output. Or let's say Hindi translate. Okay? Hindi translate. So, this is the workflow we'll try to develop, right? So, here, uh what is what is my main workflow should be? First of all, create the main workflow. Main main graph. Main graph. So, main graph would be start. Okay? Then, it will go to the generate. Generate answer. Okay? Then, uh it will go to the another node called translate. Answer to Hindi, then this workflow would be end. Let's say this is the workflow. Now, here we'll try to create a sub graph, okay? This is my sub graph. So, in this subgraph, what we'll do? Uh it will start. It start mean it will take the input. It will basically translate trans trans translate that text to Hindi. And this will end. Okay? This will end. Now, inside this translate node, as you can see, this is the node, right? Inside this translate node, we'll try to invoke. Okay, invoke what? Invoke this subgraph. Okay? This subgraph here we'll try to invoke. This is the idea. That means here uh we are not uh creating the translate node like a I mean, inside that only. We are creating a subgraph, right? This subgraph, what it does? It will take the uh like generated answer, and it will translate it to Hindi. And then this Hindi Hindi output we'll try to show to the user. So, instead of doing everything in the same node itself, we can create a subnode, and we can invoke this subnode whenever it it is required. This is the workflow we'll try to develop, guys. Okay? I hope you get it. Now, let's get back to my code. Uh here, first of all, I'll try to import some necessary library. So, I think you know what are the libraries you need. So, here we're importing this typing extension type dict, then from langgraph graph importing state graph start end. Okay, I already explained this part uh in my playlist, guys. Uh please try to go through from the uh pre uh from the first video. Okay, if you want to understand this concept easily, because this is a series of video. Okay, this is not a single uh I mean, tutorial, so that you can understand each and everything. If you check my playlist, guys, this is a series of video. So, all the basic things I have covered, right? So, if you want to continue, definitely you have to watch the previous video as well. Then, here I'm using the Gemini model because I don't have open AI API key. You can use any model. It's up to you. You can use Grok model. You can use Gemini model. You can use open router, Ollama, anything you can use, okay? So, here simply I'm using um Gemini model. For this, I install this Google uh generative AI package, okay? In my requirements. And this is the chat Google generative AI uh function we are importing and the load EMB as well because in the load EMB itself, I have my all of the key, okay? All of my Google API key. Whatever actually I need, I everything I have here. So, for this uh um example only, I only need the Google API key, okay? This one. And how to get this Google API key? I think you know that. You have to go to the Google generate uh Google AI Studio. This is the platform. You will just need to click on get started. And here you will see the API key section. From there, you can generate the API key, okay? So, for me, I already have the API key. I don't need to generate it. So, let me import all of the packages. Done. Now, I'll just try to load my environment variable. Mhm. Now, see. First of all, we'll try to implement the sub graph, okay? First of all, we'll try to implement the sub graph. So, for this sub graph, first of all, we have to define a state because this state would be separate, okay? And this state would be separate. For this example, call a sub graph inside a node. This state would be separate. This state would be separate, okay? First of all, we'll try to define the sub graph state, uh sub graph LLM, and sub graph nodes. Then, we'll try to create the main main graph, okay? This is the idea. Now, let's open it up. Now, see. First of all, we'll define the state. So, this is the state for the sub graph. See, as of now, for this uh example, I only want to do the translation of the generated text. That's why this is my a state. So, whatever input uh text uh I mean user is giving, it will save here. And whatever it will translate, this will save here. That means these two state I will I will only take. And this is my sub substate. That means subgraph state. Okay, that means this is my this subgraph state. Whatever input user is giving, it will save inside that this input text. And whatever it will translate, right? It will save inside this particular variable, right? So, this is my state. Now, here I'll just try to define a large language model because here we have to do the translation, right? In this node, we have to do the translation. For this, we need a large language model. So, here we are using Gemini model. So, we are defining the Gemini model and we are calling it a subgraph LLM. Okay, this is the model and this is the temperature parameter I've given. Simple. Now, we'll try to define this particular node, translate node. Let's define that. So, I already created this translated node. Let me show you. So, this is the translated node. So, translate text uh this will take this state, okay? State. And here I've given a prompt, translate the following text to Hindi. Keep it natural and clear. Do not add extra content. And whatever input user is giving, just try to make it to the Hindi. So, here we are invoking the LLM. We are giving the prompt. We are extracting the content and we are again storing to my state. Where? Inside my translated text, okay? Here it is trying to save the information. So, this is my node, guys. Okay, so this is the node of my subgraph. Now, uh we have to build this graph. We have to build the entire graph. Let's try to build the graph. So, this is the graph, guys. Uh subgraph builder, we are taking the state graph. We are passing the state, okay? As you can see, we are taking the state graph. We are passing the entire state. After that, we have to add the nodes and we only have one nodes, which is uh translate text. We are adding this translate text node and after that we have to uh add the edges, that means the connection. That means start should be connected with translate. Start should be connected with translate text and translate will connected to the end. Translate will connected to the end. Translate is connected to the end, okay? This is the edge connection and after that we are compiling the graph, okay? >> [snorts] >> And if you want to use any uh let's say state uh memory, that time you can use either memory server or either you can use a database. So, in this uh example I'm not using any kinds of state memory, guys, because this is just a uh I mean concept. I'm um I'm just making you understand. Whenever we'll try to build the project, that time I'll use the memory, right? Uh so that it can save the information permanently in the database. Yeah. So, that's how we have complied compiled the subgraph. Now, my subgraph work is done. Okay, this uh this subgraph is created. Now, we'll try to work on the main graph, okay? Now, let's try to define the main graph. So, again I'll try to open my code. Uh for main graph, this is my state. Okay, parent state, as you can see. So, here we'll have the question, that means whatever question user is asking, uh whatever answer it is generating, because you can see uh whatever uh question user will give, it will generate a answer first of all. This answer in information I'll try to save inside this variable. And whatever your subgraph is generating the Hindi translation, I'll try to save inside this particular variable, okay? That's why I've also taken this variable. This is your parent state, okay? I've taken the parent state. Now, I'll also define a large language model for the parent, because it will generate the output, right? Uh whatever question user will ask. So, again uh the same large language model I'm using, only I'm naming it as a parent parent LLM. Now, this will have a generate node, right? Generate node, let's try to define the generate node. So, this is my generate node, as you can see. Let's execute this cell. Yeah, so this is my generate node. So, generate answer, it will take this state parent state. And here we are only invoking the LLM, as you can see, you are a helpful assistant. Answer clearly this question, whatever question you are asking. After that, we are extracting the content and answering uh storing in my answer uh English, okay? That means uh this uh this node will generate the answer in English. That's why I'll try to save inside this variable. And your uh subnode will try to translate to Hindi, and this this information will be available here. Okay, this is the idea. Now, let's try to define this node. Now, you can see uh after this generator uh generate a generator, it will have the translate translation node, okay? So, let's try to create this translation node right now. Uh So, this is my translation node, translate answer. Now, again, I'm passing the state. And after that, here is the main part, guys. Here we are calling the subgraph, as you can see. We are calling the subgraph, the subgraph we have created. Subgraph, and here we are doing the invoke operation, invoke. We are giving the user input, okay? And what it will do, it will translate it will translate that, it will give you the result, and this result I'm saving inside this answer Hindi Hindi variable, okay? So, that means this part. In this translate node, we are calling another graph. That's why we call it as a call a subgraph inside a node, okay? I think you understood this part, right? So, here we are implementing as a code. That's it. Now, let me define this as well. So, once once it is done, now I'll try to uh build this entire graph, okay? Let's try to build this entire graph. Now, again, I have already built. Let me show you. So, this is my graph parent builder. Straight graph, we are giving the state. Then, here you can see we are adding the nodes, uh that means our generator generate nodes as well as the translate node. We are adding these two nodes, generate answer and translate answer. After that, we are adding the connection. Okay, edges. That means start to answer, start to generate answer. Generate answer to translate. Now, we can see answer to translate. And translate to end. Translate to end. Okay, so this is the connection we have. Done. Now, we have to also compile this. After building, we'll also compile this. And this is our final graph object, guys. You can see uh this is the uh I mean, graph I already showed you here. Okay, this thing we have already implemented. Now, let's try to invoke this graph and let's see whether it is able to generate the output or not. So, simply I'll just try to invoke it. So, graph.invoke and uh here I'm giving a question, what is quantum physics? Now, it should return the um original English uh generated output as well as the Hindi translated output. Let's see. And to generate that, it is using subgraph instead of executing in the same node. So, guys, as you can see, this is the output. This is the question we have asked. This is the English answer. And this is the Hindi translated answer. Okay? That means this workflow is working perfectly. Okay? This is completely fine. And uh we have completed our first uh subgraph implementation, which is call a subgraph inside a node. Now, let me show you how to implement this one. Um add a subgraph as a node, okay? Now, I'll show you this example. So, here I'll just try to Uh you can create another file. Uh I think I have I have already a file subgraph shared, okay? Uh this one I'll try to load and I'll explain, okay, how I've created this one. Let's see. See, again I have imported all of the necessary library, okay? Whatever library I need type D state graph start end start Google generative AI and load EMB. Let me execute that. Okay, so we have imported all of the necessary library. Now I'll try to load my environment variable. And here we are creating that. So as you can see first of all see here we are creating this one. Let me show you. This one. This one. Okay. And for this one you can see I don't need to create separate state for my sub graph. Okay, that means I'll create only one state. And your main graph will also interact with the same state and your sub graph will also interact with the same state. Okay, that's why one state I'm creating only which is my parent state and here I'm creating all of the variable whichever I need that means question answer English and answer Hindi. Okay. I'll try to define that. Now we are defining two large language model. One is for my parent LLM and it is for my sub graph LLM. Okay. Let me define. Okay. Now we are defining creating the nodes my translate text node. And here you can see we are giving the same prompt. We are also invoking the same large language model. And we are generating the translated text. Okay, this is my node. Now we'll try to build the sub graph. So here we are building the sub graph as you can see. That means this graph we are building. This graph. Okay, same same that means my previous code only. Sub graph we are implementing. Now we'll be creating the um main main graph. And for main graph I don't need to create the state separately. Now I'll create this generate nodes. So this is my generate nodes. Yeah. Now after generating node we'll try to build the we'll try to build the um main main graph. Okay. Now you can see here I haven't um here previously here I I told you uh whenever I created my Uh yeah. Whenever I created my uh sub graph, right? There in the translated node, I was invoking the sub graph only. But here, I'm not doing that. Okay, here I'm not doing that because I created this translated text, okay, separately. And I'll I'll try to add inside my uh inside my uh node, okay? So, let me show you how it will be working. So, here as you can see here. So, previously, I was calling the sub I was invoking the sub node separately, but here in this node itself, I'll try to add this one. That's why I'm writing I'm directly building my graph. And for this, we are giving the we're adding the node. First of all, we're adding the generated answer. Now, here you can see in the node itself, we're adding the sub graph. But previously, we are not adding that. Previously, we're defining as a node and we're invoking that particular sub graph separately. But right now, in this node only, we're adding the sub graph as a node. Okay, that's why we call it as a Um let me show you. We call it as a add a graph as a node, okay? I think you understood this part. Now, we're again um I mean doing the edge connection, start to answer, answer to translate, translate to end. That means this connection we're building. This connection we're building, okay? Once this connection is built up, now let me Yeah. Now, I'll try to compile the graph. Then again, I'll try to ask the same question, what is quantum physics? So guys, here is the output. As you can see, this my question, this my English answer, this is my Hindi translated answer, okay? So, this is also working perfectly. Only the difference is that here, in this particular node, I'm adding the sub graph directly. and in my previous example, I was invoking, okay, I was invoking that particular sub graph uh separately. This is the difference. Now, both I both example I showed you, which one you prefer, you can use that and don't worry, in my next video, I'll show you how we can build multi-agent uh application system. We'll try to build a real-time application, okay, real-world application with the help of this sub graph concept as well, okay? So, yes, guys, this is all about uh from this video. I hope you liked it. So, if you like my content, guys, please try to subscribe to my channel. This should be my request to all of you. Please try to support me. And let me know if you need anything from myself uh my side, I'll definitely provide that content. And all of the code resources would be available in my description. From there, you can check it out. So, yes, uh this is all about uh I hope you like this. I'll see you in the next video, guys. Thank you so much.",
+  "segments": [
+    {
+      "start": 0.48,
+      "end": 3.84,
+      "text": "Hi guys."
+    },
+    {
+      "start": 1.84,
+      "end": 5.88,
+      "text": "My name is Bobby and you are welcome to"
+    },
+    {
+      "start": 3.84,
+      "end": 8.64,
+      "text": "my YouTube channel."
+    },
+    {
+      "start": 5.88,
+      "end": 11.16,
+      "text": "So guys, we'll continue with our agent"
+    },
+    {
+      "start": 8.64,
+      "end": 13.440000000000001,
+      "text": "AI playlist and you know that so far we"
+    },
+    {
+      "start": 11.16,
+      "end": 15.440000000000001,
+      "text": "have completed so many concept inside"
+    },
+    {
+      "start": 13.44,
+      "end": 17.52,
+      "text": "our playlist."
+    },
+    {
+      "start": 15.44,
+      "end": 19.32,
+      "text": "If I show you, this is my complete"
+    },
+    {
+      "start": 17.52,
+      "end": 21.439999999999998,
+      "text": "playlist guys. If you are completely new"
+    },
+    {
+      "start": 19.32,
+      "end": 23.68,
+      "text": "to my channel, please try to go through"
+    },
+    {
+      "start": 21.44,
+      "end": 25.6,
+      "text": "the entire playlist, okay? From the"
+    },
+    {
+      "start": 23.68,
+      "end": 26.96,
+      "text": "video one itself. Just try to complete"
+    },
+    {
+      "start": 25.6,
+      "end": 29.520000000000003,
+      "text": "all of the video."
+    },
+    {
+      "start": 26.96,
+      "end": 31.44,
+      "text": "Then you can continue with this latest"
+    },
+    {
+      "start": 29.52,
+      "end": 33.68,
+      "text": "recording, okay?"
+    },
+    {
+      "start": 31.44,
+      "end": 35.96,
+      "text": "Now in this video guys, we'll try to"
+    },
+    {
+      "start": 33.68,
+      "end": 38.84,
+      "text": "understand one very important and"
+    },
+    {
+      "start": 35.96,
+      "end": 40.84,
+      "text": "interesting concept which is subgraph"
+    },
+    {
+      "start": 38.84,
+      "end": 42.52,
+      "text": "inside line graph, okay? I'll show you"
+    },
+    {
+      "start": 40.84,
+      "end": 43.720000000000006,
+      "text": "what is subgraph exactly, why it is"
+    },
+    {
+      "start": 42.52,
+      "end": 45.36,
+      "text": "required."
+    },
+    {
+      "start": 43.72,
+      "end": 47.12,
+      "text": "But before showing you the subgraph,"
+    },
+    {
+      "start": 45.36,
+      "end": 48.64,
+      "text": "first of all I want to give you the idea"
+    },
+    {
+      "start": 47.12,
+      "end": 50.36,
+      "text": "why subgraph"
+    },
+    {
+      "start": 48.64,
+      "end": 51.96,
+      "text": "we have to use that."
+    },
+    {
+      "start": 50.36,
+      "end": 53.32,
+      "text": "So as you can see"
+    },
+    {
+      "start": 51.96,
+      "end": 54.84,
+      "text": "in my playlist, the latest"
+    },
+    {
+      "start": 53.32,
+      "end": 57.08,
+      "text": "implementation"
+    },
+    {
+      "start": 54.84,
+      "end": 59.92,
+      "text": "the latest project implementation I did"
+    },
+    {
+      "start": 57.08,
+      "end": 62.239999999999995,
+      "text": "which is multi agent system, okay? We"
+    },
+    {
+      "start": 59.92,
+      "end": 63.68,
+      "text": "implemented multi agent system."
+    },
+    {
+      "start": 62.24,
+      "end": 66.48,
+      "text": "And how we created the multi agent"
+    },
+    {
+      "start": 63.68,
+      "end": 68.12,
+      "text": "system? Because if you see my previous"
+    },
+    {
+      "start": 66.48,
+      "end": 70.12,
+      "text": "implementation, there I created single"
+    },
+    {
+      "start": 68.12,
+      "end": 72.56,
+      "text": "agent system. And you know that single"
+    },
+    {
+      "start": 70.12,
+      "end": 74.72,
+      "text": "agent system only works individually,"
+    },
+    {
+      "start": 72.56,
+      "end": 78.0,
+      "text": "right? But in multi agent system, you"
+    },
+    {
+      "start": 74.72,
+      "end": 79.96,
+      "text": "create multiple agents, okay? And"
+    },
+    {
+      "start": 78.0,
+      "end": 82.24,
+      "text": "all of the agents would be executed in"
+    },
+    {
+      "start": 79.96,
+      "end": 83.91999999999999,
+      "text": "parallel. And you'll be using all of the"
+    },
+    {
+      "start": 82.24,
+      "end": 86.28,
+      "text": "output, okay? We'll try to combine all"
+    },
+    {
+      "start": 83.92,
+      "end": 88.24000000000001,
+      "text": "of the output and you will use that"
+    },
+    {
+      "start": 86.28,
+      "end": 89.6,
+      "text": "output, okay? For the user."
+    },
+    {
+      "start": 88.24,
+      "end": 91.6,
+      "text": "So this is called multi agent system,"
+    },
+    {
+      "start": 89.6,
+      "end": 93.64,
+      "text": "right? Instead of relying on only single"
+    },
+    {
+      "start": 91.6,
+      "end": 94.64,
+      "text": "agent, we we create multiple agents and"
+    },
+    {
+      "start": 93.64,
+      "end": 97.4,
+      "text": "we"
+    },
+    {
+      "start": 94.64,
+      "end": 99.52,
+      "text": "we assign the task, okay? To"
+    },
+    {
+      "start": 97.4,
+      "end": 102.08000000000001,
+      "text": "one specific agent for one specific"
+    },
+    {
+      "start": 99.52,
+      "end": 103.6,
+      "text": "task. This is the idea. So whenever you"
+    },
+    {
+      "start": 102.08,
+      "end": 105.32,
+      "text": "are working on these kinds of multi"
+    },
+    {
+      "start": 103.6,
+      "end": 108.16,
+      "text": "agent AI system, the subgraph would be"
+    },
+    {
+      "start": 105.32,
+      "end": 109.75999999999999,
+      "text": "very powerful and very useful concept."
+    },
+    {
+      "start": 108.16,
+      "end": 111.44,
+      "text": "Why it would be very useful and"
+    },
+    {
+      "start": 109.76,
+      "end": 112.68,
+      "text": "powerful, I'll tell you. But before"
+    },
+    {
+      "start": 111.44,
+      "end": 114.56,
+      "text": "that, first of all let's try to"
+    },
+    {
+      "start": 112.68,
+      "end": 116.36000000000001,
+      "text": "understand about the subgraph, why"
+    },
+    {
+      "start": 114.56,
+      "end": 118.56,
+      "text": "subgraph is required, what is subgraph"
+    },
+    {
+      "start": 116.36,
+      "end": 120.24,
+      "text": "exactly, then I'm going to explain each"
+    },
+    {
+      "start": 118.56,
+      "end": 121.64,
+      "text": "and everything. So, if you found my"
+    },
+    {
+      "start": 120.24,
+      "end": 123.479,
+      "text": "content useful guys, please try to"
+    },
+    {
+      "start": 121.64,
+      "end": 125.72,
+      "text": "subscribe to my channel and please try"
+    },
+    {
+      "start": 123.479,
+      "end": 127.36,
+      "text": "to hit the like and share this playlist"
+    },
+    {
+      "start": 125.72,
+      "end": 128.679,
+      "text": "with your friends and family so that"
+    },
+    {
+      "start": 127.36,
+      "end": 130.679,
+      "text": "they can also get this kinds of"
+    },
+    {
+      "start": 128.679,
+      "end": 131.92000000000002,
+      "text": "opportunity to learn this kinds of"
+    },
+    {
+      "start": 130.679,
+      "end": 133.88,
+      "text": "concept."
+    },
+    {
+      "start": 131.92,
+      "end": 135.16,
+      "text": "So guys, as you can see on my screen"
+    },
+    {
+      "start": 133.88,
+      "end": 137.4,
+      "text": "here, I have already written the"
+    },
+    {
+      "start": 135.16,
+      "end": 140.0,
+      "text": "definition of the sub graph. You can see"
+    },
+    {
+      "start": 137.4,
+      "end": 142.28,
+      "text": "what are sub graph in in LangGraph."
+    },
+    {
+      "start": 140.0,
+      "end": 145.12,
+      "text": "A sub graph in LangGraph usually means a"
+    },
+    {
+      "start": 142.28,
+      "end": 147.76,
+      "text": "graph that is embedded and executed as a"
+    },
+    {
+      "start": 145.12,
+      "end": 148.88,
+      "text": "node inside another graph. Okay?"
+    },
+    {
+      "start": 147.76,
+      "end": 150.2,
+      "text": "What does it mean? Let's try to"
+    },
+    {
+      "start": 148.88,
+      "end": 151.16,
+      "text": "understand."
+    },
+    {
+      "start": 150.2,
+      "end": 153.67999999999998,
+      "text": "See,"
+    },
+    {
+      "start": 151.16,
+      "end": 155.4,
+      "text": "in Agentic application, what we do"
+    },
+    {
+      "start": 153.68,
+      "end": 157.16,
+      "text": "basically, let's say here we'll have a"
+    },
+    {
+      "start": 155.4,
+      "end": 159.28,
+      "text": "goal, right?"
+    },
+    {
+      "start": 157.16,
+      "end": 161.56,
+      "text": "We'll have a goal."
+    },
+    {
+      "start": 159.28,
+      "end": 163.56,
+      "text": "And to achieve this goal, to implement"
+    },
+    {
+      "start": 161.56,
+      "end": 165.44,
+      "text": "this goal, what we have to do? We have"
+    },
+    {
+      "start": 163.56,
+      "end": 167.0,
+      "text": "to create a workflow."
+    },
+    {
+      "start": 165.44,
+      "end": 169.44,
+      "text": "We have to create a nodes, okay? Inside"
+    },
+    {
+      "start": 167.0,
+      "end": 171.56,
+      "text": "LangGraph, we call it as a workflow."
+    },
+    {
+      "start": 169.44,
+      "end": 173.35999999999999,
+      "text": "And we'll try to break down this goal as"
+    },
+    {
+      "start": 171.56,
+      "end": 175.24,
+      "text": "a task. That means"
+    },
+    {
+      "start": 173.36,
+      "end": 176.44000000000003,
+      "text": "let's say this is our workflow we have"
+    },
+    {
+      "start": 175.24,
+      "end": 178.12,
+      "text": "created."
+    },
+    {
+      "start": 176.44,
+      "end": 179.64,
+      "text": "Uh I'll just create a simple workflow"
+    },
+    {
+      "start": 178.12,
+      "end": 180.76,
+      "text": "here. Let's say this is our simple"
+    },
+    {
+      "start": 179.64,
+      "end": 183.32,
+      "text": "workflow."
+    },
+    {
+      "start": 180.76,
+      "end": 184.2,
+      "text": "Uh nodes we have created. Each and every"
+    },
+    {
+      "start": 183.32,
+      "end": 187.84,
+      "text": "uh"
+    },
+    {
+      "start": 184.2,
+      "end": 190.6,
+      "text": "this circle is a node, okay?"
+    },
+    {
+      "start": 187.84,
+      "end": 192.8,
+      "text": "We call it as a node."
+    },
+    {
+      "start": 190.6,
+      "end": 194.6,
+      "text": "This is called node."
+    },
+    {
+      "start": 192.8,
+      "end": 197.08,
+      "text": "And the entire representation we call it"
+    },
+    {
+      "start": 194.6,
+      "end": 199.0,
+      "text": "as a graph. And each of the node is"
+    },
+    {
+      "start": 197.08,
+      "end": 201.68,
+      "text": "defined as a task."
+    },
+    {
+      "start": 199.0,
+      "end": 204.2,
+      "text": "Okay? Inside LangGraph, we"
+    },
+    {
+      "start": 201.68,
+      "end": 205.84,
+      "text": "we define as a task, right?"
+    },
+    {
+      "start": 204.2,
+      "end": 207.23899999999998,
+      "text": "Each of the node will be responsible for"
+    },
+    {
+      "start": 205.84,
+      "end": 209.519,
+      "text": "a task."
+    },
+    {
+      "start": 207.239,
+      "end": 211.4,
+      "text": "And we try to complete all of the task"
+    },
+    {
+      "start": 209.519,
+      "end": 212.56,
+      "text": "to achieve this goal. Okay? This is the"
+    },
+    {
+      "start": 211.4,
+      "end": 214.4,
+      "text": "idea."
+    },
+    {
+      "start": 212.56,
+      "end": 216.28,
+      "text": "So, what happens whenever we are"
+    },
+    {
+      "start": 214.4,
+      "end": 217.519,
+      "text": "implementing this kinds of Agentic"
+    },
+    {
+      "start": 216.28,
+      "end": 219.0,
+      "text": "system?"
+    },
+    {
+      "start": 217.519,
+      "end": 220.76000000000002,
+      "text": "Uh we'll have a big goal, right?"
+    },
+    {
+      "start": 219.0,
+      "end": 222.16,
+      "text": "Especially in real-world application,"
+    },
+    {
+      "start": 220.76,
+      "end": 224.76,
+      "text": "definitely this"
+    },
+    {
+      "start": 222.16,
+      "end": 227.64,
+      "text": "this workflow should not be very simple."
+    },
+    {
+      "start": 224.76,
+      "end": 231.39999999999998,
+      "text": "It will uh it will be very big workflow."
+    },
+    {
+      "start": 227.64,
+      "end": 233.0,
+      "text": "And uh it's not like very easy to handle"
+    },
+    {
+      "start": 231.4,
+      "end": 234.76000000000002,
+      "text": "this kinds of big workflow. And whenever"
+    },
+    {
+      "start": 233.0,
+      "end": 236.88,
+      "text": "you are implementing that, it would be"
+    },
+    {
+      "start": 234.76,
+      "end": 238.48,
+      "text": "also easy it would be also hard for you"
+    },
+    {
+      "start": 236.88,
+      "end": 239.76,
+      "text": "to implement these kinds of big"
+    },
+    {
+      "start": 238.48,
+      "end": 241.04,
+      "text": "workflow, right?"
+    },
+    {
+      "start": 239.76,
+      "end": 242.95999999999998,
+      "text": "Uh just try to think about you are"
+    },
+    {
+      "start": 241.04,
+      "end": 243.95999999999998,
+      "text": "creating a multi-agent AI application"
+    },
+    {
+      "start": 242.96,
+      "end": 245.88,
+      "text": "and"
+    },
+    {
+      "start": 243.96,
+      "end": 248.28,
+      "text": "uh it is doing lots of task, right? It"
+    },
+    {
+      "start": 245.88,
+      "end": 249.959,
+      "text": "is doing lots of let's say"
+    },
+    {
+      "start": 248.28,
+      "end": 252.2,
+      "text": "uh activities."
+    },
+    {
+      "start": 249.959,
+      "end": 253.56,
+      "text": "And if you define as a workflow if you"
+    },
+    {
+      "start": 252.2,
+      "end": 255.83999999999997,
+      "text": "define as a graph, this graph would be"
+    },
+    {
+      "start": 253.56,
+      "end": 258.079,
+      "text": "very big, right? For an example, let's"
+    },
+    {
+      "start": 255.84,
+      "end": 260.32,
+      "text": "say I'll I'll give a simple example."
+    },
+    {
+      "start": 258.079,
+      "end": 261.959,
+      "text": "Let's say we are implementing a blog"
+    },
+    {
+      "start": 260.32,
+      "end": 264.04,
+      "text": "writing agent, right? So, we are"
+    },
+    {
+      "start": 261.959,
+      "end": 265.88,
+      "text": "implementing a blog writing agent. So,"
+    },
+    {
+      "start": 264.04,
+      "end": 268.56,
+      "text": "let's say uh this is my simple blog"
+    },
+    {
+      "start": 265.88,
+      "end": 270.68,
+      "text": "writing agent. So, here user will pass"
+    },
+    {
+      "start": 268.56,
+      "end": 273.32,
+      "text": "the input and it will generate the blog"
+    },
+    {
+      "start": 270.68,
+      "end": 274.8,
+      "text": "and here you will get the output. Okay?"
+    },
+    {
+      "start": 273.32,
+      "end": 276.12,
+      "text": "Now,"
+    },
+    {
+      "start": 274.8,
+      "end": 277.72,
+      "text": "let's say whenever I'm talking about"
+    },
+    {
+      "start": 276.12,
+      "end": 280.52,
+      "text": "blog writing agent, it's not like that"
+    },
+    {
+      "start": 277.72,
+      "end": 282.8,
+      "text": "it will only generate the text, right?"
+    },
+    {
+      "start": 280.52,
+      "end": 285.47999999999996,
+      "text": "Uh right now if you see any any website,"
+    },
+    {
+      "start": 282.8,
+      "end": 287.40000000000003,
+      "text": "let's say Medium or any other website,"
+    },
+    {
+      "start": 285.48,
+      "end": 290.76,
+      "text": "uh whenever people are writing blog,"
+    },
+    {
+      "start": 287.4,
+      "end": 292.79999999999995,
+      "text": "they should also add the images uh in"
+    },
+    {
+      "start": 290.76,
+      "end": 295.08,
+      "text": "the blog itself to represent that"
+    },
+    {
+      "start": 292.8,
+      "end": 297.04,
+      "text": "particular content like more visual uh"
+    },
+    {
+      "start": 295.08,
+      "end": 299.32,
+      "text": "visual or let's say more understanding."
+    },
+    {
+      "start": 297.04,
+      "end": 300.08000000000004,
+      "text": "We have to also uh add the images as"
+    },
+    {
+      "start": 299.32,
+      "end": 302.24,
+      "text": "well."
+    },
+    {
+      "start": 300.08,
+      "end": 304.12,
+      "text": "Okay. Now, let's say this is our blog"
+    },
+    {
+      "start": 302.24,
+      "end": 305.6,
+      "text": "writing workflow. This is our blog"
+    },
+    {
+      "start": 304.12,
+      "end": 307.32,
+      "text": "writing workflow"
+    },
+    {
+      "start": 305.6,
+      "end": 309.08000000000004,
+      "text": "we have implemented."
+    },
+    {
+      "start": 307.32,
+      "end": 311.96,
+      "text": "Now,"
+    },
+    {
+      "start": 309.08,
+      "end": 314.8,
+      "text": "if I want to generate the image as well,"
+    },
+    {
+      "start": 311.96,
+      "end": 316.52,
+      "text": "you have two option. Either you can"
+    },
+    {
+      "start": 314.8,
+      "end": 319.48,
+      "text": "add this image generation option in the"
+    },
+    {
+      "start": 316.52,
+      "end": 321.0,
+      "text": "same same uh nodes uh itself. Okay?"
+    },
+    {
+      "start": 319.48,
+      "end": 323.16,
+      "text": "Let's say this is your node. This"
+    },
+    {
+      "start": 321.0,
+      "end": 325.04,
+      "text": "basically generates the text. You can"
+    },
+    {
+      "start": 323.16,
+      "end": 326.0,
+      "text": "also generate the image, but if you do"
+    },
+    {
+      "start": 325.04,
+      "end": 328.28000000000003,
+      "text": "that,"
+    },
+    {
+      "start": 326.0,
+      "end": 330.12,
+      "text": "uh you are utilizing actually single"
+    },
+    {
+      "start": 328.28,
+      "end": 331.79999999999995,
+      "text": "node for multiple task. This is not"
+    },
+    {
+      "start": 330.12,
+      "end": 333.88,
+      "text": "recommended. That's why you use"
+    },
+    {
+      "start": 331.8,
+      "end": 335.40000000000003,
+      "text": "multi-agent system, right? So, either"
+    },
+    {
+      "start": 333.88,
+      "end": 337.0,
+      "text": "what you can do, you can create another"
+    },
+    {
+      "start": 335.4,
+      "end": 339.4,
+      "text": "agent here. Let's say this is your blog"
+    },
+    {
+      "start": 337.0,
+      "end": 341.52,
+      "text": "agent, text blog agent. You create"
+    },
+    {
+      "start": 339.4,
+      "end": 344.4,
+      "text": "another one called let's say image blog"
+    },
+    {
+      "start": 341.52,
+      "end": 346.59999999999997,
+      "text": "agent. Okay? Image blog agent. So, what"
+    },
+    {
+      "start": 344.4,
+      "end": 348.64,
+      "text": "it does, it takes the um"
+    },
+    {
+      "start": 346.6,
+      "end": 351.20000000000005,
+      "text": "uh content and with respect to that it"
+    },
+    {
+      "start": 348.64,
+      "end": 352.68,
+      "text": "will generate the images whatever you"
+    },
+    {
+      "start": 351.2,
+      "end": 354.68,
+      "text": "you feel like okay this images is"
+    },
+    {
+      "start": 352.68,
+      "end": 357.40000000000003,
+      "text": "necessary it will generate the image."
+    },
+    {
+      "start": 354.68,
+      "end": 359.64,
+      "text": "Now you have the text you have the"
+    },
+    {
+      "start": 357.4,
+      "end": 361.12,
+      "text": "image. Okay, both you have. Now what you"
+    },
+    {
+      "start": 359.64,
+      "end": 362.59999999999997,
+      "text": "will do you will just try to apply the"
+    },
+    {
+      "start": 361.12,
+      "end": 364.64,
+      "text": "reducer you will try to combine them"
+    },
+    {
+      "start": 362.6,
+      "end": 366.40000000000003,
+      "text": "together you will try to add the images"
+    },
+    {
+      "start": 364.64,
+      "end": 368.12,
+      "text": "inside text. Okay, then you will have"
+    },
+    {
+      "start": 366.4,
+      "end": 370.44,
+      "text": "the final workflow. This is the final"
+    },
+    {
+      "start": 368.12,
+      "end": 372.28000000000003,
+      "text": "output. Okay. So this is called multi"
+    },
+    {
+      "start": 370.44,
+      "end": 373.88,
+      "text": "agent system. Here we created the multi"
+    },
+    {
+      "start": 372.28,
+      "end": 376.0,
+      "text": "agent system."
+    },
+    {
+      "start": 373.88,
+      "end": 378.52,
+      "text": "Okay, multi agent system. That's how we"
+    },
+    {
+      "start": 376.0,
+      "end": 380.24,
+      "text": "can easily solve this problem. Okay. But"
+    },
+    {
+      "start": 378.52,
+      "end": 382.52,
+      "text": "why we have to use the sub graph? Why it"
+    },
+    {
+      "start": 380.24,
+      "end": 384.88,
+      "text": "is required? See, now just try try to"
+    },
+    {
+      "start": 382.52,
+      "end": 387.2,
+      "text": "think about let's say uh with this"
+    },
+    {
+      "start": 384.88,
+      "end": 388.919,
+      "text": "particular image generation uh or text"
+    },
+    {
+      "start": 387.2,
+      "end": 390.88,
+      "text": "generation you also need to generate the"
+    },
+    {
+      "start": 388.919,
+      "end": 392.03999999999996,
+      "text": "code. Okay, you also need to generate"
+    },
+    {
+      "start": 390.88,
+      "end": 394.24,
+      "text": "the code."
+    },
+    {
+      "start": 392.04,
+      "end": 396.36,
+      "text": "Let's say uh here uh I can say that say"
+    },
+    {
+      "start": 394.24,
+      "end": 396.919,
+      "text": "in this particular text generation only"
+    },
+    {
+      "start": 396.36,
+      "end": 398.24,
+      "text": "uh"
+    },
+    {
+      "start": 396.919,
+      "end": 401.15999999999997,
+      "text": "it is generating some kinds of let's say"
+    },
+    {
+      "start": 398.24,
+      "end": 403.48,
+      "text": "you are generating a blog related uh"
+    },
+    {
+      "start": 401.16,
+      "end": 405.0,
+      "text": "let's say transformers. Okay. And it's"
+    },
+    {
+      "start": 403.48,
+      "end": 405.8,
+      "text": "not like that"
+    },
+    {
+      "start": 405.0,
+      "end": 407.76,
+      "text": "uh"
+    },
+    {
+      "start": 405.8,
+      "end": 410.48,
+      "text": "you will only generate the text because"
+    },
+    {
+      "start": 407.76,
+      "end": 412.8,
+      "text": "in transformer blog let's say three to"
+    },
+    {
+      "start": 410.48,
+      "end": 415.12,
+      "text": "four passages would be text and after"
+    },
+    {
+      "start": 412.8,
+      "end": 417.12,
+      "text": "that one code example will come. Okay,"
+    },
+    {
+      "start": 415.12,
+      "end": 418.56,
+      "text": "this kinds of example will come, right?"
+    },
+    {
+      "start": 417.12,
+      "end": 420.84000000000003,
+      "text": "So it's not like that I will create"
+    },
+    {
+      "start": 418.56,
+      "end": 422.08,
+      "text": "another agent uh that will only generate"
+    },
+    {
+      "start": 420.84,
+      "end": 425.2,
+      "text": "the code then I will try to combine."
+    },
+    {
+      "start": 422.08,
+      "end": 427.56,
+      "text": "It's not like that. Whenever text and"
+    },
+    {
+      "start": 425.2,
+      "end": 429.4,
+      "text": "code is like let's say I can say uh this"
+    },
+    {
+      "start": 427.56,
+      "end": 432.16,
+      "text": "is combined. Okay, we have to generate"
+    },
+    {
+      "start": 429.4,
+      "end": 435.03999999999996,
+      "text": "as a combined. That time in the single"
+    },
+    {
+      "start": 432.16,
+      "end": 436.88000000000005,
+      "text": "node itself we have to execute code and"
+    },
+    {
+      "start": 435.04,
+      "end": 438.88,
+      "text": "text as well. Right? Uh we have to"
+    },
+    {
+      "start": 436.88,
+      "end": 440.88,
+      "text": "generate the code and text as well. So"
+    },
+    {
+      "start": 438.88,
+      "end": 442.12,
+      "text": "for this what we can do? Okay, for this"
+    },
+    {
+      "start": 440.88,
+      "end": 443.68,
+      "text": "either you can"
+    },
+    {
+      "start": 442.12,
+      "end": 445.84000000000003,
+      "text": "uh write everything inside the single"
+    },
+    {
+      "start": 443.68,
+      "end": 447.919,
+      "text": "node itself either you can use the sub"
+    },
+    {
+      "start": 445.84,
+      "end": 449.08,
+      "text": "graph. That means see sub graph how it"
+    },
+    {
+      "start": 447.919,
+      "end": 450.64,
+      "text": "will help you?"
+    },
+    {
+      "start": 449.08,
+      "end": 452.2,
+      "text": "Now you will be creating another graph"
+    },
+    {
+      "start": 450.64,
+      "end": 453.71999999999997,
+      "text": "here. Okay, you will be creating another"
+    },
+    {
+      "start": 452.2,
+      "end": 455.4,
+      "text": "graph."
+    },
+    {
+      "start": 453.72,
+      "end": 458.44000000000005,
+      "text": "Let's say this graph will generate the"
+    },
+    {
+      "start": 455.4,
+      "end": 460.84,
+      "text": "code. Okay. And this graph you will try"
+    },
+    {
+      "start": 458.44,
+      "end": 463.48,
+      "text": "to add inside this particular node."
+    },
+    {
+      "start": 460.84,
+      "end": 465.08,
+      "text": "Okay. That means you will execute this"
+    },
+    {
+      "start": 463.48,
+      "end": 466.52000000000004,
+      "text": "graph from this particular node itself."
+    },
+    {
+      "start": 465.08,
+      "end": 467.8,
+      "text": "You'll invoke this graph from this"
+    },
+    {
+      "start": 466.52,
+      "end": 470.44,
+      "text": "particular node itself when it is"
+    },
+    {
+      "start": 467.8,
+      "end": 472.08,
+      "text": "necessary. When it is required. Okay,"
+    },
+    {
+      "start": 470.44,
+      "end": 474.0,
+      "text": "this is called sub-graph. So, as you can"
+    },
+    {
+      "start": 472.08,
+      "end": 476.47999999999996,
+      "text": "see in this image also, I have written"
+    },
+    {
+      "start": 474.0,
+      "end": 479.96,
+      "text": "the same thing. That means inside a"
+    },
+    {
+      "start": 476.48,
+      "end": 482.48,
+      "text": "node, okay, inside a node of a graph"
+    },
+    {
+      "start": 479.96,
+      "end": 484.68,
+      "text": "you can add another graph. You can add"
+    },
+    {
+      "start": 482.48,
+      "end": 485.6,
+      "text": "another graph. Okay. You can add another"
+    },
+    {
+      "start": 484.68,
+      "end": 487.64,
+      "text": "graph. This is called actually"
+    },
+    {
+      "start": 485.6,
+      "end": 490.52000000000004,
+      "text": "sub-graph. Let's say this is the node."
+    },
+    {
+      "start": 487.64,
+      "end": 492.52,
+      "text": "This is the node parent workflow node."
+    },
+    {
+      "start": 490.52,
+      "end": 493.96,
+      "text": "And in this node, this is not a simple"
+    },
+    {
+      "start": 492.52,
+      "end": 495.79999999999995,
+      "text": "node. This is a basically a graph"
+    },
+    {
+      "start": 493.96,
+      "end": 497.96,
+      "text": "object. Okay. So, this is called"
+    },
+    {
+      "start": 495.8,
+      "end": 499.96000000000004,
+      "text": "actually sub-graph. And sub-graph helps"
+    },
+    {
+      "start": 497.96,
+      "end": 501.79999999999995,
+      "text": "helps us in that way. So, here I've"
+    },
+    {
+      "start": 499.96,
+      "end": 503.44,
+      "text": "given a simple overview, but just try to"
+    },
+    {
+      "start": 501.8,
+      "end": 506.04,
+      "text": "think about a very complex workflow."
+    },
+    {
+      "start": 503.44,
+      "end": 507.8,
+      "text": "That time this this concept is super"
+    },
+    {
+      "start": 506.04,
+      "end": 509.6,
+      "text": "useful, guys. Just try to think about"
+    },
+    {
+      "start": 507.8,
+      "end": 512.52,
+      "text": "you are creating a big workflow and your"
+    },
+    {
+      "start": 509.6,
+      "end": 513.8000000000001,
+      "text": "agents are doing lots of works, right?"
+    },
+    {
+      "start": 512.52,
+      "end": 515.68,
+      "text": "So, that time if you can create these"
+    },
+    {
+      "start": 513.8,
+      "end": 517.0799999999999,
+      "text": "kinds of sub-graph, definitely it will"
+    },
+    {
+      "start": 515.68,
+      "end": 520.4789999999999,
+      "text": "help you a lot."
+    },
+    {
+      "start": 517.08,
+      "end": 520.479,
+      "text": "Okay, I hope you clear, guys."
+    },
+    {
+      "start": 522.68,
+      "end": 526.12,
+      "text": "That's why in the definition I have"
+    },
+    {
+      "start": 523.96,
+      "end": 527.96,
+      "text": "written a sub-graph in LangGraph usually"
+    },
+    {
+      "start": 526.12,
+      "end": 530.8,
+      "text": "means a graph that is embedded and"
+    },
+    {
+      "start": 527.96,
+      "end": 532.6800000000001,
+      "text": "executed as a node inside another graph."
+    },
+    {
+      "start": 530.8,
+      "end": 534.64,
+      "text": "Okay, you can see. Let's say this is"
+    },
+    {
+      "start": 532.68,
+      "end": 536.92,
+      "text": "this is my nodes, okay, and here we are"
+    },
+    {
+      "start": 534.64,
+      "end": 539.28,
+      "text": "executing a sub-graph. And this"
+    },
+    {
+      "start": 536.92,
+      "end": 541.28,
+      "text": "sub-graph uh is doing some kinds of"
+    },
+    {
+      "start": 539.28,
+      "end": 542.76,
+      "text": "work. Let's say in this case"
+    },
+    {
+      "start": 541.28,
+      "end": 545.1999999999999,
+      "text": "uh we are considering this sub-graph is"
+    },
+    {
+      "start": 542.76,
+      "end": 547.2,
+      "text": "generating the code for us. Okay, and"
+    },
+    {
+      "start": 545.2,
+      "end": 549.72,
+      "text": "this particular node is generating the"
+    },
+    {
+      "start": 547.2,
+      "end": 551.44,
+      "text": "text. Okay. That means whenever it"
+    },
+    {
+      "start": 549.72,
+      "end": 552.9200000000001,
+      "text": "necessary to generate the code, it will"
+    },
+    {
+      "start": 551.44,
+      "end": 554.5200000000001,
+      "text": "call this sub-graph. It will invoke this"
+    },
+    {
+      "start": 552.92,
+      "end": 556.4399999999999,
+      "text": "sub-graph and it will get the code in"
+    },
+    {
+      "start": 554.52,
+      "end": 559.04,
+      "text": "the same node itself. Okay, instead of"
+    },
+    {
+      "start": 556.44,
+      "end": 560.6400000000001,
+      "text": "creating a separate workflow, we can"
+    },
+    {
+      "start": 559.04,
+      "end": 562.0799999999999,
+      "text": "create a workflow and we can connect"
+    },
+    {
+      "start": 560.64,
+      "end": 563.36,
+      "text": "inside the node. Okay, if it is"
+    },
+    {
+      "start": 562.08,
+      "end": 567.08,
+      "text": "required."
+    },
+    {
+      "start": 563.36,
+      "end": 567.08,
+      "text": "Okay, this is called actually sub-graph."
+    },
+    {
+      "start": 569.24,
+      "end": 573.4,
+      "text": "Okay, now let's try to understand why"
+    },
+    {
+      "start": 571.68,
+      "end": 575.64,
+      "text": "this"
+    },
+    {
+      "start": 573.4,
+      "end": 576.8,
+      "text": "uh"
+    },
+    {
+      "start": 575.64,
+      "end": 580.28,
+      "text": "why"
+    },
+    {
+      "start": 576.8,
+      "end": 580.28,
+      "text": "I'll take a another color."
+    },
+    {
+      "start": 582.12,
+      "end": 585.36,
+      "text": "This is also not good."
+    },
+    {
+      "start": 591.32,
+      "end": 595.6,
+      "text": "I'll take this one."
+    },
+    {
+      "start": 593.24,
+      "end": 598.64,
+      "text": "So, why?"
+    },
+    {
+      "start": 595.6,
+      "end": 598.64,
+      "text": "Uh sub graph"
+    },
+    {
+      "start": 600.2,
+      "end": 602.9200000000001,
+      "text": "are needed."
+    },
+    {
+      "start": 603.44,
+      "end": 608.08,
+      "text": "Let's try to understand."
+    },
+    {
+      "start": 606.04,
+      "end": 610.7199999999999,
+      "text": "So, see, um"
+    },
+    {
+      "start": 608.08,
+      "end": 612.8000000000001,
+      "text": "we know that uh whenever we are creating"
+    },
+    {
+      "start": 610.72,
+      "end": 614.72,
+      "text": "a agent, uh"
+    },
+    {
+      "start": 612.8,
+      "end": 616.28,
+      "text": "if I'm talking about the basic workflow,"
+    },
+    {
+      "start": 614.72,
+      "end": 617.6,
+      "text": "what would be the basic workflow? Let's"
+    },
+    {
+      "start": 616.28,
+      "end": 620.0,
+      "text": "say"
+    },
+    {
+      "start": 617.6,
+      "end": 621.24,
+      "text": "user will give something, some kinds of"
+    },
+    {
+      "start": 620.0,
+      "end": 623.32,
+      "text": "output."
+    },
+    {
+      "start": 621.24,
+      "end": 625.96,
+      "text": "Uh this will go to your agent, and agent"
+    },
+    {
+      "start": 623.32,
+      "end": 628.6400000000001,
+      "text": "is using some kinds of LLM as a brain,"
+    },
+    {
+      "start": 625.96,
+      "end": 629.88,
+      "text": "and it will give you the output. Right?"
+    },
+    {
+      "start": 628.64,
+      "end": 632.36,
+      "text": "This kinds of"
+    },
+    {
+      "start": 629.88,
+      "end": 633.48,
+      "text": "uh simple workflow you can consider."
+    },
+    {
+      "start": 632.36,
+      "end": 635.4,
+      "text": "But,"
+    },
+    {
+      "start": 633.48,
+      "end": 637.9200000000001,
+      "text": "this is not complete AI agents, right?"
+    },
+    {
+      "start": 635.4,
+      "end": 639.88,
+      "text": "If I want to implement a agent, the"
+    },
+    {
+      "start": 637.92,
+      "end": 641.16,
+      "text": "agent should be more complex, right? It"
+    },
+    {
+      "start": 639.88,
+      "end": 643.32,
+      "text": "will have"
+    },
+    {
+      "start": 641.16,
+      "end": 645.68,
+      "text": "basically the"
+    },
+    {
+      "start": 643.32,
+      "end": 647.2800000000001,
+      "text": "tool calls."
+    },
+    {
+      "start": 645.68,
+      "end": 649.8,
+      "text": "Okay? Tool calls."
+    },
+    {
+      "start": 647.28,
+      "end": 651.4399999999999,
+      "text": "It will have the RAG connection, that"
+    },
+    {
+      "start": 649.8,
+      "end": 655.12,
+      "text": "means RAG connection."
+    },
+    {
+      "start": 651.44,
+      "end": 657.96,
+      "text": "It will be having conditional"
+    },
+    {
+      "start": 655.12,
+      "end": 659.4,
+      "text": "Okay? Conditional"
+    },
+    {
+      "start": 657.96,
+      "end": 660.32,
+      "text": "routing."
+    },
+    {
+      "start": 659.4,
+      "end": 661.52,
+      "text": "Okay?"
+    },
+    {
+      "start": 660.32,
+      "end": 663.88,
+      "text": "Conditional routing, I think you know"
+    },
+    {
+      "start": 661.52,
+      "end": 666.4399999999999,
+      "text": "that uh basically it will automatically"
+    },
+    {
+      "start": 663.88,
+      "end": 667.88,
+      "text": "decide what to do. Okay, which uh which"
+    },
+    {
+      "start": 666.44,
+      "end": 669.48,
+      "text": "node to execute. This is called"
+    },
+    {
+      "start": 667.88,
+      "end": 672.0,
+      "text": "conditional routing."
+    },
+    {
+      "start": 669.48,
+      "end": 673.839,
+      "text": "Then, it will also have something called"
+    },
+    {
+      "start": 672.0,
+      "end": 676.96,
+      "text": "retries. Okay? Retries means let's say"
+    },
+    {
+      "start": 673.839,
+      "end": 678.1600000000001,
+      "text": "if one uh execution uh fails, right?"
+    },
+    {
+      "start": 676.96,
+      "end": 679.72,
+      "text": "Instead of"
+    },
+    {
+      "start": 678.16,
+      "end": 680.88,
+      "text": "uh terminating, it will retry that"
+    },
+    {
+      "start": 679.72,
+      "end": 683.48,
+      "text": "particular"
+    },
+    {
+      "start": 680.88,
+      "end": 685.68,
+      "text": "um task again. Okay? Then, it will also"
+    },
+    {
+      "start": 683.48,
+      "end": 688.32,
+      "text": "have a memory."
+    },
+    {
+      "start": 685.68,
+      "end": 691.5999999999999,
+      "text": "Okay? Then, it will also have"
+    },
+    {
+      "start": 688.32,
+      "end": 693.4000000000001,
+      "text": "HITL, human in the loop. Then,"
+    },
+    {
+      "start": 691.6,
+      "end": 694.48,
+      "text": "evaluation."
+    },
+    {
+      "start": 693.4,
+      "end": 696.64,
+      "text": "Okay?"
+    },
+    {
+      "start": 694.48,
+      "end": 698.28,
+      "text": "And uh at the last I can consider, let's"
+    },
+    {
+      "start": 696.64,
+      "end": 700.36,
+      "text": "say guardrails as well."
+    },
+    {
+      "start": 698.28,
+      "end": 702.12,
+      "text": "Okay? Guardrails, that means safety, and"
+    },
+    {
+      "start": 700.36,
+      "end": 703.4,
+      "text": "these are the features."
+    },
+    {
+      "start": 702.12,
+      "end": 705.12,
+      "text": "We'll also try to learn this guardrails"
+    },
+    {
+      "start": 703.4,
+      "end": 706.28,
+      "text": "evaluation, no need to worry. And just"
+    },
+    {
+      "start": 705.12,
+      "end": 707.68,
+      "text": "first of all, let me complete these"
+    },
+    {
+      "start": 706.28,
+      "end": 709.88,
+      "text": "other concept, and we'll try to also"
+    },
+    {
+      "start": 707.68,
+      "end": 712.4,
+      "text": "learn this concept as well. Okay? So, if"
+    },
+    {
+      "start": 709.88,
+      "end": 714.08,
+      "text": "you combine all of these concept, and uh"
+    },
+    {
+      "start": 712.4,
+      "end": 715.3199999999999,
+      "text": "if you implement something, this will"
+    },
+    {
+      "start": 714.08,
+      "end": 717.76,
+      "text": "have your"
+    },
+    {
+      "start": 715.32,
+      "end": 720.5200000000001,
+      "text": "uh advanced AI system uh agent system,"
+    },
+    {
+      "start": 717.76,
+      "end": 723.88,
+      "text": "okay? I hope you get it."
+    },
+    {
+      "start": 720.52,
+      "end": 725.84,
+      "text": "So, see what happens. Um let's say I'll"
+    },
+    {
+      "start": 723.88,
+      "end": 727.2,
+      "text": "take on one example."
+    },
+    {
+      "start": 725.84,
+      "end": 728.6800000000001,
+      "text": "Um"
+    },
+    {
+      "start": 727.2,
+      "end": 730.8000000000001,
+      "text": "let's say you are implementing a"
+    },
+    {
+      "start": 728.68,
+      "end": 733.56,
+      "text": "software"
+    },
+    {
+      "start": 730.8,
+      "end": 734.64,
+      "text": "uh software developer assistant system."
+    },
+    {
+      "start": 733.56,
+      "end": 736.0,
+      "text": "Okay? Assistant system you're"
+    },
+    {
+      "start": 734.64,
+      "end": 737.3199999999999,
+      "text": "developing."
+    },
+    {
+      "start": 736.0,
+      "end": 739.88,
+      "text": "Now, in this software developer"
+    },
+    {
+      "start": 737.32,
+      "end": 742.2,
+      "text": "assistant system, uh this is your goal,"
+    },
+    {
+      "start": 739.88,
+      "end": 743.8,
+      "text": "okay? And to develop that, you have to"
+    },
+    {
+      "start": 742.2,
+      "end": 745.96,
+      "text": "define a task. You have to define"
+    },
+    {
+      "start": 743.8,
+      "end": 747.52,
+      "text": "separate separate node, right? So, first"
+    },
+    {
+      "start": 745.96,
+      "end": 748.6800000000001,
+      "text": "of all, what will happen? You will have"
+    },
+    {
+      "start": 747.52,
+      "end": 752.12,
+      "text": "a"
+    },
+    {
+      "start": 748.68,
+      "end": 753.52,
+      "text": "let's say you will have uh you will have"
+    },
+    {
+      "start": 752.12,
+      "end": 756.32,
+      "text": "um"
+    },
+    {
+      "start": 753.52,
+      "end": 759.76,
+      "text": "let's say task assigner."
+    },
+    {
+      "start": 756.32,
+      "end": 759.7600000000001,
+      "text": "Okay? Or let's say task list."
+    },
+    {
+      "start": 759.88,
+      "end": 763.48,
+      "text": "So, first of all, what you have to do?"
+    },
+    {
+      "start": 761.08,
+      "end": 765.8000000000001,
+      "text": "You have to build the back end,"
+    },
+    {
+      "start": 763.48,
+      "end": 767.839,
+      "text": "then you have to build the front end."
+    },
+    {
+      "start": 765.8,
+      "end": 769.12,
+      "text": "Okay? Back end and front end."
+    },
+    {
+      "start": 767.839,
+      "end": 770.7600000000001,
+      "text": "So, that's how this task will be"
+    },
+    {
+      "start": 769.12,
+      "end": 772.24,
+      "text": "divided, okay?"
+    },
+    {
+      "start": 770.76,
+      "end": 774.56,
+      "text": "Now, once this back end and front end is"
+    },
+    {
+      "start": 772.24,
+      "end": 776.16,
+      "text": "implemented, you'll try to send for the"
+    },
+    {
+      "start": 774.56,
+      "end": 779.0,
+      "text": "testing."
+    },
+    {
+      "start": 776.16,
+      "end": 781.7199999999999,
+      "text": "Okay? Testing."
+    },
+    {
+      "start": 779.0,
+      "end": 784.92,
+      "text": "Testing. And once testing is completed,"
+    },
+    {
+      "start": 781.72,
+      "end": 787.8000000000001,
+      "text": "you will finally send for the"
+    },
+    {
+      "start": 784.92,
+      "end": 787.8,
+      "text": "uh code review."
+    },
+    {
+      "start": 788.0,
+      "end": 791.12,
+      "text": "Okay? Code review."
+    },
+    {
+      "start": 789.44,
+      "end": 794.08,
+      "text": "Then, once it is done, you will send to"
+    },
+    {
+      "start": 791.12,
+      "end": 794.08,
+      "text": "the DevOps team."
+    },
+    {
+      "start": 794.88,
+      "end": 797.72,
+      "text": "Okay? DevOps team. Then, this"
+    },
+    {
+      "start": 796.28,
+      "end": 799.28,
+      "text": "application would be"
+    },
+    {
+      "start": 797.72,
+      "end": 801.64,
+      "text": "live that time. So, this is our"
+    },
+    {
+      "start": 799.28,
+      "end": 802.56,
+      "text": "workflow, right? So, in this workflow,"
+    },
+    {
+      "start": 801.64,
+      "end": 803.92,
+      "text": "um"
+    },
+    {
+      "start": 802.56,
+      "end": 805.0799999999999,
+      "text": "you have"
+    },
+    {
+      "start": 803.92,
+      "end": 807.36,
+      "text": "different different nodes, and each of"
+    },
+    {
+      "start": 805.08,
+      "end": 809.32,
+      "text": "the nodes is nothing but it's a task."
+    },
+    {
+      "start": 807.36,
+      "end": 811.08,
+      "text": "It's kinds of task, okay? Let's say if"
+    },
+    {
+      "start": 809.32,
+      "end": 814.0400000000001,
+      "text": "I'm considering this node, backend"
+    },
+    {
+      "start": 811.08,
+      "end": 815.84,
+      "text": "development, okay? Backend development,"
+    },
+    {
+      "start": 814.04,
+      "end": 817.7199999999999,
+      "text": "um"
+    },
+    {
+      "start": 815.84,
+      "end": 819.44,
+      "text": "Okay, so this is my backend development"
+    },
+    {
+      "start": 817.72,
+      "end": 820.64,
+      "text": "and this is my frontend development. So"
+    },
+    {
+      "start": 819.44,
+      "end": 822.5600000000001,
+      "text": "in this backend development, what is"
+    },
+    {
+      "start": 820.64,
+      "end": 824.08,
+      "text": "happening? It is writing the code"
+    },
+    {
+      "start": 822.56,
+      "end": 826.68,
+      "text": "related backend."
+    },
+    {
+      "start": 824.08,
+      "end": 829.36,
+      "text": "Here also it is writing the code related"
+    },
+    {
+      "start": 826.68,
+      "end": 831.4,
+      "text": "backend, okay? And to write a code, it"
+    },
+    {
+      "start": 829.36,
+      "end": 833.76,
+      "text": "has to do lots of work, right? So"
+    },
+    {
+      "start": 831.4,
+      "end": 835.56,
+      "text": "instead of relying on a single node, so"
+    },
+    {
+      "start": 833.76,
+      "end": 837.76,
+      "text": "what we can do, we can create a sub"
+    },
+    {
+      "start": 835.56,
+      "end": 840.68,
+      "text": "node, right? We can create a sub node"
+    },
+    {
+      "start": 837.76,
+      "end": 842.64,
+      "text": "here. Let's say this is my sub node."
+    },
+    {
+      "start": 840.68,
+      "end": 844.4799999999999,
+      "text": "Uh sub graph, okay? So in this sub"
+    },
+    {
+      "start": 842.64,
+      "end": 845.96,
+      "text": "graph, basically we'll try to assign"
+    },
+    {
+      "start": 844.48,
+      "end": 848.52,
+      "text": "this graph to"
+    },
+    {
+      "start": 845.96,
+      "end": 850.6,
+      "text": "write the code. Okay, write the code. It"
+    },
+    {
+      "start": 848.52,
+      "end": 851.88,
+      "text": "will have all kinds of uh functionality"
+    },
+    {
+      "start": 850.6,
+      "end": 852.84,
+      "text": "to write the code. Let's say it will"
+    },
+    {
+      "start": 851.88,
+      "end": 855.2,
+      "text": "have"
+    },
+    {
+      "start": 852.84,
+      "end": 857.4,
+      "text": "uh all the libraries, uh exploration"
+    },
+    {
+      "start": 855.2,
+      "end": 859.88,
+      "text": "tools, all of the, let's say, testing"
+    },
+    {
+      "start": 857.4,
+      "end": 862.04,
+      "text": "exploration tools, all of the, let's"
+    },
+    {
+      "start": 859.88,
+      "end": 863.96,
+      "text": "say, uh optimization explored"
+    },
+    {
+      "start": 862.04,
+      "end": 865.64,
+      "text": "exploration tools, okay? Every"
+    },
+    {
+      "start": 863.96,
+      "end": 867.1600000000001,
+      "text": "everything it will have. So what we'll"
+    },
+    {
+      "start": 865.64,
+      "end": 869.0,
+      "text": "do, we'll just try to add this"
+    },
+    {
+      "start": 867.16,
+      "end": 870.52,
+      "text": "particular sub graph to this node. So"
+    },
+    {
+      "start": 869.0,
+      "end": 873.48,
+      "text": "what will happen, whenever it is it is"
+    },
+    {
+      "start": 870.52,
+      "end": 875.52,
+      "text": "doing the backend development, okay?"
+    },
+    {
+      "start": 873.48,
+      "end": 878.0,
+      "text": "It is using this particular sub graph to"
+    },
+    {
+      "start": 875.52,
+      "end": 879.68,
+      "text": "write the code, okay? That means in this"
+    },
+    {
+      "start": 878.0,
+      "end": 881.56,
+      "text": "node node itself, I'm not giving a"
+    },
+    {
+      "start": 879.68,
+      "end": 884.5999999999999,
+      "text": "pressure. Instead of that, I'm calling a"
+    },
+    {
+      "start": 881.56,
+      "end": 887.04,
+      "text": "different node, okay? And this node is"
+    },
+    {
+      "start": 884.6,
+      "end": 888.2,
+      "text": "helping this particular node is to"
+    },
+    {
+      "start": 887.04,
+      "end": 890.12,
+      "text": "Sorry, this graph is helping this"
+    },
+    {
+      "start": 888.2,
+      "end": 893.1600000000001,
+      "text": "particular node is to complete the"
+    },
+    {
+      "start": 890.12,
+      "end": 895.28,
+      "text": "backend development, okay? Now,"
+    },
+    {
+      "start": 893.16,
+      "end": 896.76,
+      "text": "what is the main benefit to use this sub"
+    },
+    {
+      "start": 895.28,
+      "end": 899.28,
+      "text": "graph? Let me write down some of these"
+    },
+    {
+      "start": 896.76,
+      "end": 901.3199999999999,
+      "text": "tip. The first thing is the"
+    },
+    {
+      "start": 899.28,
+      "end": 902.88,
+      "text": "modularity."
+    },
+    {
+      "start": 901.32,
+      "end": 905.2,
+      "text": "I think you know every software will"
+    },
+    {
+      "start": 902.88,
+      "end": 906.4399999999999,
+      "text": "have the modularity, uh flexibility."
+    },
+    {
+      "start": 905.2,
+      "end": 908.1600000000001,
+      "text": "Definitely you know what is modular,"
+    },
+    {
+      "start": 906.44,
+      "end": 909.1600000000001,
+      "text": "right? That means this is a module, this"
+    },
+    {
+      "start": 908.16,
+      "end": 911.4399999999999,
+      "text": "is another module, this is another"
+    },
+    {
+      "start": 909.16,
+      "end": 914.68,
+      "text": "module. This is called module. Then we"
+    },
+    {
+      "start": 911.44,
+      "end": 916.6800000000001,
+      "text": "have something called reusability."
+    },
+    {
+      "start": 914.68,
+      "end": 918.88,
+      "text": "Reusability."
+    },
+    {
+      "start": 916.68,
+      "end": 920.4799999999999,
+      "text": "Now you can see, whenever it is doing"
+    },
+    {
+      "start": 918.88,
+      "end": 922.36,
+      "text": "the backend development, it is writing"
+    },
+    {
+      "start": 920.48,
+      "end": 924.04,
+      "text": "the code. Whenever it is doing the"
+    },
+    {
+      "start": 922.36,
+      "end": 926.64,
+      "text": "front-end development, it is also write"
+    },
+    {
+      "start": 924.04,
+      "end": 928.5999999999999,
+      "text": "the code, right? Now, instead of writing"
+    },
+    {
+      "start": 926.64,
+      "end": 930.84,
+      "text": "the separate, let's say functionality"
+    },
+    {
+      "start": 928.6,
+      "end": 933.6800000000001,
+      "text": "for writing the code, right? We can use"
+    },
+    {
+      "start": 930.84,
+      "end": 935.8000000000001,
+      "text": "this same sub-graph here also, okay?"
+    },
+    {
+      "start": 933.68,
+      "end": 937.9599999999999,
+      "text": "Because what is this sub-graph is doing?"
+    },
+    {
+      "start": 935.8,
+      "end": 939.4799999999999,
+      "text": "It is responsible for writing the code."
+    },
+    {
+      "start": 937.96,
+      "end": 941.44,
+      "text": "It has all of the tools integration,"
+    },
+    {
+      "start": 939.48,
+      "end": 943.04,
+      "text": "right? For writing the code. So, I can"
+    },
+    {
+      "start": 941.44,
+      "end": 944.24,
+      "text": "use it in the back-end development as"
+    },
+    {
+      "start": 943.04,
+      "end": 945.64,
+      "text": "well. I can also use it for the"
+    },
+    {
+      "start": 944.24,
+      "end": 947.8,
+      "text": "front-end development as well, instead"
+    },
+    {
+      "start": 945.64,
+      "end": 949.64,
+      "text": "of writing again and again. This is"
+    },
+    {
+      "start": 947.8,
+      "end": 951.4399999999999,
+      "text": "called reusability. I hope you are"
+    },
+    {
+      "start": 949.64,
+      "end": 953.0,
+      "text": "getting Okay, what I'm trying to say."
+    },
+    {
+      "start": 951.44,
+      "end": 955.44,
+      "text": "This is the main features of the"
+    },
+    {
+      "start": 953.0,
+      "end": 957.56,
+      "text": "sub-graph itself, right? So, it helps"
+    },
+    {
+      "start": 955.44,
+      "end": 959.8000000000001,
+      "text": "you to implement your multi-AI agent"
+    },
+    {
+      "start": 957.56,
+      "end": 962.4,
+      "text": "agent system in a more easiest way,"
+    },
+    {
+      "start": 959.8,
+      "end": 964.24,
+      "text": "okay? In a more modular way, so that you"
+    },
+    {
+      "start": 962.4,
+      "end": 966.52,
+      "text": "can maintain your, uh, let's say"
+    },
+    {
+      "start": 964.24,
+      "end": 968.6,
+      "text": "workflow in a very easy manner."
+    },
+    {
+      "start": 966.52,
+      "end": 972.36,
+      "text": "Then, definitely, at the last I can"
+    },
+    {
+      "start": 968.6,
+      "end": 973.88,
+      "text": "consider the maintainability. Maintain-"
+    },
+    {
+      "start": 972.36,
+      "end": 975.76,
+      "text": "ability."
+    },
+    {
+      "start": 973.88,
+      "end": 977.76,
+      "text": "Okay. Now, you can easily maintain this"
+    },
+    {
+      "start": 975.76,
+      "end": 980.0,
+      "text": "particular graph. Let's say, um, in"
+    },
+    {
+      "start": 977.76,
+      "end": 981.52,
+      "text": "future you are having a problem, right?"
+    },
+    {
+      "start": 980.0,
+      "end": 982.96,
+      "text": "You are having a problem in inside the"
+    },
+    {
+      "start": 981.52,
+      "end": 984.8,
+      "text": "back-end."
+    },
+    {
+      "start": 982.96,
+      "end": 985.88,
+      "text": "Back-end development code. So, simply"
+    },
+    {
+      "start": 984.8,
+      "end": 987.4799999999999,
+      "text": "what you will do, you will just try to"
+    },
+    {
+      "start": 985.88,
+      "end": 988.64,
+      "text": "open this sub-graph. You will try to see"
+    },
+    {
+      "start": 987.48,
+      "end": 990.9200000000001,
+      "text": "what is the issue with that. You will"
+    },
+    {
+      "start": 988.64,
+      "end": 993.48,
+      "text": "fix that, and your back-end and"
+    },
+    {
+      "start": 990.92,
+      "end": 996.04,
+      "text": "front-end will run again perfectly."
+    },
+    {
+      "start": 993.48,
+      "end": 997.24,
+      "text": "Okay, this is the um, this is the"
+    },
+    {
+      "start": 996.04,
+      "end": 999.88,
+      "text": "actually, uh,"
+    },
+    {
+      "start": 997.24,
+      "end": 1002.08,
+      "text": "uh, some points we can consider for this"
+    },
+    {
+      "start": 999.88,
+      "end": 1003.16,
+      "text": "particular sub-graph. Okay? I hope you"
+    },
+    {
+      "start": 1002.08,
+      "end": 1005.72,
+      "text": "got it, guys."
+    },
+    {
+      "start": 1003.16,
+      "end": 1007.56,
+      "text": "Now, some other benefit you will also"
+    },
+    {
+      "start": 1005.72,
+      "end": 1008.96,
+      "text": "get. Uh, I'll just also write down these"
+    },
+    {
+      "start": 1007.56,
+      "end": 1010.7199999999999,
+      "text": "are the benefit."
+    },
+    {
+      "start": 1008.96,
+      "end": 1012.52,
+      "text": "Uh, see."
+    },
+    {
+      "start": 1010.72,
+      "end": 1015.2,
+      "text": "You will get"
+    },
+    {
+      "start": 1012.52,
+      "end": 1015.1999999999999,
+      "text": "failure"
+    },
+    {
+      "start": 1016.56,
+      "end": 1019.28,
+      "text": "isolation."
+    },
+    {
+      "start": 1019.36,
+      "end": 1022.72,
+      "text": "So, what is this failure isolation?"
+    },
+    {
+      "start": 1021.28,
+      "end": 1025.28,
+      "text": "Failure iso- isolation means if you're"
+    },
+    {
+      "start": 1022.72,
+      "end": 1027.28,
+      "text": "using sub-graph, let's say, in case this"
+    },
+    {
+      "start": 1025.28,
+      "end": 1028.6,
+      "text": "particular node is getting failed, okay?"
+    },
+    {
+      "start": 1027.28,
+      "end": 1030.12,
+      "text": "This node is connected with this"
+    },
+    {
+      "start": 1028.6,
+      "end": 1031.6799999999998,
+      "text": "sub-graph, right?"
+    },
+    {
+      "start": 1030.12,
+      "end": 1034.56,
+      "text": "Uh, let's say you are using a separate"
+    },
+    {
+      "start": 1031.68,
+      "end": 1036.04,
+      "text": "API here, and, uh, for this reason this"
+    },
+    {
+      "start": 1034.56,
+      "end": 1037.4389999999999,
+      "text": "this node is getting failed. It's not"
+    },
+    {
+      "start": 1036.04,
+      "end": 1039.56,
+      "text": "like that."
+    },
+    {
+      "start": 1037.439,
+      "end": 1041.68,
+      "text": "It will terminate the entire workflow."
+    },
+    {
+      "start": 1039.56,
+      "end": 1043.3999999999999,
+      "text": "If you're using sub graph, this will not"
+    },
+    {
+      "start": 1041.68,
+      "end": 1045.52,
+      "text": "terminate the entire workflow. If this"
+    },
+    {
+      "start": 1043.4,
+      "end": 1046.76,
+      "text": "node is getting failed, it will execute"
+    },
+    {
+      "start": 1045.52,
+      "end": 1049.52,
+      "text": "other node and it will complete the"
+    },
+    {
+      "start": 1046.76,
+      "end": 1051.6,
+      "text": "task. This is called failure isolation,"
+    },
+    {
+      "start": 1049.52,
+      "end": 1053.04,
+      "text": "right? But, if you're not using the sub"
+    },
+    {
+      "start": 1051.6,
+      "end": 1055.48,
+      "text": "graph, there is a possibility your"
+    },
+    {
+      "start": 1053.04,
+      "end": 1056.68,
+      "text": "entire node should be terminated."
+    },
+    {
+      "start": 1055.48,
+      "end": 1057.92,
+      "text": "Okay?"
+    },
+    {
+      "start": 1056.68,
+      "end": 1059.8,
+      "text": "That's why"
+    },
+    {
+      "start": 1057.92,
+      "end": 1060.6000000000001,
+      "text": "we will be using the sub graph."
+    },
+    {
+      "start": 1059.8,
+      "end": 1062.48,
+      "text": "Okay?"
+    },
+    {
+      "start": 1060.6,
+      "end": 1065.12,
+      "text": "Then, you will have something called"
+    },
+    {
+      "start": 1062.48,
+      "end": 1068.32,
+      "text": "state"
+    },
+    {
+      "start": 1065.12,
+      "end": 1070.3999999999999,
+      "text": "Let me write down perfectly. State"
+    },
+    {
+      "start": 1068.32,
+      "end": 1072.4399999999998,
+      "text": "isolation or separation separation. I"
+    },
+    {
+      "start": 1070.4,
+      "end": 1073.88,
+      "text": "can write separation."
+    },
+    {
+      "start": 1072.44,
+      "end": 1075.04,
+      "text": "Separation. State separation means I"
+    },
+    {
+      "start": 1073.88,
+      "end": 1077.2800000000002,
+      "text": "think you know that to implement these"
+    },
+    {
+      "start": 1075.04,
+      "end": 1079.28,
+      "text": "kinds of workflow, I need a state,"
+    },
+    {
+      "start": 1077.28,
+      "end": 1081.6399999999999,
+      "text": "right? State is nothing but it's kinds"
+    },
+    {
+      "start": 1079.28,
+      "end": 1083.8799999999999,
+      "text": "of a variable that will store some kinds"
+    },
+    {
+      "start": 1081.64,
+      "end": 1084.76,
+      "text": "of data. Like it works as a memory,"
+    },
+    {
+      "start": 1083.88,
+      "end": 1086.88,
+      "text": "right?"
+    },
+    {
+      "start": 1084.76,
+      "end": 1088.8799999999999,
+      "text": "Uh for this particular uh work workflow"
+    },
+    {
+      "start": 1086.88,
+      "end": 1091.48,
+      "text": "to be executed. Now, whenever you're"
+    },
+    {
+      "start": 1088.88,
+      "end": 1093.16,
+      "text": "creating the sub graph, so see, this is"
+    },
+    {
+      "start": 1091.48,
+      "end": 1095.76,
+      "text": "your main main graph, right? This is"
+    },
+    {
+      "start": 1093.16,
+      "end": 1097.5600000000002,
+      "text": "your main graph. This is your sub graph."
+    },
+    {
+      "start": 1095.76,
+      "end": 1099.6,
+      "text": "Now, for main graph, you are creating a"
+    },
+    {
+      "start": 1097.56,
+      "end": 1102.36,
+      "text": "state. Okay, let's say this is your main"
+    },
+    {
+      "start": 1099.6,
+      "end": 1104.28,
+      "text": "state. This is a separate state. For sub"
+    },
+    {
+      "start": 1102.36,
+      "end": 1106.6399999999999,
+      "text": "graph, also you can create a separate"
+    },
+    {
+      "start": 1104.28,
+      "end": 1108.52,
+      "text": "state. Let's say this is your sub state."
+    },
+    {
+      "start": 1106.64,
+      "end": 1110.5600000000002,
+      "text": "That means this state and this state is"
+    },
+    {
+      "start": 1108.52,
+      "end": 1111.4,
+      "text": "nothing but it's a separate state right"
+    },
+    {
+      "start": 1110.56,
+      "end": 1113.52,
+      "text": "now."
+    },
+    {
+      "start": 1111.4,
+      "end": 1116.24,
+      "text": "Now, what is happening? Whatever output"
+    },
+    {
+      "start": 1113.52,
+      "end": 1118.04,
+      "text": "it is generating, it is not"
+    },
+    {
+      "start": 1116.24,
+      "end": 1120.36,
+      "text": "uh it is not sharing in the same state."
+    },
+    {
+      "start": 1118.04,
+      "end": 1122.6,
+      "text": "Instead of that, the main workflow is"
+    },
+    {
+      "start": 1120.36,
+      "end": 1124.6799999999998,
+      "text": "saving the state output in the main"
+    },
+    {
+      "start": 1122.6,
+      "end": 1126.28,
+      "text": "state, and the sub graph, whatever it is"
+    },
+    {
+      "start": 1124.68,
+      "end": 1128.48,
+      "text": "generating, it is saving inside the sub"
+    },
+    {
+      "start": 1126.28,
+      "end": 1130.12,
+      "text": "state. This is the biggest benefit here."
+    },
+    {
+      "start": 1128.48,
+      "end": 1131.4,
+      "text": "Okay? That's why we call it as a state"
+    },
+    {
+      "start": 1130.12,
+      "end": 1133.56,
+      "text": "separation."
+    },
+    {
+      "start": 1131.4,
+      "end": 1135.8000000000002,
+      "text": "And the third one is the"
+    },
+    {
+      "start": 1133.56,
+      "end": 1138.76,
+      "text": "observe"
+    },
+    {
+      "start": 1135.8,
+      "end": 1140.0,
+      "text": "ability. Okay, observability means"
+    },
+    {
+      "start": 1138.76,
+      "end": 1143.04,
+      "text": "you can"
+    },
+    {
+      "start": 1140.0,
+      "end": 1145.2,
+      "text": "uh trace each and every"
+    },
+    {
+      "start": 1143.04,
+      "end": 1147.04,
+      "text": "node separately. Let's say you can trace"
+    },
+    {
+      "start": 1145.2,
+      "end": 1149.04,
+      "text": "the main graph as well. You can also"
+    },
+    {
+      "start": 1147.04,
+      "end": 1151.04,
+      "text": "trace the sub graph as well. That means"
+    },
+    {
+      "start": 1149.04,
+      "end": 1154.6399999999999,
+      "text": "there is no limitation. That means you"
+    },
+    {
+      "start": 1151.04,
+      "end": 1156.6,
+      "text": "have to trace the entire workflow, okay?"
+    },
+    {
+      "start": 1154.64,
+      "end": 1158.44,
+      "text": "At the same time. If you want, with the"
+    },
+    {
+      "start": 1156.6,
+      "end": 1160.6799999999998,
+      "text": "help of LangSmith, you can either trace"
+    },
+    {
+      "start": 1158.44,
+      "end": 1162.4,
+      "text": "the subgraph, you can either trace the"
+    },
+    {
+      "start": 1160.68,
+      "end": 1164.0,
+      "text": "main graph, okay? So, you have these"
+    },
+    {
+      "start": 1162.4,
+      "end": 1165.6000000000001,
+      "text": "kinds of option observability."
+    },
+    {
+      "start": 1164.0,
+      "end": 1167.48,
+      "text": "Observability would be very simple for"
+    },
+    {
+      "start": 1165.6,
+      "end": 1168.84,
+      "text": "you. Instead of relying on a"
+    },
+    {
+      "start": 1167.48,
+      "end": 1170.68,
+      "text": "I mean,"
+    },
+    {
+      "start": 1168.84,
+      "end": 1173.52,
+      "text": "the complete graph, you can"
+    },
+    {
+      "start": 1170.68,
+      "end": 1175.6000000000001,
+      "text": "separately observe, okay? Either your"
+    },
+    {
+      "start": 1173.52,
+      "end": 1177.32,
+      "text": "subgraph, either your main graph, okay?"
+    },
+    {
+      "start": 1175.6,
+      "end": 1178.8,
+      "text": "This is the flexibility you'll be"
+    },
+    {
+      "start": 1177.32,
+      "end": 1181.76,
+      "text": "getting."
+    },
+    {
+      "start": 1178.8,
+      "end": 1183.96,
+      "text": "Okay. So, that's why uh we're exploring"
+    },
+    {
+      "start": 1181.76,
+      "end": 1185.44,
+      "text": "this particular subgraph concept, and"
+    },
+    {
+      "start": 1183.96,
+      "end": 1187.16,
+      "text": "don't worry, I will also show you the"
+    },
+    {
+      "start": 1185.44,
+      "end": 1189.04,
+      "text": "project implementation"
+    },
+    {
+      "start": 1187.16,
+      "end": 1191.2,
+      "text": "uh in my next video. There we'll try to"
+    },
+    {
+      "start": 1189.04,
+      "end": 1193.2,
+      "text": "implement real-time project, real-time"
+    },
+    {
+      "start": 1191.2,
+      "end": 1194.8400000000001,
+      "text": "agents, okay? Multi-agent system. There"
+    },
+    {
+      "start": 1193.2,
+      "end": 1197.44,
+      "text": "we'll also use the subgraph concept to"
+    },
+    {
+      "start": 1194.84,
+      "end": 1199.1599999999999,
+      "text": "implement the agent agent also, okay?"
+    },
+    {
+      "start": 1197.44,
+      "end": 1200.8,
+      "text": "Now, I'm not telling without subgraph,"
+    },
+    {
+      "start": 1199.16,
+      "end": 1202.0400000000002,
+      "text": "you can't create the agent multi-agent."
+    },
+    {
+      "start": 1200.8,
+      "end": 1203.68,
+      "text": "You can create the agents. We have"
+    },
+    {
+      "start": 1202.04,
+      "end": 1205.8,
+      "text": "already created that, and it was working"
+    },
+    {
+      "start": 1203.68,
+      "end": 1207.64,
+      "text": "fine. But, I'm telling you, if your"
+    },
+    {
+      "start": 1205.8,
+      "end": 1210.72,
+      "text": "workflow is getting more complex, okay?"
+    },
+    {
+      "start": 1207.64,
+      "end": 1213.16,
+      "text": "More bigger, that time using subgraph"
+    },
+    {
+      "start": 1210.72,
+      "end": 1214.84,
+      "text": "be uh beneficial for these kinds of"
+    },
+    {
+      "start": 1213.16,
+      "end": 1216.72,
+      "text": "operation, modularity, reusability,"
+    },
+    {
+      "start": 1214.84,
+      "end": 1218.3999999999999,
+      "text": "maintainability, failure isolation,"
+    },
+    {
+      "start": 1216.72,
+      "end": 1220.28,
+      "text": "state separation, and observability,"
+    },
+    {
+      "start": 1218.4,
+      "end": 1221.88,
+      "text": "okay? So, if you want to add these other"
+    },
+    {
+      "start": 1220.28,
+      "end": 1223.8799999999999,
+      "text": "functionality inside your agent to care"
+    },
+    {
+      "start": 1221.88,
+      "end": 1225.8000000000002,
+      "text": "application, you can use subgraph."
+    },
+    {
+      "start": 1223.88,
+      "end": 1228.0,
+      "text": "Otherwise, uh whatever way we have"
+    },
+    {
+      "start": 1225.8,
+      "end": 1229.9199999999998,
+      "text": "created the multi-agent system, you can"
+    },
+    {
+      "start": 1228.0,
+      "end": 1231.48,
+      "text": "also follow the same approach, okay?"
+    },
+    {
+      "start": 1229.92,
+      "end": 1233.68,
+      "text": "There is no issue with that."
+    },
+    {
+      "start": 1231.48,
+      "end": 1235.52,
+      "text": "So, yes, uh this was the uh overview of"
+    },
+    {
+      "start": 1233.68,
+      "end": 1236.8400000000001,
+      "text": "the subgraph. I think you got to know"
+    },
+    {
+      "start": 1235.52,
+      "end": 1239.04,
+      "text": "about the subgraph, what is subgraph"
+    },
+    {
+      "start": 1236.84,
+      "end": 1241.0,
+      "text": "exactly, and why it is required. Now,"
+    },
+    {
+      "start": 1239.04,
+      "end": 1243.52,
+      "text": "we'll try to see uh practically each and"
+    },
+    {
+      "start": 1241.0,
+      "end": 1246.48,
+      "text": "everything, how subgraph uh I mean, we"
+    },
+    {
+      "start": 1243.52,
+      "end": 1250.36,
+      "text": "can develop inside LangGraph, okay? But,"
+    },
+    {
+      "start": 1246.48,
+      "end": 1252.16,
+      "text": "before that, let me show you one thing."
+    },
+    {
+      "start": 1250.36,
+      "end": 1253.84,
+      "text": "Uh if I go to the"
+    },
+    {
+      "start": 1252.16,
+      "end": 1255.4,
+      "text": "LangChain documentation, you will see"
+    },
+    {
+      "start": 1253.84,
+      "end": 1256.6,
+      "text": "that there is a separate section for the"
+    },
+    {
+      "start": 1255.4,
+      "end": 1258.6000000000001,
+      "text": "subgraph."
+    },
+    {
+      "start": 1256.6,
+      "end": 1259.9199999999998,
+      "text": "Uh you can see, if you see here, there"
+    },
+    {
+      "start": 1258.6,
+      "end": 1261.84,
+      "text": "are two kinds of subgraph you can"
+    },
+    {
+      "start": 1259.92,
+      "end": 1264.3200000000002,
+      "text": "implement inside LangGraph."
+    },
+    {
+      "start": 1261.84,
+      "end": 1265.48,
+      "text": "One is call a subgraph inside a node,"
+    },
+    {
+      "start": 1264.32,
+      "end": 1267.56,
+      "text": "that means"
+    },
+    {
+      "start": 1265.48,
+      "end": 1269.3600000000001,
+      "text": "see what is happening here."
+    },
+    {
+      "start": 1267.56,
+      "end": 1271.8799999999999,
+      "text": "Uh let me just"
+    },
+    {
+      "start": 1269.36,
+      "end": 1271.8799999999999,
+      "text": "show you."
+    },
+    {
+      "start": 1272.08,
+      "end": 1274.9199999999998,
+      "text": "Uh"
+    },
+    {
+      "start": 1272.64,
+      "end": 1274.92,
+      "text": "yeah."
+    },
+    {
+      "start": 1275.24,
+      "end": 1278.4,
+      "text": "Yeah. So, first of all, let's try to"
+    },
+    {
+      "start": 1276.68,
+      "end": 1280.0800000000002,
+      "text": "understand call a sub-graph inside a"
+    },
+    {
+      "start": 1278.4,
+      "end": 1282.6000000000001,
+      "text": "node. Okay?"
+    },
+    {
+      "start": 1280.08,
+      "end": 1284.0,
+      "text": "So, call a sub-graph inside a node means"
+    },
+    {
+      "start": 1282.6,
+      "end": 1285.3999999999999,
+      "text": "let's say you are having a workflow"
+    },
+    {
+      "start": 1284.0,
+      "end": 1287.48,
+      "text": "here."
+    },
+    {
+      "start": 1285.4,
+      "end": 1289.0400000000002,
+      "text": "Let's say this is your workflow."
+    },
+    {
+      "start": 1287.48,
+      "end": 1290.52,
+      "text": "Okay, this is your workflow."
+    },
+    {
+      "start": 1289.04,
+      "end": 1292.52,
+      "text": "Now, what you can do"
+    },
+    {
+      "start": 1290.52,
+      "end": 1294.8,
+      "text": "um you can create a sub-graph here."
+    },
+    {
+      "start": 1292.52,
+      "end": 1297.04,
+      "text": "Let's say this is your sub-graph."
+    },
+    {
+      "start": 1294.8,
+      "end": 1298.56,
+      "text": "Okay, this is your sub-graph. Now, you"
+    },
+    {
+      "start": 1297.04,
+      "end": 1301.68,
+      "text": "can call this sub-graph in this"
+    },
+    {
+      "start": 1298.56,
+      "end": 1303.72,
+      "text": "particular node only. You can invoke"
+    },
+    {
+      "start": 1301.68,
+      "end": 1304.88,
+      "text": "invoke this particular sub-graph in this"
+    },
+    {
+      "start": 1303.72,
+      "end": 1306.48,
+      "text": "node only."
+    },
+    {
+      "start": 1304.88,
+      "end": 1308.2,
+      "text": "This is called"
+    },
+    {
+      "start": 1306.48,
+      "end": 1309.56,
+      "text": "call a sub-graph inside a node. That"
+    },
+    {
+      "start": 1308.2,
+      "end": 1311.68,
+      "text": "means you are creating this sub-graph"
+    },
+    {
+      "start": 1309.56,
+      "end": 1313.32,
+      "text": "separately and you are calling inside"
+    },
+    {
+      "start": 1311.68,
+      "end": 1315.3600000000001,
+      "text": "this node. That means"
+    },
+    {
+      "start": 1313.32,
+      "end": 1317.96,
+      "text": "uh in this case, what will happen?"
+    },
+    {
+      "start": 1315.36,
+      "end": 1319.4799999999998,
+      "text": "Um in this case, actually this this is"
+    },
+    {
+      "start": 1317.96,
+      "end": 1320.72,
+      "text": "your main main workflow or let's say"
+    },
+    {
+      "start": 1319.48,
+      "end": 1321.88,
+      "text": "main graph."
+    },
+    {
+      "start": 1320.72,
+      "end": 1323.16,
+      "text": "This is your main graph. This is your"
+    },
+    {
+      "start": 1321.88,
+      "end": 1325.0400000000002,
+      "text": "sub-graph."
+    },
+    {
+      "start": 1323.16,
+      "end": 1327.72,
+      "text": "So, here everything is isolated, right?"
+    },
+    {
+      "start": 1325.04,
+      "end": 1329.8799999999999,
+      "text": "Everything is uh like uh separated. So,"
+    },
+    {
+      "start": 1327.72,
+      "end": 1332.16,
+      "text": "here you were creating the state, right?"
+    },
+    {
+      "start": 1329.88,
+      "end": 1334.2,
+      "text": "This state is separate. This state is"
+    },
+    {
+      "start": 1332.16,
+      "end": 1336.2,
+      "text": "also separate. Only the thing is that"
+    },
+    {
+      "start": 1334.2,
+      "end": 1337.6000000000001,
+      "text": "you are calling inside this particular"
+    },
+    {
+      "start": 1336.2,
+      "end": 1339.44,
+      "text": "node. Okay? This sub-graph you're"
+    },
+    {
+      "start": 1337.6,
+      "end": 1340.76,
+      "text": "calling inside this node. That's why we"
+    },
+    {
+      "start": 1339.44,
+      "end": 1342.48,
+      "text": "call it as a"
+    },
+    {
+      "start": 1340.76,
+      "end": 1343.76,
+      "text": "uh call a sub-graph inside a node. And"
+    },
+    {
+      "start": 1342.48,
+      "end": 1345.96,
+      "text": "they have given the code example, but"
+    },
+    {
+      "start": 1343.76,
+      "end": 1348.08,
+      "text": "don't worry. I will show you my own code"
+    },
+    {
+      "start": 1345.96,
+      "end": 1349.48,
+      "text": "example uh with the help of that you can"
+    },
+    {
+      "start": 1348.08,
+      "end": 1350.8,
+      "text": "easily understand."
+    },
+    {
+      "start": 1349.48,
+      "end": 1353.4,
+      "text": "Now, there is another one called add a"
+    },
+    {
+      "start": 1350.8,
+      "end": 1354.8,
+      "text": "sub-graph as a node. Okay? Now,"
+    },
+    {
+      "start": 1353.4,
+      "end": 1355.8000000000002,
+      "text": "this part let's try to understand. Now,"
+    },
+    {
+      "start": 1354.8,
+      "end": 1356.84,
+      "text": "let's say you are creating another"
+    },
+    {
+      "start": 1355.8,
+      "end": 1358.3999999999999,
+      "text": "workflow."
+    },
+    {
+      "start": 1356.84,
+      "end": 1360.04,
+      "text": "Let's say this is your workflow. You"
+    },
+    {
+      "start": 1358.4,
+      "end": 1361.4,
+      "text": "have created."
+    },
+    {
+      "start": 1360.04,
+      "end": 1363.36,
+      "text": "Now, what you can do, instead of"
+    },
+    {
+      "start": 1361.4,
+      "end": 1366.3600000000001,
+      "text": "creating a sub-graph,"
+    },
+    {
+      "start": 1363.36,
+      "end": 1367.24,
+      "text": "you can use the sub-graph here itself."
+    },
+    {
+      "start": 1366.36,
+      "end": 1368.9599999999998,
+      "text": "Okay?"
+    },
+    {
+      "start": 1367.24,
+      "end": 1370.0,
+      "text": "Here itself. Here you can connect this"
+    },
+    {
+      "start": 1368.96,
+      "end": 1372.44,
+      "text": "sub-graph."
+    },
+    {
+      "start": 1370.0,
+      "end": 1374.28,
+      "text": "So, this is called actually"
+    },
+    {
+      "start": 1372.44,
+      "end": 1376.04,
+      "text": "add a sub-graph as a node. That means"
+    },
+    {
+      "start": 1374.28,
+      "end": 1380.2,
+      "text": "you are using the sub-graph as a node"
+    },
+    {
+      "start": 1376.04,
+      "end": 1381.52,
+      "text": "only. Okay? So, here the thing is that"
+    },
+    {
+      "start": 1380.2,
+      "end": 1382.72,
+      "text": "whatever state you are creating, this"
+    },
+    {
+      "start": 1381.52,
+      "end": 1385.48,
+      "text": "should be a shared state. That means"
+    },
+    {
+      "start": 1382.72,
+      "end": 1387.76,
+      "text": "your main workflow is using this"
+    },
+    {
+      "start": 1385.48,
+      "end": 1389.1200000000001,
+      "text": "this state. Your sub graph will also use"
+    },
+    {
+      "start": 1387.76,
+      "end": 1393.0,
+      "text": "the same state. This is called actually"
+    },
+    {
+      "start": 1389.12,
+      "end": 1395.4399999999998,
+      "text": "shared state. Shared state. Okay? Now,"
+    },
+    {
+      "start": 1393.0,
+      "end": 1397.08,
+      "text": "whichever you prefer, it would be good"
+    },
+    {
+      "start": 1395.44,
+      "end": 1400.0,
+      "text": "for you. You can use that. But"
+    },
+    {
+      "start": 1397.08,
+      "end": 1402.08,
+      "text": "personally, I like this one."
+    },
+    {
+      "start": 1400.0,
+      "end": 1403.6,
+      "text": "I like this"
+    },
+    {
+      "start": 1402.08,
+      "end": 1404.6799999999998,
+      "text": "separation one. Okay, if you want to"
+    },
+    {
+      "start": 1403.6,
+      "end": 1407.32,
+      "text": "create the separation one, you can"
+    },
+    {
+      "start": 1404.68,
+      "end": 1409.4,
+      "text": "create. But I also like this shared one"
+    },
+    {
+      "start": 1407.32,
+      "end": 1411.36,
+      "text": "because sometimes for some of the agent"
+    },
+    {
+      "start": 1409.4,
+      "end": 1413.2800000000002,
+      "text": "actually I need shared shared state"
+    },
+    {
+      "start": 1411.36,
+      "end": 1414.6399999999999,
+      "text": "because let's say whatever sub graph is"
+    },
+    {
+      "start": 1413.28,
+      "end": 1417.12,
+      "text": "generating, right?"
+    },
+    {
+      "start": 1414.64,
+      "end": 1418.48,
+      "text": "I need that output for my main workflow"
+    },
+    {
+      "start": 1417.12,
+      "end": 1421.9599999999998,
+      "text": "as well. So that that time actually"
+    },
+    {
+      "start": 1418.48,
+      "end": 1423.84,
+      "text": "shared state is also good. So you can"
+    },
+    {
+      "start": 1421.96,
+      "end": 1425.24,
+      "text": "select whatever you feel like that would"
+    },
+    {
+      "start": 1423.84,
+      "end": 1427.36,
+      "text": "be good for your architecture, you can"
+    },
+    {
+      "start": 1425.24,
+      "end": 1428.84,
+      "text": "select that one. So both flexibility"
+    },
+    {
+      "start": 1427.36,
+      "end": 1430.9199999999998,
+      "text": "they have given. You can see their"
+    },
+    {
+      "start": 1428.84,
+      "end": 1432.56,
+      "text": "documentation. I'll suggest you after"
+    },
+    {
+      "start": 1430.92,
+      "end": 1433.92,
+      "text": "completing this"
+    },
+    {
+      "start": 1432.56,
+      "end": 1435.76,
+      "text": "like video, you can go through their"
+    },
+    {
+      "start": 1433.92,
+      "end": 1437.2,
+      "text": "documentation. You can understand. Okay,"
+    },
+    {
+      "start": 1435.76,
+      "end": 1438.8799999999999,
+      "text": "they have explained each and everything."
+    },
+    {
+      "start": 1437.2,
+      "end": 1440.6000000000001,
+      "text": "So whatever I told you here, right? They"
+    },
+    {
+      "start": 1438.88,
+      "end": 1442.3600000000001,
+      "text": "have explained the same thing here. So"
+    },
+    {
+      "start": 1440.6,
+      "end": 1444.28,
+      "text": "in this video, guys, I'll try to show"
+    },
+    {
+      "start": 1442.36,
+      "end": 1446.6799999999998,
+      "text": "you both. That means the first first"
+    },
+    {
+      "start": 1444.28,
+      "end": 1449.3999999999999,
+      "text": "example and second example, both example"
+    },
+    {
+      "start": 1446.68,
+      "end": 1451.8,
+      "text": "I'll try to show you. Okay? Yeah."
+    },
+    {
+      "start": 1449.4,
+      "end": 1454.52,
+      "text": "So guys, now we'll see the practical"
+    },
+    {
+      "start": 1451.8,
+      "end": 1456.68,
+      "text": "development of this sub graph. So for"
+    },
+    {
+      "start": 1454.52,
+      "end": 1458.0,
+      "text": "this I have already opened my Jupiter"
+    },
+    {
+      "start": 1456.68,
+      "end": 1460.64,
+      "text": "notebook here."
+    },
+    {
+      "start": 1458.0,
+      "end": 1462.2,
+      "text": "And I already shared all of this code in"
+    },
+    {
+      "start": 1460.64,
+      "end": 1464.16,
+      "text": "my video description. From there you can"
+    },
+    {
+      "start": 1462.2,
+      "end": 1466.24,
+      "text": "check it out. Okay, you will get all of"
+    },
+    {
+      "start": 1464.16,
+      "end": 1468.44,
+      "text": "this notebook, all of the code."
+    },
+    {
+      "start": 1466.24,
+      "end": 1471.16,
+      "text": "So see, here first of all, I'm going to"
+    },
+    {
+      "start": 1468.44,
+      "end": 1472.6000000000001,
+      "text": "show you this this one."
+    },
+    {
+      "start": 1471.16,
+      "end": 1475.0400000000002,
+      "text": "Your"
+    },
+    {
+      "start": 1472.6,
+      "end": 1476.48,
+      "text": "first one call a sub graph inside a"
+    },
+    {
+      "start": 1475.04,
+      "end": 1478.6399999999999,
+      "text": "graph. Okay, that means this example"
+    },
+    {
+      "start": 1476.48,
+      "end": 1480.96,
+      "text": "we'll try to see first of all."
+    },
+    {
+      "start": 1478.64,
+      "end": 1483.2,
+      "text": "This example."
+    },
+    {
+      "start": 1480.96,
+      "end": 1485.24,
+      "text": "That means this one. Okay, I'll just try"
+    },
+    {
+      "start": 1483.2,
+      "end": 1487.32,
+      "text": "to create a separate sub graph and we'll"
+    },
+    {
+      "start": 1485.24,
+      "end": 1489.08,
+      "text": "try to call inside our node. Okay, this"
+    },
+    {
+      "start": 1487.32,
+      "end": 1491.3999999999999,
+      "text": "one we'll try to first of all learn. So"
+    },
+    {
+      "start": 1489.08,
+      "end": 1494.52,
+      "text": "here I'll just try to add the comment."
+    },
+    {
+      "start": 1491.4,
+      "end": 1497.0400000000002,
+      "text": "So call a sub graph inside a node. Okay?"
+    },
+    {
+      "start": 1494.52,
+      "end": 1499.4,
+      "text": "So for this, uh of all, let's try to"
+    },
+    {
+      "start": 1497.04,
+      "end": 1500.72,
+      "text": "understand the uh workflow we'll be"
+    },
+    {
+      "start": 1499.4,
+      "end": 1503.0,
+      "text": "creating here. See, here I'm going to"
+    },
+    {
+      "start": 1500.72,
+      "end": 1504.64,
+      "text": "create a very simple workflow just to"
+    },
+    {
+      "start": 1503.0,
+      "end": 1506.0,
+      "text": "show you the example."
+    },
+    {
+      "start": 1504.64,
+      "end": 1507.8000000000002,
+      "text": "Uh but don't worry, I'll also show you"
+    },
+    {
+      "start": 1506.0,
+      "end": 1509.24,
+      "text": "the practical uh project, okay?"
+    },
+    {
+      "start": 1507.8,
+      "end": 1511.0,
+      "text": "Multi-agent application will also create"
+    },
+    {
+      "start": 1509.24,
+      "end": 1512.48,
+      "text": "in the next video itself, okay?"
+    },
+    {
+      "start": 1511.0,
+      "end": 1516.04,
+      "text": "So, see here, simply we'll just try to"
+    },
+    {
+      "start": 1512.48,
+      "end": 1520.08,
+      "text": "create um system that system will try to"
+    },
+    {
+      "start": 1516.04,
+      "end": 1521.52,
+      "text": "take the user input, okay? User input."
+    },
+    {
+      "start": 1520.08,
+      "end": 1524.1999999999998,
+      "text": "Let's say user will"
+    },
+    {
+      "start": 1521.52,
+      "end": 1527.12,
+      "text": "uh ask something and it will go to the"
+    },
+    {
+      "start": 1524.2,
+      "end": 1529.28,
+      "text": "LLM. That means our agent, and this LLM"
+    },
+    {
+      "start": 1527.12,
+      "end": 1531.6799999999998,
+      "text": "will basically"
+    },
+    {
+      "start": 1529.28,
+      "end": 1533.72,
+      "text": "uh answer this particular question. And"
+    },
+    {
+      "start": 1531.68,
+      "end": 1534.8,
+      "text": "this answer, okay, whatever answer we"
+    },
+    {
+      "start": 1533.72,
+      "end": 1538.0,
+      "text": "are getting"
+    },
+    {
+      "start": 1534.8,
+      "end": 1539.8799999999999,
+      "text": "will try to send to another LLM. Okay?"
+    },
+    {
+      "start": 1538.0,
+      "end": 1542.4,
+      "text": "And this LLM, what it will do, it will"
+    },
+    {
+      "start": 1539.88,
+      "end": 1543.96,
+      "text": "basically translate this answer to"
+    },
+    {
+      "start": 1542.4,
+      "end": 1545.88,
+      "text": "Hindi, okay?"
+    },
+    {
+      "start": 1543.96,
+      "end": 1548.6000000000001,
+      "text": "It will translate."
+    },
+    {
+      "start": 1545.88,
+      "end": 1549.88,
+      "text": "Or let's say I can write like that."
+    },
+    {
+      "start": 1548.6,
+      "end": 1552.9199999999998,
+      "text": "This LLM, whatever output it will"
+    },
+    {
+      "start": 1549.88,
+      "end": 1554.72,
+      "text": "generate, it will generate as a Hindi"
+    },
+    {
+      "start": 1552.92,
+      "end": 1557.16,
+      "text": "Hindi output. Or let's say Hindi"
+    },
+    {
+      "start": 1554.72,
+      "end": 1559.24,
+      "text": "translate."
+    },
+    {
+      "start": 1557.16,
+      "end": 1561.24,
+      "text": "Okay? Hindi translate. So, this is the"
+    },
+    {
+      "start": 1559.24,
+      "end": 1563.96,
+      "text": "workflow we'll try to develop, right?"
+    },
+    {
+      "start": 1561.24,
+      "end": 1566.08,
+      "text": "So, here, uh what is what is my main"
+    },
+    {
+      "start": 1563.96,
+      "end": 1567.8400000000001,
+      "text": "workflow should be? First of all, create"
+    },
+    {
+      "start": 1566.08,
+      "end": 1569.0,
+      "text": "the main workflow."
+    },
+    {
+      "start": 1567.84,
+      "end": 1571.6799999999998,
+      "text": "Main"
+    },
+    {
+      "start": 1569.0,
+      "end": 1571.68,
+      "text": "main graph."
+    },
+    {
+      "start": 1573.04,
+      "end": 1578.0,
+      "text": "Main graph. So, main graph would be"
+    },
+    {
+      "start": 1575.28,
+      "end": 1578.0,
+      "text": "start."
+    },
+    {
+      "start": 1582.56,
+      "end": 1585.8799999999999,
+      "text": "Okay?"
+    },
+    {
+      "start": 1583.64,
+      "end": 1588.16,
+      "text": "Then, it will go to the"
+    },
+    {
+      "start": 1585.88,
+      "end": 1591.0800000000002,
+      "text": "generate."
+    },
+    {
+      "start": 1588.16,
+      "end": 1591.0800000000002,
+      "text": "Generate answer."
+    },
+    {
+      "start": 1591.36,
+      "end": 1594.04,
+      "text": "Okay?"
+    },
+    {
+      "start": 1592.68,
+      "end": 1596.4,
+      "text": "Then, uh"
+    },
+    {
+      "start": 1594.04,
+      "end": 1600.08,
+      "text": "it will go to the"
+    },
+    {
+      "start": 1596.4,
+      "end": 1602.68,
+      "text": "another node called translate."
+    },
+    {
+      "start": 1600.08,
+      "end": 1603.96,
+      "text": "Answer to Hindi, then this workflow"
+    },
+    {
+      "start": 1602.68,
+      "end": 1605.92,
+      "text": "would be"
+    },
+    {
+      "start": 1603.96,
+      "end": 1607.24,
+      "text": "end. Let's say this is the workflow."
+    },
+    {
+      "start": 1605.92,
+      "end": 1608.5600000000002,
+      "text": "Now, here we'll try to create a sub"
+    },
+    {
+      "start": 1607.24,
+      "end": 1610.72,
+      "text": "graph, okay?"
+    },
+    {
+      "start": 1608.56,
+      "end": 1613.48,
+      "text": "This is my"
+    },
+    {
+      "start": 1610.72,
+      "end": 1613.48,
+      "text": "sub graph."
+    },
+    {
+      "start": 1614.56,
+      "end": 1620.44,
+      "text": "So, in this subgraph, what we'll do?"
+    },
+    {
+      "start": 1617.2,
+      "end": 1620.44,
+      "text": "Uh it will start."
+    },
+    {
+      "start": 1622.4,
+      "end": 1628.3600000000001,
+      "text": "It start mean it will take the input."
+    },
+    {
+      "start": 1625.08,
+      "end": 1631.72,
+      "text": "It will basically translate"
+    },
+    {
+      "start": 1628.36,
+      "end": 1633.8799999999999,
+      "text": "trans trans translate"
+    },
+    {
+      "start": 1631.72,
+      "end": 1635.48,
+      "text": "that"
+    },
+    {
+      "start": 1633.88,
+      "end": 1638.0800000000002,
+      "text": "text to Hindi."
+    },
+    {
+      "start": 1635.48,
+      "end": 1639.72,
+      "text": "And this will end. Okay?"
+    },
+    {
+      "start": 1638.08,
+      "end": 1640.6399999999999,
+      "text": "This will"
+    },
+    {
+      "start": 1639.72,
+      "end": 1641.52,
+      "text": "end."
+    },
+    {
+      "start": 1640.64,
+      "end": 1643.48,
+      "text": "Now,"
+    },
+    {
+      "start": 1641.52,
+      "end": 1644.8,
+      "text": "inside this translate node, as you can"
+    },
+    {
+      "start": 1643.48,
+      "end": 1646.72,
+      "text": "see, this is the node, right? Inside"
+    },
+    {
+      "start": 1644.8,
+      "end": 1649.12,
+      "text": "this translate node, we'll try to"
+    },
+    {
+      "start": 1646.72,
+      "end": 1652.16,
+      "text": "invoke."
+    },
+    {
+      "start": 1649.12,
+      "end": 1654.04,
+      "text": "Okay, invoke what? Invoke this subgraph."
+    },
+    {
+      "start": 1652.16,
+      "end": 1656.0,
+      "text": "Okay? This subgraph here we'll try to"
+    },
+    {
+      "start": 1654.04,
+      "end": 1657.08,
+      "text": "invoke. This is the idea. That means"
+    },
+    {
+      "start": 1656.0,
+      "end": 1659.68,
+      "text": "here"
+    },
+    {
+      "start": 1657.08,
+      "end": 1663.36,
+      "text": "uh we are not uh creating the translate"
+    },
+    {
+      "start": 1659.68,
+      "end": 1664.88,
+      "text": "node like a I mean, inside that only. We"
+    },
+    {
+      "start": 1663.36,
+      "end": 1667.7199999999998,
+      "text": "are creating a subgraph, right? This"
+    },
+    {
+      "start": 1664.88,
+      "end": 1669.5200000000002,
+      "text": "subgraph, what it does? It will take the"
+    },
+    {
+      "start": 1667.72,
+      "end": 1671.3600000000001,
+      "text": "uh like generated answer, and it will"
+    },
+    {
+      "start": 1669.52,
+      "end": 1673.72,
+      "text": "translate it to Hindi."
+    },
+    {
+      "start": 1671.36,
+      "end": 1675.9599999999998,
+      "text": "And then this Hindi Hindi output we'll"
+    },
+    {
+      "start": 1673.72,
+      "end": 1677.32,
+      "text": "try to show to the user. So, instead of"
+    },
+    {
+      "start": 1675.96,
+      "end": 1679.3600000000001,
+      "text": "doing everything in the same node"
+    },
+    {
+      "start": 1677.32,
+      "end": 1681.48,
+      "text": "itself, we can create a subnode, and we"
+    },
+    {
+      "start": 1679.36,
+      "end": 1682.9199999999998,
+      "text": "can invoke this subnode whenever it it"
+    },
+    {
+      "start": 1681.48,
+      "end": 1684.68,
+      "text": "is required. This is the workflow we'll"
+    },
+    {
+      "start": 1682.92,
+      "end": 1685.76,
+      "text": "try to develop, guys. Okay? I hope you"
+    },
+    {
+      "start": 1684.68,
+      "end": 1687.72,
+      "text": "get it."
+    },
+    {
+      "start": 1685.76,
+      "end": 1690.8799999999999,
+      "text": "Now, let's get back to my code."
+    },
+    {
+      "start": 1687.72,
+      "end": 1694.0,
+      "text": "Uh here, first of all, I'll try to"
+    },
+    {
+      "start": 1690.88,
+      "end": 1695.24,
+      "text": "import some necessary library."
+    },
+    {
+      "start": 1694.0,
+      "end": 1697.04,
+      "text": "So, I think you know what are the"
+    },
+    {
+      "start": 1695.24,
+      "end": 1698.44,
+      "text": "libraries you need. So, here we're"
+    },
+    {
+      "start": 1697.04,
+      "end": 1700.68,
+      "text": "importing this"
+    },
+    {
+      "start": 1698.44,
+      "end": 1703.0,
+      "text": "typing extension type dict, then from"
+    },
+    {
+      "start": 1700.68,
+      "end": 1704.52,
+      "text": "langgraph graph importing state graph"
+    },
+    {
+      "start": 1703.0,
+      "end": 1706.72,
+      "text": "start end. Okay, I already explained"
+    },
+    {
+      "start": 1704.52,
+      "end": 1709.2,
+      "text": "this part uh in my playlist, guys. Uh"
+    },
+    {
+      "start": 1706.72,
+      "end": 1710.08,
+      "text": "please try to go through from the uh pre"
+    },
+    {
+      "start": 1709.2,
+      "end": 1711.48,
+      "text": "uh"
+    },
+    {
+      "start": 1710.08,
+      "end": 1713.1599999999999,
+      "text": "from the first video. Okay, if you want"
+    },
+    {
+      "start": 1711.48,
+      "end": 1714.52,
+      "text": "to understand this concept easily,"
+    },
+    {
+      "start": 1713.16,
+      "end": 1716.8000000000002,
+      "text": "because this is a series of video. Okay,"
+    },
+    {
+      "start": 1714.52,
+      "end": 1718.72,
+      "text": "this is not a single uh I mean,"
+    },
+    {
+      "start": 1716.8,
+      "end": 1720.24,
+      "text": "tutorial, so that you can understand"
+    },
+    {
+      "start": 1718.72,
+      "end": 1721.52,
+      "text": "each and everything. If you check my"
+    },
+    {
+      "start": 1720.24,
+      "end": 1723.76,
+      "text": "playlist, guys, this is a series of"
+    },
+    {
+      "start": 1721.52,
+      "end": 1725.08,
+      "text": "video. So, all the basic things I have"
+    },
+    {
+      "start": 1723.76,
+      "end": 1726.8,
+      "text": "covered, right? So, if you want to"
+    },
+    {
+      "start": 1725.08,
+      "end": 1728.48,
+      "text": "continue, definitely you have to watch"
+    },
+    {
+      "start": 1726.8,
+      "end": 1730.96,
+      "text": "the previous video as well."
+    },
+    {
+      "start": 1728.48,
+      "end": 1732.52,
+      "text": "Then, here I'm using the Gemini model"
+    },
+    {
+      "start": 1730.96,
+      "end": 1734.16,
+      "text": "because I don't have open AI API key."
+    },
+    {
+      "start": 1732.52,
+      "end": 1735.52,
+      "text": "You can use any model. It's up to you."
+    },
+    {
+      "start": 1734.16,
+      "end": 1737.72,
+      "text": "You can use Grok model. You can use"
+    },
+    {
+      "start": 1735.52,
+      "end": 1739.24,
+      "text": "Gemini model. You can use open router,"
+    },
+    {
+      "start": 1737.72,
+      "end": 1740.84,
+      "text": "Ollama, anything you can use, okay? So,"
+    },
+    {
+      "start": 1739.24,
+      "end": 1742.88,
+      "text": "here simply I'm using"
+    },
+    {
+      "start": 1740.84,
+      "end": 1745.12,
+      "text": "um Gemini model. For this, I install"
+    },
+    {
+      "start": 1742.88,
+      "end": 1746.68,
+      "text": "this Google uh generative AI package,"
+    },
+    {
+      "start": 1745.12,
+      "end": 1748.08,
+      "text": "okay? In my requirements. And this is"
+    },
+    {
+      "start": 1746.68,
+      "end": 1749.68,
+      "text": "the"
+    },
+    {
+      "start": 1748.08,
+      "end": 1751.6,
+      "text": "chat Google generative AI"
+    },
+    {
+      "start": 1749.68,
+      "end": 1753.24,
+      "text": "uh function we are importing and the"
+    },
+    {
+      "start": 1751.6,
+      "end": 1755.8799999999999,
+      "text": "load EMB as well because in the load EMB"
+    },
+    {
+      "start": 1753.24,
+      "end": 1757.68,
+      "text": "itself, I have my all of the key, okay?"
+    },
+    {
+      "start": 1755.88,
+      "end": 1759.4,
+      "text": "All of my Google API key. Whatever"
+    },
+    {
+      "start": 1757.68,
+      "end": 1761.8400000000001,
+      "text": "actually I need, I everything I have"
+    },
+    {
+      "start": 1759.4,
+      "end": 1763.6000000000001,
+      "text": "here. So, for this uh um"
+    },
+    {
+      "start": 1761.84,
+      "end": 1765.48,
+      "text": "example only, I only need the Google API"
+    },
+    {
+      "start": 1763.6,
+      "end": 1766.9199999999998,
+      "text": "key, okay? This one. And how to get this"
+    },
+    {
+      "start": 1765.48,
+      "end": 1768.4,
+      "text": "Google API key? I think you know that."
+    },
+    {
+      "start": 1766.92,
+      "end": 1771.4,
+      "text": "You have to go to the"
+    },
+    {
+      "start": 1768.4,
+      "end": 1774.2800000000002,
+      "text": "Google generate uh Google AI Studio."
+    },
+    {
+      "start": 1771.4,
+      "end": 1774.2800000000002,
+      "text": "This is the platform."
+    },
+    {
+      "start": 1780.6,
+      "end": 1784.32,
+      "text": "You will just need to click on get"
+    },
+    {
+      "start": 1782.24,
+      "end": 1785.68,
+      "text": "started."
+    },
+    {
+      "start": 1784.32,
+      "end": 1787.52,
+      "text": "And here you will see the API key"
+    },
+    {
+      "start": 1785.68,
+      "end": 1789.16,
+      "text": "section. From there, you can generate"
+    },
+    {
+      "start": 1787.52,
+      "end": 1790.4,
+      "text": "the API key, okay? So, for me, I already"
+    },
+    {
+      "start": 1789.16,
+      "end": 1792.2,
+      "text": "have the API key. I don't need to"
+    },
+    {
+      "start": 1790.4,
+      "end": 1794.76,
+      "text": "generate it. So, let me import all of"
+    },
+    {
+      "start": 1792.2,
+      "end": 1796.8,
+      "text": "the packages."
+    },
+    {
+      "start": 1794.76,
+      "end": 1799.64,
+      "text": "Done. Now, I'll just try to load my"
+    },
+    {
+      "start": 1796.8,
+      "end": 1800.76,
+      "text": "environment variable."
+    },
+    {
+      "start": 1799.64,
+      "end": 1802.0800000000002,
+      "text": "Mhm."
+    },
+    {
+      "start": 1800.76,
+      "end": 1804.4,
+      "text": "Now, see. First of all, we'll try to"
+    },
+    {
+      "start": 1802.08,
+      "end": 1805.56,
+      "text": "implement the sub graph, okay? First of"
+    },
+    {
+      "start": 1804.4,
+      "end": 1807.64,
+      "text": "all, we'll try to implement the sub"
+    },
+    {
+      "start": 1805.56,
+      "end": 1809.32,
+      "text": "graph. So, for this sub graph, first of"
+    },
+    {
+      "start": 1807.64,
+      "end": 1811.2800000000002,
+      "text": "all, we have to define a state because"
+    },
+    {
+      "start": 1809.32,
+      "end": 1815.56,
+      "text": "this state would be separate,"
+    },
+    {
+      "start": 1811.28,
+      "end": 1815.56,
+      "text": "okay? And this state would be separate."
+    },
+    {
+      "start": 1815.8,
+      "end": 1818.84,
+      "text": "For this example, call a sub graph"
+    },
+    {
+      "start": 1817.6,
+      "end": 1820.28,
+      "text": "inside a node."
+    },
+    {
+      "start": 1818.84,
+      "end": 1821.6799999999998,
+      "text": "This state would be separate. This state"
+    },
+    {
+      "start": 1820.28,
+      "end": 1824.16,
+      "text": "would be separate, okay? First of all,"
+    },
+    {
+      "start": 1821.68,
+      "end": 1827.04,
+      "text": "we'll try to define the sub graph state,"
+    },
+    {
+      "start": 1824.16,
+      "end": 1828.8400000000001,
+      "text": "uh sub graph LLM, and sub graph nodes."
+    },
+    {
+      "start": 1827.04,
+      "end": 1831.04,
+      "text": "Then, we'll try to create the main main"
+    },
+    {
+      "start": 1828.84,
+      "end": 1832.8,
+      "text": "graph, okay? This is the idea. Now,"
+    },
+    {
+      "start": 1831.04,
+      "end": 1835.52,
+      "text": "let's open it up. Now, see. First of"
+    },
+    {
+      "start": 1832.8,
+      "end": 1837.08,
+      "text": "all, we'll define the state. So, this is"
+    },
+    {
+      "start": 1835.52,
+      "end": 1840.36,
+      "text": "the state for the sub graph. See, as of"
+    },
+    {
+      "start": 1837.08,
+      "end": 1842.48,
+      "text": "now, for this uh example, I only want to"
+    },
+    {
+      "start": 1840.36,
+      "end": 1844.9599999999998,
+      "text": "do the translation of the generated"
+    },
+    {
+      "start": 1842.48,
+      "end": 1848.2,
+      "text": "text. That's why this is my a state. So,"
+    },
+    {
+      "start": 1844.96,
+      "end": 1850.2,
+      "text": "whatever input uh text uh I mean user is"
+    },
+    {
+      "start": 1848.2,
+      "end": 1851.76,
+      "text": "giving, it will save here. And whatever"
+    },
+    {
+      "start": 1850.2,
+      "end": 1853.28,
+      "text": "it will translate, this will save here."
+    },
+    {
+      "start": 1851.76,
+      "end": 1855.12,
+      "text": "That means these two state I will I will"
+    },
+    {
+      "start": 1853.28,
+      "end": 1857.84,
+      "text": "only take. And this is my sub"
+    },
+    {
+      "start": 1855.12,
+      "end": 1859.4399999999998,
+      "text": "substate. That means subgraph state."
+    },
+    {
+      "start": 1857.84,
+      "end": 1860.8,
+      "text": "Okay, that means this is my this"
+    },
+    {
+      "start": 1859.44,
+      "end": 1862.68,
+      "text": "subgraph state."
+    },
+    {
+      "start": 1860.8,
+      "end": 1864.6399999999999,
+      "text": "Whatever input user is giving, it will"
+    },
+    {
+      "start": 1862.68,
+      "end": 1866.96,
+      "text": "save inside that"
+    },
+    {
+      "start": 1864.64,
+      "end": 1869.1200000000001,
+      "text": "this input text. And whatever it will"
+    },
+    {
+      "start": 1866.96,
+      "end": 1870.32,
+      "text": "translate, right? It will save inside"
+    },
+    {
+      "start": 1869.12,
+      "end": 1873.36,
+      "text": "this particular"
+    },
+    {
+      "start": 1870.32,
+      "end": 1874.8,
+      "text": "variable, right? So, this is my state."
+    },
+    {
+      "start": 1873.36,
+      "end": 1876.6799999999998,
+      "text": "Now, here I'll just try to define a"
+    },
+    {
+      "start": 1874.8,
+      "end": 1878.48,
+      "text": "large language model because here we"
+    },
+    {
+      "start": 1876.68,
+      "end": 1879.48,
+      "text": "have to do the translation, right? In"
+    },
+    {
+      "start": 1878.48,
+      "end": 1881.16,
+      "text": "this node, we have to do the"
+    },
+    {
+      "start": 1879.48,
+      "end": 1882.76,
+      "text": "translation. For this, we need a large"
+    },
+    {
+      "start": 1881.16,
+      "end": 1884.8400000000001,
+      "text": "language model. So, here we are using"
+    },
+    {
+      "start": 1882.76,
+      "end": 1886.56,
+      "text": "Gemini model. So, we are defining the"
+    },
+    {
+      "start": 1884.84,
+      "end": 1888.28,
+      "text": "Gemini model and we are calling it a"
+    },
+    {
+      "start": 1886.56,
+      "end": 1889.48,
+      "text": "subgraph LLM. Okay, this is the model"
+    },
+    {
+      "start": 1888.28,
+      "end": 1890.96,
+      "text": "and this is the temperature parameter"
+    },
+    {
+      "start": 1889.48,
+      "end": 1892.04,
+      "text": "I've given."
+    },
+    {
+      "start": 1890.96,
+      "end": 1894.0,
+      "text": "Simple."
+    },
+    {
+      "start": 1892.04,
+      "end": 1896.68,
+      "text": "Now, we'll try to define this particular"
+    },
+    {
+      "start": 1894.0,
+      "end": 1898.4,
+      "text": "node, translate node. Let's define that."
+    },
+    {
+      "start": 1896.68,
+      "end": 1899.72,
+      "text": "So, I already created this translated"
+    },
+    {
+      "start": 1898.4,
+      "end": 1902.2800000000002,
+      "text": "node. Let me show you. So, this is the"
+    },
+    {
+      "start": 1899.72,
+      "end": 1904.8,
+      "text": "translated node. So, translate text uh"
+    },
+    {
+      "start": 1902.28,
+      "end": 1906.48,
+      "text": "this will take this state, okay? State."
+    },
+    {
+      "start": 1904.8,
+      "end": 1908.36,
+      "text": "And here I've given a prompt, translate"
+    },
+    {
+      "start": 1906.48,
+      "end": 1909.96,
+      "text": "the following text to Hindi."
+    },
+    {
+      "start": 1908.36,
+      "end": 1912.6799999999998,
+      "text": "Keep it natural and clear. Do not add"
+    },
+    {
+      "start": 1909.96,
+      "end": 1914.16,
+      "text": "extra content. And whatever input user"
+    },
+    {
+      "start": 1912.68,
+      "end": 1916.28,
+      "text": "is giving, just try to make it to the"
+    },
+    {
+      "start": 1914.16,
+      "end": 1917.28,
+      "text": "Hindi. So, here we are invoking the LLM."
+    },
+    {
+      "start": 1916.28,
+      "end": 1919.2,
+      "text": "We are giving the prompt. We are"
+    },
+    {
+      "start": 1917.28,
+      "end": 1921.76,
+      "text": "extracting the content and we are again"
+    },
+    {
+      "start": 1919.2,
+      "end": 1923.64,
+      "text": "storing to my state. Where? Inside my"
+    },
+    {
+      "start": 1921.76,
+      "end": 1926.48,
+      "text": "translated text, okay? Here it is trying"
+    },
+    {
+      "start": 1923.64,
+      "end": 1929.0400000000002,
+      "text": "to save the information. So, this is my"
+    },
+    {
+      "start": 1926.48,
+      "end": 1929.04,
+      "text": "node, guys."
+    },
+    {
+      "start": 1932.56,
+      "end": 1935.6,
+      "text": "Okay, so this is the node of my"
+    },
+    {
+      "start": 1934.12,
+      "end": 1936.56,
+      "text": "subgraph."
+    },
+    {
+      "start": 1935.6,
+      "end": 1938.32,
+      "text": "Now,"
+    },
+    {
+      "start": 1936.56,
+      "end": 1940.08,
+      "text": "uh we have to build this graph. We have"
+    },
+    {
+      "start": 1938.32,
+      "end": 1941.3999999999999,
+      "text": "to build the entire graph. Let's try to"
+    },
+    {
+      "start": 1940.08,
+      "end": 1944.6799999999998,
+      "text": "build the graph."
+    },
+    {
+      "start": 1941.4,
+      "end": 1944.68,
+      "text": "So, this is the graph, guys."
+    },
+    {
+      "start": 1944.84,
+      "end": 1949.12,
+      "text": "Uh subgraph builder, we are taking the"
+    },
+    {
+      "start": 1946.8,
+      "end": 1951.0,
+      "text": "state graph. We are passing the state,"
+    },
+    {
+      "start": 1949.12,
+      "end": 1952.8,
+      "text": "okay? As you can see, we are taking the"
+    },
+    {
+      "start": 1951.0,
+      "end": 1954.96,
+      "text": "state graph. We are passing the entire"
+    },
+    {
+      "start": 1952.8,
+      "end": 1956.8799999999999,
+      "text": "state. After that, we have to add the"
+    },
+    {
+      "start": 1954.96,
+      "end": 1959.4,
+      "text": "nodes and we only have one nodes, which"
+    },
+    {
+      "start": 1956.88,
+      "end": 1961.44,
+      "text": "is uh translate text. We are adding this"
+    },
+    {
+      "start": 1959.4,
+      "end": 1963.3200000000002,
+      "text": "translate text node and after that we"
+    },
+    {
+      "start": 1961.44,
+      "end": 1965.28,
+      "text": "have to uh add the edges, that means the"
+    },
+    {
+      "start": 1963.32,
+      "end": 1967.04,
+      "text": "connection. That means start should be"
+    },
+    {
+      "start": 1965.28,
+      "end": 1968.76,
+      "text": "connected with translate."
+    },
+    {
+      "start": 1967.04,
+      "end": 1971.6,
+      "text": "Start should be connected with translate"
+    },
+    {
+      "start": 1968.76,
+      "end": 1973.36,
+      "text": "text and translate will connected to the"
+    },
+    {
+      "start": 1971.6,
+      "end": 1975.36,
+      "text": "end. Translate will connected to the"
+    },
+    {
+      "start": 1973.36,
+      "end": 1977.0,
+      "text": "end. Translate is connected to the end,"
+    },
+    {
+      "start": 1975.36,
+      "end": 1979.08,
+      "text": "okay? This is the edge connection and"
+    },
+    {
+      "start": 1977.0,
+      "end": 1979.432,
+      "text": "after that we are compiling the graph,"
+    },
+    {
+      "start": 1979.08,
+      "end": 1979.72,
+      "text": "okay?"
+    },
+    {
+      "start": 1979.432,
+      "end": 1981.68,
+      "text": ">> [snorts]"
+    },
+    {
+      "start": 1979.72,
+      "end": 1984.1200000000001,
+      "text": ">> And if you want to use any uh let's say"
+    },
+    {
+      "start": 1981.68,
+      "end": 1985.48,
+      "text": "state uh memory, that time you can use"
+    },
+    {
+      "start": 1984.12,
+      "end": 1987.8,
+      "text": "either memory server or either you can"
+    },
+    {
+      "start": 1985.48,
+      "end": 1989.28,
+      "text": "use a database. So, in this uh example"
+    },
+    {
+      "start": 1987.8,
+      "end": 1992.12,
+      "text": "I'm not using any kinds of state memory,"
+    },
+    {
+      "start": 1989.28,
+      "end": 1994.08,
+      "text": "guys, because this is just a uh I mean"
+    },
+    {
+      "start": 1992.12,
+      "end": 1995.6399999999999,
+      "text": "concept. I'm um I'm just making you"
+    },
+    {
+      "start": 1994.08,
+      "end": 1997.48,
+      "text": "understand. Whenever we'll try to build"
+    },
+    {
+      "start": 1995.64,
+      "end": 1999.4,
+      "text": "the project, that time I'll use the"
+    },
+    {
+      "start": 1997.48,
+      "end": 2000.68,
+      "text": "memory, right? Uh so that it can save"
+    },
+    {
+      "start": 1999.4,
+      "end": 2001.92,
+      "text": "the information permanently in the"
+    },
+    {
+      "start": 2000.68,
+      "end": 2003.88,
+      "text": "database."
+    },
+    {
+      "start": 2001.92,
+      "end": 2006.4,
+      "text": "Yeah. So, that's how we have complied"
+    },
+    {
+      "start": 2003.88,
+      "end": 2008.1200000000001,
+      "text": "compiled the subgraph. Now, my subgraph"
+    },
+    {
+      "start": 2006.4,
+      "end": 2010.0,
+      "text": "work is done. Okay, this uh this"
+    },
+    {
+      "start": 2008.12,
+      "end": 2011.6399999999999,
+      "text": "subgraph is created. Now, we'll try to"
+    },
+    {
+      "start": 2010.0,
+      "end": 2013.48,
+      "text": "work on the main graph, okay? Now, let's"
+    },
+    {
+      "start": 2011.64,
+      "end": 2015.8400000000001,
+      "text": "try to define the main graph. So, again"
+    },
+    {
+      "start": 2013.48,
+      "end": 2017.84,
+      "text": "I'll try to open my code."
+    },
+    {
+      "start": 2015.84,
+      "end": 2019.3999999999999,
+      "text": "Uh for main graph,"
+    },
+    {
+      "start": 2017.84,
+      "end": 2021.1599999999999,
+      "text": "this is my state."
+    },
+    {
+      "start": 2019.4,
+      "end": 2022.64,
+      "text": "Okay, parent state, as you can see. So,"
+    },
+    {
+      "start": 2021.16,
+      "end": 2024.6000000000001,
+      "text": "here we'll have the question, that means"
+    },
+    {
+      "start": 2022.64,
+      "end": 2026.64,
+      "text": "whatever question user is asking,"
+    },
+    {
+      "start": 2024.6,
+      "end": 2028.84,
+      "text": "uh whatever answer it is generating,"
+    },
+    {
+      "start": 2026.64,
+      "end": 2030.1200000000001,
+      "text": "because you can see uh whatever uh"
+    },
+    {
+      "start": 2028.84,
+      "end": 2031.6799999999998,
+      "text": "question user will give, it will"
+    },
+    {
+      "start": 2030.12,
+      "end": 2033.52,
+      "text": "generate a answer first of all. This"
+    },
+    {
+      "start": 2031.68,
+      "end": 2035.0,
+      "text": "answer in information I'll try to save"
+    },
+    {
+      "start": 2033.52,
+      "end": 2037.32,
+      "text": "inside this variable."
+    },
+    {
+      "start": 2035.0,
+      "end": 2039.2,
+      "text": "And whatever your subgraph is generating"
+    },
+    {
+      "start": 2037.32,
+      "end": 2041.1599999999999,
+      "text": "the Hindi translation, I'll try to save"
+    },
+    {
+      "start": 2039.2,
+      "end": 2042.16,
+      "text": "inside this particular variable, okay?"
+    },
+    {
+      "start": 2041.16,
+      "end": 2044.72,
+      "text": "That's why I've also taken this"
+    },
+    {
+      "start": 2042.16,
+      "end": 2046.6000000000001,
+      "text": "variable. This is your parent state,"
+    },
+    {
+      "start": 2044.72,
+      "end": 2048.2400000000002,
+      "text": "okay? I've taken the parent state. Now,"
+    },
+    {
+      "start": 2046.6,
+      "end": 2050.7999999999997,
+      "text": "I'll also define a large language model"
+    },
+    {
+      "start": 2048.24,
+      "end": 2052.7999999999997,
+      "text": "for the parent, because it will generate"
+    },
+    {
+      "start": 2050.8,
+      "end": 2055.04,
+      "text": "the output, right? Uh whatever question"
+    },
+    {
+      "start": 2052.8,
+      "end": 2056.76,
+      "text": "user will ask. So, again uh the same"
+    },
+    {
+      "start": 2055.04,
+      "end": 2059.159,
+      "text": "large language model I'm using, only I'm"
+    },
+    {
+      "start": 2056.76,
+      "end": 2061.8,
+      "text": "naming it as a parent parent LLM."
+    },
+    {
+      "start": 2059.159,
+      "end": 2063.28,
+      "text": "Now, this will have a generate node,"
+    },
+    {
+      "start": 2061.8,
+      "end": 2067.6000000000004,
+      "text": "right? Generate node, let's try to"
+    },
+    {
+      "start": 2063.28,
+      "end": 2069.639,
+      "text": "define the generate node. So, this is my"
+    },
+    {
+      "start": 2067.6,
+      "end": 2071.7599999999998,
+      "text": "generate node, as you can see."
+    },
+    {
+      "start": 2069.639,
+      "end": 2073.32,
+      "text": "Let's execute this cell. Yeah, so this"
+    },
+    {
+      "start": 2071.76,
+      "end": 2075.1200000000003,
+      "text": "is my generate node. So, generate"
+    },
+    {
+      "start": 2073.32,
+      "end": 2077.56,
+      "text": "answer, it will take this state parent"
+    },
+    {
+      "start": 2075.12,
+      "end": 2079.3199999999997,
+      "text": "state. And here we are only invoking the"
+    },
+    {
+      "start": 2077.56,
+      "end": 2081.639,
+      "text": "LLM, as you can see, you are a helpful"
+    },
+    {
+      "start": 2079.32,
+      "end": 2083.2400000000002,
+      "text": "assistant. Answer clearly this question,"
+    },
+    {
+      "start": 2081.639,
+      "end": 2085.2000000000003,
+      "text": "whatever question you are asking. After"
+    },
+    {
+      "start": 2083.24,
+      "end": 2088.12,
+      "text": "that, we are extracting the content and"
+    },
+    {
+      "start": 2085.2,
+      "end": 2089.6389999999997,
+      "text": "answering uh storing in my answer uh"
+    },
+    {
+      "start": 2088.12,
+      "end": 2091.679,
+      "text": "English, okay? That means"
+    },
+    {
+      "start": 2089.639,
+      "end": 2092.9190000000003,
+      "text": "uh this uh this node will generate the"
+    },
+    {
+      "start": 2091.679,
+      "end": 2095.96,
+      "text": "answer in English. That's why I'll try"
+    },
+    {
+      "start": 2092.919,
+      "end": 2098.52,
+      "text": "to save inside this variable. And your"
+    },
+    {
+      "start": 2095.96,
+      "end": 2100.28,
+      "text": "uh subnode will try to"
+    },
+    {
+      "start": 2098.52,
+      "end": 2101.6,
+      "text": "translate to Hindi, and this this"
+    },
+    {
+      "start": 2100.28,
+      "end": 2103.6000000000004,
+      "text": "information will be available here."
+    },
+    {
+      "start": 2101.6,
+      "end": 2105.72,
+      "text": "Okay, this is the idea."
+    },
+    {
+      "start": 2103.6,
+      "end": 2107.0,
+      "text": "Now, let's try to define this node."
+    },
+    {
+      "start": 2105.72,
+      "end": 2108.8399999999997,
+      "text": "Now, you can see uh"
+    },
+    {
+      "start": 2107.0,
+      "end": 2110.32,
+      "text": "after this generator uh generate a"
+    },
+    {
+      "start": 2108.84,
+      "end": 2112.28,
+      "text": "generator, it will have the translate"
+    },
+    {
+      "start": 2110.32,
+      "end": 2115.2000000000003,
+      "text": "translation node, okay? So, let's try to"
+    },
+    {
+      "start": 2112.28,
+      "end": 2117.6400000000003,
+      "text": "create this translation node right now."
+    },
+    {
+      "start": 2115.2,
+      "end": 2117.64,
+      "text": "Uh"
+    },
+    {
+      "start": 2118.56,
+      "end": 2121.7599999999998,
+      "text": "So, this is my translation node,"
+    },
+    {
+      "start": 2120.04,
+      "end": 2124.0,
+      "text": "translate answer. Now, again, I'm"
+    },
+    {
+      "start": 2121.76,
+      "end": 2126.2000000000003,
+      "text": "passing the state."
+    },
+    {
+      "start": 2124.0,
+      "end": 2127.92,
+      "text": "And after that, here is the main part,"
+    },
+    {
+      "start": 2126.2,
+      "end": 2129.08,
+      "text": "guys. Here we are calling the subgraph,"
+    },
+    {
+      "start": 2127.92,
+      "end": 2130.7200000000003,
+      "text": "as you can see."
+    },
+    {
+      "start": 2129.08,
+      "end": 2132.44,
+      "text": "We are calling the subgraph, the"
+    },
+    {
+      "start": 2130.72,
+      "end": 2133.68,
+      "text": "subgraph we have created."
+    },
+    {
+      "start": 2132.44,
+      "end": 2135.52,
+      "text": "Subgraph, and here we are doing the"
+    },
+    {
+      "start": 2133.68,
+      "end": 2137.96,
+      "text": "invoke operation, invoke. We are giving"
+    },
+    {
+      "start": 2135.52,
+      "end": 2139.92,
+      "text": "the user input, okay? And what it will"
+    },
+    {
+      "start": 2137.96,
+      "end": 2141.12,
+      "text": "do, it will translate it will translate"
+    },
+    {
+      "start": 2139.92,
+      "end": 2143.52,
+      "text": "that, it will give you the result, and"
+    },
+    {
+      "start": 2141.12,
+      "end": 2146.24,
+      "text": "this result I'm saving inside this"
+    },
+    {
+      "start": 2143.52,
+      "end": 2148.36,
+      "text": "answer Hindi Hindi variable, okay? So,"
+    },
+    {
+      "start": 2146.24,
+      "end": 2150.52,
+      "text": "that means this part. In this translate"
+    },
+    {
+      "start": 2148.36,
+      "end": 2152.32,
+      "text": "node, we are calling another graph."
+    },
+    {
+      "start": 2150.52,
+      "end": 2154.52,
+      "text": "That's why we call it as a call a"
+    },
+    {
+      "start": 2152.32,
+      "end": 2156.84,
+      "text": "subgraph inside a node, okay? I think"
+    },
+    {
+      "start": 2154.52,
+      "end": 2159.28,
+      "text": "you understood this part, right?"
+    },
+    {
+      "start": 2156.84,
+      "end": 2161.28,
+      "text": "So, here we are implementing as a code."
+    },
+    {
+      "start": 2159.28,
+      "end": 2162.32,
+      "text": "That's it. Now, let me define this as"
+    },
+    {
+      "start": 2161.28,
+      "end": 2163.88,
+      "text": "well."
+    },
+    {
+      "start": 2162.32,
+      "end": 2164.6800000000003,
+      "text": "So, once once it is done, now I'll try"
+    },
+    {
+      "start": 2163.88,
+      "end": 2166.6,
+      "text": "to"
+    },
+    {
+      "start": 2164.68,
+      "end": 2168.44,
+      "text": "uh build this entire graph, okay? Let's"
+    },
+    {
+      "start": 2166.6,
+      "end": 2171.3199999999997,
+      "text": "try to build this entire graph."
+    },
+    {
+      "start": 2168.44,
+      "end": 2172.92,
+      "text": "Now, again, I have already built. Let me"
+    },
+    {
+      "start": 2171.32,
+      "end": 2174.6400000000003,
+      "text": "show you. So, this is my graph parent"
+    },
+    {
+      "start": 2172.92,
+      "end": 2176.0,
+      "text": "builder. Straight graph, we are giving"
+    },
+    {
+      "start": 2174.64,
+      "end": 2177.56,
+      "text": "the state."
+    },
+    {
+      "start": 2176.0,
+      "end": 2180.24,
+      "text": "Then, here you can see we are adding the"
+    },
+    {
+      "start": 2177.56,
+      "end": 2182.64,
+      "text": "nodes, uh that means our generator"
+    },
+    {
+      "start": 2180.24,
+      "end": 2185.6,
+      "text": "generate nodes as well as the translate"
+    },
+    {
+      "start": 2182.64,
+      "end": 2187.56,
+      "text": "node. We are adding these two nodes,"
+    },
+    {
+      "start": 2185.6,
+      "end": 2188.68,
+      "text": "generate answer and translate answer."
+    },
+    {
+      "start": 2187.56,
+      "end": 2190.16,
+      "text": "After that, we are adding the"
+    },
+    {
+      "start": 2188.68,
+      "end": 2193.08,
+      "text": "connection. Okay, edges. That means"
+    },
+    {
+      "start": 2190.16,
+      "end": 2195.92,
+      "text": "start to answer, start to generate"
+    },
+    {
+      "start": 2193.08,
+      "end": 2198.2,
+      "text": "answer. Generate answer to translate."
+    },
+    {
+      "start": 2195.92,
+      "end": 2200.6800000000003,
+      "text": "Now, we can see answer to translate."
+    },
+    {
+      "start": 2198.2,
+      "end": 2202.2799999999997,
+      "text": "And translate to end."
+    },
+    {
+      "start": 2200.68,
+      "end": 2204.12,
+      "text": "Translate to end. Okay, so this is the"
+    },
+    {
+      "start": 2202.28,
+      "end": 2205.4,
+      "text": "connection we have."
+    },
+    {
+      "start": 2204.12,
+      "end": 2208.8399999999997,
+      "text": "Done. Now,"
+    },
+    {
+      "start": 2205.4,
+      "end": 2211.1600000000003,
+      "text": "we have to also compile this."
+    },
+    {
+      "start": 2208.84,
+      "end": 2213.36,
+      "text": "After building, we'll also compile this."
+    },
+    {
+      "start": 2211.16,
+      "end": 2214.68,
+      "text": "And this is our final graph object,"
+    },
+    {
+      "start": 2213.36,
+      "end": 2217.6,
+      "text": "guys. You can see"
+    },
+    {
+      "start": 2214.68,
+      "end": 2218.8399999999997,
+      "text": "uh this is the uh I mean, graph I"
+    },
+    {
+      "start": 2217.6,
+      "end": 2221.0,
+      "text": "already showed you here. Okay, this"
+    },
+    {
+      "start": 2218.84,
+      "end": 2223.0,
+      "text": "thing we have already implemented."
+    },
+    {
+      "start": 2221.0,
+      "end": 2224.44,
+      "text": "Now, let's try to invoke this graph and"
+    },
+    {
+      "start": 2223.0,
+      "end": 2226.28,
+      "text": "let's see whether it is able to generate"
+    },
+    {
+      "start": 2224.44,
+      "end": 2229.0,
+      "text": "the output or not. So, simply I'll just"
+    },
+    {
+      "start": 2226.28,
+      "end": 2231.1200000000003,
+      "text": "try to invoke it. So, graph.invoke"
+    },
+    {
+      "start": 2229.0,
+      "end": 2232.68,
+      "text": "and uh here I'm giving a question, what"
+    },
+    {
+      "start": 2231.12,
+      "end": 2235.08,
+      "text": "is quantum physics?"
+    },
+    {
+      "start": 2232.68,
+      "end": 2238.52,
+      "text": "Now, it should return the"
+    },
+    {
+      "start": 2235.08,
+      "end": 2240.3199999999997,
+      "text": "um original English uh generated output"
+    },
+    {
+      "start": 2238.52,
+      "end": 2242.7599999999998,
+      "text": "as well as the Hindi translated output."
+    },
+    {
+      "start": 2240.32,
+      "end": 2244.1600000000003,
+      "text": "Let's see."
+    },
+    {
+      "start": 2242.76,
+      "end": 2246.1200000000003,
+      "text": "And to generate that, it is using"
+    },
+    {
+      "start": 2244.16,
+      "end": 2249.52,
+      "text": "subgraph instead of"
+    },
+    {
+      "start": 2246.12,
+      "end": 2249.52,
+      "text": "executing in the same node."
+    },
+    {
+      "start": 2251.84,
+      "end": 2254.88,
+      "text": "So, guys, as you can see, this is the"
+    },
+    {
+      "start": 2253.16,
+      "end": 2257.16,
+      "text": "output. This is the question we have"
+    },
+    {
+      "start": 2254.88,
+      "end": 2259.56,
+      "text": "asked. This is the English answer."
+    },
+    {
+      "start": 2257.16,
+      "end": 2262.0,
+      "text": "And this is the Hindi translated answer."
+    },
+    {
+      "start": 2259.56,
+      "end": 2263.84,
+      "text": "Okay? That means this workflow is"
+    },
+    {
+      "start": 2262.0,
+      "end": 2265.24,
+      "text": "working perfectly. Okay? This is"
+    },
+    {
+      "start": 2263.84,
+      "end": 2268.56,
+      "text": "completely fine."
+    },
+    {
+      "start": 2265.24,
+      "end": 2270.3599999999997,
+      "text": "And uh we have completed our first"
+    },
+    {
+      "start": 2268.56,
+      "end": 2273.08,
+      "text": "uh subgraph implementation, which is"
+    },
+    {
+      "start": 2270.36,
+      "end": 2276.08,
+      "text": "call a subgraph inside a node. Now, let"
+    },
+    {
+      "start": 2273.08,
+      "end": 2277.44,
+      "text": "me show you how to implement this one."
+    },
+    {
+      "start": 2276.08,
+      "end": 2279.4,
+      "text": "Um"
+    },
+    {
+      "start": 2277.44,
+      "end": 2282.52,
+      "text": "add a subgraph as a node, okay? Now,"
+    },
+    {
+      "start": 2279.4,
+      "end": 2282.52,
+      "text": "I'll show you this example."
+    },
+    {
+      "start": 2283.28,
+      "end": 2287.0800000000004,
+      "text": "So, here I'll just try to"
+    },
+    {
+      "start": 2287.24,
+      "end": 2291.8399999999997,
+      "text": "Uh you can create another file. Uh I"
+    },
+    {
+      "start": 2289.56,
+      "end": 2293.6,
+      "text": "think I have I have already a file"
+    },
+    {
+      "start": 2291.84,
+      "end": 2295.28,
+      "text": "subgraph shared, okay?"
+    },
+    {
+      "start": 2293.6,
+      "end": 2296.7599999999998,
+      "text": "Uh this one I'll try to load and I'll"
+    },
+    {
+      "start": 2295.28,
+      "end": 2299.1600000000003,
+      "text": "explain, okay, how I've created this"
+    },
+    {
+      "start": 2296.76,
+      "end": 2300.7200000000003,
+      "text": "one. Let's see."
+    },
+    {
+      "start": 2299.16,
+      "end": 2302.56,
+      "text": "See, again I have imported all of the"
+    },
+    {
+      "start": 2300.72,
+      "end": 2305.16,
+      "text": "necessary library, okay? Whatever"
+    },
+    {
+      "start": 2302.56,
+      "end": 2307.52,
+      "text": "library I need type D state graph start"
+    },
+    {
+      "start": 2305.16,
+      "end": 2312.3199999999997,
+      "text": "end start Google generative AI"
+    },
+    {
+      "start": 2307.52,
+      "end": 2312.32,
+      "text": "and load EMB. Let me execute that."
+    },
+    {
+      "start": 2312.68,
+      "end": 2315.8399999999997,
+      "text": "Okay, so we have imported all of the"
+    },
+    {
+      "start": 2314.24,
+      "end": 2317.72,
+      "text": "necessary library. Now I'll try to load"
+    },
+    {
+      "start": 2315.84,
+      "end": 2320.04,
+      "text": "my environment variable."
+    },
+    {
+      "start": 2317.72,
+      "end": 2321.3199999999997,
+      "text": "And here we are"
+    },
+    {
+      "start": 2320.04,
+      "end": 2323.0,
+      "text": "creating that."
+    },
+    {
+      "start": 2321.32,
+      "end": 2325.04,
+      "text": "So as you can see first of all"
+    },
+    {
+      "start": 2323.0,
+      "end": 2326.6,
+      "text": "see here we are creating this one. Let"
+    },
+    {
+      "start": 2325.04,
+      "end": 2329.16,
+      "text": "me show you."
+    },
+    {
+      "start": 2326.6,
+      "end": 2330.48,
+      "text": "This one."
+    },
+    {
+      "start": 2329.16,
+      "end": 2331.96,
+      "text": "This one. Okay."
+    },
+    {
+      "start": 2330.48,
+      "end": 2334.2,
+      "text": "And for this one you can see I don't"
+    },
+    {
+      "start": 2331.96,
+      "end": 2335.7200000000003,
+      "text": "need to create separate state for my sub"
+    },
+    {
+      "start": 2334.2,
+      "end": 2338.48,
+      "text": "graph. Okay, that means I'll create only"
+    },
+    {
+      "start": 2335.72,
+      "end": 2340.16,
+      "text": "one state. And your main graph will also"
+    },
+    {
+      "start": 2338.48,
+      "end": 2341.4,
+      "text": "interact with the same state and your"
+    },
+    {
+      "start": 2340.16,
+      "end": 2343.44,
+      "text": "sub graph will also interact with the"
+    },
+    {
+      "start": 2341.4,
+      "end": 2344.84,
+      "text": "same state. Okay, that's why one state"
+    },
+    {
+      "start": 2343.44,
+      "end": 2347.04,
+      "text": "I'm creating only which is my parent"
+    },
+    {
+      "start": 2344.84,
+      "end": 2348.48,
+      "text": "state and here I'm creating all of the"
+    },
+    {
+      "start": 2347.04,
+      "end": 2350.2,
+      "text": "variable whichever I need that means"
+    },
+    {
+      "start": 2348.48,
+      "end": 2353.48,
+      "text": "question answer English and answer"
+    },
+    {
+      "start": 2350.2,
+      "end": 2355.3599999999997,
+      "text": "Hindi. Okay. I'll try to define that."
+    },
+    {
+      "start": 2353.48,
+      "end": 2357.32,
+      "text": "Now we are defining two large language"
+    },
+    {
+      "start": 2355.36,
+      "end": 2360.44,
+      "text": "model. One is for my parent LLM and it"
+    },
+    {
+      "start": 2357.32,
+      "end": 2361.84,
+      "text": "is for my sub graph LLM. Okay."
+    },
+    {
+      "start": 2360.44,
+      "end": 2363.88,
+      "text": "Let me define."
+    },
+    {
+      "start": 2361.84,
+      "end": 2366.4,
+      "text": "Okay. Now we are defining creating the"
+    },
+    {
+      "start": 2363.88,
+      "end": 2368.4,
+      "text": "nodes my translate text node."
+    },
+    {
+      "start": 2366.4,
+      "end": 2370.2400000000002,
+      "text": "And here you can see we are giving the"
+    },
+    {
+      "start": 2368.4,
+      "end": 2371.84,
+      "text": "same prompt. We are also invoking the"
+    },
+    {
+      "start": 2370.24,
+      "end": 2374.3599999999997,
+      "text": "same large language model."
+    },
+    {
+      "start": 2371.84,
+      "end": 2375.44,
+      "text": "And we are generating the translated"
+    },
+    {
+      "start": 2374.36,
+      "end": 2377.04,
+      "text": "text."
+    },
+    {
+      "start": 2375.44,
+      "end": 2378.76,
+      "text": "Okay, this is my node."
+    },
+    {
+      "start": 2377.04,
+      "end": 2380.04,
+      "text": "Now we'll try to build the sub graph. So"
+    },
+    {
+      "start": 2378.76,
+      "end": 2381.92,
+      "text": "here we are building the sub graph as"
+    },
+    {
+      "start": 2380.04,
+      "end": 2383.72,
+      "text": "you can see. That means"
+    },
+    {
+      "start": 2381.92,
+      "end": 2386.0,
+      "text": "this graph we are building."
+    },
+    {
+      "start": 2383.72,
+      "end": 2387.52,
+      "text": "This graph. Okay, same same that means"
+    },
+    {
+      "start": 2386.0,
+      "end": 2390.12,
+      "text": "my previous code only."
+    },
+    {
+      "start": 2387.52,
+      "end": 2393.04,
+      "text": "Sub graph we are implementing."
+    },
+    {
+      "start": 2390.12,
+      "end": 2394.08,
+      "text": "Now we'll be creating the"
+    },
+    {
+      "start": 2393.04,
+      "end": 2396.32,
+      "text": "um"
+    },
+    {
+      "start": 2394.08,
+      "end": 2397.2799999999997,
+      "text": "main main graph. And for main graph I"
+    },
+    {
+      "start": 2396.32,
+      "end": 2398.6400000000003,
+      "text": "don't need to create the state"
+    },
+    {
+      "start": 2397.28,
+      "end": 2401.28,
+      "text": "separately. Now I'll create this"
+    },
+    {
+      "start": 2398.64,
+      "end": 2402.7599999999998,
+      "text": "generate nodes. So this is my generate"
+    },
+    {
+      "start": 2401.28,
+      "end": 2403.8,
+      "text": "nodes."
+    },
+    {
+      "start": 2402.76,
+      "end": 2405.96,
+      "text": "Yeah."
+    },
+    {
+      "start": 2403.8,
+      "end": 2407.36,
+      "text": "Now after generating node we'll try to"
+    },
+    {
+      "start": 2405.96,
+      "end": 2408.92,
+      "text": "build the"
+    },
+    {
+      "start": 2407.36,
+      "end": 2411.36,
+      "text": "we'll try to build the"
+    },
+    {
+      "start": 2408.92,
+      "end": 2414.2000000000003,
+      "text": "um main main graph. Okay. Now you can"
+    },
+    {
+      "start": 2411.36,
+      "end": 2416.08,
+      "text": "see here I haven't"
+    },
+    {
+      "start": 2414.2,
+      "end": 2419.52,
+      "text": "um here"
+    },
+    {
+      "start": 2416.08,
+      "end": 2423.72,
+      "text": "previously here I I told you"
+    },
+    {
+      "start": 2419.52,
+      "end": 2423.72,
+      "text": "uh whenever I created my"
+    },
+    {
+      "start": 2424.16,
+      "end": 2428.6,
+      "text": "Uh yeah. Whenever I created my"
+    },
+    {
+      "start": 2426.72,
+      "end": 2431.12,
+      "text": "uh sub graph, right? There in the"
+    },
+    {
+      "start": 2428.6,
+      "end": 2433.04,
+      "text": "translated node, I was invoking the sub"
+    },
+    {
+      "start": 2431.12,
+      "end": 2435.2,
+      "text": "graph only. But here, I'm not doing"
+    },
+    {
+      "start": 2433.04,
+      "end": 2436.32,
+      "text": "that. Okay, here I'm not doing that"
+    },
+    {
+      "start": 2435.2,
+      "end": 2439.16,
+      "text": "because"
+    },
+    {
+      "start": 2436.32,
+      "end": 2441.4,
+      "text": "I created this translated text, okay,"
+    },
+    {
+      "start": 2439.16,
+      "end": 2443.16,
+      "text": "separately. And I'll I'll try to add"
+    },
+    {
+      "start": 2441.4,
+      "end": 2444.88,
+      "text": "inside my"
+    },
+    {
+      "start": 2443.16,
+      "end": 2447.08,
+      "text": "uh inside my"
+    },
+    {
+      "start": 2444.88,
+      "end": 2449.2400000000002,
+      "text": "uh node, okay? So, let me show you how"
+    },
+    {
+      "start": 2447.08,
+      "end": 2450.48,
+      "text": "it will be working. So, here as you can"
+    },
+    {
+      "start": 2449.24,
+      "end": 2452.52,
+      "text": "see"
+    },
+    {
+      "start": 2450.48,
+      "end": 2454.2,
+      "text": "here. So, previously, I was calling the"
+    },
+    {
+      "start": 2452.52,
+      "end": 2456.04,
+      "text": "sub I was invoking the sub node"
+    },
+    {
+      "start": 2454.2,
+      "end": 2458.08,
+      "text": "separately, but here in this node"
+    },
+    {
+      "start": 2456.04,
+      "end": 2458.92,
+      "text": "itself, I'll try to add this one. That's"
+    },
+    {
+      "start": 2458.08,
+      "end": 2461.52,
+      "text": "why"
+    },
+    {
+      "start": 2458.92,
+      "end": 2462.48,
+      "text": "I'm writing I'm directly building my"
+    },
+    {
+      "start": 2461.52,
+      "end": 2464.72,
+      "text": "graph."
+    },
+    {
+      "start": 2462.48,
+      "end": 2465.8,
+      "text": "And for this, we are giving the"
+    },
+    {
+      "start": 2464.72,
+      "end": 2467.64,
+      "text": "we're adding the node. First of all,"
+    },
+    {
+      "start": 2465.8,
+      "end": 2469.8,
+      "text": "we're adding the generated answer. Now,"
+    },
+    {
+      "start": 2467.64,
+      "end": 2471.2,
+      "text": "here you can see in the node itself,"
+    },
+    {
+      "start": 2469.8,
+      "end": 2473.2400000000002,
+      "text": "we're adding the sub graph. But"
+    },
+    {
+      "start": 2471.2,
+      "end": 2476.08,
+      "text": "previously, we are not adding that."
+    },
+    {
+      "start": 2473.24,
+      "end": 2478.3999999999996,
+      "text": "Previously, we're defining as a node and"
+    },
+    {
+      "start": 2476.08,
+      "end": 2480.72,
+      "text": "we're invoking that particular sub graph"
+    },
+    {
+      "start": 2478.4,
+      "end": 2483.04,
+      "text": "separately. But right now, in this node"
+    },
+    {
+      "start": 2480.72,
+      "end": 2486.9599999999996,
+      "text": "only, we're adding the sub graph as a"
+    },
+    {
+      "start": 2483.04,
+      "end": 2489.56,
+      "text": "node. Okay, that's why we call it as a"
+    },
+    {
+      "start": 2486.96,
+      "end": 2491.16,
+      "text": "Um let me show you."
+    },
+    {
+      "start": 2489.56,
+      "end": 2493.64,
+      "text": "We call it as a"
+    },
+    {
+      "start": 2491.16,
+      "end": 2496.68,
+      "text": "add a graph as a node, okay? I think you"
+    },
+    {
+      "start": 2493.64,
+      "end": 2498.3199999999997,
+      "text": "understood this part. Now, we're again"
+    },
+    {
+      "start": 2496.68,
+      "end": 2499.8399999999997,
+      "text": "um I mean"
+    },
+    {
+      "start": 2498.32,
+      "end": 2502.0,
+      "text": "doing the edge connection, start to"
+    },
+    {
+      "start": 2499.84,
+      "end": 2503.6400000000003,
+      "text": "answer, answer to translate, translate"
+    },
+    {
+      "start": 2502.0,
+      "end": 2505.04,
+      "text": "to end. That means this connection we're"
+    },
+    {
+      "start": 2503.64,
+      "end": 2506.8399999999997,
+      "text": "building."
+    },
+    {
+      "start": 2505.04,
+      "end": 2508.56,
+      "text": "This connection we're building, okay?"
+    },
+    {
+      "start": 2506.84,
+      "end": 2510.36,
+      "text": "Once this connection is built up, now"
+    },
+    {
+      "start": 2508.56,
+      "end": 2512.08,
+      "text": "let me"
+    },
+    {
+      "start": 2510.36,
+      "end": 2514.04,
+      "text": "Yeah. Now, I'll try to compile the"
+    },
+    {
+      "start": 2512.08,
+      "end": 2517.88,
+      "text": "graph. Then again, I'll try to ask the"
+    },
+    {
+      "start": 2514.04,
+      "end": 2517.88,
+      "text": "same question, what is quantum physics?"
+    },
+    {
+      "start": 2520.16,
+      "end": 2523.3199999999997,
+      "text": "So guys, here is the output. As you can"
+    },
+    {
+      "start": 2521.8,
+      "end": 2524.7200000000003,
+      "text": "see, this my question, this my English"
+    },
+    {
+      "start": 2523.32,
+      "end": 2526.8,
+      "text": "answer, this is my Hindi translated"
+    },
+    {
+      "start": 2524.72,
+      "end": 2528.72,
+      "text": "answer, okay? So, this is also working"
+    },
+    {
+      "start": 2526.8,
+      "end": 2530.84,
+      "text": "perfectly. Only the difference is that"
+    },
+    {
+      "start": 2528.72,
+      "end": 2532.9599999999996,
+      "text": "here, in this particular node, I'm"
+    },
+    {
+      "start": 2530.84,
+      "end": 2535.52,
+      "text": "adding the sub graph directly. and in my"
+    },
+    {
+      "start": 2532.96,
+      "end": 2537.84,
+      "text": "previous example, I was invoking, okay,"
+    },
+    {
+      "start": 2535.52,
+      "end": 2540.2,
+      "text": "I was invoking that particular sub graph"
+    },
+    {
+      "start": 2537.84,
+      "end": 2542.2400000000002,
+      "text": "uh separately. This is the difference."
+    },
+    {
+      "start": 2540.2,
+      "end": 2543.8799999999997,
+      "text": "Now, both I both example I showed you,"
+    },
+    {
+      "start": 2542.24,
+      "end": 2545.52,
+      "text": "which one you prefer, you can use that"
+    },
+    {
+      "start": 2543.88,
+      "end": 2548.32,
+      "text": "and don't worry, in my next video, I'll"
+    },
+    {
+      "start": 2545.52,
+      "end": 2550.0,
+      "text": "show you how we can build multi-agent uh"
+    },
+    {
+      "start": 2548.32,
+      "end": 2551.88,
+      "text": "application system. We'll try to build a"
+    },
+    {
+      "start": 2550.0,
+      "end": 2553.76,
+      "text": "real-time application, okay, real-world"
+    },
+    {
+      "start": 2551.88,
+      "end": 2555.88,
+      "text": "application with the help of this sub"
+    },
+    {
+      "start": 2553.76,
+      "end": 2557.4,
+      "text": "graph concept as well, okay? So, yes,"
+    },
+    {
+      "start": 2555.88,
+      "end": 2558.88,
+      "text": "guys, this is all about uh from this"
+    },
+    {
+      "start": 2557.4,
+      "end": 2560.6,
+      "text": "video. I hope you liked it. So, if you"
+    },
+    {
+      "start": 2558.88,
+      "end": 2562.32,
+      "text": "like my content, guys, please try to"
+    },
+    {
+      "start": 2560.6,
+      "end": 2563.6,
+      "text": "subscribe to my channel. This should be"
+    },
+    {
+      "start": 2562.32,
+      "end": 2564.8,
+      "text": "my request to all of you. Please try to"
+    },
+    {
+      "start": 2563.6,
+      "end": 2566.6,
+      "text": "support me."
+    },
+    {
+      "start": 2564.8,
+      "end": 2568.6000000000004,
+      "text": "And let me know if you need anything"
+    },
+    {
+      "start": 2566.6,
+      "end": 2570.2,
+      "text": "from myself uh my side, I'll definitely"
+    },
+    {
+      "start": 2568.6,
+      "end": 2571.64,
+      "text": "provide that content."
+    },
+    {
+      "start": 2570.2,
+      "end": 2573.24,
+      "text": "And all of the code resources would be"
+    },
+    {
+      "start": 2571.64,
+      "end": 2575.24,
+      "text": "available in my description. From there,"
+    },
+    {
+      "start": 2573.24,
+      "end": 2578.04,
+      "text": "you can check it out. So, yes, uh this"
+    },
+    {
+      "start": 2575.24,
+      "end": 2579.3599999999997,
+      "text": "is all about uh I hope you like this."
+    },
+    {
+      "start": 2578.04,
+      "end": 2582.24,
+      "text": "I'll see you in the next video, guys."
+    },
+    {
+      "start": 2579.36,
+      "end": 2582.2400000000002,
+      "text": "Thank you so much."
+    }
+  ],
+  "video_id": "gVrtQKuS4MM",
+  "title": "LangGraph Subgraphs Explained: Build Powerful Multi-Agent AI Systems",
+  "position": 31,
+  "url": "https://www.youtube.com/watch?v=gVrtQKuS4MM"
+}

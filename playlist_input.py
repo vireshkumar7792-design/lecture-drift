@@ -214,6 +214,89 @@ def main():
                         file_name=transcript['video_id'] + '.json', mime='application/json',
                         key='download_' + str(transcript['position']) + '_' + transcript['video_id'])
 
+            if result['transcripts']:
+                show_study_chat(st.session_state['study_request'], result['transcripts'])
+
+
+@st.cache_resource(show_spinner=False)
+def load_embedding_model():
+    """Load the embedding model once per server process instead of on every rerun."""
+    import rag_pipeline
+    return rag_pipeline.get_embedding_model()
+
+
+def show_study_chat(study_request, transcripts):
+    """Ask questions about the chosen lectures, answered from their transcripts with citations."""
+    import rag_pipeline
+
+    st.subheader('Ask about your lectures')
+    st.caption('Answers use only the transcripts of the lectures you chose. '
+               'Citations such as [L3 05:31] open the lecture at that moment.')
+
+    # Rebuild the index when the set of lectures with transcripts changes.
+    index_key = tuple(sorted(transcript['video_id'] for transcript in transcripts))
+    if st.session_state.get('rag_index_key') != index_key:
+        st.session_state.pop('rag_index', None)
+        st.session_state['chat_history'] = []
+        st.session_state['rag_index_key'] = index_key
+
+    if 'rag_index' not in st.session_state:
+        try:
+            with st.status('Preparing lecture search (first run downloads the model and may take a few minutes)...',
+                           expanded=True) as status:
+                load_embedding_model()
+                st.session_state['rag_index'] = rag_pipeline.LectureIndex(transcripts, progress=st.write)
+                status.update(label='Lecture search is ready', state='complete', expanded=False)
+        except ImportError:
+            st.error('Install search support: python -m pip install sentence-transformers')
+            return
+        except Exception as error:
+            st.error(f'Could not prepare lecture search: {error}')
+            return
+
+    if not rag_pipeline.llm_available():
+        st.warning('Add OPENROUTER_API_KEY to your environment or a .env file in the project folder to get answers.')
+        return
+
+    history = st.session_state['chat_history']
+    for turn in history:
+        with st.chat_message(turn['role']):
+            st.markdown(turn['content'])
+            show_sources(turn.get('sources'))
+
+    question = None
+    concept = study_request['concept']
+    if not history and concept and st.button('Explain the concept I am struggling with', type='primary'):
+        question = concept
+    question = st.chat_input('Ask a question about these lectures') or question
+    if not question:
+        return
+
+    with st.chat_message('user'):
+        st.markdown(question)
+    with st.chat_message('assistant'):
+        try:
+            with st.spinner('Searching the lectures and writing an answer...'):
+                result = rag_pipeline.answer_question(
+                    st.session_state['rag_index'], question, study_request,
+                    history=[{'role': turn['role'], 'content': turn['content']} for turn in history])
+        except Exception as error:
+            st.error(str(error))
+            return
+        st.markdown(result['answer'])
+        show_sources(result['sources'])
+    history.append({'role': 'user', 'content': question})
+    history.append({'role': 'assistant', 'content': result['answer'], 'sources': result['sources']})
+
+
+def show_sources(sources):
+    if not sources:
+        return
+    with st.expander(f'Transcript passages used ({len(sources)})'):
+        for source in sources:
+            st.markdown(f'**[{source["label"]}]({source["link"]})** · Lecture {source["position"]}: {source["title"]}')
+            st.caption(source['text'][:600] + ('...' if len(source['text']) > 600 else ''))
+
 
 if __name__ == '__main__':
     main()

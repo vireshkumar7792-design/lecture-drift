@@ -1,0 +1,4007 @@
+{
+  "source": "youtube_captions",
+  "language": "en",
+  "is_generated": true,
+  "text": "Hi everyone, my name is Bapy Hamemed and you are welcome to my YouTube channel. So guys, in this video uh I'm going to show you how we can add uh trading features inside our agentic chatbot. So I think you remember guys, I started implementing um our first project inside our uh agentic playlist which is uh agentic chatbot and uh this is the part four of that particular implementation. So in our previous video I showed you how we can add the streaming features if you check this playlist. So this is the playlist guys and uh the previous video was the part three there I showed you how to add the streaming responses and in this video guys I already told you about the trading uh I already told you about the persistence memory. Uh so if you are completely new to the channel so please try to first of all complete these are the video then you can continue with this implementation. Okay, otherwise you might get difficulties for sure. So if you check my uh aentic chatbot guys, so far we implemented u till here. So here we can perform any kinds of chat operation right now. Okay. And uh you can see it's working and it is also giving you some kinds of streaming response like chat GPT right. So in chart GPT what happens guys? Uh in charge GPT you can resume your conversation with your old trades. Let's say I did some kinds of conversation previously. I can continue anytime. These are the conversations. So let's say this was my previous trades, right? So if I open this particular trades, I'll be able to see all of my conversation story. Okay. And I can uh resume my chat from here only. Okay. I can resume my chat from here only. Right. Now like that I can go to any another trades. Let's say I will go to this uh the this trades. Okay. So from here only I can do my conversation. So this is called trading. Okay. with the help of this trading we can separate out uh each and every topic let's say masses okay let's say right now I want to do a conversation related uh uh let's say deep learning let's say I need another uh new session for another topic let's say I want to do the conversation regarding let's say NLP it's like that okay instead of doing all of the conversation in a single trade in a single session you can create multiple trades okay and you can do the conversation ation anytime you can come here you can see the older conversation as well with a different different trades but this kinds of feature is not available inside our agentic chatbot so in this video what I'm going to do guys I'm going to implement this particular features so that uh you can also get your older trades uh and you can also see all of the uh old trades conversation as well and anytime you can continue your conversation from there only okay so these kinds of features we'll try to add in this particular agent authentic chatbot in this video. So, make sure guys you watch this video till the end. Don't miss anything and if you found this content useful, please try to subscribe to my channel and hit the like and please try to share it with your friends and family. So, instead of talking too much guys, let's start the implementation and I'm going to show you how we can add this training features inside this agentic chatbot. So guys before starting the development first of all I want to show you the final result final demo uh like what are the uh features we're going to add in this particular agentic chatbot. So as you can see we already added this uh trading features inside our agentic chatbot. Previously uh it was a simple chatbot only. Okay, there uh we didn't have any kinds of uh trading features like uh I can't see my older trades, right? Uh it was not there. But in the new update, as you can see here, we have added a separate section. So from here only you can go to your previous conversation. So let's say here I'm doing a conversation. Let's say I'm asking what is Python, right? Uh let's I have a ask my name is BPY and I'll tell what is Python. Now you can see Python is a highle programming language and blah blah blah. Now if I ask what is my name? Now it is telling your name is BP. Okay. So this is a conversation we have done in this particular trades. As you can see we are using uh unique uh uh ID right to save this particular uh conversation story in this particular trades. Now what you can do like the chart GP you can start a new conversation here. So I will click on new chart. Now see it will give me a completely new trades here. Now here if I ask what is my name? Okay, what is my name? You'll see that I'm sorry I'm a assistant. I do not have access your personal information. Now if I ask my name is Alex. What is ML? Now see it is giving you the response. Now if I ask what is my name? Now it will tell your name is Alex. Okay. Now see this this particular conversation is completely separate from your previous conversation. Now I can go to the previous conversation any time. Okay. Where I did like uh my name is By what is Python? Now here I can continue the conversation. Let's say now I'll tell I want to see hello world program. Now see it is giving you the hello world program because we did the conversation related Python. Okay. And here we are doing the conversation uh with the uh help of Buppy. Okay. So here Buppy is doing the conversation. Now even I can go to my previous conversation as well. So this is my previous conversation. This one my previous conversation. Now here you can anytime uh resume the conversation. Let's say um how it helps in AI. See how machine learning helps in AI. It is uh telling you each and everything. Okay. So that's how you can create different different trades and you can see your older conversation as well like chart GPT. So chart GPT does the same thing it also using trading concept and every time whenever you are doing that chatting operation it is continuously saving your conversation history in a one particular trades and you can uh start new conversation anytime but the older conversation will remain same. Okay. So this kinds of thing guys we have added inside this particular agentic chatbot. Now throughout the entire video I'm going to show you the implementation part. So guys uh this was our uh previous code we have already written. So as you can see this was our previous app and it doesn't have any kinds of uh uh trading related uh uh code although I added the trading as you can see I added the trading but it was hardcoded so only I was using trade one for all the conversation. Okay that's why this application was simple. Now I'm going to use the same code and we'll be writing the trading features inside this aentic chatbot. So what I can do instead of uh giving the name to app.py maybe I can give another name just for your reference. So let's say u um whenever you want to refer this particular simple code only that time you will be able to get this code from here. Okay. So I can also replace the code in my uh app.py pi but u u I think you won't be able to get the previous uh code that time. So that's why I'm going to create a new file. So first of all let me rename it. So this is let's say simple app. Okay, this is simple app we created. Now I'm going to create another file. I'm going to name name it as app uh trade. Okay, that means uh this uh code has the trading uh trading code. Okay, trading related code, trading related features. Now what I can do, I can copy the same code as it is here. Okay. Yeah. And here this back end code will remain same. The back end code we have written this code will remain same here. You don't need to change anything. The change would be applied in the front end part only. Okay? because in the back end we are only returning the chatbot uh this uh graph object. Okay. So here what I'm going to do guys first of all I need some more library. So let me import. So I need u so here I need uh u u id. So with the help of this u u id I'll try to generate unique ID so that I can separate out my each and every trades. Okay instead of doing the hard coding. So every time I will generate a unique ID and I'm going to create my trades. Okay. uh first I'm going to create uh one function that will generate unique uh unique uh ID okay unique user ID because every time I need this unique user ID for this particular trading right I already showed you that part so for this let's create a function so this is the function guys I have already created yeah so this function what it does it u generates unique ID uh unique user ID every Okay. Uh whenever you will execute this function, it will give you unique user ID. So after getting this unique user ID, uh what I want to do guys, I want to um I want to add this uh unique ID inside my trades. Okay. So for this u I can create another function u called add traits. So what this add trades will do uh basically it will add a new trades ID to the conversation list. Okay. So basically this will get the trade ID and where you will get the trade ID we'll get from this particular function. First of all it will check this trade ID it is available in the session state or not. Okay that means uh stream session state or not. Uh we'll try to save with the help of this chat threads um like key. So if it is not there it will uh try to set my uh trade ID the trade ID it will generate. Okay. So this is a simple function we have created because whenever you will try to initialize your application for the first time there it won't be having any kinds of chat trades right so that time one new trade should be created completely new trades would be created and it will try to append there and with that particular trades only we'll do the conversation then later on if user wants they can create the trades okay as per their requirement. Now you can see this uh chat threads is not available. Uh so we have to also create that. So if you just go below so I think remember we created um message story previously. So here only I'll try to add another one. So after message story so we'll just try to write this uh chat threads. Okay. As you can see if chat trades not in session state it will create a empty chat traits. Okay. And this will become a list. And right now we'll be able to we'll be able to um append that particular trades because now this chat trades session is created. Okay. Here only I will also try to add the comments in my previous code as well. So that later on whenever you are uh revising this code I think it would it will be helpful for you. Okay. Okay, by seeing the comments only, you can understand what this code is doing. Okay, you can see this uh this code actually creates the message story when the app runs for the first time. Okay, I already created previously I think you remember. So once it is done, now let me uh add uh the user interface because if you go to the chat GP left hand side, you will be able to see all of your uh conversation okay all of the traits. So we'll try to create the same thing here. So for this let me just create a sidebar first of all. So here I'll just try to add a sidebar with the help of streaml. So I already commented out this is that uh sidebar trading features display the sidebar title. So stidebar title I just name it as my conversations. Now if I execute my code okay if I execute my code you will be able to see that. So streamlit run uh app_trade.py. Okay, this file we're executing. Now if I show you my code. So as you can see guys, this is our uh sidebar we created. So anytime you can open and close it uh like the chart GPT. Charge GPT also has the same thing. Okay, this is the sidebar. Now here only we'll be adding our trading. Okay. So for this uh let me just uh show you my updated code what I have done. Um I can show you step by step. I think that would be uh best. So what I can do I can just uh quickly show you. So I'll just uh remove these are the code. Okay my old code and I'm going to show you my updated code. I think that would be amazing. I'll just try to remove all of the code. [clears throat] So first uh we'll be adding some utility functions. First of all, generate uh trade ID. I already told you it will generate the trade ID every time. And another function I have written uh this will basically add the trade ID where to the session state. Okay. But we have to create the session state. So let's create all the session state. I'll just try to add all of the session state. So this is my message story session uh session state and this is for my chat uh session state. Okay, chat traits. Okay, that means this this one. And um um I'm going to create a sidebar here. Sidebar here. Okay. So this is my sidebar. Now if I go to my application again, if I refresh now, see it looks like that. Okay. Don't worry about this chat input feature. I'm going to add it. Uh just let me update my uh this code first of all. Then I'm going to add okay that will remain same like we did the previously right now what I'm going to do guys I'm going to add a new button here so I think you remember chity also has a button if you click on this new chat button it will start a new conversation for you and you will be able to see the old uh trades as well so these kinds of features we'll try to add here so this is the code I'm going to tell you about this reset chat what this reset chat will do but let's try to understand uh see this uh creates a button for starting a new conversation. So there would be a button styidebar dot button new chart and if you click on new chart see what will happen in chart GPT let's say uh let's say I'm inside a trades let's say I'm inside this particular trades okay I'm inside this particular trades now once I click on new chart you'll see that one new window will come and all of the previous chart history will be clean up right so for this kind uh this reason I'm also going to write a function called recent reset chat so whenever user will take the new chat all of the previous conversation would be removed. So for this let's create another function here. I'm going to name it as um reset chat. So after this function maybe I can add okay reset chat. So what it it is doing you can see uh first of all it will basically generate a new trade ID with the help of this function and it will store in the trade ID. The trade ID uh we created uh session state I think session state trade ID is not created. So let me create it quickly. So this is my trade ID. Okay. Okay, if trade ID not in session state uh it will create a trade ID and it will take a trade ID from this particular function. Okay, unique trade ID. Now it is resetting and uh what it is doing it is uh setting a new trade ID. Then after that all of the message would be empty. We you can see we are giving empty list. Then after that we are adding this particular trade ID in my session state. Okay, you can see we are using this add trade function and we are adding this trade ID the current trade ID in the session state because whenever I'm inside this particular trade okay I'm inside this this particular trade so all of the conversation should be saved in this particular trades only that's why this thing we are doing so every time we have to track this trade trade ID all right now uh let's say if I go to my application if I refresh now you'll be able to the uh see this new chat. Okay. Now if I click on this new chat, so it will basically run this code. It will basically run this code and all of the recent uh uh I mean recent conversation would be removed. Okay. And uh uh we have to write this st. If you are doing the reset chat operation, this is recommended. So basically this this will uh return the streaml app to update uh update the interface. Okay. So basically what is happening uh whenever you are doing this uh new chat operation it is resetting after getting the resetting operation it is giving you the new window. Okay. So whenever you are getting the new window st. Okay. This is recommended. If you check the documentation you'll be able to see that. Okay. Now let's try to add the chat feature. Uh I'll just try to add the updated chat feature. So I already written the code guys. Let me show you. So this is the code and this is the same code guys. Uh only just few update I have done. So here we're taking a chat input from the user. Okay. And whenever user is giving their input, first of all we are appending to the message story. The same thing we did our uh previous code as well. So message story. Uh after that uh we are setting this is a user conversation and content is user input. Okay. And why we are doing this? Because I want to save my conversation story and this is the format to save the conversation story. First of all, you have to define uh what is the role of this conversation. This is user and what is the content of that. Okay. After this, we are showing this conversation in the streamllet user interface. For this, we're taking a chat message. I think remember there would be a um there would be a icon. Okay. User icon. So, we are setting that this is a user icon and this is the user conversation. Okay. And here guys, we are defining the configuration right now. Okay. This is the persistence configuration. This is the trading configuration. Config is equal to configurable. Now trade ID is equal to T dot session state trade ID. Now we are not taking the hardcoded trade ID. Instead of that see previously we are taking the hardcoded trade ID. We are only giving trade one. But right now there would be a multiple trade. User can create the trades right? So we are taking it from the session state and already session state we have created here. The session state it is already created. Uh session state. Uh what is that? Yeah, s state trade ID. Now I think trade ID it is available. Yeah, you can see trade ID is available. And how we are getting the trade ID? It is generating by the UI ID. Okay, from here only it is getting generated. Okay, I hope you get it now. Yeah, from here actually we are showing the user uh sorry assistant message. As you can see we are taking this st uh chat message. Uh we are taking this is assistant reply. After that we are taking the write stream function. I told you in my previous video how stream it streaming works right how we can show the streaming response. So inside that we are generating the responses from our chatbot object. The chatbot we have imported from the back end. Okay as you can see this is the same code guys there is no chance we are using after that whatever message chunk we are getting we are continuously uh writing with the help of write stream function. Okay. And here we're passing the configuration and we are giving stream mode is equal to message. Okay. And here we're getting one u suggestion. I have to import this AI message. So let's import it quickly. I'll just try to import this AI message after human message AI message. Okay. Because this streaming response should be AI message here. Okay. That's why I'm telling if is instance message chunk if it is like message chunk that means we are getting AI AI reply right so that's why telling this should be IM message so this will only u show the IM message here then we are saving the complete assistant response in this stream session state in the message story so this code is common I think you already know that yeah this is pretty much clear so after uh this uh part is done guys now what I'm going to do I'm going to simply execute my app. Refresh. Now see guys, you are getting this window. Now if I do the chat operation, let's say hi. See, I'm getting the response. Now I'll tell my name is puppy. Now see previous uh message is getting replaced because I haven't added this code here. I think you remember previously also I added this code and this uh loading the conversation story. Okay, we have to load the conversation story every time. So let's load that before the user input. So every time it will load the conversation story message and it will uh write in the stream that user interface as a uh human role and assistant role. Okay, because we are running a for loops every time it will looping through the role. First of all user role will come then assistant role then user role then assistant role and their content. Now let me refresh and again try. So hello my name is Buffy. Okay. Now nice to meet you Buffy. Now see we are able to see the previous conversation but right now what I have to do so let's say if I click on a new chart okay new chart will is coming okay it's completely fine but I am not able to see my older chart that means older trades so now I will be adding the code related older trades so you can also see the older trades so what I can do guys u I can show you my updated code I already created for this here I can write So this is the code guys I have written display all the conversation trades in reverse order and why I have to uh show in the reverse order. See every time what is happening if you create new trades right if you get new new trades so your uh your u new trades is coming uh new trait is coming at the last. Okay because by default Python will add this new traits at the last. Okay. But if you see if I click on new trades, every time this new trade should be coming at the recent chart, okay, at the first uh first uh let's say order. So that's why we are reversing the order. So if my new chart is getting added at the last, if I do the reverse operation, that means from the last it will come at the first. Okay, I think you understood that's why we're doing the reverse order operation. So this is a list, we are just doing the reverse order operation because in this session state we have the chat traits. Okay, in this session we have the chat trades and this is a list and it will continuously add at the last. Okay, let's see if you click on the add new. So new chat will add here. New chat will add here, right? And this has your old chat also. But this will show at at the last but I don't want to see at the last because whenever I'm doing the new conversation I want to see in the recent chat operation that means it will come at the first. Okay, that's why we have to do the reverse operation. So if you perform the reverse operation what will happen this new chat will come here right now okay before the old chat and with the help of that I will be able to make it in the recent conversation. So this is why we are doing this one just a minute let me so this is why we are adding this particular code. So it is going through the entire uh chat trades and uh here we are giving a button because this should be also a clickable object. If I click on this particular traits, it will be able to show my conversation. Okay, that's why we are making it as a button. ST dot sidebar button. So button uh name should be trade ID only. Even you can also uh you can also uh give any message name if you want. Okay, if you want you can also add any message name and uh the key should be trade ID. So once uh button creation is done, we are again saving this trade ID in our current trade because this is the current trade user will do the conversation and we'll load all of the conversation in this particular trades because if you click here see if I click here it is loading all of the conversation I did previously okay from my memory. So I will write a function for this called load conversation. So basically this will load all the previous conversation here. So after this uh reset chat maybe I can write this function. So load conversation this will take the trade ID and I think you remember uh from the uh lang graph graph we get the state. Okay, if you call this get state function, it will give you all of the all of the previous conversation. If you want to understand this guys, you have to go through this particular session because here I already explained each and everything. So that's why I'm not going to repeat it again. So this get state function will return you all of the previous conversation. So we are taking all of the conversation and we are only getting the messages. Okay, from the value itself, we're only getting the messages. Okay, so this particular messages will show here. Then we are taking a empty list here. Then we are going through the messages one by one. Then we are trying to separate out the u user conversation as well as the assistant conversation. Okay. So we we are using is instance uh function for this. If you pass any message uh it will automatically tell you whether it is human message or let's say AI message. If it is human message role should be set to the user otherwise role should be set to the assistant. Then after that we are uh adding inside my temporary message list all of the conversation as a role and content. Then after that we are just updating in my session state and it is uh showing you in the user interface. Okay. Then again we are doing the return operation. Now let me show you. So if I let's say come here refresh. Now see uh if I do any kinds of conversation if I take a new chat now see guys new new chat is getting created and I can see my previous conversation as well. Now let's say if I do another conversation. Hi. Done. Now I can go to my previous conversation. See I can go to my previous conversation. This is the new conversation. This is previous conversation. Okay. So we have added this particular code and I'm also able to see my conversation history. Let's see if I've done any kinds of previous conversation. I can see the story because of this code. Okay, this is continuously uh where is that this function load conversation. This load conversation is continuously fetching the informations because we're running a for uh running a for loop here. Okay. So every time uh this uh message is getting fetched and one more update we have to do every time we have to set the current trade to the conversation list. Okay, for this we'll try to add this particular code. Okay, now I think my application is ready. This is a simple uh code we have written only we're just playing with the trade. Okay, trade ID and for this we're using UI ID. We can also make it as a u readable title like chart GPT. Chat GPT actually generates readable title uh uh title. So if you are asking any kinds of question, it will generate a title instead of giving a trade ID. We can also do do this particular update. It is also possible. Now let me refresh my app. Okay, so this is the app. My name is BBY. Okay. So basically this conversation is getting saved inside this particular trade. Okay. In this particular trade it is saving. Now I love cricket. Okay. Now if I take new conversation now see it is coming as a new uh new session again. And this particular session is coming at the first and previous was previous one it is going at the last because we are doing the reverse operation. Now here I'll tell my name is Alex. I love football. Okay. Now I go I can go to my previous conversation and here I can resume the conversation. What is my uh what is my favorite? Okay, you can see cricket is the private sport. Now I can go to my current trade and here also I can ask what is my name? Your name is Alex. Okay. So that's how you can create as much as trade as you can. What is transformers? Okay. So this is uh telling you about the movie but I can ask what is transformers in AI. Okay. Now it is telling you what is transformers in AI. Okay. So that's how guys uh like chart JP we created the trades. Now we can switch to different different trades and I can resume the conversation. So yes guys that's how we can add this trading features uh like chat GPT. Now if you want you can also change this name to the actual let's say chat title. If you want you can also add inside this code. So I'll try to u give this part uh as an assignment to you. Maybe you can uh add this functionality in this code. Okay. Simply you can go to the chart GPT and you can ask uh I want this particular features. How should I add? you'll be getting the suggestion. Okay. So, just try to add uh this update instead of showing you this uh u uh uh unique user ID maybe you can show chat title like chat GPT the way chatg shows. Okay, you can also add this particular things. So, yes guys, this is all about it from this particular implementation. I hope you liked it. So, in my uh next video guys, I'm going to show you another new update in this aentic chatbot. So that's how we'll try to make this agentic chatbot more advanced. Uh so yeah uh this is all about it from this video. If you found it uh useful, please try to subscribe to my channel and hit the like guys. Thanks for watching.",
+  "segments": [
+    {
+      "start": 0.64,
+      "end": 6.0,
+      "text": "Hi everyone, my name is Bapy Hamemed and"
+    },
+    {
+      "start": 3.439,
+      "end": 8.4,
+      "text": "you are welcome to my YouTube channel."
+    },
+    {
+      "start": 6.0,
+      "end": 10.719000000000001,
+      "text": "So guys, in this video uh I'm going to"
+    },
+    {
+      "start": 8.4,
+      "end": 13.84,
+      "text": "show you how we can add uh trading"
+    },
+    {
+      "start": 10.719,
+      "end": 15.919999999999998,
+      "text": "features inside our agentic chatbot. So"
+    },
+    {
+      "start": 13.84,
+      "end": 19.279,
+      "text": "I think you remember guys, I started"
+    },
+    {
+      "start": 15.92,
+      "end": 22.64,
+      "text": "implementing um our first project inside"
+    },
+    {
+      "start": 19.279,
+      "end": 25.84,
+      "text": "our uh agentic playlist which is uh"
+    },
+    {
+      "start": 22.64,
+      "end": 28.48,
+      "text": "agentic chatbot and uh this is the part"
+    },
+    {
+      "start": 25.84,
+      "end": 30.88,
+      "text": "four of that particular implementation."
+    },
+    {
+      "start": 28.48,
+      "end": 33.36,
+      "text": "So in our previous video I showed you"
+    },
+    {
+      "start": 30.88,
+      "end": 35.76,
+      "text": "how we can add the streaming features if"
+    },
+    {
+      "start": 33.36,
+      "end": 38.079,
+      "text": "you check this playlist. So this is the"
+    },
+    {
+      "start": 35.76,
+      "end": 39.839999999999996,
+      "text": "playlist guys and uh the previous video"
+    },
+    {
+      "start": 38.079,
+      "end": 42.719,
+      "text": "was the part three there I showed you"
+    },
+    {
+      "start": 39.84,
+      "end": 44.559000000000005,
+      "text": "how to add the streaming responses and"
+    },
+    {
+      "start": 42.719,
+      "end": 46.559,
+      "text": "in this video guys I already told you"
+    },
+    {
+      "start": 44.559,
+      "end": 48.959999999999994,
+      "text": "about the trading uh I already told you"
+    },
+    {
+      "start": 46.559,
+      "end": 51.599999999999994,
+      "text": "about the persistence memory. Uh so if"
+    },
+    {
+      "start": 48.96,
+      "end": 53.120000000000005,
+      "text": "you are completely new to the channel so"
+    },
+    {
+      "start": 51.6,
+      "end": 55.039,
+      "text": "please try to first of all complete"
+    },
+    {
+      "start": 53.12,
+      "end": 56.718999999999994,
+      "text": "these are the video then you can"
+    },
+    {
+      "start": 55.039,
+      "end": 58.879000000000005,
+      "text": "continue with this implementation. Okay,"
+    },
+    {
+      "start": 56.719,
+      "end": 62.64,
+      "text": "otherwise you might get difficulties for"
+    },
+    {
+      "start": 58.879,
+      "end": 65.36,
+      "text": "sure. So if you check my uh aentic"
+    },
+    {
+      "start": 62.64,
+      "end": 67.36,
+      "text": "chatbot guys, so far we implemented u"
+    },
+    {
+      "start": 65.36,
+      "end": 70.32,
+      "text": "till here. So here we can perform any"
+    },
+    {
+      "start": 67.36,
+      "end": 72.24,
+      "text": "kinds of chat operation right now. Okay."
+    },
+    {
+      "start": 70.32,
+      "end": 73.6,
+      "text": "And uh you can see it's working and it"
+    },
+    {
+      "start": 72.24,
+      "end": 76.08,
+      "text": "is also giving you some kinds of"
+    },
+    {
+      "start": 73.6,
+      "end": 78.15899999999999,
+      "text": "streaming response like chat GPT right."
+    },
+    {
+      "start": 76.08,
+      "end": 79.92,
+      "text": "So in chart GPT what happens guys? Uh in"
+    },
+    {
+      "start": 78.159,
+      "end": 82.56,
+      "text": "charge GPT you can resume your"
+    },
+    {
+      "start": 79.92,
+      "end": 84.799,
+      "text": "conversation with your old trades. Let's"
+    },
+    {
+      "start": 82.56,
+      "end": 87.119,
+      "text": "say I did some kinds of conversation"
+    },
+    {
+      "start": 84.799,
+      "end": 88.56,
+      "text": "previously. I can continue anytime."
+    },
+    {
+      "start": 87.119,
+      "end": 90.56,
+      "text": "These are the conversations. So let's"
+    },
+    {
+      "start": 88.56,
+      "end": 92.479,
+      "text": "say this was my previous trades, right?"
+    },
+    {
+      "start": 90.56,
+      "end": 94.159,
+      "text": "So if I open this particular trades,"
+    },
+    {
+      "start": 92.479,
+      "end": 96.799,
+      "text": "I'll be able to see all of my"
+    },
+    {
+      "start": 94.159,
+      "end": 99.43900000000001,
+      "text": "conversation story. Okay. And I can uh"
+    },
+    {
+      "start": 96.799,
+      "end": 102.32000000000001,
+      "text": "resume my chat from here only. Okay. I"
+    },
+    {
+      "start": 99.439,
+      "end": 104.79899999999999,
+      "text": "can resume my chat from here only."
+    },
+    {
+      "start": 102.32,
+      "end": 106.24,
+      "text": "Right. Now like that I can go to any"
+    },
+    {
+      "start": 104.799,
+      "end": 108.56,
+      "text": "another trades. Let's say I will go to"
+    },
+    {
+      "start": 106.24,
+      "end": 111.439,
+      "text": "this uh"
+    },
+    {
+      "start": 108.56,
+      "end": 113.84,
+      "text": "the this trades. Okay. So from here only"
+    },
+    {
+      "start": 111.439,
+      "end": 115.27999999999999,
+      "text": "I can do my conversation. So this is"
+    },
+    {
+      "start": 113.84,
+      "end": 118.24000000000001,
+      "text": "called trading. Okay. with the help of"
+    },
+    {
+      "start": 115.28,
+      "end": 121.28,
+      "text": "this trading we can separate out uh each"
+    },
+    {
+      "start": 118.24,
+      "end": 123.52,
+      "text": "and every topic let's say masses okay"
+    },
+    {
+      "start": 121.28,
+      "end": 125.84,
+      "text": "let's say right now I want to do a"
+    },
+    {
+      "start": 123.52,
+      "end": 128.56,
+      "text": "conversation related uh uh let's say"
+    },
+    {
+      "start": 125.84,
+      "end": 130.8,
+      "text": "deep learning let's say I need another"
+    },
+    {
+      "start": 128.56,
+      "end": 132.16,
+      "text": "uh new session for another topic let's"
+    },
+    {
+      "start": 130.8,
+      "end": 135.59900000000002,
+      "text": "say I want to do the conversation"
+    },
+    {
+      "start": 132.16,
+      "end": 137.68,
+      "text": "regarding let's say NLP it's like that"
+    },
+    {
+      "start": 135.599,
+      "end": 139.44,
+      "text": "okay instead of doing all of the"
+    },
+    {
+      "start": 137.68,
+      "end": 141.84,
+      "text": "conversation in a single trade in a"
+    },
+    {
+      "start": 139.44,
+      "end": 144.16,
+      "text": "single session you can create multiple"
+    },
+    {
+      "start": 141.84,
+      "end": 145.599,
+      "text": "trades okay and you can do the"
+    },
+    {
+      "start": 144.16,
+      "end": 147.76,
+      "text": "conversation ation anytime you can come"
+    },
+    {
+      "start": 145.599,
+      "end": 149.44,
+      "text": "here you can see the older conversation"
+    },
+    {
+      "start": 147.76,
+      "end": 151.84,
+      "text": "as well with a different different"
+    },
+    {
+      "start": 149.44,
+      "end": 154.8,
+      "text": "trades but this kinds of feature is not"
+    },
+    {
+      "start": 151.84,
+      "end": 156.56,
+      "text": "available inside our agentic chatbot so"
+    },
+    {
+      "start": 154.8,
+      "end": 158.48000000000002,
+      "text": "in this video what I'm going to do guys"
+    },
+    {
+      "start": 156.56,
+      "end": 161.12,
+      "text": "I'm going to implement this particular"
+    },
+    {
+      "start": 158.48,
+      "end": 163.76,
+      "text": "features so that uh you can also get"
+    },
+    {
+      "start": 161.12,
+      "end": 166.4,
+      "text": "your older trades uh and you can also"
+    },
+    {
+      "start": 163.76,
+      "end": 168.239,
+      "text": "see all of the uh old trades"
+    },
+    {
+      "start": 166.4,
+      "end": 170.16,
+      "text": "conversation as well and anytime you can"
+    },
+    {
+      "start": 168.239,
+      "end": 172.239,
+      "text": "continue your conversation from there"
+    },
+    {
+      "start": 170.16,
+      "end": 173.84,
+      "text": "only okay so these kinds of features"
+    },
+    {
+      "start": 172.239,
+      "end": 175.68,
+      "text": "we'll try to add in this particular"
+    },
+    {
+      "start": 173.84,
+      "end": 177.28,
+      "text": "agent authentic chatbot in this video."
+    },
+    {
+      "start": 175.68,
+      "end": 180.0,
+      "text": "So, make sure guys you watch this video"
+    },
+    {
+      "start": 177.28,
+      "end": 181.519,
+      "text": "till the end. Don't miss anything and if"
+    },
+    {
+      "start": 180.0,
+      "end": 183.599,
+      "text": "you found this content useful, please"
+    },
+    {
+      "start": 181.519,
+      "end": 185.519,
+      "text": "try to subscribe to my channel and hit"
+    },
+    {
+      "start": 183.599,
+      "end": 187.76,
+      "text": "the like and please try to share it with"
+    },
+    {
+      "start": 185.519,
+      "end": 189.36,
+      "text": "your friends and family. So, instead of"
+    },
+    {
+      "start": 187.76,
+      "end": 191.2,
+      "text": "talking too much guys, let's start the"
+    },
+    {
+      "start": 189.36,
+      "end": 193.28,
+      "text": "implementation and I'm going to show you"
+    },
+    {
+      "start": 191.2,
+      "end": 196.159,
+      "text": "how we can add this training features"
+    },
+    {
+      "start": 193.28,
+      "end": 198.56,
+      "text": "inside this agentic chatbot. So guys"
+    },
+    {
+      "start": 196.159,
+      "end": 201.04,
+      "text": "before starting the development first of"
+    },
+    {
+      "start": 198.56,
+      "end": 204.239,
+      "text": "all I want to show you the final result"
+    },
+    {
+      "start": 201.04,
+      "end": 206.0,
+      "text": "final demo uh like what are the uh"
+    },
+    {
+      "start": 204.239,
+      "end": 208.08,
+      "text": "features we're going to add in this"
+    },
+    {
+      "start": 206.0,
+      "end": 210.64,
+      "text": "particular agentic chatbot. So as you"
+    },
+    {
+      "start": 208.08,
+      "end": 212.48000000000002,
+      "text": "can see we already added this uh trading"
+    },
+    {
+      "start": 210.64,
+      "end": 214.879,
+      "text": "features inside our agentic chatbot."
+    },
+    {
+      "start": 212.48,
+      "end": 217.2,
+      "text": "Previously uh it was a simple chatbot"
+    },
+    {
+      "start": 214.879,
+      "end": 220.159,
+      "text": "only. Okay, there uh we didn't have any"
+    },
+    {
+      "start": 217.2,
+      "end": 222.879,
+      "text": "kinds of uh trading features like uh I"
+    },
+    {
+      "start": 220.159,
+      "end": 225.519,
+      "text": "can't see my older trades, right? Uh it"
+    },
+    {
+      "start": 222.879,
+      "end": 227.12,
+      "text": "was not there. But in the new update, as"
+    },
+    {
+      "start": 225.519,
+      "end": 229.44,
+      "text": "you can see here, we have added a"
+    },
+    {
+      "start": 227.12,
+      "end": 231.76,
+      "text": "separate section. So from here only you"
+    },
+    {
+      "start": 229.44,
+      "end": 233.84,
+      "text": "can go to your previous conversation. So"
+    },
+    {
+      "start": 231.76,
+      "end": 237.28,
+      "text": "let's say here I'm doing a conversation."
+    },
+    {
+      "start": 233.84,
+      "end": 239.519,
+      "text": "Let's say I'm asking what is Python,"
+    },
+    {
+      "start": 237.28,
+      "end": 242.56,
+      "text": "right?"
+    },
+    {
+      "start": 239.519,
+      "end": 245.12,
+      "text": "Uh let's I have a ask"
+    },
+    {
+      "start": 242.56,
+      "end": 248.519,
+      "text": "my name"
+    },
+    {
+      "start": 245.12,
+      "end": 248.519,
+      "text": "is BPY"
+    },
+    {
+      "start": 251.439,
+      "end": 255.56,
+      "text": "and I'll tell what is Python."
+    },
+    {
+      "start": 255.68,
+      "end": 259.6,
+      "text": "Now you can see Python is a highle"
+    },
+    {
+      "start": 257.759,
+      "end": 266.08000000000004,
+      "text": "programming language and blah blah blah."
+    },
+    {
+      "start": 259.6,
+      "end": 268.56,
+      "text": "Now if I ask what is my name?"
+    },
+    {
+      "start": 266.08,
+      "end": 271.84,
+      "text": "Now it is telling your name is BP. Okay."
+    },
+    {
+      "start": 268.56,
+      "end": 273.44,
+      "text": "So this is a conversation we have done"
+    },
+    {
+      "start": 271.84,
+      "end": 277.11999999999995,
+      "text": "in this particular trades. As you can"
+    },
+    {
+      "start": 273.44,
+      "end": 279.28,
+      "text": "see we are using uh unique uh uh ID"
+    },
+    {
+      "start": 277.12,
+      "end": 280.72,
+      "text": "right to save this particular uh"
+    },
+    {
+      "start": 279.28,
+      "end": 282.63899999999995,
+      "text": "conversation story in this particular"
+    },
+    {
+      "start": 280.72,
+      "end": 284.16,
+      "text": "trades. Now what you can do like the"
+    },
+    {
+      "start": 282.639,
+      "end": 285.68,
+      "text": "chart GP you can start a new"
+    },
+    {
+      "start": 284.16,
+      "end": 288.24,
+      "text": "conversation here. So I will click on"
+    },
+    {
+      "start": 285.68,
+      "end": 290.40000000000003,
+      "text": "new chart. Now see it will give me a"
+    },
+    {
+      "start": 288.24,
+      "end": 295.24,
+      "text": "completely new trades here. Now here if"
+    },
+    {
+      "start": 290.4,
+      "end": 295.23999999999995,
+      "text": "I ask what is my"
+    },
+    {
+      "start": 295.6,
+      "end": 300.47900000000004,
+      "text": "name?"
+    },
+    {
+      "start": 297.84,
+      "end": 302.79999999999995,
+      "text": "Okay, what is my name? You'll see that"
+    },
+    {
+      "start": 300.479,
+      "end": 305.36,
+      "text": "I'm sorry I'm a assistant. I do not have"
+    },
+    {
+      "start": 302.8,
+      "end": 311.68,
+      "text": "access your personal information. Now if"
+    },
+    {
+      "start": 305.36,
+      "end": 314.84000000000003,
+      "text": "I ask my name is Alex."
+    },
+    {
+      "start": 311.68,
+      "end": 314.84000000000003,
+      "text": "What is"
+    },
+    {
+      "start": 315.68,
+      "end": 320.40000000000003,
+      "text": "ML?"
+    },
+    {
+      "start": 318.479,
+      "end": 326.71999999999997,
+      "text": "Now see it is giving you the response."
+    },
+    {
+      "start": 320.4,
+      "end": 328.32,
+      "text": "Now if I ask what is my name?"
+    },
+    {
+      "start": 326.72,
+      "end": 330.0,
+      "text": "Now it will tell your name is Alex."
+    },
+    {
+      "start": 328.32,
+      "end": 331.59999999999997,
+      "text": "Okay. Now see this this particular"
+    },
+    {
+      "start": 330.0,
+      "end": 333.36,
+      "text": "conversation is completely separate from"
+    },
+    {
+      "start": 331.6,
+      "end": 335.6,
+      "text": "your previous conversation. Now I can go"
+    },
+    {
+      "start": 333.36,
+      "end": 338.08000000000004,
+      "text": "to the previous conversation any time."
+    },
+    {
+      "start": 335.6,
+      "end": 340.08000000000004,
+      "text": "Okay. Where I did like uh my name is By"
+    },
+    {
+      "start": 338.08,
+      "end": 341.84,
+      "text": "what is Python? Now here I can continue"
+    },
+    {
+      "start": 340.08,
+      "end": 346.8,
+      "text": "the conversation. Let's say now I'll"
+    },
+    {
+      "start": 341.84,
+      "end": 350.59999999999997,
+      "text": "tell I want to see"
+    },
+    {
+      "start": 346.8,
+      "end": 350.6,
+      "text": "hello world"
+    },
+    {
+      "start": 352.32,
+      "end": 357.039,
+      "text": "program."
+    },
+    {
+      "start": 355.199,
+      "end": 358.88,
+      "text": "Now see it is giving you the hello world"
+    },
+    {
+      "start": 357.039,
+      "end": 361.36,
+      "text": "program because we did the conversation"
+    },
+    {
+      "start": 358.88,
+      "end": 363.52,
+      "text": "related Python. Okay. And here we are"
+    },
+    {
+      "start": 361.36,
+      "end": 366.319,
+      "text": "doing the conversation"
+    },
+    {
+      "start": 363.52,
+      "end": 368.56,
+      "text": "uh with the uh help of Buppy. Okay. So"
+    },
+    {
+      "start": 366.319,
+      "end": 370.40000000000003,
+      "text": "here Buppy is doing the conversation."
+    },
+    {
+      "start": 368.56,
+      "end": 372.96,
+      "text": "Now even I can go to my previous"
+    },
+    {
+      "start": 370.4,
+      "end": 374.56,
+      "text": "conversation as well. So this is my"
+    },
+    {
+      "start": 372.96,
+      "end": 376.479,
+      "text": "previous conversation. This one my"
+    },
+    {
+      "start": 374.56,
+      "end": 378.479,
+      "text": "previous conversation. Now here you can"
+    },
+    {
+      "start": 376.479,
+      "end": 382.8,
+      "text": "anytime uh resume the conversation."
+    },
+    {
+      "start": 378.479,
+      "end": 385.44,
+      "text": "Let's say um how it"
+    },
+    {
+      "start": 382.8,
+      "end": 388.44,
+      "text": "helps in"
+    },
+    {
+      "start": 385.44,
+      "end": 388.44,
+      "text": "AI."
+    },
+    {
+      "start": 388.56,
+      "end": 393.199,
+      "text": "See how machine learning helps in AI. It"
+    },
+    {
+      "start": 391.199,
+      "end": 395.039,
+      "text": "is uh telling you each and everything."
+    },
+    {
+      "start": 393.199,
+      "end": 397.52000000000004,
+      "text": "Okay. So that's how you can create"
+    },
+    {
+      "start": 395.039,
+      "end": 399.68,
+      "text": "different different trades and you can"
+    },
+    {
+      "start": 397.52,
+      "end": 402.08,
+      "text": "see your older conversation as well like"
+    },
+    {
+      "start": 399.68,
+      "end": 405.199,
+      "text": "chart GPT. So chart GPT does the same"
+    },
+    {
+      "start": 402.08,
+      "end": 407.19899999999996,
+      "text": "thing it also using trading concept and"
+    },
+    {
+      "start": 405.199,
+      "end": 409.12,
+      "text": "every time whenever you are doing that"
+    },
+    {
+      "start": 407.199,
+      "end": 410.96000000000004,
+      "text": "chatting operation it is continuously"
+    },
+    {
+      "start": 409.12,
+      "end": 413.759,
+      "text": "saving your conversation history in a"
+    },
+    {
+      "start": 410.96,
+      "end": 416.23999999999995,
+      "text": "one particular trades and you can uh"
+    },
+    {
+      "start": 413.759,
+      "end": 418.08000000000004,
+      "text": "start new conversation anytime but the"
+    },
+    {
+      "start": 416.24,
+      "end": 420.24,
+      "text": "older conversation will remain same."
+    },
+    {
+      "start": 418.08,
+      "end": 421.84,
+      "text": "Okay. So this kinds of thing guys we"
+    },
+    {
+      "start": 420.24,
+      "end": 423.759,
+      "text": "have added inside this particular"
+    },
+    {
+      "start": 421.84,
+      "end": 425.67999999999995,
+      "text": "agentic chatbot. Now throughout the"
+    },
+    {
+      "start": 423.759,
+      "end": 428.16,
+      "text": "entire video I'm going to show you the"
+    },
+    {
+      "start": 425.68,
+      "end": 430.479,
+      "text": "implementation part. So guys uh this was"
+    },
+    {
+      "start": 428.16,
+      "end": 432.47900000000004,
+      "text": "our uh previous code we have already"
+    },
+    {
+      "start": 430.479,
+      "end": 434.479,
+      "text": "written. So as you can see this was our"
+    },
+    {
+      "start": 432.479,
+      "end": 438.31899999999996,
+      "text": "previous app and it doesn't have any"
+    },
+    {
+      "start": 434.479,
+      "end": 441.039,
+      "text": "kinds of uh uh trading related uh uh"
+    },
+    {
+      "start": 438.319,
+      "end": 442.72,
+      "text": "code although I added the trading as you"
+    },
+    {
+      "start": 441.039,
+      "end": 445.52,
+      "text": "can see I added the trading but it was"
+    },
+    {
+      "start": 442.72,
+      "end": 448.0,
+      "text": "hardcoded so only I was using trade one"
+    },
+    {
+      "start": 445.52,
+      "end": 450.639,
+      "text": "for all the conversation. Okay that's"
+    },
+    {
+      "start": 448.0,
+      "end": 453.52,
+      "text": "why this application was simple. Now I'm"
+    },
+    {
+      "start": 450.639,
+      "end": 455.44,
+      "text": "going to use the same code and we'll be"
+    },
+    {
+      "start": 453.52,
+      "end": 458.15999999999997,
+      "text": "writing the trading features inside this"
+    },
+    {
+      "start": 455.44,
+      "end": 461.599,
+      "text": "aentic chatbot. So what I can do instead"
+    },
+    {
+      "start": 458.16,
+      "end": 463.52000000000004,
+      "text": "of uh giving the name to app.py maybe I"
+    },
+    {
+      "start": 461.599,
+      "end": 467.12,
+      "text": "can give another name just for your"
+    },
+    {
+      "start": 463.52,
+      "end": 468.96,
+      "text": "reference. So let's say u um whenever"
+    },
+    {
+      "start": 467.12,
+      "end": 471.28000000000003,
+      "text": "you want to refer this particular simple"
+    },
+    {
+      "start": 468.96,
+      "end": 473.19899999999996,
+      "text": "code only that time you will be able to"
+    },
+    {
+      "start": 471.28,
+      "end": 475.919,
+      "text": "get this code from here. Okay. So I can"
+    },
+    {
+      "start": 473.199,
+      "end": 478.479,
+      "text": "also replace the code in my uh app.py pi"
+    },
+    {
+      "start": 475.919,
+      "end": 480.4,
+      "text": "but u u I think you won't be able to get"
+    },
+    {
+      "start": 478.479,
+      "end": 481.68,
+      "text": "the previous uh code that time. So"
+    },
+    {
+      "start": 480.4,
+      "end": 484.479,
+      "text": "that's why I'm going to create a new"
+    },
+    {
+      "start": 481.68,
+      "end": 486.96,
+      "text": "file. So first of all let me rename it."
+    },
+    {
+      "start": 484.479,
+      "end": 489.199,
+      "text": "So this is let's say"
+    },
+    {
+      "start": 486.96,
+      "end": 491.44,
+      "text": "simple app."
+    },
+    {
+      "start": 489.199,
+      "end": 493.12,
+      "text": "Okay, this is simple app we created. Now"
+    },
+    {
+      "start": 491.44,
+      "end": 496.08,
+      "text": "I'm going to create another file. I'm"
+    },
+    {
+      "start": 493.12,
+      "end": 499.319,
+      "text": "going to name name it as app"
+    },
+    {
+      "start": 496.08,
+      "end": 499.31899999999996,
+      "text": "uh trade."
+    },
+    {
+      "start": 501.68,
+      "end": 507.199,
+      "text": "Okay, that means uh this uh code has the"
+    },
+    {
+      "start": 504.8,
+      "end": 509.52000000000004,
+      "text": "trading uh trading code. Okay, trading"
+    },
+    {
+      "start": 507.199,
+      "end": 511.52000000000004,
+      "text": "related code, trading related features."
+    },
+    {
+      "start": 509.52,
+      "end": 515.3199999999999,
+      "text": "Now what I can do, I can copy the same"
+    },
+    {
+      "start": 511.52,
+      "end": 515.3199999999999,
+      "text": "code as it is"
+    },
+    {
+      "start": 515.839,
+      "end": 521.9190000000001,
+      "text": "here. Okay. Yeah. And here this back end"
+    },
+    {
+      "start": 520.32,
+      "end": 523.839,
+      "text": "code will remain same. The back end code"
+    },
+    {
+      "start": 521.919,
+      "end": 525.519,
+      "text": "we have written this code will remain"
+    },
+    {
+      "start": 523.839,
+      "end": 527.6800000000001,
+      "text": "same here. You don't need to change"
+    },
+    {
+      "start": 525.519,
+      "end": 529.68,
+      "text": "anything. The change would be applied in"
+    },
+    {
+      "start": 527.68,
+      "end": 531.04,
+      "text": "the front end part only. Okay? because"
+    },
+    {
+      "start": 529.68,
+      "end": 534.16,
+      "text": "in the back end we are only returning"
+    },
+    {
+      "start": 531.04,
+      "end": 537.12,
+      "text": "the chatbot uh this uh graph object."
+    },
+    {
+      "start": 534.16,
+      "end": 539.279,
+      "text": "Okay. So here what I'm going to do guys"
+    },
+    {
+      "start": 537.12,
+      "end": 543.44,
+      "text": "first of all I need some more library."
+    },
+    {
+      "start": 539.279,
+      "end": 546.08,
+      "text": "So let me import. So I need u so here I"
+    },
+    {
+      "start": 543.44,
+      "end": 549.2,
+      "text": "need uh u u id. So with the help of this"
+    },
+    {
+      "start": 546.08,
+      "end": 551.6800000000001,
+      "text": "u u id I'll try to generate unique ID so"
+    },
+    {
+      "start": 549.2,
+      "end": 553.12,
+      "text": "that I can separate out my each and"
+    },
+    {
+      "start": 551.68,
+      "end": 554.64,
+      "text": "every trades. Okay instead of doing the"
+    },
+    {
+      "start": 553.12,
+      "end": 556.5600000000001,
+      "text": "hard coding. So every time I will"
+    },
+    {
+      "start": 554.64,
+      "end": 559.04,
+      "text": "generate a unique ID and I'm going to"
+    },
+    {
+      "start": 556.56,
+      "end": 560.88,
+      "text": "create my trades. Okay. uh first I'm"
+    },
+    {
+      "start": 559.04,
+      "end": 565.04,
+      "text": "going to create uh one function that"
+    },
+    {
+      "start": 560.88,
+      "end": 568.0,
+      "text": "will generate unique uh unique uh ID"
+    },
+    {
+      "start": 565.04,
+      "end": 570.24,
+      "text": "okay unique user ID because every time I"
+    },
+    {
+      "start": 568.0,
+      "end": 571.76,
+      "text": "need this unique user ID for this"
+    },
+    {
+      "start": 570.24,
+      "end": 574.399,
+      "text": "particular trading right I already"
+    },
+    {
+      "start": 571.76,
+      "end": 577.12,
+      "text": "showed you that part so for this let's"
+    },
+    {
+      "start": 574.399,
+      "end": 580.64,
+      "text": "create a function so this is the"
+    },
+    {
+      "start": 577.12,
+      "end": 583.68,
+      "text": "function guys I have already created"
+    },
+    {
+      "start": 580.64,
+      "end": 586.959,
+      "text": "yeah so this function what it does it u"
+    },
+    {
+      "start": 583.68,
+      "end": 589.1999999999999,
+      "text": "generates unique ID uh unique user ID"
+    },
+    {
+      "start": 586.959,
+      "end": 590.959,
+      "text": "every Okay. Uh whenever you will execute"
+    },
+    {
+      "start": 589.2,
+      "end": 592.9590000000001,
+      "text": "this function, it will give you unique"
+    },
+    {
+      "start": 590.959,
+      "end": 595.8389999999999,
+      "text": "user ID."
+    },
+    {
+      "start": 592.959,
+      "end": 599.1999999999999,
+      "text": "So after getting this unique user ID, uh"
+    },
+    {
+      "start": 595.839,
+      "end": 602.8800000000001,
+      "text": "what I want to do guys, I want to"
+    },
+    {
+      "start": 599.2,
+      "end": 606.6400000000001,
+      "text": "um I want to add this uh unique ID"
+    },
+    {
+      "start": 602.88,
+      "end": 610.4399999999999,
+      "text": "inside my trades. Okay. So for this u I"
+    },
+    {
+      "start": 606.64,
+      "end": 610.4399999999999,
+      "text": "can create another function"
+    },
+    {
+      "start": 612.16,
+      "end": 617.12,
+      "text": "u called add traits. So what this add"
+    },
+    {
+      "start": 614.64,
+      "end": 620.3199999999999,
+      "text": "trades will do uh basically it will add"
+    },
+    {
+      "start": 617.12,
+      "end": 622.48,
+      "text": "a new trades ID to the conversation"
+    },
+    {
+      "start": 620.32,
+      "end": 624.1600000000001,
+      "text": "list. Okay. So basically this will get"
+    },
+    {
+      "start": 622.48,
+      "end": 625.76,
+      "text": "the trade ID and where you will get the"
+    },
+    {
+      "start": 624.16,
+      "end": 627.76,
+      "text": "trade ID we'll get from this particular"
+    },
+    {
+      "start": 625.76,
+      "end": 630.16,
+      "text": "function. First of all it will check"
+    },
+    {
+      "start": 627.76,
+      "end": 632.48,
+      "text": "this trade ID it is available in the"
+    },
+    {
+      "start": 630.16,
+      "end": 634.959,
+      "text": "session state or not. Okay that means uh"
+    },
+    {
+      "start": 632.48,
+      "end": 637.12,
+      "text": "stream session state or not. Uh we'll"
+    },
+    {
+      "start": 634.959,
+      "end": 640.3199999999999,
+      "text": "try to save with the help of this chat"
+    },
+    {
+      "start": 637.12,
+      "end": 644.16,
+      "text": "threads um like key. So if it is not"
+    },
+    {
+      "start": 640.32,
+      "end": 646.8000000000001,
+      "text": "there it will uh try to set my uh trade"
+    },
+    {
+      "start": 644.16,
+      "end": 648.7199999999999,
+      "text": "ID the trade ID it will generate. Okay."
+    },
+    {
+      "start": 646.8,
+      "end": 651.12,
+      "text": "So this is a simple function we have"
+    },
+    {
+      "start": 648.72,
+      "end": 652.72,
+      "text": "created because whenever you will try to"
+    },
+    {
+      "start": 651.12,
+      "end": 655.519,
+      "text": "initialize your application for the"
+    },
+    {
+      "start": 652.72,
+      "end": 658.8000000000001,
+      "text": "first time there it won't be having any"
+    },
+    {
+      "start": 655.519,
+      "end": 660.72,
+      "text": "kinds of chat trades right so that time"
+    },
+    {
+      "start": 658.8,
+      "end": 663.279,
+      "text": "one new trade should be created"
+    },
+    {
+      "start": 660.72,
+      "end": 665.36,
+      "text": "completely new trades would be created"
+    },
+    {
+      "start": 663.279,
+      "end": 666.959,
+      "text": "and it will try to append there and with"
+    },
+    {
+      "start": 665.36,
+      "end": 669.44,
+      "text": "that particular trades only we'll do the"
+    },
+    {
+      "start": 666.959,
+      "end": 671.5189999999999,
+      "text": "conversation then later on if user wants"
+    },
+    {
+      "start": 669.44,
+      "end": 674.0790000000001,
+      "text": "they can create the trades okay as per"
+    },
+    {
+      "start": 671.519,
+      "end": 676.5600000000001,
+      "text": "their requirement. Now you can see this"
+    },
+    {
+      "start": 674.079,
+      "end": 679.519,
+      "text": "uh chat threads is not available. Uh so"
+    },
+    {
+      "start": 676.56,
+      "end": 681.5189999999999,
+      "text": "we have to also create that. So if you"
+    },
+    {
+      "start": 679.519,
+      "end": 683.36,
+      "text": "just go below so I think remember we"
+    },
+    {
+      "start": 681.519,
+      "end": 685.279,
+      "text": "created"
+    },
+    {
+      "start": 683.36,
+      "end": 688.16,
+      "text": "um message story previously. So here"
+    },
+    {
+      "start": 685.279,
+      "end": 690.64,
+      "text": "only I'll try to add another one."
+    },
+    {
+      "start": 688.16,
+      "end": 694.079,
+      "text": "So after message story so we'll just try"
+    },
+    {
+      "start": 690.64,
+      "end": 696.399,
+      "text": "to write this uh chat threads. Okay. As"
+    },
+    {
+      "start": 694.079,
+      "end": 698.959,
+      "text": "you can see if chat trades not in"
+    },
+    {
+      "start": 696.399,
+      "end": 701.36,
+      "text": "session state it will create a empty"
+    },
+    {
+      "start": 698.959,
+      "end": 704.2399999999999,
+      "text": "chat traits. Okay. And this will become"
+    },
+    {
+      "start": 701.36,
+      "end": 707.279,
+      "text": "a list."
+    },
+    {
+      "start": 704.24,
+      "end": 710.32,
+      "text": "And right now we'll be able to we'll be"
+    },
+    {
+      "start": 707.279,
+      "end": 712.72,
+      "text": "able to um append that particular trades"
+    },
+    {
+      "start": 710.32,
+      "end": 715.44,
+      "text": "because now this chat trades session is"
+    },
+    {
+      "start": 712.72,
+      "end": 718.5600000000001,
+      "text": "created. Okay. Here only I will also try"
+    },
+    {
+      "start": 715.44,
+      "end": 721.36,
+      "text": "to add the comments in my previous code"
+    },
+    {
+      "start": 718.56,
+      "end": 723.5189999999999,
+      "text": "as well. So that later on whenever you"
+    },
+    {
+      "start": 721.36,
+      "end": 726.639,
+      "text": "are uh revising this code I think it"
+    },
+    {
+      "start": 723.519,
+      "end": 728.079,
+      "text": "would it will be helpful for you. Okay."
+    },
+    {
+      "start": 726.639,
+      "end": 730.0790000000001,
+      "text": "Okay, by seeing the comments only, you"
+    },
+    {
+      "start": 728.079,
+      "end": 732.56,
+      "text": "can understand what this code is doing."
+    },
+    {
+      "start": 730.079,
+      "end": 734.079,
+      "text": "Okay, you can see this uh this code"
+    },
+    {
+      "start": 732.56,
+      "end": 736.6389999999999,
+      "text": "actually creates the message story when"
+    },
+    {
+      "start": 734.079,
+      "end": 738.0,
+      "text": "the app runs for the first time. Okay, I"
+    },
+    {
+      "start": 736.639,
+      "end": 741.76,
+      "text": "already created previously I think you"
+    },
+    {
+      "start": 738.0,
+      "end": 745.92,
+      "text": "remember. So once it is done, now let me"
+    },
+    {
+      "start": 741.76,
+      "end": 747.6,
+      "text": "uh add uh the user interface because if"
+    },
+    {
+      "start": 745.92,
+      "end": 749.92,
+      "text": "you go to the chat GP left hand side,"
+    },
+    {
+      "start": 747.6,
+      "end": 751.6800000000001,
+      "text": "you will be able to see all of your uh"
+    },
+    {
+      "start": 749.92,
+      "end": 754.0,
+      "text": "conversation okay all of the traits. So"
+    },
+    {
+      "start": 751.68,
+      "end": 756.4799999999999,
+      "text": "we'll try to create the same thing here."
+    },
+    {
+      "start": 754.0,
+      "end": 759.92,
+      "text": "So for this let me just create a sidebar"
+    },
+    {
+      "start": 756.48,
+      "end": 762.16,
+      "text": "first of all. So here I'll just try to"
+    },
+    {
+      "start": 759.92,
+      "end": 764.8,
+      "text": "add a sidebar"
+    },
+    {
+      "start": 762.16,
+      "end": 767.279,
+      "text": "with the help of streaml. So I already"
+    },
+    {
+      "start": 764.8,
+      "end": 770.079,
+      "text": "commented out this is that uh sidebar"
+    },
+    {
+      "start": 767.279,
+      "end": 773.6,
+      "text": "trading features display the sidebar"
+    },
+    {
+      "start": 770.079,
+      "end": 775.76,
+      "text": "title. So stidebar title I just name it"
+    },
+    {
+      "start": 773.6,
+      "end": 779.6,
+      "text": "as my conversations."
+    },
+    {
+      "start": 775.76,
+      "end": 781.4399999999999,
+      "text": "Now if I execute my code"
+    },
+    {
+      "start": 779.6,
+      "end": 785.6800000000001,
+      "text": "okay if I execute my code you will be"
+    },
+    {
+      "start": 781.44,
+      "end": 789.24,
+      "text": "able to see that. So streamlit run"
+    },
+    {
+      "start": 785.68,
+      "end": 789.2399999999999,
+      "text": "uh app_trade.py."
+    },
+    {
+      "start": 790.0,
+      "end": 795.92,
+      "text": "Okay, this file we're executing. Now if"
+    },
+    {
+      "start": 793.12,
+      "end": 798.079,
+      "text": "I show you my code. So as you can see"
+    },
+    {
+      "start": 795.92,
+      "end": 800.8,
+      "text": "guys, this is our uh sidebar we created."
+    },
+    {
+      "start": 798.079,
+      "end": 803.12,
+      "text": "So anytime you can open and close it uh"
+    },
+    {
+      "start": 800.8,
+      "end": 804.7199999999999,
+      "text": "like the chart GPT. Charge GPT also has"
+    },
+    {
+      "start": 803.12,
+      "end": 807.04,
+      "text": "the same thing. Okay, this is the"
+    },
+    {
+      "start": 804.72,
+      "end": 810.88,
+      "text": "sidebar. Now here only we'll be adding"
+    },
+    {
+      "start": 807.04,
+      "end": 814.16,
+      "text": "our trading. Okay. So for this uh let me"
+    },
+    {
+      "start": 810.88,
+      "end": 817.36,
+      "text": "just uh show you my updated code what I"
+    },
+    {
+      "start": 814.16,
+      "end": 818.88,
+      "text": "have done. Um"
+    },
+    {
+      "start": 817.36,
+      "end": 822.0,
+      "text": "I can show you step by step. I think"
+    },
+    {
+      "start": 818.88,
+      "end": 826.68,
+      "text": "that would be uh best. So what I can do"
+    },
+    {
+      "start": 822.0,
+      "end": 826.68,
+      "text": "I can just uh quickly show you."
+    },
+    {
+      "start": 830.16,
+      "end": 833.8389999999999,
+      "text": "So I'll just uh remove these are the"
+    },
+    {
+      "start": 832.24,
+      "end": 835.36,
+      "text": "code. Okay my old code and I'm going to"
+    },
+    {
+      "start": 833.839,
+      "end": 838.6,
+      "text": "show you my updated code. I think that"
+    },
+    {
+      "start": 835.36,
+      "end": 838.6,
+      "text": "would be amazing."
+    },
+    {
+      "start": 840.8,
+      "end": 844.88,
+      "text": "I'll just try to remove all of the code."
+    },
+    {
+      "start": 843.649,
+      "end": 846.959,
+      "text": "[clears throat]"
+    },
+    {
+      "start": 844.88,
+      "end": 849.8389999999999,
+      "text": "So first uh we'll be adding some utility"
+    },
+    {
+      "start": 846.959,
+      "end": 851.5189999999999,
+      "text": "functions. First of all, generate uh"
+    },
+    {
+      "start": 849.839,
+      "end": 853.44,
+      "text": "trade ID. I already told you it will"
+    },
+    {
+      "start": 851.519,
+      "end": 855.199,
+      "text": "generate the trade ID every time. And"
+    },
+    {
+      "start": 853.44,
+      "end": 858.24,
+      "text": "another function I have written uh this"
+    },
+    {
+      "start": 855.199,
+      "end": 860.56,
+      "text": "will basically add the trade ID where to"
+    },
+    {
+      "start": 858.24,
+      "end": 862.72,
+      "text": "the session state. Okay. But we have to"
+    },
+    {
+      "start": 860.56,
+      "end": 865.5189999999999,
+      "text": "create the session state. So let's"
+    },
+    {
+      "start": 862.72,
+      "end": 869.8000000000001,
+      "text": "create all the session state. I'll just"
+    },
+    {
+      "start": 865.519,
+      "end": 869.8,
+      "text": "try to add all of the session state."
+    },
+    {
+      "start": 871.92,
+      "end": 880.279,
+      "text": "So this is my message story session uh"
+    },
+    {
+      "start": 874.88,
+      "end": 880.279,
+      "text": "session state and this is for my"
+    },
+    {
+      "start": 881.44,
+      "end": 887.1990000000001,
+      "text": "chat uh session state. Okay, chat"
+    },
+    {
+      "start": 884.0,
+      "end": 890.32,
+      "text": "traits. Okay, that means this this one."
+    },
+    {
+      "start": 887.199,
+      "end": 893.04,
+      "text": "And um"
+    },
+    {
+      "start": 890.32,
+      "end": 897.0790000000001,
+      "text": "um I'm going to"
+    },
+    {
+      "start": 893.04,
+      "end": 897.079,
+      "text": "create a sidebar here."
+    },
+    {
+      "start": 899.6,
+      "end": 904.0,
+      "text": "Sidebar here. Okay. So this is my"
+    },
+    {
+      "start": 901.279,
+      "end": 906.8,
+      "text": "sidebar. Now if I go to my application"
+    },
+    {
+      "start": 904.0,
+      "end": 909.04,
+      "text": "again, if I refresh"
+    },
+    {
+      "start": 906.8,
+      "end": 910.8,
+      "text": "now, see it looks like that. Okay. Don't"
+    },
+    {
+      "start": 909.04,
+      "end": 912.8,
+      "text": "worry about this chat input feature. I'm"
+    },
+    {
+      "start": 910.8,
+      "end": 915.04,
+      "text": "going to add it. Uh just let me update"
+    },
+    {
+      "start": 912.8,
+      "end": 917.279,
+      "text": "my uh this code first of all. Then I'm"
+    },
+    {
+      "start": 915.04,
+      "end": 919.92,
+      "text": "going to add okay that will remain same"
+    },
+    {
+      "start": 917.279,
+      "end": 921.519,
+      "text": "like we did the previously right now"
+    },
+    {
+      "start": 919.92,
+      "end": 924.16,
+      "text": "what I'm going to do guys I'm going to"
+    },
+    {
+      "start": 921.519,
+      "end": 927.04,
+      "text": "add a new button here so I think you"
+    },
+    {
+      "start": 924.16,
+      "end": 928.8,
+      "text": "remember chity also has a button if you"
+    },
+    {
+      "start": 927.04,
+      "end": 931.04,
+      "text": "click on this new chat button it will"
+    },
+    {
+      "start": 928.8,
+      "end": 933.279,
+      "text": "start a new conversation for you and you"
+    },
+    {
+      "start": 931.04,
+      "end": 934.7199999999999,
+      "text": "will be able to see the old uh trades as"
+    },
+    {
+      "start": 933.279,
+      "end": 939.04,
+      "text": "well so these kinds of features we'll"
+    },
+    {
+      "start": 934.72,
+      "end": 941.0400000000001,
+      "text": "try to add here so this is the code I'm"
+    },
+    {
+      "start": 939.04,
+      "end": 943.519,
+      "text": "going to tell you about this reset chat"
+    },
+    {
+      "start": 941.04,
+      "end": 946.24,
+      "text": "what this reset chat will do but let's"
+    },
+    {
+      "start": 943.519,
+      "end": 947.6,
+      "text": "try to understand uh see this uh creates"
+    },
+    {
+      "start": 946.24,
+      "end": 949.279,
+      "text": "a button for starting a new"
+    },
+    {
+      "start": 947.6,
+      "end": 952.639,
+      "text": "conversation. So there would be a button"
+    },
+    {
+      "start": 949.279,
+      "end": 954.079,
+      "text": "styidebar dot button new chart and if"
+    },
+    {
+      "start": 952.639,
+      "end": 957.12,
+      "text": "you click on new chart see what will"
+    },
+    {
+      "start": 954.079,
+      "end": 958.88,
+      "text": "happen in chart GPT let's say uh let's"
+    },
+    {
+      "start": 957.12,
+      "end": 961.12,
+      "text": "say I'm inside a trades let's say I'm"
+    },
+    {
+      "start": 958.88,
+      "end": 963.4399999999999,
+      "text": "inside this particular trades okay I'm"
+    },
+    {
+      "start": 961.12,
+      "end": 966.0,
+      "text": "inside this particular trades now once I"
+    },
+    {
+      "start": 963.44,
+      "end": 968.1600000000001,
+      "text": "click on new chart you'll see that one"
+    },
+    {
+      "start": 966.0,
+      "end": 970.16,
+      "text": "new window will come and all of the"
+    },
+    {
+      "start": 968.16,
+      "end": 972.399,
+      "text": "previous chart history will be clean up"
+    },
+    {
+      "start": 970.16,
+      "end": 974.079,
+      "text": "right so for this kind uh this reason"
+    },
+    {
+      "start": 972.399,
+      "end": 975.839,
+      "text": "I'm also going to write a function"
+    },
+    {
+      "start": 974.079,
+      "end": 978.079,
+      "text": "called recent reset chat so whenever"
+    },
+    {
+      "start": 975.839,
+      "end": 979.6800000000001,
+      "text": "user will take the new chat all of the"
+    },
+    {
+      "start": 978.079,
+      "end": 980.959,
+      "text": "previous conversation would be removed."
+    },
+    {
+      "start": 979.68,
+      "end": 983.04,
+      "text": "So for this let's create another"
+    },
+    {
+      "start": 980.959,
+      "end": 986.56,
+      "text": "function here."
+    },
+    {
+      "start": 983.04,
+      "end": 988.24,
+      "text": "I'm going to name it as"
+    },
+    {
+      "start": 986.56,
+      "end": 991.4399999999999,
+      "text": "um"
+    },
+    {
+      "start": 988.24,
+      "end": 994.399,
+      "text": "reset chat. So after this function maybe"
+    },
+    {
+      "start": 991.44,
+      "end": 996.8800000000001,
+      "text": "I can add"
+    },
+    {
+      "start": 994.399,
+      "end": 999.68,
+      "text": "okay reset chat. So what it it is doing"
+    },
+    {
+      "start": 996.88,
+      "end": 1002.959,
+      "text": "you can see uh first of all it will"
+    },
+    {
+      "start": 999.68,
+      "end": 1005.199,
+      "text": "basically generate a new trade ID with"
+    },
+    {
+      "start": 1002.959,
+      "end": 1007.5189999999999,
+      "text": "the help of this function"
+    },
+    {
+      "start": 1005.199,
+      "end": 1011.12,
+      "text": "and it will store in the trade ID. The"
+    },
+    {
+      "start": 1007.519,
+      "end": 1012.88,
+      "text": "trade ID uh we created"
+    },
+    {
+      "start": 1011.12,
+      "end": 1014.32,
+      "text": "uh session state I think session state"
+    },
+    {
+      "start": 1012.88,
+      "end": 1017.72,
+      "text": "trade ID is not created. So let me"
+    },
+    {
+      "start": 1014.32,
+      "end": 1017.72,
+      "text": "create it quickly."
+    },
+    {
+      "start": 1019.279,
+      "end": 1024.0,
+      "text": "So this is my"
+    },
+    {
+      "start": 1022.0,
+      "end": 1026.4,
+      "text": "trade ID. Okay. Okay, if trade ID not in"
+    },
+    {
+      "start": 1024.0,
+      "end": 1028.559,
+      "text": "session state uh it will create a trade"
+    },
+    {
+      "start": 1026.4,
+      "end": 1030.0,
+      "text": "ID and it will take a trade ID from this"
+    },
+    {
+      "start": 1028.559,
+      "end": 1033.12,
+      "text": "particular function. Okay, unique trade"
+    },
+    {
+      "start": 1030.0,
+      "end": 1036.24,
+      "text": "ID. Now it is resetting and uh what it"
+    },
+    {
+      "start": 1033.12,
+      "end": 1038.7199999999998,
+      "text": "is doing it is uh setting a new trade"
+    },
+    {
+      "start": 1036.24,
+      "end": 1040.64,
+      "text": "ID. Then after that all of the message"
+    },
+    {
+      "start": 1038.72,
+      "end": 1043.039,
+      "text": "would be empty. We you can see we are"
+    },
+    {
+      "start": 1040.64,
+      "end": 1044.7990000000002,
+      "text": "giving empty list. Then after that we"
+    },
+    {
+      "start": 1043.039,
+      "end": 1047.12,
+      "text": "are adding this particular trade ID in"
+    },
+    {
+      "start": 1044.799,
+      "end": 1049.44,
+      "text": "my session state. Okay, you can see we"
+    },
+    {
+      "start": 1047.12,
+      "end": 1050.8799999999999,
+      "text": "are using this add trade function and we"
+    },
+    {
+      "start": 1049.44,
+      "end": 1054.0800000000002,
+      "text": "are adding this trade ID the current"
+    },
+    {
+      "start": 1050.88,
+      "end": 1055.919,
+      "text": "trade ID in the session state because"
+    },
+    {
+      "start": 1054.08,
+      "end": 1057.52,
+      "text": "whenever I'm inside this particular"
+    },
+    {
+      "start": 1055.919,
+      "end": 1059.6000000000001,
+      "text": "trade okay I'm inside this this"
+    },
+    {
+      "start": 1057.52,
+      "end": 1061.039,
+      "text": "particular trade so all of the"
+    },
+    {
+      "start": 1059.6,
+      "end": 1063.84,
+      "text": "conversation should be saved in this"
+    },
+    {
+      "start": 1061.039,
+      "end": 1065.36,
+      "text": "particular trades only that's why"
+    },
+    {
+      "start": 1063.84,
+      "end": 1068.0,
+      "text": "this thing we are doing so every time we"
+    },
+    {
+      "start": 1065.36,
+      "end": 1072.799,
+      "text": "have to track this trade trade ID all"
+    },
+    {
+      "start": 1068.0,
+      "end": 1075.679,
+      "text": "right now uh let's say if I go to my"
+    },
+    {
+      "start": 1072.799,
+      "end": 1077.76,
+      "text": "application if I refresh now you'll be"
+    },
+    {
+      "start": 1075.679,
+      "end": 1080.16,
+      "text": "able to the uh see this new chat. Okay."
+    },
+    {
+      "start": 1077.76,
+      "end": 1082.4,
+      "text": "Now if I click on this new chat, so it"
+    },
+    {
+      "start": 1080.16,
+      "end": 1083.919,
+      "text": "will basically"
+    },
+    {
+      "start": 1082.4,
+      "end": 1087.76,
+      "text": "run this code. It will basically run"
+    },
+    {
+      "start": 1083.919,
+      "end": 1089.1200000000001,
+      "text": "this code and all of the recent uh uh I"
+    },
+    {
+      "start": 1087.76,
+      "end": 1092.96,
+      "text": "mean recent conversation would be"
+    },
+    {
+      "start": 1089.12,
+      "end": 1094.799,
+      "text": "removed. Okay. And uh uh we have to"
+    },
+    {
+      "start": 1092.96,
+      "end": 1096.08,
+      "text": "write this st. If you are doing the"
+    },
+    {
+      "start": 1094.799,
+      "end": 1098.24,
+      "text": "reset chat operation, this is"
+    },
+    {
+      "start": 1096.08,
+      "end": 1100.799,
+      "text": "recommended. So basically this this will"
+    },
+    {
+      "start": 1098.24,
+      "end": 1103.36,
+      "text": "uh return the streaml app to update uh"
+    },
+    {
+      "start": 1100.799,
+      "end": 1105.28,
+      "text": "update the interface. Okay. So basically"
+    },
+    {
+      "start": 1103.36,
+      "end": 1107.6,
+      "text": "what is happening uh whenever you are"
+    },
+    {
+      "start": 1105.28,
+      "end": 1109.36,
+      "text": "doing this uh new chat operation it is"
+    },
+    {
+      "start": 1107.6,
+      "end": 1110.559,
+      "text": "resetting after getting the resetting"
+    },
+    {
+      "start": 1109.36,
+      "end": 1113.28,
+      "text": "operation it is giving you the new"
+    },
+    {
+      "start": 1110.559,
+      "end": 1116.799,
+      "text": "window. Okay. So whenever you are"
+    },
+    {
+      "start": 1113.28,
+      "end": 1117.9189999999999,
+      "text": "getting the new window st. Okay. This is"
+    },
+    {
+      "start": 1116.799,
+      "end": 1119.76,
+      "text": "recommended. If you check the"
+    },
+    {
+      "start": 1117.919,
+      "end": 1122.0800000000002,
+      "text": "documentation you'll be able to see"
+    },
+    {
+      "start": 1119.76,
+      "end": 1124.559,
+      "text": "that. Okay. Now let's try to add the"
+    },
+    {
+      "start": 1122.08,
+      "end": 1127.36,
+      "text": "chat feature. Uh I'll just try to add"
+    },
+    {
+      "start": 1124.559,
+      "end": 1130.0,
+      "text": "the updated chat feature. So I already"
+    },
+    {
+      "start": 1127.36,
+      "end": 1133.7199999999998,
+      "text": "written the code guys. Let me show you."
+    },
+    {
+      "start": 1130.0,
+      "end": 1133.72,
+      "text": "So this is the code"
+    },
+    {
+      "start": 1135.84,
+      "end": 1140.1599999999999,
+      "text": "and this is the same code guys. Uh only"
+    },
+    {
+      "start": 1138.16,
+      "end": 1143.1200000000001,
+      "text": "just few update I have done. So here"
+    },
+    {
+      "start": 1140.16,
+      "end": 1145.44,
+      "text": "we're taking a chat input from the user."
+    },
+    {
+      "start": 1143.12,
+      "end": 1147.52,
+      "text": "Okay. And whenever user is giving their"
+    },
+    {
+      "start": 1145.44,
+      "end": 1149.44,
+      "text": "input, first of all we are appending to"
+    },
+    {
+      "start": 1147.52,
+      "end": 1152.4,
+      "text": "the message story. The same thing we did"
+    },
+    {
+      "start": 1149.44,
+      "end": 1155.76,
+      "text": "our uh previous code as well. So message"
+    },
+    {
+      "start": 1152.4,
+      "end": 1158.16,
+      "text": "story. Uh after that uh we are setting"
+    },
+    {
+      "start": 1155.76,
+      "end": 1160.48,
+      "text": "this is a user conversation and content"
+    },
+    {
+      "start": 1158.16,
+      "end": 1162.72,
+      "text": "is user input. Okay. And why we are"
+    },
+    {
+      "start": 1160.48,
+      "end": 1165.1200000000001,
+      "text": "doing this? Because I want to save my"
+    },
+    {
+      "start": 1162.72,
+      "end": 1166.799,
+      "text": "conversation story and this is the"
+    },
+    {
+      "start": 1165.12,
+      "end": 1168.9599999999998,
+      "text": "format to save the conversation story."
+    },
+    {
+      "start": 1166.799,
+      "end": 1170.799,
+      "text": "First of all, you have to define uh what"
+    },
+    {
+      "start": 1168.96,
+      "end": 1173.2,
+      "text": "is the role of this conversation. This"
+    },
+    {
+      "start": 1170.799,
+      "end": 1175.76,
+      "text": "is user and what is the content of that."
+    },
+    {
+      "start": 1173.2,
+      "end": 1177.679,
+      "text": "Okay. After this, we are showing this"
+    },
+    {
+      "start": 1175.76,
+      "end": 1179.36,
+      "text": "conversation in the streamllet user"
+    },
+    {
+      "start": 1177.679,
+      "end": 1180.96,
+      "text": "interface. For this, we're taking a chat"
+    },
+    {
+      "start": 1179.36,
+      "end": 1184.1599999999999,
+      "text": "message. I think remember there would be"
+    },
+    {
+      "start": 1180.96,
+      "end": 1186.0,
+      "text": "a um there would be a icon. Okay. User"
+    },
+    {
+      "start": 1184.16,
+      "end": 1187.2,
+      "text": "icon. So, we are setting that this is a"
+    },
+    {
+      "start": 1186.0,
+      "end": 1189.679,
+      "text": "user icon and this is the user"
+    },
+    {
+      "start": 1187.2,
+      "end": 1191.52,
+      "text": "conversation. Okay. And here guys, we"
+    },
+    {
+      "start": 1189.679,
+      "end": 1194.0,
+      "text": "are defining the configuration right"
+    },
+    {
+      "start": 1191.52,
+      "end": 1195.36,
+      "text": "now. Okay. This is the persistence"
+    },
+    {
+      "start": 1194.0,
+      "end": 1196.799,
+      "text": "configuration. This is the trading"
+    },
+    {
+      "start": 1195.36,
+      "end": 1199.28,
+      "text": "configuration. Config is equal to"
+    },
+    {
+      "start": 1196.799,
+      "end": 1202.0,
+      "text": "configurable. Now trade ID is equal to T"
+    },
+    {
+      "start": 1199.28,
+      "end": 1203.9189999999999,
+      "text": "dot session state trade ID. Now we are"
+    },
+    {
+      "start": 1202.0,
+      "end": 1205.28,
+      "text": "not taking the hardcoded trade ID."
+    },
+    {
+      "start": 1203.919,
+      "end": 1207.1200000000001,
+      "text": "Instead of that see previously we are"
+    },
+    {
+      "start": 1205.28,
+      "end": 1209.52,
+      "text": "taking the hardcoded trade ID. We are"
+    },
+    {
+      "start": 1207.12,
+      "end": 1211.28,
+      "text": "only giving trade one. But right now"
+    },
+    {
+      "start": 1209.52,
+      "end": 1213.039,
+      "text": "there would be a multiple trade. User"
+    },
+    {
+      "start": 1211.28,
+      "end": 1214.3999999999999,
+      "text": "can create the trades right? So we are"
+    },
+    {
+      "start": 1213.039,
+      "end": 1216.16,
+      "text": "taking it from the session state and"
+    },
+    {
+      "start": 1214.4,
+      "end": 1218.4,
+      "text": "already session state we have created"
+    },
+    {
+      "start": 1216.16,
+      "end": 1220.0,
+      "text": "here. The session state it is already"
+    },
+    {
+      "start": 1218.4,
+      "end": 1222.64,
+      "text": "created."
+    },
+    {
+      "start": 1220.0,
+      "end": 1226.48,
+      "text": "Uh session state."
+    },
+    {
+      "start": 1222.64,
+      "end": 1228.4,
+      "text": "Uh what is that? Yeah, s state trade ID."
+    },
+    {
+      "start": 1226.48,
+      "end": 1230.24,
+      "text": "Now I think trade ID it is available."
+    },
+    {
+      "start": 1228.4,
+      "end": 1231.76,
+      "text": "Yeah, you can see trade ID is available."
+    },
+    {
+      "start": 1230.24,
+      "end": 1234.32,
+      "text": "And how we are getting the trade ID? It"
+    },
+    {
+      "start": 1231.76,
+      "end": 1236.4,
+      "text": "is generating by the UI ID. Okay, from"
+    },
+    {
+      "start": 1234.32,
+      "end": 1239.36,
+      "text": "here only it is getting generated. Okay,"
+    },
+    {
+      "start": 1236.4,
+      "end": 1242.159,
+      "text": "I hope you get it now."
+    },
+    {
+      "start": 1239.36,
+      "end": 1244.799,
+      "text": "Yeah, from here actually we are showing"
+    },
+    {
+      "start": 1242.159,
+      "end": 1248.3200000000002,
+      "text": "the user uh sorry assistant message. As"
+    },
+    {
+      "start": 1244.799,
+      "end": 1250.6399999999999,
+      "text": "you can see we are taking this st uh"
+    },
+    {
+      "start": 1248.32,
+      "end": 1253.9189999999999,
+      "text": "chat message. Uh we are taking this is"
+    },
+    {
+      "start": 1250.64,
+      "end": 1255.8400000000001,
+      "text": "assistant reply. After that we are"
+    },
+    {
+      "start": 1253.919,
+      "end": 1258.64,
+      "text": "taking the write stream function. I told"
+    },
+    {
+      "start": 1255.84,
+      "end": 1260.24,
+      "text": "you in my previous video how stream it"
+    },
+    {
+      "start": 1258.64,
+      "end": 1262.7990000000002,
+      "text": "streaming works right how we can show"
+    },
+    {
+      "start": 1260.24,
+      "end": 1265.36,
+      "text": "the streaming response. So inside that"
+    },
+    {
+      "start": 1262.799,
+      "end": 1267.039,
+      "text": "we are generating the responses from our"
+    },
+    {
+      "start": 1265.36,
+      "end": 1269.6,
+      "text": "chatbot object. The chatbot we have"
+    },
+    {
+      "start": 1267.039,
+      "end": 1271.6,
+      "text": "imported from the back end. Okay as you"
+    },
+    {
+      "start": 1269.6,
+      "end": 1274.1589999999999,
+      "text": "can see this is the same code guys there"
+    },
+    {
+      "start": 1271.6,
+      "end": 1276.1589999999999,
+      "text": "is no chance we are using after that"
+    },
+    {
+      "start": 1274.159,
+      "end": 1278.0,
+      "text": "whatever message chunk we are getting we"
+    },
+    {
+      "start": 1276.159,
+      "end": 1280.4,
+      "text": "are continuously"
+    },
+    {
+      "start": 1278.0,
+      "end": 1282.08,
+      "text": "uh writing with the help of write stream"
+    },
+    {
+      "start": 1280.4,
+      "end": 1284.88,
+      "text": "function. Okay. And here we're passing"
+    },
+    {
+      "start": 1282.08,
+      "end": 1287.1999999999998,
+      "text": "the configuration and we are giving"
+    },
+    {
+      "start": 1284.88,
+      "end": 1289.679,
+      "text": "stream mode is equal to message. Okay."
+    },
+    {
+      "start": 1287.2,
+      "end": 1291.6000000000001,
+      "text": "And here we're getting one u suggestion."
+    },
+    {
+      "start": 1289.679,
+      "end": 1295.3200000000002,
+      "text": "I have to import this AI message. So"
+    },
+    {
+      "start": 1291.6,
+      "end": 1295.32,
+      "text": "let's import it quickly."
+    },
+    {
+      "start": 1297.28,
+      "end": 1302.8799999999999,
+      "text": "I'll just try to import this AI message"
+    },
+    {
+      "start": 1301.039,
+      "end": 1304.64,
+      "text": "after human message AI message. Okay."
+    },
+    {
+      "start": 1302.88,
+      "end": 1307.0390000000002,
+      "text": "Because this streaming response should"
+    },
+    {
+      "start": 1304.64,
+      "end": 1310.0800000000002,
+      "text": "be AI message here. Okay. That's why I'm"
+    },
+    {
+      "start": 1307.039,
+      "end": 1313.28,
+      "text": "telling if is instance message chunk if"
+    },
+    {
+      "start": 1310.08,
+      "end": 1315.4399999999998,
+      "text": "it is like message chunk that means we"
+    },
+    {
+      "start": 1313.28,
+      "end": 1317.12,
+      "text": "are getting AI AI reply right so that's"
+    },
+    {
+      "start": 1315.44,
+      "end": 1319.6000000000001,
+      "text": "why telling this should be IM message so"
+    },
+    {
+      "start": 1317.12,
+      "end": 1322.799,
+      "text": "this will only u show the IM message"
+    },
+    {
+      "start": 1319.6,
+      "end": 1324.24,
+      "text": "here then we are saving the complete"
+    },
+    {
+      "start": 1322.799,
+      "end": 1326.08,
+      "text": "assistant response in this stream"
+    },
+    {
+      "start": 1324.24,
+      "end": 1327.76,
+      "text": "session state in the message story so"
+    },
+    {
+      "start": 1326.08,
+      "end": 1330.32,
+      "text": "this code is common I think you already"
+    },
+    {
+      "start": 1327.76,
+      "end": 1332.799,
+      "text": "know that yeah this is pretty much clear"
+    },
+    {
+      "start": 1330.32,
+      "end": 1335.76,
+      "text": "so after uh this uh part is done guys"
+    },
+    {
+      "start": 1332.799,
+      "end": 1337.12,
+      "text": "now what I'm going to do I'm going to"
+    },
+    {
+      "start": 1335.76,
+      "end": 1341.6,
+      "text": "simply"
+    },
+    {
+      "start": 1337.12,
+      "end": 1343.1999999999998,
+      "text": "execute my app. Refresh."
+    },
+    {
+      "start": 1341.6,
+      "end": 1345.6,
+      "text": "Now see guys, you are getting this"
+    },
+    {
+      "start": 1343.2,
+      "end": 1349.0800000000002,
+      "text": "window. Now if I do the chat operation,"
+    },
+    {
+      "start": 1345.6,
+      "end": 1349.08,
+      "text": "let's say hi."
+    },
+    {
+      "start": 1349.76,
+      "end": 1355.44,
+      "text": "See, I'm getting the response. Now I'll"
+    },
+    {
+      "start": 1352.08,
+      "end": 1357.6,
+      "text": "tell my name"
+    },
+    {
+      "start": 1355.44,
+      "end": 1360.0,
+      "text": "is puppy."
+    },
+    {
+      "start": 1357.6,
+      "end": 1362.7199999999998,
+      "text": "Now see previous uh message is getting"
+    },
+    {
+      "start": 1360.0,
+      "end": 1364.0,
+      "text": "replaced because I haven't added this"
+    },
+    {
+      "start": 1362.72,
+      "end": 1366.159,
+      "text": "code here. I think you remember"
+    },
+    {
+      "start": 1364.0,
+      "end": 1369.039,
+      "text": "previously also I added this code and"
+    },
+    {
+      "start": 1366.159,
+      "end": 1370.3200000000002,
+      "text": "this uh loading the conversation story."
+    },
+    {
+      "start": 1369.039,
+      "end": 1373.039,
+      "text": "Okay, we have to load the conversation"
+    },
+    {
+      "start": 1370.32,
+      "end": 1375.52,
+      "text": "story every time. So let's load that"
+    },
+    {
+      "start": 1373.039,
+      "end": 1378.1589999999999,
+      "text": "before the user input. So every time it"
+    },
+    {
+      "start": 1375.52,
+      "end": 1380.559,
+      "text": "will load the conversation story message"
+    },
+    {
+      "start": 1378.159,
+      "end": 1383.679,
+      "text": "and it will uh write in the stream that"
+    },
+    {
+      "start": 1380.559,
+      "end": 1386.48,
+      "text": "user interface as a uh human role and"
+    },
+    {
+      "start": 1383.679,
+      "end": 1388.5590000000002,
+      "text": "assistant role. Okay, because we are"
+    },
+    {
+      "start": 1386.48,
+      "end": 1390.72,
+      "text": "running a for loops every time it will"
+    },
+    {
+      "start": 1388.559,
+      "end": 1392.8799999999999,
+      "text": "looping through the role. First of all"
+    },
+    {
+      "start": 1390.72,
+      "end": 1394.559,
+      "text": "user role will come then assistant role"
+    },
+    {
+      "start": 1392.88,
+      "end": 1398.72,
+      "text": "then user role then assistant role and"
+    },
+    {
+      "start": 1394.559,
+      "end": 1403.799,
+      "text": "their content. Now let me refresh and"
+    },
+    {
+      "start": 1398.72,
+      "end": 1403.799,
+      "text": "again try. So hello"
+    },
+    {
+      "start": 1406.0,
+      "end": 1409.799,
+      "text": "my name is"
+    },
+    {
+      "start": 1410.4,
+      "end": 1414.72,
+      "text": "Buffy."
+    },
+    {
+      "start": 1413.2,
+      "end": 1416.48,
+      "text": "Okay. Now nice to meet you Buffy. Now"
+    },
+    {
+      "start": 1414.72,
+      "end": 1419.2,
+      "text": "see we are able to see the previous"
+    },
+    {
+      "start": 1416.48,
+      "end": 1421.2,
+      "text": "conversation but right now what I have"
+    },
+    {
+      "start": 1419.2,
+      "end": 1424.159,
+      "text": "to do so let's say if I click on a new"
+    },
+    {
+      "start": 1421.2,
+      "end": 1426.559,
+      "text": "chart okay new chart will is coming okay"
+    },
+    {
+      "start": 1424.159,
+      "end": 1428.88,
+      "text": "it's completely fine but I am not able"
+    },
+    {
+      "start": 1426.559,
+      "end": 1431.36,
+      "text": "to see my older chart that means older"
+    },
+    {
+      "start": 1428.88,
+      "end": 1433.5200000000002,
+      "text": "trades so now I will be adding the code"
+    },
+    {
+      "start": 1431.36,
+      "end": 1436.799,
+      "text": "related older trades so you can also see"
+    },
+    {
+      "start": 1433.52,
+      "end": 1438.559,
+      "text": "the older trades so what I can do guys u"
+    },
+    {
+      "start": 1436.799,
+      "end": 1441.76,
+      "text": "I can show you my updated code I already"
+    },
+    {
+      "start": 1438.559,
+      "end": 1445.32,
+      "text": "created for this"
+    },
+    {
+      "start": 1441.76,
+      "end": 1445.32,
+      "text": "here I can write"
+    },
+    {
+      "start": 1446.0,
+      "end": 1449.6,
+      "text": "So this is the code guys I have written"
+    },
+    {
+      "start": 1447.76,
+      "end": 1452.72,
+      "text": "display all the conversation trades in"
+    },
+    {
+      "start": 1449.6,
+      "end": 1454.1589999999999,
+      "text": "reverse order and why I have to uh show"
+    },
+    {
+      "start": 1452.72,
+      "end": 1456.24,
+      "text": "in the reverse order. See every time"
+    },
+    {
+      "start": 1454.159,
+      "end": 1459.0390000000002,
+      "text": "what is happening if you create new"
+    },
+    {
+      "start": 1456.24,
+      "end": 1461.279,
+      "text": "trades right if you get new new trades"
+    },
+    {
+      "start": 1459.039,
+      "end": 1464.96,
+      "text": "so your"
+    },
+    {
+      "start": 1461.279,
+      "end": 1468.159,
+      "text": "uh your u new trades is coming"
+    },
+    {
+      "start": 1464.96,
+      "end": 1470.88,
+      "text": "uh new trait is coming at the last. Okay"
+    },
+    {
+      "start": 1468.159,
+      "end": 1473.44,
+      "text": "because by default Python will add this"
+    },
+    {
+      "start": 1470.88,
+      "end": 1475.8400000000001,
+      "text": "new traits at the last. Okay. But if you"
+    },
+    {
+      "start": 1473.44,
+      "end": 1477.52,
+      "text": "see if I click on new trades, every time"
+    },
+    {
+      "start": 1475.84,
+      "end": 1479.52,
+      "text": "this new trade should be coming at the"
+    },
+    {
+      "start": 1477.52,
+      "end": 1482.4,
+      "text": "recent chart, okay, at the first uh"
+    },
+    {
+      "start": 1479.52,
+      "end": 1484.8799999999999,
+      "text": "first uh let's say order. So that's why"
+    },
+    {
+      "start": 1482.4,
+      "end": 1487.2,
+      "text": "we are reversing the order. So if my new"
+    },
+    {
+      "start": 1484.88,
+      "end": 1489.2,
+      "text": "chart is getting added at the last, if I"
+    },
+    {
+      "start": 1487.2,
+      "end": 1491.2,
+      "text": "do the reverse operation, that means"
+    },
+    {
+      "start": 1489.2,
+      "end": 1493.039,
+      "text": "from the last it will come at the first."
+    },
+    {
+      "start": 1491.2,
+      "end": 1494.799,
+      "text": "Okay, I think you understood that's why"
+    },
+    {
+      "start": 1493.039,
+      "end": 1496.48,
+      "text": "we're doing the reverse order operation."
+    },
+    {
+      "start": 1494.799,
+      "end": 1498.4,
+      "text": "So this is a list, we are just doing the"
+    },
+    {
+      "start": 1496.48,
+      "end": 1500.4,
+      "text": "reverse order operation because in this"
+    },
+    {
+      "start": 1498.4,
+      "end": 1502.0,
+      "text": "session state we have the chat traits."
+    },
+    {
+      "start": 1500.4,
+      "end": 1503.8400000000001,
+      "text": "Okay, in this session we have the chat"
+    },
+    {
+      "start": 1502.0,
+      "end": 1505.84,
+      "text": "trades and this is a list and it will"
+    },
+    {
+      "start": 1503.84,
+      "end": 1508.3999999999999,
+      "text": "continuously add at the last. Okay,"
+    },
+    {
+      "start": 1505.84,
+      "end": 1511.52,
+      "text": "let's see if you click on the add new."
+    },
+    {
+      "start": 1508.4,
+      "end": 1514.159,
+      "text": "So new chat will add here. New chat will"
+    },
+    {
+      "start": 1511.52,
+      "end": 1516.0,
+      "text": "add here, right? And this has your old"
+    },
+    {
+      "start": 1514.159,
+      "end": 1518.5590000000002,
+      "text": "chat also."
+    },
+    {
+      "start": 1516.0,
+      "end": 1520.48,
+      "text": "But this will show at at the last but I"
+    },
+    {
+      "start": 1518.559,
+      "end": 1522.24,
+      "text": "don't want to see at the last because"
+    },
+    {
+      "start": 1520.48,
+      "end": 1524.4,
+      "text": "whenever I'm doing the new conversation"
+    },
+    {
+      "start": 1522.24,
+      "end": 1525.84,
+      "text": "I want to see in the recent chat"
+    },
+    {
+      "start": 1524.4,
+      "end": 1527.039,
+      "text": "operation that means it will come at the"
+    },
+    {
+      "start": 1525.84,
+      "end": 1528.8799999999999,
+      "text": "first. Okay, that's why we have to do"
+    },
+    {
+      "start": 1527.039,
+      "end": 1530.8799999999999,
+      "text": "the reverse operation. So if you perform"
+    },
+    {
+      "start": 1528.88,
+      "end": 1533.6000000000001,
+      "text": "the reverse operation what will happen"
+    },
+    {
+      "start": 1530.88,
+      "end": 1536.0,
+      "text": "this new chat will come here right now"
+    },
+    {
+      "start": 1533.6,
+      "end": 1537.9189999999999,
+      "text": "okay before the old chat and with the"
+    },
+    {
+      "start": 1536.0,
+      "end": 1540.159,
+      "text": "help of that I will be able to make it"
+    },
+    {
+      "start": 1537.919,
+      "end": 1544.76,
+      "text": "in the recent conversation. So this is"
+    },
+    {
+      "start": 1540.159,
+      "end": 1544.7600000000002,
+      "text": "why we are doing this one"
+    },
+    {
+      "start": 1546.0,
+      "end": 1551.36,
+      "text": "just a minute let me"
+    },
+    {
+      "start": 1549.6,
+      "end": 1553.279,
+      "text": "so this is why we are adding this"
+    },
+    {
+      "start": 1551.36,
+      "end": 1557.279,
+      "text": "particular code. So it is going through"
+    },
+    {
+      "start": 1553.279,
+      "end": 1559.44,
+      "text": "the entire uh chat trades and uh here we"
+    },
+    {
+      "start": 1557.279,
+      "end": 1561.44,
+      "text": "are giving a button because this should"
+    },
+    {
+      "start": 1559.44,
+      "end": 1563.52,
+      "text": "be also a clickable object. If I click"
+    },
+    {
+      "start": 1561.44,
+      "end": 1566.64,
+      "text": "on this particular traits, it will be"
+    },
+    {
+      "start": 1563.52,
+      "end": 1569.12,
+      "text": "able to show my conversation. Okay,"
+    },
+    {
+      "start": 1566.64,
+      "end": 1572.3200000000002,
+      "text": "that's why we are making it as a button."
+    },
+    {
+      "start": 1569.12,
+      "end": 1576.0,
+      "text": "ST dot sidebar button. So button uh name"
+    },
+    {
+      "start": 1572.32,
+      "end": 1579.84,
+      "text": "should be trade ID only. Even you can"
+    },
+    {
+      "start": 1576.0,
+      "end": 1582.08,
+      "text": "also uh you can also uh give any message"
+    },
+    {
+      "start": 1579.84,
+      "end": 1584.9599999999998,
+      "text": "name if you want. Okay, if you want you"
+    },
+    {
+      "start": 1582.08,
+      "end": 1587.6,
+      "text": "can also add any message name and uh the"
+    },
+    {
+      "start": 1584.96,
+      "end": 1590.159,
+      "text": "key should be trade ID. So once uh"
+    },
+    {
+      "start": 1587.6,
+      "end": 1592.08,
+      "text": "button creation is done, we are again"
+    },
+    {
+      "start": 1590.159,
+      "end": 1594.0800000000002,
+      "text": "saving this trade ID in our current"
+    },
+    {
+      "start": 1592.08,
+      "end": 1596.3999999999999,
+      "text": "trade because this is the current trade"
+    },
+    {
+      "start": 1594.08,
+      "end": 1599.279,
+      "text": "user will do the conversation"
+    },
+    {
+      "start": 1596.4,
+      "end": 1601.1200000000001,
+      "text": "and we'll load all of the conversation"
+    },
+    {
+      "start": 1599.279,
+      "end": 1603.12,
+      "text": "in this particular trades because if you"
+    },
+    {
+      "start": 1601.12,
+      "end": 1604.799,
+      "text": "click here see if I click here it is"
+    },
+    {
+      "start": 1603.12,
+      "end": 1608.0,
+      "text": "loading all of the conversation I did"
+    },
+    {
+      "start": 1604.799,
+      "end": 1610.32,
+      "text": "previously okay from my memory. So I"
+    },
+    {
+      "start": 1608.0,
+      "end": 1612.159,
+      "text": "will write a function for this called"
+    },
+    {
+      "start": 1610.32,
+      "end": 1613.6789999999999,
+      "text": "load conversation."
+    },
+    {
+      "start": 1612.159,
+      "end": 1617.6000000000001,
+      "text": "So basically this will load all the"
+    },
+    {
+      "start": 1613.679,
+      "end": 1624.0,
+      "text": "previous conversation here."
+    },
+    {
+      "start": 1617.6,
+      "end": 1625.76,
+      "text": "So after this uh reset chat maybe I can"
+    },
+    {
+      "start": 1624.0,
+      "end": 1627.84,
+      "text": "write this function. So load"
+    },
+    {
+      "start": 1625.76,
+      "end": 1630.799,
+      "text": "conversation this will take the trade ID"
+    },
+    {
+      "start": 1627.84,
+      "end": 1633.1999999999998,
+      "text": "and I think you remember uh from the uh"
+    },
+    {
+      "start": 1630.799,
+      "end": 1635.36,
+      "text": "lang graph graph we get the state. Okay,"
+    },
+    {
+      "start": 1633.2,
+      "end": 1638.24,
+      "text": "if you call this get state function, it"
+    },
+    {
+      "start": 1635.36,
+      "end": 1640.24,
+      "text": "will give you all of the all of the"
+    },
+    {
+      "start": 1638.24,
+      "end": 1642.08,
+      "text": "previous conversation. If you want to"
+    },
+    {
+      "start": 1640.24,
+      "end": 1643.36,
+      "text": "understand this guys, you have to go"
+    },
+    {
+      "start": 1642.08,
+      "end": 1644.72,
+      "text": "through this particular session because"
+    },
+    {
+      "start": 1643.36,
+      "end": 1645.76,
+      "text": "here I already explained each and"
+    },
+    {
+      "start": 1644.72,
+      "end": 1647.84,
+      "text": "everything. So that's why I'm not going"
+    },
+    {
+      "start": 1645.76,
+      "end": 1649.039,
+      "text": "to repeat it again. So this get state"
+    },
+    {
+      "start": 1647.84,
+      "end": 1651.36,
+      "text": "function will return you all of the"
+    },
+    {
+      "start": 1649.039,
+      "end": 1653.12,
+      "text": "previous conversation. So we are taking"
+    },
+    {
+      "start": 1651.36,
+      "end": 1654.8799999999999,
+      "text": "all of the conversation and we are only"
+    },
+    {
+      "start": 1653.12,
+      "end": 1656.08,
+      "text": "getting the messages. Okay, from the"
+    },
+    {
+      "start": 1654.88,
+      "end": 1657.6000000000001,
+      "text": "value itself, we're only getting the"
+    },
+    {
+      "start": 1656.08,
+      "end": 1660.96,
+      "text": "messages."
+    },
+    {
+      "start": 1657.6,
+      "end": 1663.9189999999999,
+      "text": "Okay, so this particular messages will"
+    },
+    {
+      "start": 1660.96,
+      "end": 1666.08,
+      "text": "show here. Then we are taking a empty"
+    },
+    {
+      "start": 1663.919,
+      "end": 1668.159,
+      "text": "list here. Then we are going through the"
+    },
+    {
+      "start": 1666.08,
+      "end": 1671.12,
+      "text": "messages one by one. Then we are trying"
+    },
+    {
+      "start": 1668.159,
+      "end": 1673.0390000000002,
+      "text": "to separate out the u user conversation"
+    },
+    {
+      "start": 1671.12,
+      "end": 1676.9599999999998,
+      "text": "as well as the assistant conversation."
+    },
+    {
+      "start": 1673.039,
+      "end": 1678.799,
+      "text": "Okay. So we we are using is instance uh"
+    },
+    {
+      "start": 1676.96,
+      "end": 1681.6000000000001,
+      "text": "function for this. If you pass any"
+    },
+    {
+      "start": 1678.799,
+      "end": 1685.2,
+      "text": "message uh it will automatically tell"
+    },
+    {
+      "start": 1681.6,
+      "end": 1687.36,
+      "text": "you whether it is human message or let's"
+    },
+    {
+      "start": 1685.2,
+      "end": 1690.159,
+      "text": "say AI message. If it is human message"
+    },
+    {
+      "start": 1687.36,
+      "end": 1691.76,
+      "text": "role should be set to the user otherwise"
+    },
+    {
+      "start": 1690.159,
+      "end": 1694.3200000000002,
+      "text": "role should be set to the assistant."
+    },
+    {
+      "start": 1691.76,
+      "end": 1696.48,
+      "text": "Then after that we are uh adding inside"
+    },
+    {
+      "start": 1694.32,
+      "end": 1699.2,
+      "text": "my temporary message list all of the"
+    },
+    {
+      "start": 1696.48,
+      "end": 1701.679,
+      "text": "conversation as a role and content. Then"
+    },
+    {
+      "start": 1699.2,
+      "end": 1704.48,
+      "text": "after that we are just updating in my"
+    },
+    {
+      "start": 1701.679,
+      "end": 1706.159,
+      "text": "session state and it is uh showing you"
+    },
+    {
+      "start": 1704.48,
+      "end": 1708.08,
+      "text": "in the user interface. Okay. Then again"
+    },
+    {
+      "start": 1706.159,
+      "end": 1709.919,
+      "text": "we are doing the return operation. Now"
+    },
+    {
+      "start": 1708.08,
+      "end": 1713.6,
+      "text": "let me show you. So if I let's say come"
+    },
+    {
+      "start": 1709.919,
+      "end": 1715.76,
+      "text": "here refresh."
+    },
+    {
+      "start": 1713.6,
+      "end": 1718.76,
+      "text": "Now see uh if I do any kinds of"
+    },
+    {
+      "start": 1715.76,
+      "end": 1718.76,
+      "text": "conversation"
+    },
+    {
+      "start": 1720.0,
+      "end": 1726.08,
+      "text": "if I take a new chat now see guys new"
+    },
+    {
+      "start": 1723.679,
+      "end": 1727.6000000000001,
+      "text": "new chat is getting created and I can"
+    },
+    {
+      "start": 1726.08,
+      "end": 1729.1999999999998,
+      "text": "see my previous conversation as well."
+    },
+    {
+      "start": 1727.6,
+      "end": 1732.7199999999998,
+      "text": "Now let's say if I do another"
+    },
+    {
+      "start": 1729.2,
+      "end": 1734.64,
+      "text": "conversation. Hi."
+    },
+    {
+      "start": 1732.72,
+      "end": 1737.64,
+      "text": "Done. Now I can go to my previous"
+    },
+    {
+      "start": 1734.64,
+      "end": 1737.64,
+      "text": "conversation."
+    },
+    {
+      "start": 1744.32,
+      "end": 1746.72,
+      "text": "See I can go to my previous"
+    },
+    {
+      "start": 1745.679,
+      "end": 1747.8400000000001,
+      "text": "conversation. This is the new"
+    },
+    {
+      "start": 1746.72,
+      "end": 1750.24,
+      "text": "conversation. This is previous"
+    },
+    {
+      "start": 1747.84,
+      "end": 1752.6399999999999,
+      "text": "conversation. Okay. So we have added"
+    },
+    {
+      "start": 1750.24,
+      "end": 1754.24,
+      "text": "this particular code and I'm also able"
+    },
+    {
+      "start": 1752.64,
+      "end": 1755.6000000000001,
+      "text": "to see my conversation history. Let's"
+    },
+    {
+      "start": 1754.24,
+      "end": 1757.36,
+      "text": "see if I've done any kinds of previous"
+    },
+    {
+      "start": 1755.6,
+      "end": 1759.279,
+      "text": "conversation. I can see the story"
+    },
+    {
+      "start": 1757.36,
+      "end": 1760.8799999999999,
+      "text": "because of this code. Okay, this is"
+    },
+    {
+      "start": 1759.279,
+      "end": 1762.799,
+      "text": "continuously"
+    },
+    {
+      "start": 1760.88,
+      "end": 1764.7990000000002,
+      "text": "uh where is that this function load"
+    },
+    {
+      "start": 1762.799,
+      "end": 1767.9189999999999,
+      "text": "conversation. This load conversation is"
+    },
+    {
+      "start": 1764.799,
+      "end": 1769.84,
+      "text": "continuously fetching the informations"
+    },
+    {
+      "start": 1767.919,
+      "end": 1772.64,
+      "text": "because we're running a for uh running a"
+    },
+    {
+      "start": 1769.84,
+      "end": 1778.36,
+      "text": "for loop here. Okay. So every time uh"
+    },
+    {
+      "start": 1772.64,
+      "end": 1778.3600000000001,
+      "text": "this uh message is getting fetched"
+    },
+    {
+      "start": 1779.36,
+      "end": 1785.6789999999999,
+      "text": "and one more update we have to do"
+    },
+    {
+      "start": 1783.12,
+      "end": 1787.9189999999999,
+      "text": "every time we have to set the current"
+    },
+    {
+      "start": 1785.679,
+      "end": 1789.2,
+      "text": "trade to the conversation list. Okay,"
+    },
+    {
+      "start": 1787.919,
+      "end": 1791.679,
+      "text": "for this we'll try to add this"
+    },
+    {
+      "start": 1789.2,
+      "end": 1794.559,
+      "text": "particular code. Okay, now I think my"
+    },
+    {
+      "start": 1791.679,
+      "end": 1796.96,
+      "text": "application is ready. This is a simple"
+    },
+    {
+      "start": 1794.559,
+      "end": 1799.039,
+      "text": "uh code we have written only we're just"
+    },
+    {
+      "start": 1796.96,
+      "end": 1802.0,
+      "text": "playing with the trade. Okay, trade ID"
+    },
+    {
+      "start": 1799.039,
+      "end": 1805.52,
+      "text": "and for this we're using UI ID. We can"
+    },
+    {
+      "start": 1802.0,
+      "end": 1807.679,
+      "text": "also make it as a u readable title like"
+    },
+    {
+      "start": 1805.52,
+      "end": 1809.679,
+      "text": "chart GPT. Chat GPT actually generates"
+    },
+    {
+      "start": 1807.679,
+      "end": 1811.3600000000001,
+      "text": "readable title uh uh title. So if you"
+    },
+    {
+      "start": 1809.679,
+      "end": 1812.64,
+      "text": "are asking any kinds of question, it"
+    },
+    {
+      "start": 1811.36,
+      "end": 1814.6399999999999,
+      "text": "will generate a title instead of giving"
+    },
+    {
+      "start": 1812.64,
+      "end": 1816.72,
+      "text": "a trade ID. We can also do do this"
+    },
+    {
+      "start": 1814.64,
+      "end": 1820.64,
+      "text": "particular update. It is also possible."
+    },
+    {
+      "start": 1816.72,
+      "end": 1826.1200000000001,
+      "text": "Now let me refresh my app."
+    },
+    {
+      "start": 1820.64,
+      "end": 1826.1200000000001,
+      "text": "Okay, so this is the app. My name"
+    },
+    {
+      "start": 1827.2,
+      "end": 1831.48,
+      "text": "is BBY."
+    },
+    {
+      "start": 1831.919,
+      "end": 1835.44,
+      "text": "Okay. So basically this conversation is"
+    },
+    {
+      "start": 1833.919,
+      "end": 1837.6000000000001,
+      "text": "getting saved inside this particular"
+    },
+    {
+      "start": 1835.44,
+      "end": 1844.919,
+      "text": "trade. Okay. In this particular trade it"
+    },
+    {
+      "start": 1837.6,
+      "end": 1844.9189999999999,
+      "text": "is saving. Now I love cricket."
+    },
+    {
+      "start": 1845.279,
+      "end": 1851.12,
+      "text": "Okay. Now if I take new conversation now"
+    },
+    {
+      "start": 1847.919,
+      "end": 1853.039,
+      "text": "see it is coming as a new uh new session"
+    },
+    {
+      "start": 1851.12,
+      "end": 1855.76,
+      "text": "again. And this particular session is"
+    },
+    {
+      "start": 1853.039,
+      "end": 1857.279,
+      "text": "coming at the first and previous was"
+    },
+    {
+      "start": 1855.76,
+      "end": 1858.32,
+      "text": "previous one it is going at the last"
+    },
+    {
+      "start": 1857.279,
+      "end": 1862.96,
+      "text": "because we are doing the reverse"
+    },
+    {
+      "start": 1858.32,
+      "end": 1866.9189999999999,
+      "text": "operation. Now here I'll tell my"
+    },
+    {
+      "start": 1862.96,
+      "end": 1866.919,
+      "text": "name is Alex."
+    },
+    {
+      "start": 1866.96,
+      "end": 1871.32,
+      "text": "I love football."
+    },
+    {
+      "start": 1875.12,
+      "end": 1879.12,
+      "text": "Okay. Now I go I can go to my previous"
+    },
+    {
+      "start": 1877.6,
+      "end": 1881.76,
+      "text": "conversation"
+    },
+    {
+      "start": 1879.12,
+      "end": 1884.799,
+      "text": "and here I can resume the conversation."
+    },
+    {
+      "start": 1881.76,
+      "end": 1889.72,
+      "text": "What is my"
+    },
+    {
+      "start": 1884.799,
+      "end": 1889.72,
+      "text": "uh what is my favorite?"
+    },
+    {
+      "start": 1896.32,
+      "end": 1901.279,
+      "text": "Okay, you can see cricket is the private"
+    },
+    {
+      "start": 1898.159,
+      "end": 1906.64,
+      "text": "sport. Now I can go to my current trade"
+    },
+    {
+      "start": 1901.279,
+      "end": 1908.559,
+      "text": "and here also I can ask what is my name?"
+    },
+    {
+      "start": 1906.64,
+      "end": 1910.3200000000002,
+      "text": "Your name is Alex. Okay. So that's how"
+    },
+    {
+      "start": 1908.559,
+      "end": 1913.2,
+      "text": "you can create as much as trade as you"
+    },
+    {
+      "start": 1910.32,
+      "end": 1916.2,
+      "text": "can. What is"
+    },
+    {
+      "start": 1913.2,
+      "end": 1916.2,
+      "text": "transformers?"
+    },
+    {
+      "start": 1918.96,
+      "end": 1923.519,
+      "text": "Okay."
+    },
+    {
+      "start": 1920.64,
+      "end": 1926.72,
+      "text": "So this is uh telling you about the"
+    },
+    {
+      "start": 1923.519,
+      "end": 1929.679,
+      "text": "movie but I can ask what is transformers"
+    },
+    {
+      "start": 1926.72,
+      "end": 1931.1200000000001,
+      "text": "in AI."
+    },
+    {
+      "start": 1929.679,
+      "end": 1933.279,
+      "text": "Okay. Now it is telling you what is"
+    },
+    {
+      "start": 1931.12,
+      "end": 1935.4399999999998,
+      "text": "transformers in AI. Okay. So that's how"
+    },
+    {
+      "start": 1933.279,
+      "end": 1937.36,
+      "text": "guys uh like chart JP we created the"
+    },
+    {
+      "start": 1935.44,
+      "end": 1938.88,
+      "text": "trades. Now we can switch to different"
+    },
+    {
+      "start": 1937.36,
+      "end": 1941.039,
+      "text": "different trades and I can resume the"
+    },
+    {
+      "start": 1938.88,
+      "end": 1943.279,
+      "text": "conversation. So yes guys that's how we"
+    },
+    {
+      "start": 1941.039,
+      "end": 1945.279,
+      "text": "can add this trading features uh like"
+    },
+    {
+      "start": 1943.279,
+      "end": 1947.84,
+      "text": "chat GPT. Now if you want you can also"
+    },
+    {
+      "start": 1945.279,
+      "end": 1949.919,
+      "text": "change this name to the actual let's say"
+    },
+    {
+      "start": 1947.84,
+      "end": 1952.8799999999999,
+      "text": "chat title. If you want you can also add"
+    },
+    {
+      "start": 1949.919,
+      "end": 1955.44,
+      "text": "inside this code. So I'll try to u give"
+    },
+    {
+      "start": 1952.88,
+      "end": 1957.3600000000001,
+      "text": "this part uh as an assignment to you."
+    },
+    {
+      "start": 1955.44,
+      "end": 1959.3600000000001,
+      "text": "Maybe you can uh add this functionality"
+    },
+    {
+      "start": 1957.36,
+      "end": 1962.08,
+      "text": "in this code. Okay. Simply you can go to"
+    },
+    {
+      "start": 1959.36,
+      "end": 1964.24,
+      "text": "the chart GPT and you can ask uh I want"
+    },
+    {
+      "start": 1962.08,
+      "end": 1966.1589999999999,
+      "text": "this particular features. How should I"
+    },
+    {
+      "start": 1964.24,
+      "end": 1969.2,
+      "text": "add? you'll be getting the suggestion."
+    },
+    {
+      "start": 1966.159,
+      "end": 1972.7990000000002,
+      "text": "Okay. So, just try to add uh this update"
+    },
+    {
+      "start": 1969.2,
+      "end": 1975.44,
+      "text": "instead of showing you this uh u uh uh"
+    },
+    {
+      "start": 1972.799,
+      "end": 1978.08,
+      "text": "unique user ID maybe you can show chat"
+    },
+    {
+      "start": 1975.44,
+      "end": 1979.679,
+      "text": "title like chat GPT the way chatg shows."
+    },
+    {
+      "start": 1978.08,
+      "end": 1981.84,
+      "text": "Okay, you can also add this particular"
+    },
+    {
+      "start": 1979.679,
+      "end": 1983.519,
+      "text": "things. So, yes guys, this is all about"
+    },
+    {
+      "start": 1981.84,
+      "end": 1986.399,
+      "text": "it from this particular implementation."
+    },
+    {
+      "start": 1983.519,
+      "end": 1988.799,
+      "text": "I hope you liked it. So, in my uh next"
+    },
+    {
+      "start": 1986.399,
+      "end": 1990.4799999999998,
+      "text": "video guys, I'm going to show you"
+    },
+    {
+      "start": 1988.799,
+      "end": 1992.799,
+      "text": "another new update in this aentic"
+    },
+    {
+      "start": 1990.48,
+      "end": 1995.2,
+      "text": "chatbot. So that's how we'll try to make"
+    },
+    {
+      "start": 1992.799,
+      "end": 1997.36,
+      "text": "this agentic chatbot more advanced. Uh"
+    },
+    {
+      "start": 1995.2,
+      "end": 1999.8400000000001,
+      "text": "so yeah uh this is all about it from"
+    },
+    {
+      "start": 1997.36,
+      "end": 2001.12,
+      "text": "this video. If you found it uh useful,"
+    },
+    {
+      "start": 1999.84,
+      "end": 2002.8799999999999,
+      "text": "please try to subscribe to my channel"
+    },
+    {
+      "start": 2001.12,
+      "end": 2005.8799999999999,
+      "text": "and hit the like guys. Thanks for"
+    },
+    {
+      "start": 2002.88,
+      "end": 2005.88,
+      "text": "watching."
+    }
+  ],
+  "video_id": "wDQUpOC58sc",
+  "title": "16. How to Add Chat Threading in Agentic Chatbot using LangGraph | Part 4 | Agentic AI Course",
+  "position": 18,
+  "url": "https://www.youtube.com/watch?v=wDQUpOC58sc"
+}

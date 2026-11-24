@@ -1,0 +1,4797 @@
+{
+  "source": "youtube_captions",
+  "language": "en",
+  "is_generated": true,
+  "text": "Hi guys. My name is Bapi Ahmed and you are welcome to my YouTube channel. So guys, this is the third lecture of our complete agentic AI course. Uh in our previous video, I have already discussed the complete evolution uh of agentic AI, like how agentic AI came. Then I have already given you the detailed introduction to agentic AI, like how agentic system works, what are the key components and characteristics are available. Now, slowly we're moving to the uh AI agents core concept. That means the practical development concept. Uh but before that, we have to also understand all kinds of orchestration frameworks are available. I think I already told you uh in my previous video. Uh like there are uh some components are available, especially whenever I'm talking about uh the agentic AI. Uh one of the component is the orchestrator, right? Orchestrator means there we use some kinds of framework, okay? With the help of these are the framework, we create, we implement the AI agents, whether it's a single agents, whether it's a multi multi AI uh agent system. Uh we try to create these kinds of things, right? So, there is a concept, guys, uh you have to understand before I start with these kinds of orchestrator framework. The concept name is asynchronous programming, okay? So, why this asynchronous programming is required? Uh because if you see, uh going forward, we'll be creating the multi-agent system. And to create the multi-agent system, guys, we'll be using these kinds of orchestrator framework. And internally, this orchestrator framework uses asynchronous programming, okay? That means it will run your agents in parallel. Let's say you have created uh 20 agents. So, what it will do instead of running, uh, agents as a sequentially, it will run all of the agents in parallel, so that your execution would be more fast. So, this concept I'm going to discuss in detail, guys. No need to worry. Uh, first of all, let me show you one thing actually, uh, I have just figured out. Let's say if I go to the Google. So, here if I search like is LangGraph uses asynchronous in the back end for multi-agent agents. So, I think you know LangGraph is one of the orchestrator framework. With the help of LangGraph, we create agentic AI applications, right? And we'll be also mastering this LangGraph inside our codes. So, as you can see, the response was yes, LangGraph is, uh, designed with first-class asynchronous supports in the back end for multi-agent system. That means, uh, it is utilizing the asynchronous programming, asynchronous concept in the back end, okay? Now, if I just to go below, let's say I have asked for about the AutoGen, because AutoGen also will be covering inside our codes. So, as you can see, AutoGen also utilizes asynchronous programming at its core, but it is, uh, architecture fundamentally different from the LangGraph state, uh, LangGraph state machine approach. But internally, it is uses asynchronous programming concept. Now, again I asked like, uh, what about CrewAI, okay? So, you can see CrewAI also supports asynchronous execution, but it, uh, approaches orchestration differently than LangGraph and AutoGen. While, uh, LangGraph uses, uh, a state machine and AutoGen uses, uh, actor model, CrewAI is built around role-based collaboration and process-driven execution model, okay? But, the main funda is that all of the orchestrator framework we are using for developing these kinds of multi-agent application, internally, it is uses asynchronous, okay? Asynchronous programming. Now, before I start with these are the orchestrator framework, first of all, I want to clarify what is asynchronous programming, why it is required, how asynchronous works, okay? What is parallelism, what is uh let's say sequential execution, each and everything I'm going to clarify. Then we'll start with the uh orchestrator framework understanding. But after that, there is one more topic uh we have to cover, which is nothing but Pydantic Pydantic validation. This is also important because you'll see that whatever large language model we're having, it will generate the unstructured output. And to make it structured, even whenever we're giving any kinds of prompt, to make our prompt uh more structured, we use this Pydantic validation, okay? So, this Pydantic validation we'll be understanding in the next video, but in this video, I'll only focus on the asynchronous understanding, okay? So, here I'm going to give you the detailed understanding of asynchronous with the theoretical understanding as well as the practical understanding as well. So, let me show you guys what is this asynchronous. After that, your understanding would be more clear and you can easily understand these are the framework whenever you'll be doing the coding. So, let me give you the definition of the asynchronous programming. So, here is the definition. Um here's the simple definition you can see. Asynchronous programming in Python, okay? You can see asynchronous programming in Python is a programming paradigm that allows code to handle, okay, multiple task uh concurrently without blocking the program's execution. It is primarily used to IO-bound task, example network uh request, file input and output operation, database queries, okay? Allowing the program to perform other operations while waiting for slow external events to complete. That means this I think asynchronous programming will help you. Okay, asynchronous programming will help you. Okay, asynchronous programming will help you to run your task in parallel. Okay, so you are not supposed to wait for the uh execution. Let's say we know that we use synchronous synchronous programming so far. Yes or no, guys? We use synchronous programming so far. In synchronous programming, what happens? Let's say if I execute a code block first of all, it will complete that, okay? After the execution is complete, okay, then it will execute the second part of that particular code, okay? But in between, let's say if you are waiting for the execution, okay, if you're using asynchronous programming, it can run run another task in parallel, okay? So, these are the let's say functionality we'll be getting here. Now, you can ask me why this is required. Okay, why this asynchronous programming is required inside AI agents implementation? Agentic AI, you can create two kinds of agent. One is the simple agent. Okay, one is the simple agent. So, basically, simple agents you create only one block. Okay, it can only handle one particular task. Okay. But whenever, let's say you have complex problem, you have to divide the task in a smaller chunks. And what you will do, you will be creating multiple agents, okay? Multiple agents you will be getting. Let's say this is agent one, this is agent two, this is agent three, okay? And what will happen, you will assign the task for all the agents. And these agents will be executing either independently indepen or dependently. Okay, dependently. So, it's your design philosophy. If you are making it as an independently, that time it will run as an independently. If you are making it to dependent, okay, it will run as a dependently. So, basically what happens, let's say if you run these are the agents, okay? These are the agents in a synchronous programming, okay? In a synchronous programming, what will happen? First of all, these agents need to be completed. These agents execution need to be completed. Once these agent Once these agents will be executed, then it will move to the next agents, okay? Next code block. Then these agents will be executed, okay? Once it is completed, then it will go to this particular agents, okay? Then it will try to run this particular agent. So, let's say this agents is taking 3 minute to run. Sorry. Let's say here I can just tell you. Let's say this agents is taking 1 minute to run. These agents is also taking, let's say, 1.5 minute to run, okay? These agents is also taking, let's say, 1 minute to run. So, what is happening? You have to wait for 1 minute. Again, you have to wait for 1.5 minute. Again, you have to wait for 1 minute, okay? So, if you like uh add all of the time, you will see that at the end you are having, okay, 3. 5 minutes. 3.5 minutes you have to wait for the execution. But, if you run this task in parallel, okay? If you run this task in parallel, let's say this particular agents will do the online search operation. So, basically if you're doing the online search operation, you will be hitting some URL, right? Drive URL. And to get the response, this will take some time. Let's say sometimes this web server might be slow. That time it will be giving you slow response. So, instead of waiting for that, you can execute your other agents. So, let's say this agents will try to collect the uh images. These agents will try to collect the, let's say, any other file, okay, from the internet. So, don't wait to execute any other agents. Just try to run them in a synchronous way, okay? In a parallel way. So, each of the agents will be running in a parallel way. So, let's say the if this agent is also taking uh 1 minute, okay? So, simultaneously we're running something, okay, in the back end. So, you are not supposed to wait for 3.5 minutes. Get it? So, that is the things I just wanted to tell you. So, let's say whenever you are creating multi-agent system and whenever you are creating, let's say, independent connection, okay, independent, let's say, policy, that time you should use this asynchronous programming inside um inside, let's say, Python or let's say, whatever programming you're using, you have to follow that. And if you see any kinds of agent's code, you will be uh seeing people are using this asyncs, okay? Uh asyncs. This particular syntax, people are using that. Okay. So, what is this async? Async means asynchronous, okay? Asynchronous functionality. So, in Python there is a library called asyncio. So, we'll be following that particular library to implement this particular code, okay? So, let me give you one example of asynchronous and synchronous programming. So, let's say here I can write synchronous synchro- nous programming. And this side we have asynchronous programming. So, in synchronous programming, what happens? Let's say what I can do, I can give you one example. Uh let's say here mm Let's say you are you are having a mm you're having a mm gas stove, okay? Gas stove. Uh in this gas stove you only have one um one fire section, okay? One fire section. So, let's say you are having uh three dishes. Okay, you are having three dishes to cook. So, what you will do? First of all, you will take the first dish and you will cook that. Once first dish is complete, then you will take the second dish. Then you have to complete, then you will be taking the third dish, then you will be completing. Okay, that's how you can see it is taking T1, it is taking T2, it is taking T3 time. Okay. So, basically you have to wait for you have to wait for the previous execution or let's say previous task to be completed, then you can start the remaining task. But in asynchronous programming, what happens? Let's say you are having same gas stove, but here you are having let's say three fire section. You're having three fire section and you are having three dishes. Okay, let's say dish one, dish two, and dish three. So, what you have to do? You just need to run all of them simultaneously. Basically, you are giving three dish to the three fire section. Okay? Now, at the T1 time, okay, your all of the dishes will be completed. So, you are not supposed to wait for the T1, T2, and T3 to be completed. Okay, so this is the difference between synchronous programming and asynchronous programming. I hope you get it, guys. So, in Python, we usually follow the synchronous programming. That means if you're running a function, first of all, that function would be completed, then the remaining code would be executed. Now, in programming, we we call it as a subroutine. Let me just write here. Sub routine. And we also call it as coroutine. I'll be discussing about what is this. Okay, coroutine. So, what is subroutine? So, let me a program to explain. Let's say here I can write a function. So, I'll just write a function. Let's say def Okay? Def So, let's say I will Um I will give the function name fetch. Okay? Fetch, let's say data. This is the function name. So it is having some code inside that. Okay? Now, here I'm creating another function. Let's say def main. Okay? Now, what I'm doing? I'm calling this particular function. Okay? This function inside this particular main function fetch data. Okay? I'm calling inside that. I'm calling inside that. Sorry. Yeah. Now after calling, let's say in this main function also there are some code line. So, what is happening here? Let's say if you're uh if you're using sub routine, so that time uh whenever you are executing your code, first of all, your code will uh come here. Okay? Your code will come here and it will see you are calling a function inside that. Which function? You are calling this particular function. Okay? Now, what it will what will happen? First of all, it will go to this function and it will execute all of the code. It will execute all of the code. Now, let's say you are running fetch data, that means let's say you are trying to fetch some kinds of data from the internet. You are using some kinds of API, some kinds of URL, okay? And whenever it is hitting that particular API or URL, it is taking some kinds of time, right? So, you have to wait for this particular time. So see, once this time is over, that means this execution is over. Then you will be able to execute your remaining code. Okay? Till then you have to wait for this execution. Okay? So, this is the idea of subroutine. That means you are waiting for a task to be completed, then your remaining code would be executed. Then your remaining code would be executed. Although you are waiting here, although you are waiting here, you don't have any kinds of other task. You just need to wait for the execution. Okay? And once execution is completed, then you will be able to execute, you'll be able to see the other execution of the program. But in coroutine, what happens? So, let's say here I'm having a function. Here I'm having a function. And uh we use something called asynchronous. Okay? Asynchronous syntax. So, for this we use something called async. Uh async, okay? This is the keyword async. So, we'll write the function as def. Let's say fetch data. This is the function. Let's say inside that you are having some kinds of code. Okay? Now again you are having a main function here. So, I'll just write def main. So, what you are doing? You are calling this particular Um okay, you are calling this particular function def. Sorry, uh fetch. Okay? Fetch data. You're calling that. And inside main you are having some other code. Okay? You are having some other code as well. Now what is happening? Just try to see. Whenever your Python will come here, it will see that you are executing a function. Which function? This function you are executing. And it will see this particular keyword called async, okay? Then that time Python will automatically understand that this code you have written, it will run in asynchronous way. That means let's say here you are doing a API call, and it is taking some time T1. Okay, instead of waiting for this particular time, again it will come here, okay, and execute the remaining code you have, okay, after this function. That means at the T time itself, this code would be executed and this code would be also executed. So, you are not supposed to wait for the previous execution. So, this is called coroutine. And if you're using this async, these are the things, so it internally uses this concept. And now we'll go for the practical, we'll try to see like practically everything, how it works. Uh then I think your understanding would be more clear, okay. First of all, I'm going to explain the synchronous programming. Okay. Now, here I'm going to write two function, let's say for the first function I'm going to write uh fetch DC fetch weather. Okay, fetch weather. Um and the second function I'm going to create def fetch news. Fetch news, okay. Mhm. Now, what I'm going to do, I'm going to import the time module as well just to see the execution time. So, import time. Import time, okay. Now, inside that, as of now, I'm not going to write any logic, simply I'm going to write just a print statement. I'm going to give let's say fetching weather data. Then here I'm going to just mention a time. Uh let's say to fetch the weather data, you have to wait for some time, okay. So, this time I'm going to assign with the help of this time module. So, here I'm going to give let's say I will be waiting for 4 seconds, okay? 4 seconds. So, it it is for the simulate uh network delay. Let's say if you are hitting any kinds of API, so definitely to get the response you have to wait for some time. So, let's say this time I have set 4 seconds here, okay? Now, once uh we stop for 4 4 seconds, now simply I'm going to just print let's say weather data fetched, okay? So, this message I'm going to write. Now, similarly here also I'm going to write uh I'm going to write facing facing news data. And again I'll give some time. Let's say here I've given 2 seconds. And uh once my data news facing is done, so I'll tell news data faced, okay? So, as of now, just try to consider this is a function. This will fetch the weather information. And this will fetch the news, okay? Now, if you see this function and this function doesn't have any uh dependency. These two functions are independent. Okay, these two functions are independent. That means if you want to fetch the weather, you don't need the news. If you want to fetch the news, you don't need the weather. So, these are independent function. Okay? But once I will execute this code, okay, let's say if if I write another function here, I'll just write another function def main, okay? In the main function, I'm going to call uh I'm going to call these two functions. See? First of all, I'm starting the time just to see the time like how much time it takes to execute the two function. So, that's why I'm starting the uh start I'm taking the start time. Then I'm calling these two functions together, fetch weather and fetch news. You can see fetch weather and fetch news I'm calling. Then I'm taking the end time, then I'm doing the subtract operation from end time to start time. And this will be uh this will be my execution time of my program. But if you see here these two functions are independent. This this two functions is not dependent. Although it's independent, okay, it's not dependent. So whenever you will call the function you have to wait for the you have to wait for the previous function to be completed to run the next function. This is the issue, okay? So I can see these two functions are completely independent. But whenever I'm calling this function, first of all this function will execute. So let's say whenever you will execute the program, so your interpreter will come here, okay? Your interpreter will come here, then it will go to inside this particular function. Then it will execute all of the code and here it will wait for the 4 seconds, okay? 4 seconds it will try to wait. But see, in the first 4 seconds it doesn't have any work to do, so it will be waiting. Then once 4 seconds is over, this code would be executed, then your program will come here. Okay, then it will be executed. That means first of all the previous function would be executed, then the next function would be executed. So you can also check. So let's say if I want to show you, so I'll call this particular main function here. Okay, I'll call this main function. Now if I execute, see, facing weather it is waiting for 4 seconds. Now weather fits. Now see, facing news, now it wait for 2 seconds, then news fits. And total time taken you can see 6 point something seconds. Okay, now you can also take this code in one of the amazing website called Python Tutor. Python Tutor.com, here also you can visualize this code. Let me open the Python Tutor. Now I'll select the Python programming. I'll paste my code here. Visualize the execution. Okay. Now, it has started. Okay, it has started. Now, simply time is not defined. So, okay, so the basically I need to import the time here, right? So, let's edit the code. So, here I'll import the time module. Put time. Now, I'll visualize the execution. Import time. It's giving me an error. Time file not found or supported. Only these modules can be imported. Okay, because this is a like a website, okay, Python Tutor website. So, here you can you can't import any Uh let's say these are the library you can't you can import, but some other library you can't import. So, for this what I can do, I can remove the time as of now. I just wanted to only just let you know that how it is executing. Let's say I will also remove the time part. Uh here also I'll remove the time part. Here also. And here also. Uh let's say this is my message. Okay, this is my simple message. Let's say execu- -ted. Now, simply do the visualization. Okay. Now, see. Um here I have the control. So, first of all, Python interpreter will come here. Uh it has seen like here I am having a function called fetch weather. Then, it will go to the next line, that is next function. Then, it will go to the next function, which is main. And in the main function, you can see uh I'm calling here this particular main function. So, it will go enter into the main function. And it will see like I'm calling fetch weather function, okay? So, it will go inside fetch weather and it will do all of the operation. Okay, see, it is doing all of the operation. Now, let's say this function is taking some time, so it will wait. Okay, it will wait for 2 minutes, 1 minute, okay? How much time it is taking, it will try to wait for that. So, once execution is completed, then again, it will come here. Okay, then you can see it will execute another function, which is fetch news. Now, again, it will go inside fetch news then it will do all of the execution and try to come here. That means you have to wait, okay? You have to wait for the previous execution to be complete, then you will be able to run the new code. Okay, that's how you have to wait, okay? You have to wait uh for the previous execution. And definitely, it is taking lots of time. And now, just try to consider if you're running a multiple agents together and if it is running synchronously, so first of all, first agent would be completed, second agent would be completed. So, execution time it will take more. That time we run it is an asynchronous way. So, that we are not need to open We don't need to open for We don't need to wait for the previous execution, okay? The time it is taking it's completely fine. I will simultaneously run for all of the function and it will be executing together, okay? So, now we'll try to see that particular example as well, how it will work. Now, we'll see the synchronous programming. Sorry, asynchronous programming. Asynchronous programming. Now, here to uh implement asynchronous function, you need to import one library called import Sorry, import. Okay? asyncio, okay? asyncio, this particular library and I'm going to also import time library. Let's me import all of them. Then here I'm going to again write the same function. Same function, I will copy the code. And simply I'm going to mention here. Now, instead of giving simply this definition, I'm going to write async keyword, okay, before that. Now, once I have written async keyword, okay, async keyword at the first of this particular function, now Python will automatically understand I need to run this function in asynchronous mode. And here it is taking the time, so maybe I can use another keyword here called await. Okay, await. So, simply I'm going to give it here. Okay? Even you can also return something if you want, okay? You can also return like uh what is the return this function will be returning for you. Mhm. Now, same similar wise, I'll also do it for this particular function. So, async. Okay? Now, simply here I'm going to write await. Okay? Await. So, why you are writing await here? Because here it is taking the time, okay? Here it is taking the time. And whenever here it is taking the time, your Python interpreter will come here. And whenever it will see the await, so it will tell like you don't need to wait for this particular execution, so you can execute your other code, okay, whatever you have. So, this code would be executing. And at the same time, you can also execute your other code, okay? I'll tell you, okay, how it will execute. Uh then simply in the main function also, I'm going to make it as async. Okay, async. And here uh instead of calling like that, I'm going to simply call it as await. Uh asyncio.gather, okay? There is a function. And inside that you have to give the fetch weather fetch weather uh function and fetch news function. Both you have to provide, okay? Then you can uh calculate the end time. And simply you can bring the time taken of this particular function. Now, if you want to execute, uh what you can do, you can simply uh you can simply call this main function. How? You can use the await keyword main. Now, see, if I execute see what will happen. Okay, um there is a error. Oh, sorry. Uh whenever you are using this await, right? You don't need to use the time that time. Uh you can use as since uh as since I will not sleep, okay? So, you are not supposed to use time that time. Okay, you have to use as since I will not sleep. Okay? Now, same things I will be giving it here. Same things I will give it it to here. Uh now I think it is fine. Now, let's execute. Now, see, guys. It has taken only 3 seconds. And if I show you my previous code, it has taken 6 seconds. Okay? So, the time reduced by half. Okay? The time reduced by half. Just try to consider. Now, just think like this is a big program. Okay, this is a big program. This is a big agents and it is running so many stuff. Now, if you run it run it in a asynchronous programming, now just try to consider how much time it should it should take, okay? But if you are using asynchronous programming, see, it will be reducing the time half. Okay? Because it is running everything in parallel. It is running everything in parallel. Okay? So, you are not supposed to wait for the previous execution to be complete. Okay, so all of the executions are doing simultaneously. Okay, so that's why this asynchronous programming, okay, this async IO is required whenever you are implementing uh any kinds of AI agents uh with any kinds of framework, whether you are using autogen, you are using LangGraph, you're using CrewAI, try to use this particular things in your development. Okay? This is good practice. There are two concepts you'll be getting, which is uh the first is para llelism. Okay? And the second thing you'll be getting con cu rrency. So what is parallelism? Running multiple uh tasks simultaneously using multiple threads. Okay, or process. And what is uh concurrency? So let me write it here. Um simply here I can write concurrency. Concurrency means uh managing multiple tasks that can start run and okay, finish with overlapping times. Okay. So, let me show you a graph. I think by seeing the graph, you will be able to understand what is the exact meaning. So, this is the graph. So, this is the concurrency. You can see uh task is running, okay? Context switching to the task two, then again task one is running. Again, it is doing the context switching, okay? But in parallelism, you can see it is utilizing, okay? It is utilizing multi uh multi-core, okay? Let's say uh in the first CPU core, it is running task one and in the second CPU core, it is running task two. But here, it is only utilizing the same core only, but doing um doing this uh concurrency operation, okay? So, guys, I think you have seen this asynchronous concept. Uh the main thing is that right now, all of the orchestrator framework uses these kinds of asynchronous uh functionality in their back end. So, we don't need to manually uh use the asynchronous inside our development, inside our code. But if you want, you can also use. Uh if you want, you can also uh design your own pipeline, design your own agents. That time, you can write the code from scratch. But whatever um let's say uh orchestrator framework will be using like LangGraph, then AutoGen, CrewAI, right? So, everything uh already having these kinds of things are integrated okay in the back end. So, I don't need to take care of this part. But, in future whenever I will do some coding, maybe these are the terminology will come. That time I want you to don't actually confuse with the syntax. Okay? That's why I have clarified each and everything before I go ahead with the AI agents implementation. So, yes guys, I think you have liked this video. If you have liked this video, please try to subscribe to my channel and hit the like button. So, yes, this is all about. Thanks for watching, guys. I will see you in the next video.",
+  "segments": [
+    {
+      "start": 1.0,
+      "end": 3.84,
+      "text": "Hi guys."
+    },
+    {
+      "start": 2.2,
+      "end": 6.4,
+      "text": "My name is Bapi Ahmed and you are"
+    },
+    {
+      "start": 3.84,
+      "end": 8.68,
+      "text": "welcome to my YouTube channel."
+    },
+    {
+      "start": 6.4,
+      "end": 11.96,
+      "text": "So guys, this is the third lecture of"
+    },
+    {
+      "start": 8.68,
+      "end": 14.239999999999998,
+      "text": "our complete agentic AI course."
+    },
+    {
+      "start": 11.96,
+      "end": 15.600000000000001,
+      "text": "Uh in our previous video, I have already"
+    },
+    {
+      "start": 14.24,
+      "end": 17.76,
+      "text": "discussed"
+    },
+    {
+      "start": 15.6,
+      "end": 20.119999999999997,
+      "text": "the complete evolution"
+    },
+    {
+      "start": 17.76,
+      "end": 21.240000000000002,
+      "text": "uh of agentic AI, like how agentic AI"
+    },
+    {
+      "start": 20.12,
+      "end": 22.64,
+      "text": "came."
+    },
+    {
+      "start": 21.24,
+      "end": 25.0,
+      "text": "Then I have already given you the"
+    },
+    {
+      "start": 22.64,
+      "end": 27.64,
+      "text": "detailed introduction to agentic AI,"
+    },
+    {
+      "start": 25.0,
+      "end": 30.240000000000002,
+      "text": "like how agentic system works, what are"
+    },
+    {
+      "start": 27.64,
+      "end": 31.92,
+      "text": "the key components and characteristics"
+    },
+    {
+      "start": 30.24,
+      "end": 35.36,
+      "text": "are available."
+    },
+    {
+      "start": 31.92,
+      "end": 38.56,
+      "text": "Now, slowly we're moving to the uh AI"
+    },
+    {
+      "start": 35.36,
+      "end": 41.44,
+      "text": "agents core concept. That means the"
+    },
+    {
+      "start": 38.56,
+      "end": 44.52,
+      "text": "practical development concept. Uh but"
+    },
+    {
+      "start": 41.44,
+      "end": 46.48,
+      "text": "before that, we have to also understand"
+    },
+    {
+      "start": 44.52,
+      "end": 48.0,
+      "text": "all kinds of orchestration frameworks"
+    },
+    {
+      "start": 46.48,
+      "end": 49.879999999999995,
+      "text": "are available."
+    },
+    {
+      "start": 48.0,
+      "end": 53.6,
+      "text": "I think I already told you uh in my"
+    },
+    {
+      "start": 49.88,
+      "end": 55.480000000000004,
+      "text": "previous video. Uh like there are"
+    },
+    {
+      "start": 53.6,
+      "end": 57.800000000000004,
+      "text": "uh some components are available,"
+    },
+    {
+      "start": 55.48,
+      "end": 59.64,
+      "text": "especially whenever I'm talking about uh"
+    },
+    {
+      "start": 57.8,
+      "end": 61.12,
+      "text": "the agentic AI."
+    },
+    {
+      "start": 59.64,
+      "end": 64.04,
+      "text": "Uh one of the component is the"
+    },
+    {
+      "start": 61.12,
+      "end": 66.52,
+      "text": "orchestrator, right? Orchestrator means"
+    },
+    {
+      "start": 64.04,
+      "end": 68.2,
+      "text": "there we use some kinds of framework,"
+    },
+    {
+      "start": 66.52,
+      "end": 70.47999999999999,
+      "text": "okay? With the help of these are the"
+    },
+    {
+      "start": 68.2,
+      "end": 72.44,
+      "text": "framework, we create, we implement the"
+    },
+    {
+      "start": 70.48,
+      "end": 75.56,
+      "text": "AI agents, whether it's a single agents,"
+    },
+    {
+      "start": 72.44,
+      "end": 76.6,
+      "text": "whether it's a multi multi AI uh agent"
+    },
+    {
+      "start": 75.56,
+      "end": 78.24000000000001,
+      "text": "system."
+    },
+    {
+      "start": 76.6,
+      "end": 80.47999999999999,
+      "text": "Uh we try to create these kinds of"
+    },
+    {
+      "start": 78.24,
+      "end": 83.6,
+      "text": "things, right?"
+    },
+    {
+      "start": 80.48,
+      "end": 85.68,
+      "text": "So, there is a concept, guys, uh you"
+    },
+    {
+      "start": 83.6,
+      "end": 88.0,
+      "text": "have to understand before I start with"
+    },
+    {
+      "start": 85.68,
+      "end": 90.08000000000001,
+      "text": "these kinds of orchestrator framework."
+    },
+    {
+      "start": 88.0,
+      "end": 91.72,
+      "text": "The concept name is asynchronous"
+    },
+    {
+      "start": 90.08,
+      "end": 93.48,
+      "text": "programming, okay?"
+    },
+    {
+      "start": 91.72,
+      "end": 96.52,
+      "text": "So, why this asynchronous programming is"
+    },
+    {
+      "start": 93.48,
+      "end": 97.16000000000001,
+      "text": "required? Uh because if you see,"
+    },
+    {
+      "start": 96.52,
+      "end": 98.64,
+      "text": "uh"
+    },
+    {
+      "start": 97.16,
+      "end": 100.67999999999999,
+      "text": "going forward, we'll be creating the"
+    },
+    {
+      "start": 98.64,
+      "end": 102.64,
+      "text": "multi-agent system."
+    },
+    {
+      "start": 100.68,
+      "end": 104.28,
+      "text": "And to create the multi-agent system,"
+    },
+    {
+      "start": 102.64,
+      "end": 106.36,
+      "text": "guys, we'll be using these kinds of"
+    },
+    {
+      "start": 104.28,
+      "end": 108.04,
+      "text": "orchestrator framework."
+    },
+    {
+      "start": 106.36,
+      "end": 110.28,
+      "text": "And internally, this orchestrator"
+    },
+    {
+      "start": 108.04,
+      "end": 112.96000000000001,
+      "text": "framework uses asynchronous programming,"
+    },
+    {
+      "start": 110.28,
+      "end": 115.6,
+      "text": "okay? That means it will run your agents"
+    },
+    {
+      "start": 112.96,
+      "end": 118.75999999999999,
+      "text": "in parallel. Let's say you have created"
+    },
+    {
+      "start": 115.6,
+      "end": 120.88,
+      "text": "uh 20 agents. So, what it will do"
+    },
+    {
+      "start": 118.76,
+      "end": 123.44,
+      "text": "instead of running, uh,"
+    },
+    {
+      "start": 120.88,
+      "end": 125.92,
+      "text": "agents as a sequentially, it will run"
+    },
+    {
+      "start": 123.44,
+      "end": 128.32,
+      "text": "all of the agents in parallel, so that"
+    },
+    {
+      "start": 125.92,
+      "end": 130.0,
+      "text": "your execution would be more fast."
+    },
+    {
+      "start": 128.32,
+      "end": 132.28,
+      "text": "So, this concept I'm going to discuss in"
+    },
+    {
+      "start": 130.0,
+      "end": 134.04,
+      "text": "detail, guys. No need to worry. Uh,"
+    },
+    {
+      "start": 132.28,
+      "end": 137.68,
+      "text": "first of all, let me show you one thing"
+    },
+    {
+      "start": 134.04,
+      "end": 139.88,
+      "text": "actually, uh, I have just figured out."
+    },
+    {
+      "start": 137.68,
+      "end": 143.32,
+      "text": "Let's say if I go to the Google. So,"
+    },
+    {
+      "start": 139.88,
+      "end": 144.76,
+      "text": "here if I search like is LangGraph uses"
+    },
+    {
+      "start": 143.32,
+      "end": 146.4,
+      "text": "asynchronous in the back end for"
+    },
+    {
+      "start": 144.76,
+      "end": 148.64,
+      "text": "multi-agent agents. So, I think you know"
+    },
+    {
+      "start": 146.4,
+      "end": 150.52,
+      "text": "LangGraph is one of the orchestrator"
+    },
+    {
+      "start": 148.64,
+      "end": 153.11999999999998,
+      "text": "framework. With the help of LangGraph,"
+    },
+    {
+      "start": 150.52,
+      "end": 155.48000000000002,
+      "text": "we create agentic AI applications,"
+    },
+    {
+      "start": 153.12,
+      "end": 157.6,
+      "text": "right? And we'll be also mastering this"
+    },
+    {
+      "start": 155.48,
+      "end": 159.07999999999998,
+      "text": "LangGraph inside our codes."
+    },
+    {
+      "start": 157.6,
+      "end": 161.44,
+      "text": "So, as you can see, the response was"
+    },
+    {
+      "start": 159.08,
+      "end": 163.959,
+      "text": "yes, LangGraph is, uh, designed with"
+    },
+    {
+      "start": 161.44,
+      "end": 166.68,
+      "text": "first-class asynchronous supports in the"
+    },
+    {
+      "start": 163.959,
+      "end": 167.72,
+      "text": "back end for multi-agent system. That"
+    },
+    {
+      "start": 166.68,
+      "end": 169.68,
+      "text": "means,"
+    },
+    {
+      "start": 167.72,
+      "end": 171.56,
+      "text": "uh, it is utilizing the asynchronous"
+    },
+    {
+      "start": 169.68,
+      "end": 173.16,
+      "text": "programming, asynchronous concept in the"
+    },
+    {
+      "start": 171.56,
+      "end": 175.8,
+      "text": "back end, okay?"
+    },
+    {
+      "start": 173.16,
+      "end": 177.72,
+      "text": "Now, if I just to go below, let's say I"
+    },
+    {
+      "start": 175.8,
+      "end": 179.48000000000002,
+      "text": "have asked for about the AutoGen,"
+    },
+    {
+      "start": 177.72,
+      "end": 181.519,
+      "text": "because AutoGen also will be covering"
+    },
+    {
+      "start": 179.48,
+      "end": 183.92,
+      "text": "inside our codes. So, as you can see,"
+    },
+    {
+      "start": 181.519,
+      "end": 185.92000000000002,
+      "text": "AutoGen also utilizes asynchronous"
+    },
+    {
+      "start": 183.92,
+      "end": 187.95899999999997,
+      "text": "programming at its core,"
+    },
+    {
+      "start": 185.92,
+      "end": 189.67999999999998,
+      "text": "but it is, uh,"
+    },
+    {
+      "start": 187.959,
+      "end": 191.88,
+      "text": "architecture fundamentally different"
+    },
+    {
+      "start": 189.68,
+      "end": 194.6,
+      "text": "from the LangGraph state, uh, LangGraph"
+    },
+    {
+      "start": 191.88,
+      "end": 196.32,
+      "text": "state machine approach. But internally,"
+    },
+    {
+      "start": 194.6,
+      "end": 200.16,
+      "text": "it is uses asynchronous programming"
+    },
+    {
+      "start": 196.32,
+      "end": 202.88,
+      "text": "concept. Now, again I asked like, uh,"
+    },
+    {
+      "start": 200.16,
+      "end": 204.44,
+      "text": "what about CrewAI, okay? So, you can see"
+    },
+    {
+      "start": 202.88,
+      "end": 206.44,
+      "text": "CrewAI also supports asynchronous"
+    },
+    {
+      "start": 204.44,
+      "end": 208.239,
+      "text": "execution, but it, uh, approaches"
+    },
+    {
+      "start": 206.44,
+      "end": 211.2,
+      "text": "orchestration differently than LangGraph"
+    },
+    {
+      "start": 208.239,
+      "end": 214.12,
+      "text": "and AutoGen. While, uh, LangGraph uses,"
+    },
+    {
+      "start": 211.2,
+      "end": 217.88,
+      "text": "uh, a state machine and AutoGen uses,"
+    },
+    {
+      "start": 214.12,
+      "end": 219.6,
+      "text": "uh, actor model, CrewAI is built around"
+    },
+    {
+      "start": 217.88,
+      "end": 222.44,
+      "text": "role-based collaboration and"
+    },
+    {
+      "start": 219.6,
+      "end": 225.2,
+      "text": "process-driven execution model, okay?"
+    },
+    {
+      "start": 222.44,
+      "end": 227.28,
+      "text": "But, the main funda is that all of the"
+    },
+    {
+      "start": 225.2,
+      "end": 229.39999999999998,
+      "text": "orchestrator framework we are using for"
+    },
+    {
+      "start": 227.28,
+      "end": 232.0,
+      "text": "developing these kinds of multi-agent"
+    },
+    {
+      "start": 229.4,
+      "end": 233.72,
+      "text": "application, internally, it is uses"
+    },
+    {
+      "start": 232.0,
+      "end": 235.0,
+      "text": "asynchronous, okay? Asynchronous"
+    },
+    {
+      "start": 233.72,
+      "end": 237.48,
+      "text": "programming."
+    },
+    {
+      "start": 235.0,
+      "end": 239.12,
+      "text": "Now, before I start with these are the"
+    },
+    {
+      "start": 237.48,
+      "end": 240.92,
+      "text": "orchestrator framework, first of all, I"
+    },
+    {
+      "start": 239.12,
+      "end": 243.04,
+      "text": "want to clarify what is asynchronous"
+    },
+    {
+      "start": 240.92,
+      "end": 244.95999999999998,
+      "text": "programming, why it is required, how"
+    },
+    {
+      "start": 243.04,
+      "end": 247.51999999999998,
+      "text": "asynchronous works, okay? What is"
+    },
+    {
+      "start": 244.96,
+      "end": 249.32000000000002,
+      "text": "parallelism, what is uh"
+    },
+    {
+      "start": 247.52,
+      "end": 251.52,
+      "text": "let's say sequential execution, each and"
+    },
+    {
+      "start": 249.32,
+      "end": 253.04,
+      "text": "everything I'm going to clarify. Then"
+    },
+    {
+      "start": 251.52,
+      "end": 255.4,
+      "text": "we'll start with the"
+    },
+    {
+      "start": 253.04,
+      "end": 257.48,
+      "text": "uh orchestrator framework understanding."
+    },
+    {
+      "start": 255.4,
+      "end": 259.2,
+      "text": "But after that, there is one more topic"
+    },
+    {
+      "start": 257.48,
+      "end": 260.6,
+      "text": "uh we have to cover, which is nothing"
+    },
+    {
+      "start": 259.2,
+      "end": 262.36,
+      "text": "but Pydantic"
+    },
+    {
+      "start": 260.6,
+      "end": 264.32000000000005,
+      "text": "Pydantic validation. This is also"
+    },
+    {
+      "start": 262.36,
+      "end": 265.76,
+      "text": "important because you'll see that"
+    },
+    {
+      "start": 264.32,
+      "end": 267.04,
+      "text": "whatever large language model we're"
+    },
+    {
+      "start": 265.76,
+      "end": 269.28,
+      "text": "having, it will generate the"
+    },
+    {
+      "start": 267.04,
+      "end": 271.8,
+      "text": "unstructured output. And to make it"
+    },
+    {
+      "start": 269.28,
+      "end": 274.71999999999997,
+      "text": "structured, even whenever we're giving"
+    },
+    {
+      "start": 271.8,
+      "end": 277.12,
+      "text": "any kinds of prompt, to make our prompt"
+    },
+    {
+      "start": 274.72,
+      "end": 279.36,
+      "text": "uh more structured, we use this Pydantic"
+    },
+    {
+      "start": 277.12,
+      "end": 280.76,
+      "text": "validation, okay? So, this Pydantic"
+    },
+    {
+      "start": 279.36,
+      "end": 282.64,
+      "text": "validation we'll be understanding in the"
+    },
+    {
+      "start": 280.76,
+      "end": 284.15999999999997,
+      "text": "next video, but in this video, I'll only"
+    },
+    {
+      "start": 282.64,
+      "end": 287.28,
+      "text": "focus on the"
+    },
+    {
+      "start": 284.16,
+      "end": 288.91900000000004,
+      "text": "asynchronous understanding, okay? So,"
+    },
+    {
+      "start": 287.28,
+      "end": 291.4,
+      "text": "here I'm going to give you the detailed"
+    },
+    {
+      "start": 288.919,
+      "end": 293.32,
+      "text": "understanding of asynchronous with the"
+    },
+    {
+      "start": 291.4,
+      "end": 295.79999999999995,
+      "text": "theoretical understanding as well as the"
+    },
+    {
+      "start": 293.32,
+      "end": 297.32,
+      "text": "practical understanding as well."
+    },
+    {
+      "start": 295.8,
+      "end": 299.40000000000003,
+      "text": "So, let me show you guys what is this"
+    },
+    {
+      "start": 297.32,
+      "end": 301.96,
+      "text": "asynchronous. After that, your"
+    },
+    {
+      "start": 299.4,
+      "end": 303.44,
+      "text": "understanding would be more clear and"
+    },
+    {
+      "start": 301.96,
+      "end": 305.4,
+      "text": "you can easily understand these are the"
+    },
+    {
+      "start": 303.44,
+      "end": 307.44,
+      "text": "framework whenever you'll be doing the"
+    },
+    {
+      "start": 305.4,
+      "end": 309.03999999999996,
+      "text": "coding."
+    },
+    {
+      "start": 307.44,
+      "end": 310.6,
+      "text": "So, let me give you the definition of"
+    },
+    {
+      "start": 309.04,
+      "end": 312.56,
+      "text": "the asynchronous programming. So, here"
+    },
+    {
+      "start": 310.6,
+      "end": 315.08000000000004,
+      "text": "is the definition."
+    },
+    {
+      "start": 312.56,
+      "end": 318.16,
+      "text": "Um here's the simple definition you can"
+    },
+    {
+      "start": 315.08,
+      "end": 319.56,
+      "text": "see. Asynchronous programming in Python,"
+    },
+    {
+      "start": 318.16,
+      "end": 321.91900000000004,
+      "text": "okay? You can see asynchronous"
+    },
+    {
+      "start": 319.56,
+      "end": 323.32,
+      "text": "programming in Python is a programming"
+    },
+    {
+      "start": 321.919,
+      "end": 325.24,
+      "text": "paradigm"
+    },
+    {
+      "start": 323.32,
+      "end": 327.0,
+      "text": "that allows code to handle, okay,"
+    },
+    {
+      "start": 325.24,
+      "end": 329.28000000000003,
+      "text": "multiple task"
+    },
+    {
+      "start": 327.0,
+      "end": 331.08,
+      "text": "uh concurrently without blocking the"
+    },
+    {
+      "start": 329.28,
+      "end": 333.59999999999997,
+      "text": "program's execution."
+    },
+    {
+      "start": 331.08,
+      "end": 337.71999999999997,
+      "text": "It is primarily used to IO-bound task,"
+    },
+    {
+      "start": 333.6,
+      "end": 339.88,
+      "text": "example network uh request, file input"
+    },
+    {
+      "start": 337.72,
+      "end": 342.76000000000005,
+      "text": "and output operation, database queries,"
+    },
+    {
+      "start": 339.88,
+      "end": 345.96,
+      "text": "okay? Allowing the program to perform"
+    },
+    {
+      "start": 342.76,
+      "end": 348.68,
+      "text": "other operations while waiting for slow"
+    },
+    {
+      "start": 345.96,
+      "end": 350.68,
+      "text": "external events to complete. That means"
+    },
+    {
+      "start": 348.68,
+      "end": 352.44,
+      "text": "this I think asynchronous programming"
+    },
+    {
+      "start": 350.68,
+      "end": 354.32,
+      "text": "will help you. Okay, asynchronous"
+    },
+    {
+      "start": 352.44,
+      "end": 355.71999999999997,
+      "text": "programming will help you. Okay,"
+    },
+    {
+      "start": 354.32,
+      "end": 356.59999999999997,
+      "text": "asynchronous programming will help you"
+    },
+    {
+      "start": 355.72,
+      "end": 359.32000000000005,
+      "text": "to"
+    },
+    {
+      "start": 356.6,
+      "end": 361.68,
+      "text": "run your task in parallel. Okay, so you"
+    },
+    {
+      "start": 359.32,
+      "end": 364.56,
+      "text": "are not supposed to wait for the"
+    },
+    {
+      "start": 361.68,
+      "end": 366.52,
+      "text": "uh execution. Let's say we know that we"
+    },
+    {
+      "start": 364.56,
+      "end": 368.72,
+      "text": "use synchronous synchronous programming"
+    },
+    {
+      "start": 366.52,
+      "end": 370.79999999999995,
+      "text": "so far. Yes or no, guys? We use"
+    },
+    {
+      "start": 368.72,
+      "end": 372.84000000000003,
+      "text": "synchronous programming so far. In"
+    },
+    {
+      "start": 370.8,
+      "end": 374.72,
+      "text": "synchronous programming, what happens?"
+    },
+    {
+      "start": 372.84,
+      "end": 376.64,
+      "text": "Let's say if I execute a code block"
+    },
+    {
+      "start": 374.72,
+      "end": 378.68,
+      "text": "first of all, it will complete that,"
+    },
+    {
+      "start": 376.64,
+      "end": 380.8,
+      "text": "okay? After"
+    },
+    {
+      "start": 378.68,
+      "end": 383.6,
+      "text": "the execution is complete, okay, then it"
+    },
+    {
+      "start": 380.8,
+      "end": 385.96000000000004,
+      "text": "will execute the second part of that"
+    },
+    {
+      "start": 383.6,
+      "end": 387.44,
+      "text": "particular code, okay? But in between,"
+    },
+    {
+      "start": 385.96,
+      "end": 389.2,
+      "text": "let's say if you are waiting for the"
+    },
+    {
+      "start": 387.44,
+      "end": 392.0,
+      "text": "execution, okay, if you're using"
+    },
+    {
+      "start": 389.2,
+      "end": 393.96,
+      "text": "asynchronous programming, it can run run"
+    },
+    {
+      "start": 392.0,
+      "end": 395.56,
+      "text": "another task in parallel, okay? So,"
+    },
+    {
+      "start": 393.96,
+      "end": 396.96,
+      "text": "these are the let's say functionality"
+    },
+    {
+      "start": 395.56,
+      "end": 398.36,
+      "text": "we'll be getting here."
+    },
+    {
+      "start": 396.96,
+      "end": 400.76,
+      "text": "Now, you can ask me why this is"
+    },
+    {
+      "start": 398.36,
+      "end": 402.56,
+      "text": "required. Okay, why this asynchronous"
+    },
+    {
+      "start": 400.76,
+      "end": 405.03999999999996,
+      "text": "programming is required inside AI agents"
+    },
+    {
+      "start": 402.56,
+      "end": 406.6,
+      "text": "implementation? Agentic AI, you can"
+    },
+    {
+      "start": 405.04,
+      "end": 408.0,
+      "text": "create two kinds of agent. One is the"
+    },
+    {
+      "start": 406.6,
+      "end": 410.91900000000004,
+      "text": "simple agent."
+    },
+    {
+      "start": 408.0,
+      "end": 414.24,
+      "text": "Okay, one is the simple agent. So,"
+    },
+    {
+      "start": 410.919,
+      "end": 415.24,
+      "text": "basically, simple agents you create"
+    },
+    {
+      "start": 414.24,
+      "end": 417.919,
+      "text": "only"
+    },
+    {
+      "start": 415.24,
+      "end": 421.76,
+      "text": "one block. Okay, it can only handle one"
+    },
+    {
+      "start": 417.919,
+      "end": 423.919,
+      "text": "particular task. Okay. But whenever,"
+    },
+    {
+      "start": 421.76,
+      "end": 425.59999999999997,
+      "text": "let's say you have complex problem, you"
+    },
+    {
+      "start": 423.919,
+      "end": 427.56,
+      "text": "have to divide the task in a smaller"
+    },
+    {
+      "start": 425.6,
+      "end": 430.28000000000003,
+      "text": "chunks. And what you will do, you will"
+    },
+    {
+      "start": 427.56,
+      "end": 431.64,
+      "text": "be creating multiple agents, okay?"
+    },
+    {
+      "start": 430.28,
+      "end": 433.44,
+      "text": "Multiple agents you will be getting."
+    },
+    {
+      "start": 431.64,
+      "end": 436.56,
+      "text": "Let's say this is agent one, this is"
+    },
+    {
+      "start": 433.44,
+      "end": 438.04,
+      "text": "agent two, this is agent three, okay?"
+    },
+    {
+      "start": 436.56,
+      "end": 441.08,
+      "text": "And what will happen, you will assign"
+    },
+    {
+      "start": 438.04,
+      "end": 443.36,
+      "text": "the task for all the agents."
+    },
+    {
+      "start": 441.08,
+      "end": 446.0,
+      "text": "And these agents will be executing"
+    },
+    {
+      "start": 443.36,
+      "end": 449.0,
+      "text": "either independently"
+    },
+    {
+      "start": 446.0,
+      "end": 449.0,
+      "text": "indepen"
+    },
+    {
+      "start": 450.56,
+      "end": 453.72,
+      "text": "or dependently."
+    },
+    {
+      "start": 455.04,
+      "end": 459.48,
+      "text": "Okay, dependently."
+    },
+    {
+      "start": 457.12,
+      "end": 461.28000000000003,
+      "text": "So, it's your design philosophy. If you"
+    },
+    {
+      "start": 459.48,
+      "end": 463.24,
+      "text": "are making it as an independently, that"
+    },
+    {
+      "start": 461.28,
+      "end": 465.23999999999995,
+      "text": "time it will run as an independently. If"
+    },
+    {
+      "start": 463.24,
+      "end": 467.44,
+      "text": "you are making it to dependent, okay, it"
+    },
+    {
+      "start": 465.24,
+      "end": 469.2,
+      "text": "will run as a dependently."
+    },
+    {
+      "start": 467.44,
+      "end": 471.6,
+      "text": "So, basically what happens, let's say if"
+    },
+    {
+      "start": 469.2,
+      "end": 473.68,
+      "text": "you run these are the"
+    },
+    {
+      "start": 471.6,
+      "end": 475.32000000000005,
+      "text": "agents, okay? These are the agents in a"
+    },
+    {
+      "start": 473.68,
+      "end": 476.6,
+      "text": "synchronous programming, okay? In a"
+    },
+    {
+      "start": 475.32,
+      "end": 479.04,
+      "text": "synchronous programming, what will"
+    },
+    {
+      "start": 476.6,
+      "end": 481.24,
+      "text": "happen? First of all, these agents need"
+    },
+    {
+      "start": 479.04,
+      "end": 484.44,
+      "text": "to be completed. These agents execution"
+    },
+    {
+      "start": 481.24,
+      "end": 486.48,
+      "text": "need to be completed. Once these agent"
+    },
+    {
+      "start": 484.44,
+      "end": 488.64,
+      "text": "Once these agents will be executed, then"
+    },
+    {
+      "start": 486.48,
+      "end": 490.72,
+      "text": "it will move to the next agents, okay?"
+    },
+    {
+      "start": 488.64,
+      "end": 493.03999999999996,
+      "text": "Next code block. Then these agents will"
+    },
+    {
+      "start": 490.72,
+      "end": 494.48,
+      "text": "be executed, okay? Once it is completed,"
+    },
+    {
+      "start": 493.04,
+      "end": 496.91900000000004,
+      "text": "then it will go to this particular"
+    },
+    {
+      "start": 494.48,
+      "end": 498.76,
+      "text": "agents, okay? Then it will try to run"
+    },
+    {
+      "start": 496.919,
+      "end": 501.32,
+      "text": "this particular agent. So, let's say"
+    },
+    {
+      "start": 498.76,
+      "end": 503.48,
+      "text": "this agents is taking 3 minute to run."
+    },
+    {
+      "start": 501.32,
+      "end": 505.04,
+      "text": "Sorry. Let's say here I can just tell"
+    },
+    {
+      "start": 503.48,
+      "end": 506.76,
+      "text": "you."
+    },
+    {
+      "start": 505.04,
+      "end": 508.84000000000003,
+      "text": "Let's say this agents is taking 1 minute"
+    },
+    {
+      "start": 506.76,
+      "end": 511.68,
+      "text": "to run. These agents is also taking,"
+    },
+    {
+      "start": 508.84,
+      "end": 513.0799999999999,
+      "text": "let's say, 1.5 minute to run, okay?"
+    },
+    {
+      "start": 511.68,
+      "end": 515.0,
+      "text": "These agents is also taking, let's say,"
+    },
+    {
+      "start": 513.08,
+      "end": 516.479,
+      "text": "1 minute to run. So, what is happening?"
+    },
+    {
+      "start": 515.0,
+      "end": 518.32,
+      "text": "You have to wait for 1 minute. Again,"
+    },
+    {
+      "start": 516.479,
+      "end": 520.479,
+      "text": "you have to wait for 1.5 minute. Again,"
+    },
+    {
+      "start": 518.32,
+      "end": 523.6400000000001,
+      "text": "you have to wait for 1 minute, okay? So,"
+    },
+    {
+      "start": 520.479,
+      "end": 525.64,
+      "text": "if you like uh add all of the time, you"
+    },
+    {
+      "start": 523.64,
+      "end": 529.28,
+      "text": "will see that at the end you are having,"
+    },
+    {
+      "start": 525.64,
+      "end": 531.68,
+      "text": "okay, 3. 5 minutes. 3.5 minutes you have"
+    },
+    {
+      "start": 529.28,
+      "end": 533.52,
+      "text": "to wait for the execution. But, if you"
+    },
+    {
+      "start": 531.68,
+      "end": 535.4399999999999,
+      "text": "run this task in parallel, okay? If you"
+    },
+    {
+      "start": 533.52,
+      "end": 536.8389999999999,
+      "text": "run this task in parallel, let's say"
+    },
+    {
+      "start": 535.44,
+      "end": 538.48,
+      "text": "this particular agents will do the"
+    },
+    {
+      "start": 536.839,
+      "end": 539.48,
+      "text": "online search operation. So, basically"
+    },
+    {
+      "start": 538.48,
+      "end": 541.8000000000001,
+      "text": "if you're doing the online search"
+    },
+    {
+      "start": 539.48,
+      "end": 543.88,
+      "text": "operation, you will be hitting some URL,"
+    },
+    {
+      "start": 541.8,
+      "end": 546.0,
+      "text": "right? Drive URL. And to get the"
+    },
+    {
+      "start": 543.88,
+      "end": 547.8,
+      "text": "response, this will take some time."
+    },
+    {
+      "start": 546.0,
+      "end": 549.24,
+      "text": "Let's say sometimes this web server"
+    },
+    {
+      "start": 547.8,
+      "end": 551.1999999999999,
+      "text": "might be slow. That time it will be"
+    },
+    {
+      "start": 549.24,
+      "end": 553.8,
+      "text": "giving you slow response. So, instead of"
+    },
+    {
+      "start": 551.2,
+      "end": 555.32,
+      "text": "waiting for that, you can execute your"
+    },
+    {
+      "start": 553.8,
+      "end": 558.12,
+      "text": "other agents. So, let's say this agents"
+    },
+    {
+      "start": 555.32,
+      "end": 559.96,
+      "text": "will try to collect the uh images. These"
+    },
+    {
+      "start": 558.12,
+      "end": 561.28,
+      "text": "agents will try to collect the, let's"
+    },
+    {
+      "start": 559.96,
+      "end": 563.44,
+      "text": "say,"
+    },
+    {
+      "start": 561.28,
+      "end": 565.76,
+      "text": "any other file, okay, from the internet."
+    },
+    {
+      "start": 563.44,
+      "end": 568.2800000000001,
+      "text": "So, don't wait to execute any other"
+    },
+    {
+      "start": 565.76,
+      "end": 570.28,
+      "text": "agents. Just try to run them in a"
+    },
+    {
+      "start": 568.28,
+      "end": 572.6,
+      "text": "synchronous way, okay? In a parallel"
+    },
+    {
+      "start": 570.28,
+      "end": 574.0799999999999,
+      "text": "way. So, each of the agents will be"
+    },
+    {
+      "start": 572.6,
+      "end": 576.48,
+      "text": "running in a parallel way. So, let's say"
+    },
+    {
+      "start": 574.08,
+      "end": 578.72,
+      "text": "the if this agent is also taking uh 1"
+    },
+    {
+      "start": 576.48,
+      "end": 580.2,
+      "text": "minute, okay? So, simultaneously we're"
+    },
+    {
+      "start": 578.72,
+      "end": 581.9200000000001,
+      "text": "running something, okay, in the back"
+    },
+    {
+      "start": 580.2,
+      "end": 585.0,
+      "text": "end. So, you are not supposed to wait"
+    },
+    {
+      "start": 581.92,
+      "end": 586.8399999999999,
+      "text": "for 3.5 minutes. Get it? So, that is the"
+    },
+    {
+      "start": 585.0,
+      "end": 588.08,
+      "text": "things I just wanted to tell you. So,"
+    },
+    {
+      "start": 586.84,
+      "end": 590.4,
+      "text": "let's say whenever you are creating"
+    },
+    {
+      "start": 588.08,
+      "end": 592.36,
+      "text": "multi-agent system and whenever you are"
+    },
+    {
+      "start": 590.4,
+      "end": 593.9599999999999,
+      "text": "creating, let's say, independent"
+    },
+    {
+      "start": 592.36,
+      "end": 596.12,
+      "text": "connection, okay, independent, let's"
+    },
+    {
+      "start": 593.96,
+      "end": 599.08,
+      "text": "say, policy, that time you should use"
+    },
+    {
+      "start": 596.12,
+      "end": 600.8,
+      "text": "this asynchronous programming inside um"
+    },
+    {
+      "start": 599.08,
+      "end": 602.32,
+      "text": "inside, let's say, Python or let's say,"
+    },
+    {
+      "start": 600.8,
+      "end": 604.4,
+      "text": "whatever programming you're using, you"
+    },
+    {
+      "start": 602.32,
+      "end": 606.6800000000001,
+      "text": "have to follow that. And if you see any"
+    },
+    {
+      "start": 604.4,
+      "end": 609.0,
+      "text": "kinds of agent's code, you will be uh"
+    },
+    {
+      "start": 606.68,
+      "end": 610.0799999999999,
+      "text": "seeing people are using this asyncs,"
+    },
+    {
+      "start": 609.0,
+      "end": 612.48,
+      "text": "okay?"
+    },
+    {
+      "start": 610.08,
+      "end": 614.12,
+      "text": "Uh asyncs."
+    },
+    {
+      "start": 612.48,
+      "end": 614.96,
+      "text": "This particular syntax, people are using"
+    },
+    {
+      "start": 614.12,
+      "end": 616.68,
+      "text": "that."
+    },
+    {
+      "start": 614.96,
+      "end": 619.0,
+      "text": "Okay. So, what is this async? Async"
+    },
+    {
+      "start": 616.68,
+      "end": 620.64,
+      "text": "means asynchronous, okay? Asynchronous"
+    },
+    {
+      "start": 619.0,
+      "end": 622.52,
+      "text": "functionality. So, in Python there is a"
+    },
+    {
+      "start": 620.64,
+      "end": 623.88,
+      "text": "library called asyncio. So, we'll be"
+    },
+    {
+      "start": 622.52,
+      "end": 625.56,
+      "text": "following that particular library to"
+    },
+    {
+      "start": 623.88,
+      "end": 627.48,
+      "text": "implement this particular code, okay?"
+    },
+    {
+      "start": 625.56,
+      "end": 629.52,
+      "text": "So, let me give you one example of"
+    },
+    {
+      "start": 627.48,
+      "end": 630.6800000000001,
+      "text": "asynchronous and synchronous"
+    },
+    {
+      "start": 629.52,
+      "end": 632.0,
+      "text": "programming."
+    },
+    {
+      "start": 630.68,
+      "end": 634.8,
+      "text": "So, let's say here I can write"
+    },
+    {
+      "start": 632.0,
+      "end": 634.8,
+      "text": "synchronous"
+    },
+    {
+      "start": 635.4,
+      "end": 640.16,
+      "text": "synchro-"
+    },
+    {
+      "start": 636.72,
+      "end": 640.1600000000001,
+      "text": "nous programming."
+    },
+    {
+      "start": 644.16,
+      "end": 648.3199999999999,
+      "text": "And this side we have asynchronous"
+    },
+    {
+      "start": 645.76,
+      "end": 648.3199999999999,
+      "text": "programming."
+    },
+    {
+      "start": 659.04,
+      "end": 661.76,
+      "text": "So, in synchronous programming, what"
+    },
+    {
+      "start": 660.52,
+      "end": 664.4399999999999,
+      "text": "happens?"
+    },
+    {
+      "start": 661.76,
+      "end": 664.4399999999999,
+      "text": "Let's say"
+    },
+    {
+      "start": 664.52,
+      "end": 667.56,
+      "text": "what I can do, I can give you one"
+    },
+    {
+      "start": 665.96,
+      "end": 670.2,
+      "text": "example."
+    },
+    {
+      "start": 667.56,
+      "end": 671.9599999999999,
+      "text": "Uh let's say here"
+    },
+    {
+      "start": 670.2,
+      "end": 674.9200000000001,
+      "text": "mm"
+    },
+    {
+      "start": 671.96,
+      "end": 677.8000000000001,
+      "text": "Let's say you are you are having a"
+    },
+    {
+      "start": 674.92,
+      "end": 679.24,
+      "text": "mm you're having a"
+    },
+    {
+      "start": 677.8,
+      "end": 683.3599999999999,
+      "text": "mm"
+    },
+    {
+      "start": 679.24,
+      "end": 686.64,
+      "text": "gas stove, okay? Gas stove."
+    },
+    {
+      "start": 683.36,
+      "end": 688.96,
+      "text": "Uh in this gas stove you only have one"
+    },
+    {
+      "start": 686.64,
+      "end": 688.96,
+      "text": "um"
+    },
+    {
+      "start": 689.32,
+      "end": 694.1600000000001,
+      "text": "one fire section, okay? One fire"
+    },
+    {
+      "start": 691.72,
+      "end": 695.96,
+      "text": "section. So, let's say you are having"
+    },
+    {
+      "start": 694.16,
+      "end": 699.36,
+      "text": "uh three dishes."
+    },
+    {
+      "start": 695.96,
+      "end": 699.36,
+      "text": "Okay, you are having three dishes"
+    },
+    {
+      "start": 699.44,
+      "end": 702.0,
+      "text": "to cook."
+    },
+    {
+      "start": 702.36,
+      "end": 705.76,
+      "text": "So, what you will do? First of all, you"
+    },
+    {
+      "start": 703.68,
+      "end": 707.56,
+      "text": "will take the first dish"
+    },
+    {
+      "start": 705.76,
+      "end": 708.76,
+      "text": "and you will cook that. Once first dish"
+    },
+    {
+      "start": 707.56,
+      "end": 710.0799999999999,
+      "text": "is complete, then you will take the"
+    },
+    {
+      "start": 708.76,
+      "end": 711.8,
+      "text": "second dish."
+    },
+    {
+      "start": 710.08,
+      "end": 713.2800000000001,
+      "text": "Then you have to complete, then you will"
+    },
+    {
+      "start": 711.8,
+      "end": 715.5999999999999,
+      "text": "be taking the third dish, then you will"
+    },
+    {
+      "start": 713.28,
+      "end": 718.0799999999999,
+      "text": "be completing. Okay, that's how you can"
+    },
+    {
+      "start": 715.6,
+      "end": 721.28,
+      "text": "see it is taking T1, it is taking T2, it"
+    },
+    {
+      "start": 718.08,
+      "end": 723.5600000000001,
+      "text": "is taking T3 time. Okay. So, basically"
+    },
+    {
+      "start": 721.28,
+      "end": 725.6,
+      "text": "you have to wait for"
+    },
+    {
+      "start": 723.56,
+      "end": 727.64,
+      "text": "you have to wait for the previous"
+    },
+    {
+      "start": 725.6,
+      "end": 729.84,
+      "text": "execution or let's say previous task to"
+    },
+    {
+      "start": 727.64,
+      "end": 732.24,
+      "text": "be completed, then you can start the"
+    },
+    {
+      "start": 729.84,
+      "end": 733.64,
+      "text": "remaining task. But in asynchronous"
+    },
+    {
+      "start": 732.24,
+      "end": 735.52,
+      "text": "programming, what happens? Let's say you"
+    },
+    {
+      "start": 733.64,
+      "end": 738.0,
+      "text": "are having same"
+    },
+    {
+      "start": 735.52,
+      "end": 740.28,
+      "text": "gas stove, but here you are having"
+    },
+    {
+      "start": 738.0,
+      "end": 741.76,
+      "text": "let's say three fire section."
+    },
+    {
+      "start": 740.28,
+      "end": 743.88,
+      "text": "You're having three fire section and you"
+    },
+    {
+      "start": 741.76,
+      "end": 746.6,
+      "text": "are having three dishes."
+    },
+    {
+      "start": 743.88,
+      "end": 748.28,
+      "text": "Okay, let's say dish one,"
+    },
+    {
+      "start": 746.6,
+      "end": 749.8000000000001,
+      "text": "dish two,"
+    },
+    {
+      "start": 748.28,
+      "end": 751.1999999999999,
+      "text": "and dish three."
+    },
+    {
+      "start": 749.8,
+      "end": 752.92,
+      "text": "So, what you have to do? You just need"
+    },
+    {
+      "start": 751.2,
+      "end": 754.1600000000001,
+      "text": "to"
+    },
+    {
+      "start": 752.92,
+      "end": 756.3199999999999,
+      "text": "run"
+    },
+    {
+      "start": 754.16,
+      "end": 757.8389999999999,
+      "text": "all of them simultaneously."
+    },
+    {
+      "start": 756.32,
+      "end": 758.6800000000001,
+      "text": "Basically, you are giving three dish to"
+    },
+    {
+      "start": 757.839,
+      "end": 762.32,
+      "text": "the"
+    },
+    {
+      "start": 758.68,
+      "end": 764.4399999999999,
+      "text": "three fire section. Okay? Now, at the T1"
+    },
+    {
+      "start": 762.32,
+      "end": 766.1600000000001,
+      "text": "time, okay, your all of the dishes will"
+    },
+    {
+      "start": 764.44,
+      "end": 768.36,
+      "text": "be completed. So, you are not supposed"
+    },
+    {
+      "start": 766.16,
+      "end": 770.56,
+      "text": "to wait for the T1, T2, and T3 to be"
+    },
+    {
+      "start": 768.36,
+      "end": 771.839,
+      "text": "completed. Okay, so this is the"
+    },
+    {
+      "start": 770.56,
+      "end": 773.04,
+      "text": "difference between synchronous"
+    },
+    {
+      "start": 771.839,
+      "end": 775.0400000000001,
+      "text": "programming and asynchronous"
+    },
+    {
+      "start": 773.04,
+      "end": 776.68,
+      "text": "programming. I hope you get it, guys."
+    },
+    {
+      "start": 775.04,
+      "end": 778.5999999999999,
+      "text": "So, in Python, we usually follow the"
+    },
+    {
+      "start": 776.68,
+      "end": 780.5999999999999,
+      "text": "synchronous programming. That means if"
+    },
+    {
+      "start": 778.6,
+      "end": 782.52,
+      "text": "you're running a function, first of all,"
+    },
+    {
+      "start": 780.6,
+      "end": 784.64,
+      "text": "that function would be completed, then"
+    },
+    {
+      "start": 782.52,
+      "end": 787.8389999999999,
+      "text": "the remaining code would be executed."
+    },
+    {
+      "start": 784.64,
+      "end": 791.3199999999999,
+      "text": "Now, in programming, we we call it as a"
+    },
+    {
+      "start": 787.839,
+      "end": 793.6400000000001,
+      "text": "subroutine. Let me just write here."
+    },
+    {
+      "start": 791.32,
+      "end": 796.12,
+      "text": "Sub"
+    },
+    {
+      "start": 793.64,
+      "end": 796.12,
+      "text": "routine."
+    },
+    {
+      "start": 796.68,
+      "end": 801.68,
+      "text": "And we also call it as"
+    },
+    {
+      "start": 799.64,
+      "end": 804.48,
+      "text": "coroutine."
+    },
+    {
+      "start": 801.68,
+      "end": 805.88,
+      "text": "I'll be discussing about what is this."
+    },
+    {
+      "start": 804.48,
+      "end": 807.5600000000001,
+      "text": "Okay, coroutine."
+    },
+    {
+      "start": 805.88,
+      "end": 810.32,
+      "text": "So, what is subroutine? So, let me a"
+    },
+    {
+      "start": 807.56,
+      "end": 812.1999999999999,
+      "text": "program to explain. Let's say here I can"
+    },
+    {
+      "start": 810.32,
+      "end": 814.2,
+      "text": "write a function."
+    },
+    {
+      "start": 812.2,
+      "end": 816.8000000000001,
+      "text": "So, I'll just write a function. Let's"
+    },
+    {
+      "start": 814.2,
+      "end": 816.8000000000001,
+      "text": "say def"
+    },
+    {
+      "start": 817.44,
+      "end": 820.36,
+      "text": "Okay? Def"
+    },
+    {
+      "start": 819.0,
+      "end": 822.0,
+      "text": "So, let's say"
+    },
+    {
+      "start": 820.36,
+      "end": 823.08,
+      "text": "I will"
+    },
+    {
+      "start": 822.0,
+      "end": 825.72,
+      "text": "Um"
+    },
+    {
+      "start": 823.08,
+      "end": 828.2800000000001,
+      "text": "I will give the function name"
+    },
+    {
+      "start": 825.72,
+      "end": 828.28,
+      "text": "fetch."
+    },
+    {
+      "start": 828.44,
+      "end": 831.84,
+      "text": "Okay?"
+    },
+    {
+      "start": 829.48,
+      "end": 833.72,
+      "text": "Fetch, let's say data."
+    },
+    {
+      "start": 831.84,
+      "end": 835.4,
+      "text": "This is the function name."
+    },
+    {
+      "start": 833.72,
+      "end": 838.76,
+      "text": "So"
+    },
+    {
+      "start": 835.4,
+      "end": 840.6,
+      "text": "it is having some code inside that."
+    },
+    {
+      "start": 838.76,
+      "end": 844.48,
+      "text": "Okay? Now, here I'm creating another"
+    },
+    {
+      "start": 840.6,
+      "end": 844.48,
+      "text": "function. Let's say def main."
+    },
+    {
+      "start": 844.88,
+      "end": 849.16,
+      "text": "Okay? Now, what I'm doing? I'm calling"
+    },
+    {
+      "start": 846.96,
+      "end": 850.76,
+      "text": "this particular function. Okay? This"
+    },
+    {
+      "start": 849.16,
+      "end": 852.8,
+      "text": "function inside this particular main"
+    },
+    {
+      "start": 850.76,
+      "end": 855.2,
+      "text": "function fetch"
+    },
+    {
+      "start": 852.8,
+      "end": 858.4399999999999,
+      "text": "data."
+    },
+    {
+      "start": 855.2,
+      "end": 858.44,
+      "text": "Okay? I'm calling inside that."
+    },
+    {
+      "start": 861.16,
+      "end": 864.16,
+      "text": "I'm calling inside that."
+    },
+    {
+      "start": 863.2,
+      "end": 865.12,
+      "text": "Sorry."
+    },
+    {
+      "start": 864.16,
+      "end": 866.1999999999999,
+      "text": "Yeah."
+    },
+    {
+      "start": 865.12,
+      "end": 868.44,
+      "text": "Now"
+    },
+    {
+      "start": 866.2,
+      "end": 871.839,
+      "text": "after calling, let's say in this main"
+    },
+    {
+      "start": 868.44,
+      "end": 873.36,
+      "text": "function also there are some code line."
+    },
+    {
+      "start": 871.839,
+      "end": 875.5600000000001,
+      "text": "So, what is happening here? Let's say if"
+    },
+    {
+      "start": 873.36,
+      "end": 876.96,
+      "text": "you're uh if you're using sub routine,"
+    },
+    {
+      "start": 875.56,
+      "end": 878.76,
+      "text": "so that time"
+    },
+    {
+      "start": 876.96,
+      "end": 881.36,
+      "text": "uh whenever you are"
+    },
+    {
+      "start": 878.76,
+      "end": 882.8389999999999,
+      "text": "executing your code, first of all, your"
+    },
+    {
+      "start": 881.36,
+      "end": 884.6,
+      "text": "code will"
+    },
+    {
+      "start": 882.839,
+      "end": 886.8000000000001,
+      "text": "uh come here. Okay? Your code will come"
+    },
+    {
+      "start": 884.6,
+      "end": 889.2,
+      "text": "here and it will see you are calling a"
+    },
+    {
+      "start": 886.8,
+      "end": 890.28,
+      "text": "function inside that. Which function?"
+    },
+    {
+      "start": 889.2,
+      "end": 893.2800000000001,
+      "text": "You are calling this particular"
+    },
+    {
+      "start": 890.28,
+      "end": 895.04,
+      "text": "function. Okay? Now, what it will what"
+    },
+    {
+      "start": 893.28,
+      "end": 896.88,
+      "text": "will happen? First of all, it will go to"
+    },
+    {
+      "start": 895.04,
+      "end": 897.9599999999999,
+      "text": "this function and it will execute all of"
+    },
+    {
+      "start": 896.88,
+      "end": 899.4,
+      "text": "the code."
+    },
+    {
+      "start": 897.96,
+      "end": 900.5600000000001,
+      "text": "It will execute all of the code. Now,"
+    },
+    {
+      "start": 899.4,
+      "end": 902.04,
+      "text": "let's say"
+    },
+    {
+      "start": 900.56,
+      "end": 904.1199999999999,
+      "text": "you are running fetch data, that means"
+    },
+    {
+      "start": 902.04,
+      "end": 905.76,
+      "text": "let's say you are trying to fetch some"
+    },
+    {
+      "start": 904.12,
+      "end": 908.44,
+      "text": "kinds of data from the internet. You are"
+    },
+    {
+      "start": 905.76,
+      "end": 910.56,
+      "text": "using some kinds of API, some kinds of"
+    },
+    {
+      "start": 908.44,
+      "end": 912.96,
+      "text": "URL, okay? And whenever it is hitting"
+    },
+    {
+      "start": 910.56,
+      "end": 915.3599999999999,
+      "text": "that particular API or URL, it is taking"
+    },
+    {
+      "start": 912.96,
+      "end": 917.5600000000001,
+      "text": "some kinds of time, right? So, you have"
+    },
+    {
+      "start": 915.36,
+      "end": 921.12,
+      "text": "to wait for this particular time."
+    },
+    {
+      "start": 917.56,
+      "end": 923.2399999999999,
+      "text": "So see, once this time is over, that"
+    },
+    {
+      "start": 921.12,
+      "end": 925.16,
+      "text": "means this execution is over. Then you"
+    },
+    {
+      "start": 923.24,
+      "end": 926.88,
+      "text": "will be able to execute your remaining"
+    },
+    {
+      "start": 925.16,
+      "end": 928.28,
+      "text": "code. Okay?"
+    },
+    {
+      "start": 926.88,
+      "end": 930.56,
+      "text": "Till then you have to wait for this"
+    },
+    {
+      "start": 928.28,
+      "end": 933.0,
+      "text": "execution. Okay?"
+    },
+    {
+      "start": 930.56,
+      "end": 935.76,
+      "text": "So, this is the idea of subroutine. That"
+    },
+    {
+      "start": 933.0,
+      "end": 938.16,
+      "text": "means you are waiting for a task to be"
+    },
+    {
+      "start": 935.76,
+      "end": 940.3199999999999,
+      "text": "completed, then your remaining code"
+    },
+    {
+      "start": 938.16,
+      "end": 942.48,
+      "text": "would be executed. Then your remaining"
+    },
+    {
+      "start": 940.32,
+      "end": 944.0,
+      "text": "code would be executed. Although you are"
+    },
+    {
+      "start": 942.48,
+      "end": 945.5600000000001,
+      "text": "waiting here, although you are waiting"
+    },
+    {
+      "start": 944.0,
+      "end": 947.52,
+      "text": "here, you don't have any kinds of other"
+    },
+    {
+      "start": 945.56,
+      "end": 950.3199999999999,
+      "text": "task. You just need to wait for the"
+    },
+    {
+      "start": 947.52,
+      "end": 952.56,
+      "text": "execution. Okay? And once execution is"
+    },
+    {
+      "start": 950.32,
+      "end": 955.2800000000001,
+      "text": "completed, then you will be able to"
+    },
+    {
+      "start": 952.56,
+      "end": 957.04,
+      "text": "execute, you'll be able to see the other"
+    },
+    {
+      "start": 955.28,
+      "end": 959.04,
+      "text": "execution of the program."
+    },
+    {
+      "start": 957.04,
+      "end": 961.9599999999999,
+      "text": "But in coroutine, what happens? So,"
+    },
+    {
+      "start": 959.04,
+      "end": 964.52,
+      "text": "let's say here I'm having a function."
+    },
+    {
+      "start": 961.96,
+      "end": 966.2800000000001,
+      "text": "Here I'm having a function. And uh we"
+    },
+    {
+      "start": 964.52,
+      "end": 968.0,
+      "text": "use something called asynchronous. Okay?"
+    },
+    {
+      "start": 966.28,
+      "end": 970.12,
+      "text": "Asynchronous syntax. So, for this we use"
+    },
+    {
+      "start": 968.0,
+      "end": 972.2,
+      "text": "something called async."
+    },
+    {
+      "start": 970.12,
+      "end": 974.52,
+      "text": "Uh async, okay? This is the keyword"
+    },
+    {
+      "start": 972.2,
+      "end": 978.24,
+      "text": "async. So, we'll write the function as"
+    },
+    {
+      "start": 974.52,
+      "end": 979.76,
+      "text": "def. Let's say fetch"
+    },
+    {
+      "start": 978.24,
+      "end": 981.76,
+      "text": "data."
+    },
+    {
+      "start": 979.76,
+      "end": 984.36,
+      "text": "This is the function. Let's say inside"
+    },
+    {
+      "start": 981.76,
+      "end": 986.6,
+      "text": "that you are having some kinds of code."
+    },
+    {
+      "start": 984.36,
+      "end": 990.2,
+      "text": "Okay? Now again you are having a main"
+    },
+    {
+      "start": 986.6,
+      "end": 991.76,
+      "text": "function here. So, I'll just write def"
+    },
+    {
+      "start": 990.2,
+      "end": 993.08,
+      "text": "main."
+    },
+    {
+      "start": 991.76,
+      "end": 994.52,
+      "text": "So, what you are doing? You are calling"
+    },
+    {
+      "start": 993.08,
+      "end": 997.36,
+      "text": "this particular"
+    },
+    {
+      "start": 994.52,
+      "end": 999.28,
+      "text": "Um okay, you are calling this particular"
+    },
+    {
+      "start": 997.36,
+      "end": 1000.64,
+      "text": "function def."
+    },
+    {
+      "start": 999.28,
+      "end": 1003.04,
+      "text": "Sorry, uh"
+    },
+    {
+      "start": 1000.64,
+      "end": 1005.1999999999999,
+      "text": "fetch."
+    },
+    {
+      "start": 1003.04,
+      "end": 1006.92,
+      "text": "Okay? Fetch"
+    },
+    {
+      "start": 1005.2,
+      "end": 1008.48,
+      "text": "data."
+    },
+    {
+      "start": 1006.92,
+      "end": 1010.3199999999999,
+      "text": "You're calling that."
+    },
+    {
+      "start": 1008.48,
+      "end": 1011.5600000000001,
+      "text": "And inside main you are having some"
+    },
+    {
+      "start": 1010.32,
+      "end": 1012.96,
+      "text": "other code."
+    },
+    {
+      "start": 1011.56,
+      "end": 1014.0799999999999,
+      "text": "Okay? You are having some other code as"
+    },
+    {
+      "start": 1012.96,
+      "end": 1015.88,
+      "text": "well."
+    },
+    {
+      "start": 1014.08,
+      "end": 1018.0400000000001,
+      "text": "Now what is happening? Just try to see."
+    },
+    {
+      "start": 1015.88,
+      "end": 1019.32,
+      "text": "Whenever your Python will come here, it"
+    },
+    {
+      "start": 1018.04,
+      "end": 1020.8,
+      "text": "will see that you are executing a"
+    },
+    {
+      "start": 1019.32,
+      "end": 1023.6800000000001,
+      "text": "function. Which function? This function"
+    },
+    {
+      "start": 1020.8,
+      "end": 1026.3999999999999,
+      "text": "you are executing. And it will see this"
+    },
+    {
+      "start": 1023.68,
+      "end": 1028.1989999999998,
+      "text": "particular keyword called async, okay?"
+    },
+    {
+      "start": 1026.4,
+      "end": 1030.8000000000002,
+      "text": "Then that time Python will automatically"
+    },
+    {
+      "start": 1028.199,
+      "end": 1032.68,
+      "text": "understand that this code you have"
+    },
+    {
+      "start": 1030.8,
+      "end": 1033.959,
+      "text": "written, it will run in asynchronous"
+    },
+    {
+      "start": 1032.68,
+      "end": 1036.0,
+      "text": "way. That means"
+    },
+    {
+      "start": 1033.959,
+      "end": 1038.52,
+      "text": "let's say here you are doing a API call,"
+    },
+    {
+      "start": 1036.0,
+      "end": 1039.959,
+      "text": "and it is taking some time T1. Okay,"
+    },
+    {
+      "start": 1038.52,
+      "end": 1043.36,
+      "text": "instead of waiting for this particular"
+    },
+    {
+      "start": 1039.959,
+      "end": 1045.3600000000001,
+      "text": "time, again it will come here, okay, and"
+    },
+    {
+      "start": 1043.36,
+      "end": 1047.6,
+      "text": "execute the remaining code you have,"
+    },
+    {
+      "start": 1045.36,
+      "end": 1049.6799999999998,
+      "text": "okay, after this function. That means at"
+    },
+    {
+      "start": 1047.6,
+      "end": 1051.9199999999998,
+      "text": "the T time itself, this code would be"
+    },
+    {
+      "start": 1049.68,
+      "end": 1053.4,
+      "text": "executed and this code would be also"
+    },
+    {
+      "start": 1051.92,
+      "end": 1055.72,
+      "text": "executed. So, you are not supposed to"
+    },
+    {
+      "start": 1053.4,
+      "end": 1057.76,
+      "text": "wait for the previous execution. So,"
+    },
+    {
+      "start": 1055.72,
+      "end": 1059.56,
+      "text": "this is called coroutine. And if you're"
+    },
+    {
+      "start": 1057.76,
+      "end": 1061.92,
+      "text": "using this async, these are the things,"
+    },
+    {
+      "start": 1059.56,
+      "end": 1064.52,
+      "text": "so it internally uses this concept. And"
+    },
+    {
+      "start": 1061.92,
+      "end": 1067.04,
+      "text": "now we'll go for the practical, we'll"
+    },
+    {
+      "start": 1064.52,
+      "end": 1068.44,
+      "text": "try to see like practically everything,"
+    },
+    {
+      "start": 1067.04,
+      "end": 1069.72,
+      "text": "how it works."
+    },
+    {
+      "start": 1068.44,
+      "end": 1071.92,
+      "text": "Uh then I think your understanding would"
+    },
+    {
+      "start": 1069.72,
+      "end": 1073.8,
+      "text": "be more clear, okay."
+    },
+    {
+      "start": 1071.92,
+      "end": 1076.68,
+      "text": "First of all, I'm going to explain the"
+    },
+    {
+      "start": 1073.8,
+      "end": 1078.04,
+      "text": "synchronous programming."
+    },
+    {
+      "start": 1076.68,
+      "end": 1079.92,
+      "text": "Okay."
+    },
+    {
+      "start": 1078.04,
+      "end": 1082.52,
+      "text": "Now, here I'm going to write two"
+    },
+    {
+      "start": 1079.92,
+      "end": 1083.72,
+      "text": "function, let's say"
+    },
+    {
+      "start": 1082.52,
+      "end": 1085.16,
+      "text": "for the first function I'm going to"
+    },
+    {
+      "start": 1083.72,
+      "end": 1087.84,
+      "text": "write"
+    },
+    {
+      "start": 1085.16,
+      "end": 1089.8000000000002,
+      "text": "uh fetch"
+    },
+    {
+      "start": 1087.84,
+      "end": 1092.24,
+      "text": "DC fetch"
+    },
+    {
+      "start": 1089.8,
+      "end": 1092.24,
+      "text": "weather."
+    },
+    {
+      "start": 1097.24,
+      "end": 1102.16,
+      "text": "Okay, fetch weather."
+    },
+    {
+      "start": 1100.2,
+      "end": 1104.44,
+      "text": "Um and the second function I'm going to"
+    },
+    {
+      "start": 1102.16,
+      "end": 1107.2,
+      "text": "create def"
+    },
+    {
+      "start": 1104.44,
+      "end": 1107.2,
+      "text": "fetch news."
+    },
+    {
+      "start": 1110.08,
+      "end": 1113.6399999999999,
+      "text": "Fetch news, okay."
+    },
+    {
+      "start": 1112.16,
+      "end": 1115.64,
+      "text": "Mhm."
+    },
+    {
+      "start": 1113.64,
+      "end": 1117.68,
+      "text": "Now, what I'm going to do,"
+    },
+    {
+      "start": 1115.64,
+      "end": 1120.0,
+      "text": "I'm going to"
+    },
+    {
+      "start": 1117.68,
+      "end": 1122.52,
+      "text": "import the time module as well"
+    },
+    {
+      "start": 1120.0,
+      "end": 1124.4,
+      "text": "just to see the execution time."
+    },
+    {
+      "start": 1122.52,
+      "end": 1126.76,
+      "text": "So, import"
+    },
+    {
+      "start": 1124.4,
+      "end": 1126.76,
+      "text": "time."
+    },
+    {
+      "start": 1127.52,
+      "end": 1130.48,
+      "text": "Import time, okay."
+    },
+    {
+      "start": 1129.16,
+      "end": 1132.0400000000002,
+      "text": "Now, inside that, as of now, I'm not"
+    },
+    {
+      "start": 1130.48,
+      "end": 1133.72,
+      "text": "going to write any logic, simply I'm"
+    },
+    {
+      "start": 1132.04,
+      "end": 1135.12,
+      "text": "going to write just a print statement."
+    },
+    {
+      "start": 1133.72,
+      "end": 1137.6000000000001,
+      "text": "I'm going to give"
+    },
+    {
+      "start": 1135.12,
+      "end": 1139.84,
+      "text": "let's say fetching weather data."
+    },
+    {
+      "start": 1137.6,
+      "end": 1141.56,
+      "text": "Then here I'm going to just mention a"
+    },
+    {
+      "start": 1139.84,
+      "end": 1144.4399999999998,
+      "text": "time."
+    },
+    {
+      "start": 1141.56,
+      "end": 1146.0,
+      "text": "Uh let's say to fetch the weather data,"
+    },
+    {
+      "start": 1144.44,
+      "end": 1147.44,
+      "text": "you have to wait for some time, okay."
+    },
+    {
+      "start": 1146.0,
+      "end": 1148.8,
+      "text": "So, this time I'm going to assign with"
+    },
+    {
+      "start": 1147.44,
+      "end": 1151.48,
+      "text": "the help of this time module. So, here"
+    },
+    {
+      "start": 1148.8,
+      "end": 1153.32,
+      "text": "I'm going to give let's say"
+    },
+    {
+      "start": 1151.48,
+      "end": 1155.6,
+      "text": "I will be waiting for"
+    },
+    {
+      "start": 1153.32,
+      "end": 1158.48,
+      "text": "4 seconds, okay?"
+    },
+    {
+      "start": 1155.6,
+      "end": 1160.52,
+      "text": "4 seconds. So, it it is for the simulate"
+    },
+    {
+      "start": 1158.48,
+      "end": 1163.0,
+      "text": "uh network delay. Let's say if you are"
+    },
+    {
+      "start": 1160.52,
+      "end": 1164.44,
+      "text": "hitting any kinds of API, so definitely"
+    },
+    {
+      "start": 1163.0,
+      "end": 1165.84,
+      "text": "to get the response you have to wait for"
+    },
+    {
+      "start": 1164.44,
+      "end": 1168.44,
+      "text": "some time. So, let's say this time I"
+    },
+    {
+      "start": 1165.84,
+      "end": 1169.6,
+      "text": "have set 4 seconds here, okay?"
+    },
+    {
+      "start": 1168.44,
+      "end": 1170.2,
+      "text": "Now, once"
+    },
+    {
+      "start": 1169.6,
+      "end": 1172.9599999999998,
+      "text": "uh"
+    },
+    {
+      "start": 1170.2,
+      "end": 1174.52,
+      "text": "we stop for 4 4 seconds, now simply I'm"
+    },
+    {
+      "start": 1172.96,
+      "end": 1176.1200000000001,
+      "text": "going to just print"
+    },
+    {
+      "start": 1174.52,
+      "end": 1178.92,
+      "text": "let's say weather data fetched, okay?"
+    },
+    {
+      "start": 1176.12,
+      "end": 1180.84,
+      "text": "So, this message I'm going to write."
+    },
+    {
+      "start": 1178.92,
+      "end": 1182.76,
+      "text": "Now, similarly here also I'm going to"
+    },
+    {
+      "start": 1180.84,
+      "end": 1184.08,
+      "text": "write uh"
+    },
+    {
+      "start": 1182.76,
+      "end": 1185.24,
+      "text": "I'm going to write"
+    },
+    {
+      "start": 1184.08,
+      "end": 1186.84,
+      "text": "facing"
+    },
+    {
+      "start": 1185.24,
+      "end": 1189.24,
+      "text": "facing news data."
+    },
+    {
+      "start": 1186.84,
+      "end": 1191.28,
+      "text": "And again I'll give some time. Let's say"
+    },
+    {
+      "start": 1189.24,
+      "end": 1194.76,
+      "text": "here I've given 2 seconds."
+    },
+    {
+      "start": 1191.28,
+      "end": 1197.6,
+      "text": "And uh once my data news facing is done,"
+    },
+    {
+      "start": 1194.76,
+      "end": 1199.44,
+      "text": "so I'll tell news data faced, okay? So,"
+    },
+    {
+      "start": 1197.6,
+      "end": 1201.4399999999998,
+      "text": "as of now, just try to consider this is"
+    },
+    {
+      "start": 1199.44,
+      "end": 1202.8400000000001,
+      "text": "a function. This will fetch the weather"
+    },
+    {
+      "start": 1201.44,
+      "end": 1206.1200000000001,
+      "text": "information."
+    },
+    {
+      "start": 1202.84,
+      "end": 1208.12,
+      "text": "And this will fetch the news, okay?"
+    },
+    {
+      "start": 1206.12,
+      "end": 1210.28,
+      "text": "Now, if you see this function and this"
+    },
+    {
+      "start": 1208.12,
+      "end": 1212.7199999999998,
+      "text": "function doesn't have any"
+    },
+    {
+      "start": 1210.28,
+      "end": 1215.2,
+      "text": "uh dependency. These two functions are"
+    },
+    {
+      "start": 1212.72,
+      "end": 1217.04,
+      "text": "independent. Okay, these two functions"
+    },
+    {
+      "start": 1215.2,
+      "end": 1218.92,
+      "text": "are independent. That means"
+    },
+    {
+      "start": 1217.04,
+      "end": 1220.6,
+      "text": "if you want to fetch the weather, you"
+    },
+    {
+      "start": 1218.92,
+      "end": 1222.2,
+      "text": "don't need the news."
+    },
+    {
+      "start": 1220.6,
+      "end": 1223.84,
+      "text": "If you want to fetch the news, you don't"
+    },
+    {
+      "start": 1222.2,
+      "end": 1226.72,
+      "text": "need the weather. So, these are"
+    },
+    {
+      "start": 1223.84,
+      "end": 1230.0,
+      "text": "independent function. Okay?"
+    },
+    {
+      "start": 1226.72,
+      "end": 1232.08,
+      "text": "But once I will execute this code, okay,"
+    },
+    {
+      "start": 1230.0,
+      "end": 1233.76,
+      "text": "let's say if if I write another function"
+    },
+    {
+      "start": 1232.08,
+      "end": 1234.8,
+      "text": "here, I'll just write another function"
+    },
+    {
+      "start": 1233.76,
+      "end": 1236.72,
+      "text": "def"
+    },
+    {
+      "start": 1234.8,
+      "end": 1238.28,
+      "text": "main, okay? In the main function, I'm"
+    },
+    {
+      "start": 1236.72,
+      "end": 1239.3600000000001,
+      "text": "going to call"
+    },
+    {
+      "start": 1238.28,
+      "end": 1241.68,
+      "text": "uh I'm going to call these two"
+    },
+    {
+      "start": 1239.36,
+      "end": 1243.3999999999999,
+      "text": "functions. See? First of all, I'm"
+    },
+    {
+      "start": 1241.68,
+      "end": 1245.8400000000001,
+      "text": "starting the time just to see the time"
+    },
+    {
+      "start": 1243.4,
+      "end": 1247.76,
+      "text": "like how much time it takes to execute"
+    },
+    {
+      "start": 1245.84,
+      "end": 1249.6399999999999,
+      "text": "the two function. So, that's why I'm"
+    },
+    {
+      "start": 1247.76,
+      "end": 1251.68,
+      "text": "starting the uh start I'm taking the"
+    },
+    {
+      "start": 1249.64,
+      "end": 1253.44,
+      "text": "start time. Then I'm calling these two"
+    },
+    {
+      "start": 1251.68,
+      "end": 1255.04,
+      "text": "functions together, fetch weather and"
+    },
+    {
+      "start": 1253.44,
+      "end": 1256.88,
+      "text": "fetch news. You can see fetch weather"
+    },
+    {
+      "start": 1255.04,
+      "end": 1258.84,
+      "text": "and fetch news I'm calling."
+    },
+    {
+      "start": 1256.88,
+      "end": 1260.8400000000001,
+      "text": "Then I'm taking the end time, then I'm"
+    },
+    {
+      "start": 1258.84,
+      "end": 1263.52,
+      "text": "doing the subtract operation from end"
+    },
+    {
+      "start": 1260.84,
+      "end": 1265.0,
+      "text": "time to start time. And this will be uh"
+    },
+    {
+      "start": 1263.52,
+      "end": 1267.8,
+      "text": "this will be"
+    },
+    {
+      "start": 1265.0,
+      "end": 1269.68,
+      "text": "my execution time of my program."
+    },
+    {
+      "start": 1267.8,
+      "end": 1270.6,
+      "text": "But if you see here these two functions"
+    },
+    {
+      "start": 1269.68,
+      "end": 1272.52,
+      "text": "are"
+    },
+    {
+      "start": 1270.6,
+      "end": 1274.0,
+      "text": "independent. This this two functions is"
+    },
+    {
+      "start": 1272.52,
+      "end": 1275.68,
+      "text": "not dependent."
+    },
+    {
+      "start": 1274.0,
+      "end": 1277.32,
+      "text": "Although it's independent, okay, it's"
+    },
+    {
+      "start": 1275.68,
+      "end": 1279.16,
+      "text": "not dependent."
+    },
+    {
+      "start": 1277.32,
+      "end": 1280.8799999999999,
+      "text": "So"
+    },
+    {
+      "start": 1279.16,
+      "end": 1283.0400000000002,
+      "text": "whenever you will call the function you"
+    },
+    {
+      "start": 1280.88,
+      "end": 1285.16,
+      "text": "have to wait for the"
+    },
+    {
+      "start": 1283.04,
+      "end": 1287.28,
+      "text": "you have to wait for the"
+    },
+    {
+      "start": 1285.16,
+      "end": 1289.0800000000002,
+      "text": "previous function to be completed to run"
+    },
+    {
+      "start": 1287.28,
+      "end": 1291.68,
+      "text": "the next function."
+    },
+    {
+      "start": 1289.08,
+      "end": 1293.08,
+      "text": "This is the issue, okay? So"
+    },
+    {
+      "start": 1291.68,
+      "end": 1295.52,
+      "text": "I can see these two functions are"
+    },
+    {
+      "start": 1293.08,
+      "end": 1297.24,
+      "text": "completely independent. But whenever I'm"
+    },
+    {
+      "start": 1295.52,
+      "end": 1299.2,
+      "text": "calling this function, first of all this"
+    },
+    {
+      "start": 1297.24,
+      "end": 1301.24,
+      "text": "function will execute. So let's say"
+    },
+    {
+      "start": 1299.2,
+      "end": 1302.96,
+      "text": "whenever you will execute the program,"
+    },
+    {
+      "start": 1301.24,
+      "end": 1305.48,
+      "text": "so your interpreter will come here,"
+    },
+    {
+      "start": 1302.96,
+      "end": 1306.68,
+      "text": "okay? Your interpreter will come here,"
+    },
+    {
+      "start": 1305.48,
+      "end": 1308.64,
+      "text": "then it will go to inside this"
+    },
+    {
+      "start": 1306.68,
+      "end": 1310.6000000000001,
+      "text": "particular function. Then it will"
+    },
+    {
+      "start": 1308.64,
+      "end": 1313.3600000000001,
+      "text": "execute all of the code and here it will"
+    },
+    {
+      "start": 1310.6,
+      "end": 1315.24,
+      "text": "wait for the 4 seconds, okay? 4 seconds"
+    },
+    {
+      "start": 1313.36,
+      "end": 1318.4399999999998,
+      "text": "it will try to wait."
+    },
+    {
+      "start": 1315.24,
+      "end": 1320.32,
+      "text": "But see, in the first 4 seconds it"
+    },
+    {
+      "start": 1318.44,
+      "end": 1321.72,
+      "text": "doesn't have any work to do, so it will"
+    },
+    {
+      "start": 1320.32,
+      "end": 1324.2,
+      "text": "be waiting."
+    },
+    {
+      "start": 1321.72,
+      "end": 1326.24,
+      "text": "Then once 4 seconds is over, this code"
+    },
+    {
+      "start": 1324.2,
+      "end": 1328.04,
+      "text": "would be executed, then your program"
+    },
+    {
+      "start": 1326.24,
+      "end": 1330.16,
+      "text": "will come here. Okay, then it will be"
+    },
+    {
+      "start": 1328.04,
+      "end": 1331.6399999999999,
+      "text": "executed. That means first of all the"
+    },
+    {
+      "start": 1330.16,
+      "end": 1332.52,
+      "text": "previous function would be executed,"
+    },
+    {
+      "start": 1331.64,
+      "end": 1334.64,
+      "text": "then the next function would be"
+    },
+    {
+      "start": 1332.52,
+      "end": 1336.72,
+      "text": "executed. So you can also check. So"
+    },
+    {
+      "start": 1334.64,
+      "end": 1339.76,
+      "text": "let's say if I want to show you, so I'll"
+    },
+    {
+      "start": 1336.72,
+      "end": 1342.1200000000001,
+      "text": "call this particular main function here."
+    },
+    {
+      "start": 1339.76,
+      "end": 1343.8,
+      "text": "Okay, I'll call this main function. Now"
+    },
+    {
+      "start": 1342.12,
+      "end": 1345.76,
+      "text": "if I execute, see,"
+    },
+    {
+      "start": 1343.8,
+      "end": 1348.56,
+      "text": "facing weather it is waiting for 4"
+    },
+    {
+      "start": 1345.76,
+      "end": 1350.76,
+      "text": "seconds. Now weather fits. Now see,"
+    },
+    {
+      "start": 1348.56,
+      "end": 1353.52,
+      "text": "facing news, now it wait for 2 seconds,"
+    },
+    {
+      "start": 1350.76,
+      "end": 1357.92,
+      "text": "then news fits. And total time taken you"
+    },
+    {
+      "start": 1353.52,
+      "end": 1360.48,
+      "text": "can see 6 point something seconds. Okay,"
+    },
+    {
+      "start": 1357.92,
+      "end": 1362.2,
+      "text": "now you can also take this code"
+    },
+    {
+      "start": 1360.48,
+      "end": 1363.72,
+      "text": "in one of the amazing website called"
+    },
+    {
+      "start": 1362.2,
+      "end": 1365.6000000000001,
+      "text": "Python Tutor."
+    },
+    {
+      "start": 1363.72,
+      "end": 1368.68,
+      "text": "Python Tutor.com, here also you can"
+    },
+    {
+      "start": 1365.6,
+      "end": 1368.6799999999998,
+      "text": "visualize this code."
+    },
+    {
+      "start": 1369.88,
+      "end": 1377.2,
+      "text": "Let me open the Python Tutor."
+    },
+    {
+      "start": 1373.12,
+      "end": 1377.1999999999998,
+      "text": "Now I'll select the Python programming."
+    },
+    {
+      "start": 1378.84,
+      "end": 1384.8,
+      "text": "I'll paste my code here."
+    },
+    {
+      "start": 1381.52,
+      "end": 1384.8,
+      "text": "Visualize the execution."
+    },
+    {
+      "start": 1390.8,
+      "end": 1393.8799999999999,
+      "text": "Okay."
+    },
+    {
+      "start": 1391.72,
+      "end": 1396.0,
+      "text": "Now, it has started. Okay, it has"
+    },
+    {
+      "start": 1393.88,
+      "end": 1398.16,
+      "text": "started. Now, simply"
+    },
+    {
+      "start": 1396.0,
+      "end": 1399.56,
+      "text": "time is not defined. So, okay, so the"
+    },
+    {
+      "start": 1398.16,
+      "end": 1401.16,
+      "text": "basically"
+    },
+    {
+      "start": 1399.56,
+      "end": 1404.6399999999999,
+      "text": "I need to import the time here, right?"
+    },
+    {
+      "start": 1401.16,
+      "end": 1404.64,
+      "text": "So, let's edit the code."
+    },
+    {
+      "start": 1406.44,
+      "end": 1411.0,
+      "text": "So, here I'll import the time module."
+    },
+    {
+      "start": 1411.28,
+      "end": 1417.2,
+      "text": "Put time."
+    },
+    {
+      "start": 1413.04,
+      "end": 1417.2,
+      "text": "Now, I'll visualize the execution."
+    },
+    {
+      "start": 1418.24,
+      "end": 1421.56,
+      "text": "Import time. It's giving me an error."
+    },
+    {
+      "start": 1420.0,
+      "end": 1423.76,
+      "text": "Time file"
+    },
+    {
+      "start": 1421.56,
+      "end": 1426.44,
+      "text": "not found or supported. Only these"
+    },
+    {
+      "start": 1423.76,
+      "end": 1428.96,
+      "text": "modules can be imported. Okay, because"
+    },
+    {
+      "start": 1426.44,
+      "end": 1430.8400000000001,
+      "text": "this is a like a website, okay, Python"
+    },
+    {
+      "start": 1428.96,
+      "end": 1432.8,
+      "text": "Tutor website. So, here you can you"
+    },
+    {
+      "start": 1430.84,
+      "end": 1433.9199999999998,
+      "text": "can't import any"
+    },
+    {
+      "start": 1432.8,
+      "end": 1435.8,
+      "text": "Uh let's say these are the library you"
+    },
+    {
+      "start": 1433.92,
+      "end": 1437.44,
+      "text": "can't you can import, but some other"
+    },
+    {
+      "start": 1435.8,
+      "end": 1438.8799999999999,
+      "text": "library you can't import. So, for this"
+    },
+    {
+      "start": 1437.44,
+      "end": 1441.3200000000002,
+      "text": "what I can do,"
+    },
+    {
+      "start": 1438.88,
+      "end": 1443.3600000000001,
+      "text": "I can remove the time as of now."
+    },
+    {
+      "start": 1441.32,
+      "end": 1445.48,
+      "text": "I just wanted to only just let you know"
+    },
+    {
+      "start": 1443.36,
+      "end": 1447.8,
+      "text": "that how it is executing. Let's say I"
+    },
+    {
+      "start": 1445.48,
+      "end": 1450.1200000000001,
+      "text": "will also remove the time part."
+    },
+    {
+      "start": 1447.8,
+      "end": 1451.52,
+      "text": "Uh here also I'll remove the time part."
+    },
+    {
+      "start": 1450.12,
+      "end": 1453.7199999999998,
+      "text": "Here also."
+    },
+    {
+      "start": 1451.52,
+      "end": 1456.76,
+      "text": "And here also."
+    },
+    {
+      "start": 1453.72,
+      "end": 1459.32,
+      "text": "Uh let's say this is my message."
+    },
+    {
+      "start": 1456.76,
+      "end": 1461.92,
+      "text": "Okay, this is my simple message."
+    },
+    {
+      "start": 1459.32,
+      "end": 1461.9199999999998,
+      "text": "Let's say"
+    },
+    {
+      "start": 1463.2,
+      "end": 1470.32,
+      "text": "execu- -ted."
+    },
+    {
+      "start": 1466.4,
+      "end": 1470.3200000000002,
+      "text": "Now, simply do the visualization."
+    },
+    {
+      "start": 1471.2,
+      "end": 1474.04,
+      "text": "Okay. Now, see."
+    },
+    {
+      "start": 1473.04,
+      "end": 1475.6,
+      "text": "Um"
+    },
+    {
+      "start": 1474.04,
+      "end": 1478.3999999999999,
+      "text": "here I have the control. So, first of"
+    },
+    {
+      "start": 1475.6,
+      "end": 1481.1599999999999,
+      "text": "all, Python interpreter will come here."
+    },
+    {
+      "start": 1478.4,
+      "end": 1483.2800000000002,
+      "text": "Uh it has seen like here I am having a"
+    },
+    {
+      "start": 1481.16,
+      "end": 1484.8000000000002,
+      "text": "function called fetch weather. Then, it"
+    },
+    {
+      "start": 1483.28,
+      "end": 1486.08,
+      "text": "will go to the next line, that is next"
+    },
+    {
+      "start": 1484.8,
+      "end": 1487.56,
+      "text": "function."
+    },
+    {
+      "start": 1486.08,
+      "end": 1488.96,
+      "text": "Then,"
+    },
+    {
+      "start": 1487.56,
+      "end": 1490.0,
+      "text": "it will go to the next function, which"
+    },
+    {
+      "start": 1488.96,
+      "end": 1492.2,
+      "text": "is main."
+    },
+    {
+      "start": 1490.0,
+      "end": 1493.72,
+      "text": "And in the main function, you can see uh"
+    },
+    {
+      "start": 1492.2,
+      "end": 1496.0,
+      "text": "I'm calling here this particular main"
+    },
+    {
+      "start": 1493.72,
+      "end": 1497.4,
+      "text": "function. So, it will go enter into the"
+    },
+    {
+      "start": 1496.0,
+      "end": 1499.44,
+      "text": "main function."
+    },
+    {
+      "start": 1497.4,
+      "end": 1501.3200000000002,
+      "text": "And it will see like I'm calling fetch"
+    },
+    {
+      "start": 1499.44,
+      "end": 1503.1200000000001,
+      "text": "weather function, okay? So, it will go"
+    },
+    {
+      "start": 1501.32,
+      "end": 1505.24,
+      "text": "inside fetch weather"
+    },
+    {
+      "start": 1503.12,
+      "end": 1506.4399999999998,
+      "text": "and it will do all of the operation."
+    },
+    {
+      "start": 1505.24,
+      "end": 1508.28,
+      "text": "Okay, see, it is doing all of the"
+    },
+    {
+      "start": 1506.44,
+      "end": 1510.24,
+      "text": "operation. Now, let's say this function"
+    },
+    {
+      "start": 1508.28,
+      "end": 1512.3999999999999,
+      "text": "is taking some time, so it will wait."
+    },
+    {
+      "start": 1510.24,
+      "end": 1514.16,
+      "text": "Okay, it will wait for 2 minutes, 1"
+    },
+    {
+      "start": 1512.4,
+      "end": 1516.0800000000002,
+      "text": "minute, okay? How much time it is"
+    },
+    {
+      "start": 1514.16,
+      "end": 1517.76,
+      "text": "taking, it will try to wait for that."
+    },
+    {
+      "start": 1516.08,
+      "end": 1519.1599999999999,
+      "text": "So, once execution is completed, then"
+    },
+    {
+      "start": 1517.76,
+      "end": 1520.8799999999999,
+      "text": "again, it will"
+    },
+    {
+      "start": 1519.16,
+      "end": 1522.48,
+      "text": "come here. Okay, then you can see it"
+    },
+    {
+      "start": 1520.88,
+      "end": 1524.1200000000001,
+      "text": "will execute another function, which is"
+    },
+    {
+      "start": 1522.48,
+      "end": 1526.04,
+      "text": "fetch news. Now, again, it will go"
+    },
+    {
+      "start": 1524.12,
+      "end": 1528.8799999999999,
+      "text": "inside fetch news then it will do all of"
+    },
+    {
+      "start": 1526.04,
+      "end": 1530.52,
+      "text": "the execution and try to come here. That"
+    },
+    {
+      "start": 1528.88,
+      "end": 1532.3600000000001,
+      "text": "means you have to wait, okay? You have"
+    },
+    {
+      "start": 1530.52,
+      "end": 1534.12,
+      "text": "to wait for"
+    },
+    {
+      "start": 1532.36,
+      "end": 1535.3999999999999,
+      "text": "the previous execution to be complete,"
+    },
+    {
+      "start": 1534.12,
+      "end": 1536.32,
+      "text": "then you will be able to run the new"
+    },
+    {
+      "start": 1535.4,
+      "end": 1538.44,
+      "text": "code."
+    },
+    {
+      "start": 1536.32,
+      "end": 1540.48,
+      "text": "Okay, that's how you have to wait, okay?"
+    },
+    {
+      "start": 1538.44,
+      "end": 1542.56,
+      "text": "You have to wait uh for the previous"
+    },
+    {
+      "start": 1540.48,
+      "end": 1544.44,
+      "text": "execution. And definitely, it is taking"
+    },
+    {
+      "start": 1542.56,
+      "end": 1546.0,
+      "text": "lots of time. And now, just try to"
+    },
+    {
+      "start": 1544.44,
+      "end": 1547.3600000000001,
+      "text": "consider if you're running a multiple"
+    },
+    {
+      "start": 1546.0,
+      "end": 1549.04,
+      "text": "agents together"
+    },
+    {
+      "start": 1547.36,
+      "end": 1551.32,
+      "text": "and if it is running"
+    },
+    {
+      "start": 1549.04,
+      "end": 1552.72,
+      "text": "synchronously, so first of all, first"
+    },
+    {
+      "start": 1551.32,
+      "end": 1555.2,
+      "text": "agent would be completed, second agent"
+    },
+    {
+      "start": 1552.72,
+      "end": 1557.28,
+      "text": "would be completed. So, execution time"
+    },
+    {
+      "start": 1555.2,
+      "end": 1559.44,
+      "text": "it will take more. That time we run it"
+    },
+    {
+      "start": 1557.28,
+      "end": 1561.6,
+      "text": "is an asynchronous way. So, that we are"
+    },
+    {
+      "start": 1559.44,
+      "end": 1563.76,
+      "text": "not need to open We don't need to open"
+    },
+    {
+      "start": 1561.6,
+      "end": 1566.24,
+      "text": "for We don't need to wait for the"
+    },
+    {
+      "start": 1563.76,
+      "end": 1568.48,
+      "text": "previous execution, okay? The time it is"
+    },
+    {
+      "start": 1566.24,
+      "end": 1570.24,
+      "text": "taking it's completely fine. I will"
+    },
+    {
+      "start": 1568.48,
+      "end": 1571.64,
+      "text": "simultaneously run"
+    },
+    {
+      "start": 1570.24,
+      "end": 1573.88,
+      "text": "for all of the function and it will be"
+    },
+    {
+      "start": 1571.64,
+      "end": 1575.48,
+      "text": "executing together, okay? So, now we'll"
+    },
+    {
+      "start": 1573.88,
+      "end": 1578.24,
+      "text": "try to see that particular example as"
+    },
+    {
+      "start": 1575.48,
+      "end": 1581.28,
+      "text": "well, how it will work. Now, we'll see"
+    },
+    {
+      "start": 1578.24,
+      "end": 1584.6,
+      "text": "the synchronous programming."
+    },
+    {
+      "start": 1581.28,
+      "end": 1584.6,
+      "text": "Sorry, asynchronous programming."
+    },
+    {
+      "start": 1586.64,
+      "end": 1590.5200000000002,
+      "text": "Asynchronous programming."
+    },
+    {
+      "start": 1588.4,
+      "end": 1591.44,
+      "text": "Now, here to"
+    },
+    {
+      "start": 1590.52,
+      "end": 1593.72,
+      "text": "uh"
+    },
+    {
+      "start": 1591.44,
+      "end": 1597.04,
+      "text": "implement asynchronous function, you"
+    },
+    {
+      "start": 1593.72,
+      "end": 1598.56,
+      "text": "need to import one library called"
+    },
+    {
+      "start": 1597.04,
+      "end": 1601.12,
+      "text": "import"
+    },
+    {
+      "start": 1598.56,
+      "end": 1604.48,
+      "text": "Sorry, import."
+    },
+    {
+      "start": 1601.12,
+      "end": 1606.08,
+      "text": "Okay? asyncio, okay? asyncio, this"
+    },
+    {
+      "start": 1604.48,
+      "end": 1608.3600000000001,
+      "text": "particular library"
+    },
+    {
+      "start": 1606.08,
+      "end": 1610.12,
+      "text": "and I'm going to also import time"
+    },
+    {
+      "start": 1608.36,
+      "end": 1612.36,
+      "text": "library."
+    },
+    {
+      "start": 1610.12,
+      "end": 1614.56,
+      "text": "Let's me import all of them. Then here"
+    },
+    {
+      "start": 1612.36,
+      "end": 1616.3999999999999,
+      "text": "I'm going to again write the same"
+    },
+    {
+      "start": 1614.56,
+      "end": 1620.2,
+      "text": "function."
+    },
+    {
+      "start": 1616.4,
+      "end": 1620.2,
+      "text": "Same function, I will copy the code."
+    },
+    {
+      "start": 1621.28,
+      "end": 1625.6,
+      "text": "And simply I'm going to mention here."
+    },
+    {
+      "start": 1622.96,
+      "end": 1628.24,
+      "text": "Now, instead of giving simply this"
+    },
+    {
+      "start": 1625.6,
+      "end": 1630.48,
+      "text": "definition, I'm going to write async"
+    },
+    {
+      "start": 1628.24,
+      "end": 1632.88,
+      "text": "keyword, okay, before that. Now, once I"
+    },
+    {
+      "start": 1630.48,
+      "end": 1634.96,
+      "text": "have written async keyword, okay, async"
+    },
+    {
+      "start": 1632.88,
+      "end": 1637.3200000000002,
+      "text": "keyword at the first of this particular"
+    },
+    {
+      "start": 1634.96,
+      "end": 1639.24,
+      "text": "function, now Python will automatically"
+    },
+    {
+      "start": 1637.32,
+      "end": 1641.76,
+      "text": "understand I need to run this function"
+    },
+    {
+      "start": 1639.24,
+      "end": 1643.48,
+      "text": "in asynchronous mode. And here it is"
+    },
+    {
+      "start": 1641.76,
+      "end": 1646.28,
+      "text": "taking the time, so maybe I can use"
+    },
+    {
+      "start": 1643.48,
+      "end": 1647.44,
+      "text": "another keyword here called await. Okay,"
+    },
+    {
+      "start": 1646.28,
+      "end": 1651.04,
+      "text": "await."
+    },
+    {
+      "start": 1647.44,
+      "end": 1652.04,
+      "text": "So, simply I'm going to give it here."
+    },
+    {
+      "start": 1651.04,
+      "end": 1653.76,
+      "text": "Okay?"
+    },
+    {
+      "start": 1652.04,
+      "end": 1655.84,
+      "text": "Even you can also return something if"
+    },
+    {
+      "start": 1653.76,
+      "end": 1656.72,
+      "text": "you want, okay? You can also return like"
+    },
+    {
+      "start": 1655.84,
+      "end": 1658.9599999999998,
+      "text": "uh"
+    },
+    {
+      "start": 1656.72,
+      "end": 1660.6000000000001,
+      "text": "what is the return this function will be"
+    },
+    {
+      "start": 1658.96,
+      "end": 1661.8,
+      "text": "returning for you."
+    },
+    {
+      "start": 1660.6,
+      "end": 1662.7199999999998,
+      "text": "Mhm."
+    },
+    {
+      "start": 1661.8,
+      "end": 1664.84,
+      "text": "Now,"
+    },
+    {
+      "start": 1662.72,
+      "end": 1666.68,
+      "text": "same similar wise, I'll also do it for"
+    },
+    {
+      "start": 1664.84,
+      "end": 1669.84,
+      "text": "this particular function."
+    },
+    {
+      "start": 1666.68,
+      "end": 1669.8400000000001,
+      "text": "So, async."
+    },
+    {
+      "start": 1671.2,
+      "end": 1674.88,
+      "text": "Okay? Now, simply here I'm going to"
+    },
+    {
+      "start": 1673.08,
+      "end": 1676.84,
+      "text": "write await."
+    },
+    {
+      "start": 1674.88,
+      "end": 1678.64,
+      "text": "Okay? Await."
+    },
+    {
+      "start": 1676.84,
+      "end": 1680.84,
+      "text": "So, why you are writing await here?"
+    },
+    {
+      "start": 1678.64,
+      "end": 1681.76,
+      "text": "Because here it is taking the time,"
+    },
+    {
+      "start": 1680.84,
+      "end": 1684.08,
+      "text": "okay?"
+    },
+    {
+      "start": 1681.76,
+      "end": 1686.68,
+      "text": "Here it is taking the time."
+    },
+    {
+      "start": 1684.08,
+      "end": 1689.28,
+      "text": "And whenever here it is taking the time,"
+    },
+    {
+      "start": 1686.68,
+      "end": 1691.72,
+      "text": "your Python interpreter will come here."
+    },
+    {
+      "start": 1689.28,
+      "end": 1693.2,
+      "text": "And whenever it will see the await, so"
+    },
+    {
+      "start": 1691.72,
+      "end": 1695.1200000000001,
+      "text": "it will tell like you don't need to wait"
+    },
+    {
+      "start": 1693.2,
+      "end": 1697.96,
+      "text": "for this particular execution, so you"
+    },
+    {
+      "start": 1695.12,
+      "end": 1700.0,
+      "text": "can execute your other"
+    },
+    {
+      "start": 1697.96,
+      "end": 1702.2,
+      "text": "code, okay, whatever you have. So, this"
+    },
+    {
+      "start": 1700.0,
+      "end": 1704.08,
+      "text": "code would be executing. And at the same"
+    },
+    {
+      "start": 1702.2,
+      "end": 1706.2,
+      "text": "time, you can also execute your other"
+    },
+    {
+      "start": 1704.08,
+      "end": 1707.96,
+      "text": "code, okay? I'll tell you, okay, how it"
+    },
+    {
+      "start": 1706.2,
+      "end": 1710.6000000000001,
+      "text": "will execute."
+    },
+    {
+      "start": 1707.96,
+      "end": 1714.6000000000001,
+      "text": "Uh then simply in the main function"
+    },
+    {
+      "start": 1710.6,
+      "end": 1714.6,
+      "text": "also, I'm going to make it as async."
+    },
+    {
+      "start": 1715.52,
+      "end": 1720.72,
+      "text": "Okay, async. And here"
+    },
+    {
+      "start": 1719.0,
+      "end": 1724.2,
+      "text": "uh instead of calling like that, I'm"
+    },
+    {
+      "start": 1720.72,
+      "end": 1727.0,
+      "text": "going to simply call it as await."
+    },
+    {
+      "start": 1724.2,
+      "end": 1728.68,
+      "text": "Uh asyncio.gather,"
+    },
+    {
+      "start": 1727.0,
+      "end": 1730.16,
+      "text": "okay? There is a function."
+    },
+    {
+      "start": 1728.68,
+      "end": 1732.76,
+      "text": "And inside that you have to give the"
+    },
+    {
+      "start": 1730.16,
+      "end": 1735.64,
+      "text": "fetch weather"
+    },
+    {
+      "start": 1732.76,
+      "end": 1737.4,
+      "text": "fetch weather uh function and fetch news"
+    },
+    {
+      "start": 1735.64,
+      "end": 1740.48,
+      "text": "function. Both you have to provide,"
+    },
+    {
+      "start": 1737.4,
+      "end": 1741.88,
+      "text": "okay? Then you can uh calculate the end"
+    },
+    {
+      "start": 1740.48,
+      "end": 1744.48,
+      "text": "time."
+    },
+    {
+      "start": 1741.88,
+      "end": 1746.5200000000002,
+      "text": "And simply you can bring the time taken"
+    },
+    {
+      "start": 1744.48,
+      "end": 1748.64,
+      "text": "of this particular function."
+    },
+    {
+      "start": 1746.52,
+      "end": 1751.44,
+      "text": "Now, if you want to execute, uh what you"
+    },
+    {
+      "start": 1748.64,
+      "end": 1753.3600000000001,
+      "text": "can do, you can simply"
+    },
+    {
+      "start": 1751.44,
+      "end": 1756.0800000000002,
+      "text": "uh you can simply call this main"
+    },
+    {
+      "start": 1753.36,
+      "end": 1759.9599999999998,
+      "text": "function. How? You can use the await"
+    },
+    {
+      "start": 1756.08,
+      "end": 1762.84,
+      "text": "keyword main. Now, see, if I execute"
+    },
+    {
+      "start": 1759.96,
+      "end": 1762.8400000000001,
+      "text": "see what will happen."
+    },
+    {
+      "start": 1765.8,
+      "end": 1770.76,
+      "text": "Okay, um there is a error."
+    },
+    {
+      "start": 1768.8,
+      "end": 1772.24,
+      "text": "Oh, sorry. Uh whenever you are using"
+    },
+    {
+      "start": 1770.76,
+      "end": 1773.8799999999999,
+      "text": "this await, right? You don't need to use"
+    },
+    {
+      "start": 1772.24,
+      "end": 1777.52,
+      "text": "the time that time."
+    },
+    {
+      "start": 1773.88,
+      "end": 1777.5200000000002,
+      "text": "Uh you can use as since"
+    },
+    {
+      "start": 1777.6,
+      "end": 1781.6,
+      "text": "uh as since I will not sleep, okay? So,"
+    },
+    {
+      "start": 1780.2,
+      "end": 1783.28,
+      "text": "you are not supposed to use time that"
+    },
+    {
+      "start": 1781.6,
+      "end": 1785.52,
+      "text": "time. Okay, you have to use as since I"
+    },
+    {
+      "start": 1783.28,
+      "end": 1787.76,
+      "text": "will not sleep. Okay?"
+    },
+    {
+      "start": 1785.52,
+      "end": 1790.12,
+      "text": "Now, same things I will be giving it"
+    },
+    {
+      "start": 1787.76,
+      "end": 1790.12,
+      "text": "here."
+    },
+    {
+      "start": 1792.76,
+      "end": 1797.72,
+      "text": "Same things I will give it it to here."
+    },
+    {
+      "start": 1795.16,
+      "end": 1800.4,
+      "text": "Uh now I think it is fine. Now, let's"
+    },
+    {
+      "start": 1797.72,
+      "end": 1800.4,
+      "text": "execute."
+    },
+    {
+      "start": 1801.16,
+      "end": 1805.3600000000001,
+      "text": "Now, see, guys."
+    },
+    {
+      "start": 1802.88,
+      "end": 1807.5600000000002,
+      "text": "It has taken only 3 seconds. And if I"
+    },
+    {
+      "start": 1805.36,
+      "end": 1808.9199999999998,
+      "text": "show you my previous code, it has taken"
+    },
+    {
+      "start": 1807.56,
+      "end": 1812.1599999999999,
+      "text": "6 seconds."
+    },
+    {
+      "start": 1808.92,
+      "end": 1814.48,
+      "text": "Okay? So, the time reduced by half."
+    },
+    {
+      "start": 1812.16,
+      "end": 1815.68,
+      "text": "Okay? The time reduced by half. Just try"
+    },
+    {
+      "start": 1814.48,
+      "end": 1817.6,
+      "text": "to consider."
+    },
+    {
+      "start": 1815.68,
+      "end": 1819.44,
+      "text": "Now, just think like this is a big"
+    },
+    {
+      "start": 1817.6,
+      "end": 1821.24,
+      "text": "program. Okay, this is a big program."
+    },
+    {
+      "start": 1819.44,
+      "end": 1824.2,
+      "text": "This is a big agents and it is running"
+    },
+    {
+      "start": 1821.24,
+      "end": 1826.56,
+      "text": "so many stuff. Now, if you run it run it"
+    },
+    {
+      "start": 1824.2,
+      "end": 1828.32,
+      "text": "in a asynchronous programming,"
+    },
+    {
+      "start": 1826.56,
+      "end": 1830.52,
+      "text": "now just try to consider how much time"
+    },
+    {
+      "start": 1828.32,
+      "end": 1832.84,
+      "text": "it should it should take, okay? But if"
+    },
+    {
+      "start": 1830.52,
+      "end": 1836.68,
+      "text": "you are using asynchronous programming,"
+    },
+    {
+      "start": 1832.84,
+      "end": 1838.36,
+      "text": "see, it will be reducing the time half."
+    },
+    {
+      "start": 1836.68,
+      "end": 1839.64,
+      "text": "Okay? Because it is running everything"
+    },
+    {
+      "start": 1838.36,
+      "end": 1842.04,
+      "text": "in parallel."
+    },
+    {
+      "start": 1839.64,
+      "end": 1843.88,
+      "text": "It is running everything in parallel."
+    },
+    {
+      "start": 1842.04,
+      "end": 1845.08,
+      "text": "Okay? So, you are not supposed to wait"
+    },
+    {
+      "start": 1843.88,
+      "end": 1847.7600000000002,
+      "text": "for the"
+    },
+    {
+      "start": 1845.08,
+      "end": 1849.76,
+      "text": "previous execution to be complete. Okay,"
+    },
+    {
+      "start": 1847.76,
+      "end": 1852.32,
+      "text": "so all of the executions are doing"
+    },
+    {
+      "start": 1849.76,
+      "end": 1854.72,
+      "text": "simultaneously."
+    },
+    {
+      "start": 1852.32,
+      "end": 1856.9199999999998,
+      "text": "Okay, so that's why this asynchronous"
+    },
+    {
+      "start": 1854.72,
+      "end": 1859.44,
+      "text": "programming, okay, this async IO is"
+    },
+    {
+      "start": 1856.92,
+      "end": 1861.8400000000001,
+      "text": "required whenever you are implementing"
+    },
+    {
+      "start": 1859.44,
+      "end": 1863.16,
+      "text": "uh any kinds of AI agents uh with any"
+    },
+    {
+      "start": 1861.84,
+      "end": 1866.1599999999999,
+      "text": "kinds of framework, whether you are"
+    },
+    {
+      "start": 1863.16,
+      "end": 1868.48,
+      "text": "using autogen, you are using LangGraph,"
+    },
+    {
+      "start": 1866.16,
+      "end": 1871.0400000000002,
+      "text": "you're using CrewAI, try to use this"
+    },
+    {
+      "start": 1868.48,
+      "end": 1872.08,
+      "text": "particular things in your development."
+    },
+    {
+      "start": 1871.04,
+      "end": 1874.0,
+      "text": "Okay?"
+    },
+    {
+      "start": 1872.08,
+      "end": 1875.1999999999998,
+      "text": "This is good practice."
+    },
+    {
+      "start": 1874.0,
+      "end": 1877.28,
+      "text": "There are two concepts you'll be"
+    },
+    {
+      "start": 1875.2,
+      "end": 1880.72,
+      "text": "getting, which is"
+    },
+    {
+      "start": 1877.28,
+      "end": 1880.72,
+      "text": "uh the first is para"
+    },
+    {
+      "start": 1880.96,
+      "end": 1884.3600000000001,
+      "text": "llelism."
+    },
+    {
+      "start": 1882.64,
+      "end": 1886.4,
+      "text": "Okay?"
+    },
+    {
+      "start": 1884.36,
+      "end": 1887.9599999999998,
+      "text": "And the second thing you'll be getting"
+    },
+    {
+      "start": 1886.4,
+      "end": 1889.4,
+      "text": "con"
+    },
+    {
+      "start": 1887.96,
+      "end": 1891.56,
+      "text": "cu"
+    },
+    {
+      "start": 1889.4,
+      "end": 1895.48,
+      "text": "rrency."
+    },
+    {
+      "start": 1891.56,
+      "end": 1895.48,
+      "text": "So what is parallelism? Running"
+    },
+    {
+      "start": 1896.88,
+      "end": 1899.6000000000001,
+      "text": "multiple"
+    },
+    {
+      "start": 1900.4,
+      "end": 1903.52,
+      "text": "uh tasks"
+    },
+    {
+      "start": 1903.84,
+      "end": 1906.84,
+      "text": "simultaneously"
+    },
+    {
+      "start": 1910.36,
+      "end": 1912.9199999999998,
+      "text": "using"
+    },
+    {
+      "start": 1913.12,
+      "end": 1915.84,
+      "text": "multiple"
+    },
+    {
+      "start": 1918.24,
+      "end": 1920.8,
+      "text": "threads."
+    },
+    {
+      "start": 1921.64,
+      "end": 1926.0800000000002,
+      "text": "Okay, or"
+    },
+    {
+      "start": 1923.52,
+      "end": 1926.08,
+      "text": "process."
+    },
+    {
+      "start": 1928.48,
+      "end": 1932.88,
+      "text": "And what is uh concurrency? So let me"
+    },
+    {
+      "start": 1931.04,
+      "end": 1933.8,
+      "text": "write it here."
+    },
+    {
+      "start": 1932.88,
+      "end": 1935.72,
+      "text": "Um"
+    },
+    {
+      "start": 1933.8,
+      "end": 1939.24,
+      "text": "simply"
+    },
+    {
+      "start": 1935.72,
+      "end": 1939.24,
+      "text": "here I can write concurrency."
+    },
+    {
+      "start": 1943.76,
+      "end": 1946.28,
+      "text": "Concurrency means"
+    },
+    {
+      "start": 1945.36,
+      "end": 1948.8799999999999,
+      "text": "uh"
+    },
+    {
+      "start": 1946.28,
+      "end": 1948.8799999999999,
+      "text": "managing"
+    },
+    {
+      "start": 1950.88,
+      "end": 1955.96,
+      "text": "multiple"
+    },
+    {
+      "start": 1953.32,
+      "end": 1955.96,
+      "text": "tasks"
+    },
+    {
+      "start": 1956.28,
+      "end": 1961.8,
+      "text": "that can"
+    },
+    {
+      "start": 1959.24,
+      "end": 1963.96,
+      "text": "start"
+    },
+    {
+      "start": 1961.8,
+      "end": 1968.04,
+      "text": "run"
+    },
+    {
+      "start": 1963.96,
+      "end": 1968.04,
+      "text": "and okay, finish"
+    },
+    {
+      "start": 1969.16,
+      "end": 1974.5600000000002,
+      "text": "with"
+    },
+    {
+      "start": 1971.56,
+      "end": 1974.56,
+      "text": "overlapping"
+    },
+    {
+      "start": 1974.92,
+      "end": 1978.16,
+      "text": "times."
+    },
+    {
+      "start": 1977.12,
+      "end": 1981.32,
+      "text": "Okay."
+    },
+    {
+      "start": 1978.16,
+      "end": 1983.2,
+      "text": "So, let me show you"
+    },
+    {
+      "start": 1981.32,
+      "end": 1986.6399999999999,
+      "text": "a graph. I think by seeing the graph,"
+    },
+    {
+      "start": 1983.2,
+      "end": 1989.8,
+      "text": "you will be able to understand"
+    },
+    {
+      "start": 1986.64,
+      "end": 1989.8000000000002,
+      "text": "what is the exact meaning."
+    },
+    {
+      "start": 1994.2,
+      "end": 1999.56,
+      "text": "So, this is the graph."
+    },
+    {
+      "start": 1996.8,
+      "end": 2000.12,
+      "text": "So, this is the concurrency. You can see"
+    },
+    {
+      "start": 1999.56,
+      "end": 2002.9199999999998,
+      "text": "uh"
+    },
+    {
+      "start": 2000.12,
+      "end": 2006.4799999999998,
+      "text": "task is running, okay? Context switching"
+    },
+    {
+      "start": 2002.92,
+      "end": 2008.0800000000002,
+      "text": "to the task two, then again task one is"
+    },
+    {
+      "start": 2006.48,
+      "end": 2009.52,
+      "text": "running. Again, it is doing the context"
+    },
+    {
+      "start": 2008.08,
+      "end": 2011.96,
+      "text": "switching, okay?"
+    },
+    {
+      "start": 2009.52,
+      "end": 2014.12,
+      "text": "But in parallelism, you can see"
+    },
+    {
+      "start": 2011.96,
+      "end": 2015.4,
+      "text": "it is utilizing, okay? It is utilizing"
+    },
+    {
+      "start": 2014.12,
+      "end": 2017.9599999999998,
+      "text": "multi"
+    },
+    {
+      "start": 2015.4,
+      "end": 2020.24,
+      "text": "uh multi-core, okay? Let's say"
+    },
+    {
+      "start": 2017.96,
+      "end": 2021.64,
+      "text": "uh in the first CPU core, it is running"
+    },
+    {
+      "start": 2020.24,
+      "end": 2023.64,
+      "text": "task one"
+    },
+    {
+      "start": 2021.64,
+      "end": 2025.1200000000001,
+      "text": "and in the second CPU core, it is"
+    },
+    {
+      "start": 2023.64,
+      "end": 2027.1200000000001,
+      "text": "running task two."
+    },
+    {
+      "start": 2025.12,
+      "end": 2029.28,
+      "text": "But here, it is only utilizing the same"
+    },
+    {
+      "start": 2027.12,
+      "end": 2032.28,
+      "text": "core only, but doing"
+    },
+    {
+      "start": 2029.28,
+      "end": 2033.2,
+      "text": "um doing this uh concurrency operation,"
+    },
+    {
+      "start": 2032.28,
+      "end": 2035.28,
+      "text": "okay?"
+    },
+    {
+      "start": 2033.2,
+      "end": 2037.6000000000001,
+      "text": "So, guys, I think you have seen this"
+    },
+    {
+      "start": 2035.28,
+      "end": 2039.48,
+      "text": "asynchronous concept. Uh"
+    },
+    {
+      "start": 2037.6,
+      "end": 2041.1599999999999,
+      "text": "the main thing is that"
+    },
+    {
+      "start": 2039.48,
+      "end": 2043.08,
+      "text": "right now, all of the orchestrator"
+    },
+    {
+      "start": 2041.16,
+      "end": 2045.3600000000001,
+      "text": "framework uses these kinds of"
+    },
+    {
+      "start": 2043.08,
+      "end": 2048.3199999999997,
+      "text": "asynchronous uh functionality in their"
+    },
+    {
+      "start": 2045.36,
+      "end": 2050.04,
+      "text": "back end. So, we don't need to manually"
+    },
+    {
+      "start": 2048.32,
+      "end": 2052.48,
+      "text": "uh use the asynchronous inside our"
+    },
+    {
+      "start": 2050.04,
+      "end": 2054.8,
+      "text": "development, inside our code. But if you"
+    },
+    {
+      "start": 2052.48,
+      "end": 2056.879,
+      "text": "want, you can also use. Uh if you want,"
+    },
+    {
+      "start": 2054.8,
+      "end": 2059.5600000000004,
+      "text": "you can also uh design your own"
+    },
+    {
+      "start": 2056.879,
+      "end": 2060.8399999999997,
+      "text": "pipeline, design your own agents. That"
+    },
+    {
+      "start": 2059.56,
+      "end": 2065.08,
+      "text": "time, you can write the code from"
+    },
+    {
+      "start": 2060.84,
+      "end": 2066.8,
+      "text": "scratch. But whatever um let's say uh"
+    },
+    {
+      "start": 2065.08,
+      "end": 2069.7999999999997,
+      "text": "orchestrator framework will be using"
+    },
+    {
+      "start": 2066.8,
+      "end": 2072.96,
+      "text": "like LangGraph, then AutoGen, CrewAI,"
+    },
+    {
+      "start": 2069.8,
+      "end": 2075.36,
+      "text": "right? So, everything uh already having"
+    },
+    {
+      "start": 2072.96,
+      "end": 2077.159,
+      "text": "these kinds of things are integrated"
+    },
+    {
+      "start": 2075.36,
+      "end": 2079.2000000000003,
+      "text": "okay in the back end. So, I don't need"
+    },
+    {
+      "start": 2077.159,
+      "end": 2080.84,
+      "text": "to take care of this part. But, in"
+    },
+    {
+      "start": 2079.2,
+      "end": 2082.6,
+      "text": "future whenever I will do some coding,"
+    },
+    {
+      "start": 2080.84,
+      "end": 2086.56,
+      "text": "maybe these are the terminology will"
+    },
+    {
+      "start": 2082.6,
+      "end": 2087.7999999999997,
+      "text": "come. That time I want you to don't"
+    },
+    {
+      "start": 2086.56,
+      "end": 2089.639,
+      "text": "actually"
+    },
+    {
+      "start": 2087.8,
+      "end": 2092.04,
+      "text": "confuse with the syntax. Okay? That's"
+    },
+    {
+      "start": 2089.639,
+      "end": 2094.2000000000003,
+      "text": "why I have clarified each and everything"
+    },
+    {
+      "start": 2092.04,
+      "end": 2096.399,
+      "text": "before I go ahead with the AI agents"
+    },
+    {
+      "start": 2094.2,
+      "end": 2097.8799999999997,
+      "text": "implementation. So, yes guys, I think"
+    },
+    {
+      "start": 2096.399,
+      "end": 2099.0,
+      "text": "you have liked this video. If you have"
+    },
+    {
+      "start": 2097.88,
+      "end": 2101.6,
+      "text": "liked this video, please try to"
+    },
+    {
+      "start": 2099.0,
+      "end": 2103.76,
+      "text": "subscribe to my channel and hit the like"
+    },
+    {
+      "start": 2101.6,
+      "end": 2105.16,
+      "text": "button. So, yes, this is all about."
+    },
+    {
+      "start": 2103.76,
+      "end": 2108.44,
+      "text": "Thanks for watching, guys. I will see"
+    },
+    {
+      "start": 2105.16,
+      "end": 2108.44,
+      "text": "you in the next video."
+    }
+  ],
+  "video_id": "mkbKnB3LxCk",
+  "title": "3. Asynchronous Programming for AI Agents | Complete Agentic AI Course",
+  "position": 5,
+  "url": "https://www.youtube.com/watch?v=mkbKnB3LxCk"
+}

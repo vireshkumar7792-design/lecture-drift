@@ -1,0 +1,5032 @@
+{
+  "source": "youtube_captions",
+  "language": "en",
+  "is_generated": true,
+  "text": "Hi guys. My name is Bapi and you are welcome to my YouTube channel. So guys, in this video, I'm going to give you the complete agent decay learning road map for all level learners. So why I'm calling it as a all level learners? Because on my YouTube channel, there are different types of learners are available. Uh if I'm talking about beginner levels are available, intermediate levels are available, and specially advanced levels are available. So that's why I'm dedicating this learning road map video for all types of learners are available on my channel and those who are following me since the very beginning. And uh why I'm creating this agent decay learning road map video, uh I think you know that. This is the most requested uh video you wanted to me create for my channel. Because if you see, I have created a complete agent decay playlist on my YouTube channel. And day by day, I'm getting lots of positive feedback, lots of amazing feedback from you. That means this playlist is helping all kinds of learners, specially if you are mastering this agent decay concept, so I think this playlist would be great fit for you because I started this playlist from the very beginning and I have completed till very advanced topics here, including so many end-to-end, so many advanced projects I have developed in this playlist as well. So that's why people wanted to me create a learning road map video so that they can understand if I'm a complete beginner, okay, or if I'm completely intermediate or advanced, so which sequence actually I have to watch your videos, which sequence I have to follow your playlist, okay? For this, I need a learning road map video. So that's why I'm creating this learning road map video and here I'm going to explain each and everything. I'm going to give each and every steps you have to follow. If you are learning Agent Decay from my playlist, okay? So, here I'm not only going to give you the step. I'm not only going to give you the road map. Even I'm also going to give you the resources you can follow to complete all of the steps you have to learn before you start with Agent Decay. So, make sure you watch this video till the end. And if you found my content useful, guys, please try to subscribe to my channel and hit the like in this video. And if you have any question, please try to write the comments in the comment section. So, definitely I'm going to clarify all of your doubts. And specially at the last of this video, I'm going to tell you uh the different types of road map you have to follow if you are completely beginner, if you are completely intermediate, or advanced, okay? So, for for beginner, I'm going to suggest you a road map. For intermediate people, I'm going to suggest you another road map. And uh for advanced people, I'm going to suggest you, okay, a different kinds of road map. So, here I have divided this particular road map into three sections. One is for the beginner. One is for the intermediate, and one is for the advanced people, okay? So, make sure you watch this video till the end. So, after this video, I believe you won't be having any kinds of question. You won't be having any kinds of confusion, okay? So, let's start with this uh Agent Decay learning road map um discussion, guys. But before we start, one thing I have mentioned on my screen, I think you can see. Uh this is kinds of road map message, as you can see here. Do not jump directly into agents. Build foundation first, then agent workflows becomes easy, okay? So, this thing I always tell to my learners, okay? Specially when I started my Agent Decay playlist, that time also I told you this part. Do not directly jump into agents, okay? If you are completely beginner, you don't need to directly jump into agents, okay? If you're jumping into agents, you can implement the agents, but there definitely some kinds of difficulties you will face, okay? But if you first of all master the foundation, if you first of all build your foundation, then these kinds of agent workflows will be very easy for you, okay? So, that's why I'm going to give you the step-by-step learning road map you have to follow if you want to master this Agent AI concept, okay? So, as you can see on my screen, I have already added some high-level step like Python, then Generate API, then Agent AI, okay? So, I think you are getting a high-level glimpse on my screen, right? But wait, I'm going to clarify each and everything like why Python is required, why Generate API is required, okay? Before we start with the Agent AI concept, each and everything I'm going to clarify. So guys, as you can see here, I have added three learning layers. Uh the first one is the Python. Second one is the Generate API. And the third one is your Agent AI, okay? So, if you want to start with the Agent AI concept, first of all, you have to complete these first two layers, okay? One is the Python, and second one is the Generate API. Now see, why Python is required? First of all, we have to understand because Python gives you the programming logic, API, uh working with APIs and JSON, asynchronous execution, Pydantic validation, as well as the fast API fast API back end, okay? So, see, if you are starting with any kinds of technology, not only with the Agent AI, if you are starting with game development, web development, okay? Or let's say um any kinds of domain, you need a programming skill definitely, right? Because with the help of this programming language, you will develop a product. Okay, you will develop a software product. And without programming, we can't implement software product. Now, you can ask me why we have to select the Python, whether we can work with the JavaScript or any other programming language or not. Yes, you can work with any other programming language is completely fine. But if you see especially if I'm talking about generative AI AI agents, agentic AI, people are using Python for that. Like all the frameworks we're getting right now, like LangGraph is there, CrewAI is there, right? All of the orchestration frameworks we're getting, everything actually coming up with this particular Python programming. So, Python is the root language if you are learning agentic AI, if you are implementing these kinds of agentic AI applications. But yes, you can still use some different programming language, okay? Like Java or any other programming language, it's completely fine. With the help of that, there are some kinds of orchestration framework you can use because LangGraph also supports other programming language as well, okay? You can also use other programming language to implement these kinds of AI agents. But the first root programming language would be the Python, okay? So, you have to start with the Python at the very first time if you are completely beginner, okay? Because everywhere in every company, people use Python to create these kinds of agentic AI applications, okay? Now, your question is, \"Sir, why I can learn these kinds of Python programming? Let's say I'm completely beginner. I don't know about anything.\" So, don't worry. I have a Python playlist on my channel. The playlist name is Python for AI, okay? So, here I have already provided the link. So, if you click on this link, it will redirect to my Python playlist, guys. As you can see here, you will be getting around 111 videos. Mostly covered all of the topics you need to master the Python including the object-oriented programming, okay, OOP concept. As you can see, OOP concept it will also cover with some amazing project implementation, okay. So, make sure you complete this playlist at the very first days, then you start with the next step, okay? Which is nothing but our Uh, as you can see, which is nothing but our generative AI, okay? So, basically Python will give you the foundation. Python will give you the uh, start starting phase for these kinds of technology, okay? So, with the help of Python, you can uh, basically uh, start your product development, start your software development, okay? Now, it doesn't matter uh, which technology you are using, uh, either you are using generative AI, either you are using Agentic AI. It doesn't matter, but if you know a programming language, okay, you can implement any kinds of uh, software or any kinds of product, okay? That's why at the very first time you need the Python skills, guys, okay? Yes. Now, the second layer, the second stage you have to start with the generative AI, okay? Now, many people uh, do one mistake. After learning Python, they will directly jump into the Agentic AI, but don't do that, okay? See, I'm not telling you can't do that, you can do that. Still you can learn Agentic AI. Especially uh, the practical development wise you can learn everything, but when it comes to the theoretical understanding, debugging of your agents, okay, implementing the right workflows for your product, okay? That time definitely will face the difficulties. Because Agentic AI, it is the extended version of the Agentic generative AI, okay? So, those who have already studied generative AI, I think you know that in generative AI we have learned large language model, prompt engineering, token and context, embeddings and rag, okay, function calling, LLM limitations, okay? And so many concepts we have learned inside Agentic AI. Okay, even I have also uh uh Agentic AI playlist on my YouTube channel, guys. So, this is the mega course I created. Uh there you will be getting two parts. So, let me show you. So, if I click on this Generative AI, so it will redirect to my Generative AI playlist, guys. As you can see, this is the part one. This is around uh 11 hours of recording, and this is also around 11 hours of recording. So, um if you complete this uh two parts, you will be able to master the complete Generative AI stack. Okay, so whatever things we have inside Generative AI, like large language model, okay, prompt engineering, then transformer architecture, different kinds of LLM architecture, fine-tuning, rag implementation, okay, LangChain, LlamaIndex, each and everything, whatever you need um need to know inside Agentic AI uh Generative AI, I have covered each and everything here. Okay? So, if you are beginner, guys, after completing Python, you have to complete this Generative AI at the very first time, okay? Then once you have completed, then you are ready to start with the Agentic AI topics, okay? So, that's why, instead of directly jumping from Python to Agentic AI, first of all, try to complete the Generative AI, okay? Don't uh skip the Generative AI because Generative AI is the foundation. Generative AI is the fast technologies, okay? You have to learn before starting with the Agentic AI because you always need to remember Agentic AI is the extended version of Generative AI, okay? This is not a separate technology, okay? So, all of the large language model, all of the, let's say, prompting, let's say, memory concept, okay? Everything will be using You'll be using from the Generative AI only. So, that's why you don't need to skip the Generative AI uh Generative AI if you want to perfectly learn this Agentic AI, okay? If you want to build the robust agentic AI application, definitely generative AI knowledge is required. Okay? So, you have to complete this. Then, after completing completing the generative AI, you can start with the agentic AI. Okay? Now, in agentic AI, you'll be learning different different things like tool memory, planning, reflections, okay? LangGraph, Crew AI, okay? AutoGen, Anything, then you have uh different kinds of, let's say, uh concept like guardrails, MCP, you'll be learning these are the concepts, right? So, again, I have a complete agentic AI course playlist on my channel, guys. Uh I think you know that this playlist I have created recently. So, again, if you click here, so it'll redirect to you on my playlist, okay? So, this is my playlist, guys. As you can see here here, I have completed each and everything you need to know, okay? To learn this complete agentic AI concept. Okay? Now, many people has one confusion. If I show you my YouTube channel, guys, this is my YouTube channel. Now, in this YouTube channel, I have different different playlist on the agentic AI. So, see carefully. If you see this particular playlist, okay? Complete agentic AI course, so this is the root playlist actually I'm creating right now, and I'm upgrading day by day. Okay, so this is the mega playlist, guys, as you can see. This place is the is the main playlist. So, here I'm going to upload all of the concept, okay? Which is included inside agentic AI. That means I showed you one uh my agentic AI um agentic AI course plan, right? So, whatever topic I told you to cover, everything will come up here. So, you have to always uh follow this playlist, okay? You have to always follow this playlist. But, there is some other playlist as well, like agentic AI with LangGraph, okay? Full course. Now, here actually I'm uploading one-shot video, as you can see. Part one and part two I have uploaded. So, this is only focusing on the LangGraph, okay? Agentic AI with LangGraph. It will not cover like Crew AI, it will not cover like Microsoft AutoGen, will not cover like N8N, okay? So, that's why this is only for those who are interested learning actually LangGraph, AgenticAI with LangGraph, they can follow this particular playlist, okay? But, if you want to learn everything, all of the orchestration framework like AutoGen, CrewAI, okay? N8N, you have to follow this complete AgenticAI course, okay? So, this is the mega playlist you have to follow, guys. And this is nothing but the end-to-end AgenticAI project playlist, okay? So, here I'm uploading projects only, okay? Not any concept, only for the end-to-end projects development, okay? And there's another one you will be getting called this one, AgenticAI interview preparation, okay? So, this playlist you have to follow along with this particular playlist, okay? So, if you are let's say completing your AgenticAI topic and if you are preparing for the interview, that time you can follow this playlist, okay? So, here I'm uploading all the concept related interview preparation, resume guideline, okay? Each and everything would be included here. So, yeah, this is the order you have to follow is always, okay? On my channel. So, you don't need to be confused, guys. So, see, you always need to remember this this should be the main playlist, okay? So, here I'm going to upload all of the video. And this playlist will only have the LangGraph related LangGraph related videos, okay? So, only AgenticAI with LangGraph. Okay? And this is only for the projects implementation. And this is for the interview preparation, okay? I hope you get it. Now, which one you prefer, you have to choose that particular playlist, okay? But, for the beginner, for the intermediate, this playlist you have to follow. But, for the advanced people, they let's say they know each and everything about the different different framework, okay? But, they only want to master the LangGraph. That time, for them only this particular quick playlist is available, okay? I hope you get it. So, don't worry, just be with me. I'm going to clarify all of your question, okay? One by one. So, yes, guys, this is the three learning layers you have to follow if you want to if you want to master the agent again, instead of directly focusing on the agent again, first of all try to complete the python, then complete the generative AI, then just try to complete the agent again, okay? And all of the learning playlist, okay, all of the like course playlist, I already have on my YouTube channel. Even I have already had the links here. So please try to check from my playlist from my YouTube channel and start learning from here, okay? I hope you get it. So this is the three learning layers you have to follow. Now I told you inside python, there are some topics that are available. Now, which topics you have to learn? All the already I have added all inside my playlist, okay, step by step all of the videos are available. Try to complete everything. So after completing all of these videos, you'll be able to see that you are learning the core python concept like variable function OP, error files, okay, these are the things. Then you will be getting the API skills, okay, working with the request JSON authentication, the response handling. So Okay, you'll be also mastering the asynchronous programming in python like asynchronous async asyncio, await, event loop, streaming, okay, these are the things we'll also try to cover. Then you'll also master the by entity for the data validation and structured output. Then you'll be also covering the backend basics like fast API, environment variables and project structuring, okay? So these are the skills you'll be learning from the python playlist, guys, okay? And why it matters, every CDS AI agents need needs tool, API, database, error handling and deployment you want you'll be implementing these are the logics with the help of python only, okay? Not any other programming language. Now step two, guys. The generative AI, okay, definitely. So after completing the generative AI playlist, you'll be able to learn the LLM basics like token, context window, temperature, model behavior, okay, how to work with different different LLM, how we can fine-tune the LLM, okay, how to connect with different different providers like OpenAI, Grok, okay, Hugging Face. You'll will be learning each and everything. Then you will be learning the prompt engineerings like system prompt, template, structured responses. You'll be also mastering the function calling concept like connect uh models decisions with real tools. Then you'll be also mastering one very important and uh mostly used uh uh like uh architecture which is rag, okay? Retrieval augmented generations. Here you'll be learning embedding vector database retrieval workflows, okay? Then the limitation as well like hallucination, bias, cost, latency, and evaluation, okay? So, these are the concept you will be mastering from my generative AI playlist, okay? So, make sure you complete these are the topics because this thing you need, okay? Inside AI agents as well, okay? So, that's why here I have written why it matters. If you do not understand LLMs, okay? Your agents will be unreliable, expensive, and diffic- difficult to control, okay? That's why this is uh this is uh actually you have to always need, okay? This understanding is always needed inside your AI agents. Then you can start with the uh agentic AI guys, okay? Now, what are the things you have to know inside agentic AI? What are the topics you have to learn inside agentic AI? So, here I have given all of the topics, okay? So, simply just click here. So, it will redirect to you um on the agentic AI course plan. So, here I have divided this agentic AI course in multiple phases, okay? As you can see, first of all, phase one you have to complete the introduction to agentic AI. So, if you check my playlist guys, here I have uh started till introduction, okay? Like I've given you the entire course plan, evaluations LLM to agent AI agents, agentic AI introduction, okay? These are the things I have already covered in my first uh phase, okay? Then second phase guys, as you can see, uh it will cover the asynchronous programming and Pydantic which is required to implement a a- AI agents application, okay? Again, if you see my playlist guys, as you can see I have covered asynchronous programming, Pydantic, okay? These are the things I have covered in detail. So again, you will be learning these are the things here. Okay, so every phases has a goal, okay, and it has a topic subtopics we'll be covering inside our phases. So if you are following my channel guys from the very beginning, I think you will know that I'm not escaping anything. We are covering each and everything in detail here. Then phase three guys, you have to learn the LangChain agent fundamentals like how we can use LangChain for these kinds of AI agents implementation, okay, before we start with our uh actual orchestration framework. So after learning LangChain, so as you can see we have used LangChain to implement single AI agents as well multi AI agents as well, okay, each and everything we have already learned that. Then phase three guys, uh sorry, phase four we have we have started with the actual like orchestration framework. Uh actual let's say uh our agent framework which is LangGraph, okay, this is the core section. So here we have already completed what what is LangGraph, why LangGraph is required, LangChain versus LangGraph, okay, then we have completed state management node, edges, state, okay, then conditional edges, state graph, checkpointer, each and everything, okay, each and everything I have covered here. You can see I started with the LangGraph and all of the topics it's available here, okay, all of the topics it's available. So if you just match with this, all of the topics are available, okay. Then phase five guys, you have to learn the agent memory planning, monitoring, and autonomous agents. So here you have to learn the persistence memory, agent memory, short-term memory, chat history, streaming, okay. Then you have HITL, then rag integration, tool integration, okay, vector database integration, human in the loop, LangSmith for monitoring, debugging agent behavior, each and everything I have also covered inside my playlist as you can see it is already available, okay. Now phase six guys, you have to complete you have to learn the deployment and production engineering uh because after implementing the agents, how we can productionize it, how we can deploy it. So, this particular topics I have also covered as you can see in my playlist also. I have showed you the CICD deployment, Docker integration, okay? Deployment with different clouds, each and everything I have already covered for the deployment and production engineering. Then, I have implemented some end-to-end projects as well. Like as you can see, we have implemented this uh agentic chatbot, we have implemented ChatGPT agent, Tripment AI, okay? Then, we have learned the model context protocol. Then, again, we have implemented some amazing end-to-end projects. Okay. So, this is the phase seven you have to complete. Then, phase eight, guys, I started with the model context protocol, okay? After completing this implementation, you just need to start with model context protocol, which is MCP. Now, here you will be learning how why MCP is required, okay? Why we have to integrate MCP inside our agents. These are the things we'll be learning along with the practical implementation as you can see. So, I'm not only covering the theoretical along with the practical project implementation. I'm telling you how MCP helps us, okay? To build these kinds of AI agents, okay? Then, uh the next is, guys, next phase after MCP, we are covering the AI safety and evaluation, phase nine. So, here we are learning about the guardrails, okay? Safety topics like prompt injections, okay? Then, violation related input, harmful content, okay? So, each and everything we are covering here, AI safety and uh integration we are also doing here. Specially, I have the guardrails uh concept here as you can see, guardrails guardrails topic. So, after completing this guardrails, even I also showed you how we can integrate this guardrails concept inside our end-to-end process, okay? And this is not a simple project, guys. This is completely end-to-end. As you can see, we are using LangGraph, MCP, supervisor agents, guardrails, safety, HITL, okay? And this is See See the like duration of this project. It's 5 hours of recording. Just try to think what are the things I have covered here completely end-to-end, okay? So, this is the sequence, guys, you have to always follow whenever you are learning something, especially my Agent-Key playlist, okay? And one thing you have to also cover, which is nothing but evaluation, okay? So, this evaluation techniques we have to also know how to do the LLM evaluation, okay? LLM gateway, these are the things we have to also understand. So, in my playlist, guys, I will be uploading uh more videos regarding the evaluation, okay? Still, I haven't up uploaded the video about the evaluation, but yes, in uh 1 to 2 days, I'll be also uploading this evaluation-related topics as well, okay? Even after completing this evaluation, we'll also integrate inside the project itself, okay? Then, phase 10, guys, we'll be covering the CrewAI, okay? The uh next orchestration framework, which is CrewAI. And again, in CrewAI, whatever topics uh uh actually are required, we'll be covering the uh all the topics, okay? And mostly, whatever topics we have learned in uh inside our Agent-Key AI, okay? This topic would be common for all the orchestration framework. Only See, we have implemented these agents with the help of LangGraph, okay? Now, we have to know how to implement this uh same kinds of agents with different kinds of orchestration framework, like CrewAI, AutoGen. So, framework, you can use any framework, but these are the concepts are same for all the framework, right? So, this is not going to change. This is the foundation, right? This is not going to change. But, framework, you can change anytime. You can use either LangGraph, either CrewAI, it doesn't matter, okay? But again, I'm going to cover the CrewAI framework as well in the phase 10. Then, phase 11, we'll be covering the Microsoft AutoGen. This is another uh Agent-Key orchestration framework. Then, we'll be also covering another uh amazing framework. This is basically no-code platform called n8n. Uh with the help of like some diagrams, okay? We'll be also creating AI automation and AI agents, okay? With the help of n8n, okay? So, this is the entire plan for my agent AKI course and all of the video will uploaded inside my complete agent AKI course playlist guys here only. Okay, not in this playlist guys, not inside my agent AKI with LangGraph playlist. Everything will be available inside my complete agent AKI course build AI agents and automate workflow in this playlist guys. So make sure you are following this playlist. Okay, you are following this particular playlist. All of this concept will be uploaded inside this playlist only. Okay, now you don't have any kinds of confusion why I have multiple playlist here. Okay, and which one you have to follow. So for you those were let's say advance Sorry, those were beginner, intermediate, advance, it doesn't matter. For you this playlist should you have to follow. Okay, and for revision purpose let's say you want to only revise LangGraph. That time you can follow this one. If you want to only implement the agent AKI projects that time you can follow this playlist. Okay, if you want to prepare for the interview you can follow this particular playlist. Okay, so this is the order you have to always follow inside my um YouTube channel guys. Okay, so I believe guys you already understood the entire roadmap, entire step. Okay. Now, let's try to understand why Python and generative AI must come before agent AKI. Okay, without that what should be the issue. Okay, we'll try to understand. So as you can see Python gives agents the ability to execute and generative AI gives the agents the ability to think. Okay, so I think by this definition itself you can understand why this Python and generative AI is required. So this is the order we have to always follow. Now, this is the big picture. Agent AKI sits on top of two foundation. The first foundation is the Python. Okay, so Python basically we can use for API handling, data handling, asynchronous validation validation, back-end logics. Okay, for all of this task we can use Python. Okay, then generative AI. Generative AI will be using for LLM prompting, embeddings, Lang function calling. Okay, for these are the topics we'll be using generative AI. And on top of you can see agent AI sits. Okay? So here we build the autonomous workflows, planning tools, memory control logic, each and everything we build. Okay? With the help of this agent AI and Python. Okay? So this is the uh big picture if you are talking about the agent AI. That's why agent AI is not the starting point. It is the integration point. Okay? This is not a starting point, this is integration point for Python and generative AI. So uh uh uh agent AI is the extended version of the generative AI. So here you can see why Python is required before agent AI. Uh so as you can see uh agent must call tools, API, database, files, and backend. Uh Python connects all of them as I already told you. Like with the help of Python we can perform the tool calling, API integration, data handling, backend logic, async process execution. So simple line, Python is the hand and legs of an AI agents. Okay? Then next, why generative AI is required before agent AI? So agents are powered by LLM. So learners must understand how LLM reads, reason, and response. So here you'll be learning the prompt engineering, token and context, embeddings and rags, large language model, function calling limitations, okay? And so on. So simple line, generative AI is the brain of an AI agents. Okay? I hope you get it. So what happens if you skip these are the foundations, okay? AI agent AI learners become confused because too many concepts appear at once, especially if you're skipping that uh that two layer, right? Especially Python and generative AI. So you will definitely encounter with too many concept at one place only in the agent AI. So directly we'll be getting something called uh langraph, directly we'll be getting something called memory. Okay, tool. These are the concept and definitely you won't be familiar with this if you are learning not learning the foundation, okay? So, that's why skipping the foundation, you'll be getting two letters, weak prompting, poor rag quality, no debugging skills, and unsafe automations. But if you're learning the foundation first, you will have the clear architecture, okay, understanding, better tool design, reliable agents, faster debugging, and production mindset, okay? So, this is always important. So, this is the main reason your roadmap should start with Python and generative AI. Okay? Now, guys, here is the main part, that means for all level learners, this is the roadmap I have prepared. So, if you're completely beginner, guys, as you can see, for you, all of these three learning layers should be available, okay? All of these learning layers should be completed first of all. First of all, you just need to complete the Python, generative AI, then agent AI. So, you have to follow a sequence, okay? For beginner, guys, these three layers is important. But if you're intermediate, let's say you already know the Python, okay? You already know the Python, you have already learned the Python. Now, you want to start with agent AI. So, first of all, try to complete the generative AI, okay? After completing generative AI, then start with agent AI. So, this is for the intermediate level uh people, okay? Now, let's say you are advanced people. So, you already know the Python as well as the generative AI. Now, where should where you have to start with? You have to start with only my agent AI playlist, okay? Only just try to learn the agent AI concept. You don't need to learn Python and generative AI. So, this is the three uh three actually level I have prepared for three kinds of learner. I think on my YouTube channel, these three kinds of learners are available, beginner, intermediate, and advanced. Now, you have the clear picture in your mind which order you have to follow, what are the topics you have to know. If you're beginner, complete all of them. If you're intermediate, complete only generative AI and agent AI. If you're advanced, try to focus on the agent AI only, okay? I hope you get it, guys. So, this is the final explanation, that means Python teaches you how to build the body of any AI agents, tool, API, files, database, backend logic, essence execution. Generative AI teaches you how the brain works, okay? LLM prompting, tokens, embedding rag, found uh function calling, and limitations. And Agent-ICAI combines both the LLM tokens uh LLM things, Python execution, and workflows con- uh controls the full process, okay? So, here in my playlist, guys, I'm only not teaching you the tools, okay? Here, I'm not just teaching you the tools. I'm teaching the concept uh complete foundations to build the production-ready AI agents. That's why all of the topics, okay, I have covered on my channel, Python, Generative AI, as well as the Agent-ICAI. Okay. Now, one thing um I think uh people will ask me, let me clarify this topic also. Uh see, whether I need machine learning and deep learning knowledge or not. See, haha, if you're learning Generative AI, so definitely I'm expecting you are already familiar with machine learning and deep learning, okay? Because machine learning and deep learning, this is the oldest technologies, right? People used to use before that to create different different application. And Generative AI came in the market, okay? So, those who are already learning Agent-ICAI, they must be familiar with machine learning and deep learning, because without a machine learning and deep learning, you don't know about artificial intelligence, because this was the starting, this was the hello world stage actually we used to learn inside artificial intelligence, right? So, that's why machine learning, deep learning is always required, okay? This will give you the starting point of your artificial intelligence journey, okay? So, that's why uh I'm expecting, guys, those who are following me since the very beginning, you should be familiar with machine learning and deep learning. Unfortunately, machine learning and deep learning playlist I don't have as of now on my channel, but in future, definitely I'm also going to create that playlist. First of all, let me cover all of the Agent-ICAI concept, the latest uh concept, then I'm going to also focus those other topics as well, okay? So, yes, guys, this is the entire plan. This is the entire learning road map. Now, I think uh now I think you have enough amount of understanding enough amount of let's say uh clarity. Uh you won't be having any kinds of uh confusion right now, right? And even if you are suggesting this playlist with anyone else as well, you can also follow that. This is the order we have to always follow. So, yes guys, uh this is all about from this video and all of the links would be given in my description. From there, uh please try to check all of my playlist, okay? A sequence as per your level. If you're a beginner, you can follow that uh level, right? If you're intermediate, you can follow that level. And if you're advanced, you can follow that level. So, as per your requirement, you can follow from my playlist itself, okay? And if you found my content useful, guys, please try to subscribe to my channel. Let's hit 100k subscriber, guys. If you are helping me to get 100k subscriber, I'm having lots of plan for my channel, guys. I'm having lots of content planned. So, definitely you will be loving a lot, right? So, let's uh hit 100k subscriber, guys, as soon as possible. And definitely I can bring you lots of content for you. So, yes guys, this is all about from this video. Thanks for watching. And I will see you in the next topic, guys. Thanks for watching.",
+  "segments": [
+    {
+      "start": 0.72,
+      "end": 4.04,
+      "text": "Hi guys."
+    },
+    {
+      "start": 2.0,
+      "end": 5.84,
+      "text": "My name is Bapi and you are welcome to"
+    },
+    {
+      "start": 4.04,
+      "end": 7.76,
+      "text": "my YouTube channel."
+    },
+    {
+      "start": 5.84,
+      "end": 9.44,
+      "text": "So guys, in this video, I'm going to"
+    },
+    {
+      "start": 7.76,
+      "end": 11.559999999999999,
+      "text": "give you the complete agent decay"
+    },
+    {
+      "start": 9.44,
+      "end": 13.04,
+      "text": "learning road map for all level"
+    },
+    {
+      "start": 11.56,
+      "end": 15.040000000000001,
+      "text": "learners."
+    },
+    {
+      "start": 13.04,
+      "end": 17.0,
+      "text": "So why I'm calling it as a all level"
+    },
+    {
+      "start": 15.04,
+      "end": 18.64,
+      "text": "learners? Because on my YouTube channel,"
+    },
+    {
+      "start": 17.0,
+      "end": 19.8,
+      "text": "there are different types of learners"
+    },
+    {
+      "start": 18.64,
+      "end": 21.64,
+      "text": "are available."
+    },
+    {
+      "start": 19.8,
+      "end": 22.880000000000003,
+      "text": "Uh if I'm talking about beginner levels"
+    },
+    {
+      "start": 21.64,
+      "end": 25.16,
+      "text": "are available,"
+    },
+    {
+      "start": 22.88,
+      "end": 27.68,
+      "text": "intermediate levels are available, and"
+    },
+    {
+      "start": 25.16,
+      "end": 29.92,
+      "text": "specially advanced levels are available."
+    },
+    {
+      "start": 27.68,
+      "end": 33.519999999999996,
+      "text": "So that's why I'm dedicating this"
+    },
+    {
+      "start": 29.92,
+      "end": 36.28,
+      "text": "learning road map video for all types of"
+    },
+    {
+      "start": 33.52,
+      "end": 37.88,
+      "text": "learners are available on my channel and"
+    },
+    {
+      "start": 36.28,
+      "end": 39.72,
+      "text": "those who are following me since the"
+    },
+    {
+      "start": 37.88,
+      "end": 42.52,
+      "text": "very beginning."
+    },
+    {
+      "start": 39.72,
+      "end": 44.56,
+      "text": "And uh why I'm creating this agent decay"
+    },
+    {
+      "start": 42.52,
+      "end": 47.720000000000006,
+      "text": "learning road map video, uh I think you"
+    },
+    {
+      "start": 44.56,
+      "end": 50.160000000000004,
+      "text": "know that. This is the most requested uh"
+    },
+    {
+      "start": 47.72,
+      "end": 52.28,
+      "text": "video you wanted to me create for my"
+    },
+    {
+      "start": 50.16,
+      "end": 54.76,
+      "text": "channel. Because if you see, I have"
+    },
+    {
+      "start": 52.28,
+      "end": 56.6,
+      "text": "created a complete agent decay playlist"
+    },
+    {
+      "start": 54.76,
+      "end": 59.16,
+      "text": "on my YouTube channel."
+    },
+    {
+      "start": 56.6,
+      "end": 60.92,
+      "text": "And day by day, I'm getting lots of"
+    },
+    {
+      "start": 59.16,
+      "end": 62.48,
+      "text": "positive feedback, lots of amazing"
+    },
+    {
+      "start": 60.92,
+      "end": 65.08,
+      "text": "feedback from you."
+    },
+    {
+      "start": 62.48,
+      "end": 67.92,
+      "text": "That means this playlist is helping"
+    },
+    {
+      "start": 65.08,
+      "end": 70.0,
+      "text": "all kinds of learners, specially"
+    },
+    {
+      "start": 67.92,
+      "end": 72.6,
+      "text": "if you are mastering this agent decay"
+    },
+    {
+      "start": 70.0,
+      "end": 74.88,
+      "text": "concept, so I think this playlist would"
+    },
+    {
+      "start": 72.6,
+      "end": 77.47999999999999,
+      "text": "be great fit for you because I started"
+    },
+    {
+      "start": 74.88,
+      "end": 80.0,
+      "text": "this playlist from the very beginning"
+    },
+    {
+      "start": 77.48,
+      "end": 82.04,
+      "text": "and I have completed till very advanced"
+    },
+    {
+      "start": 80.0,
+      "end": 84.88,
+      "text": "topics here, including so many"
+    },
+    {
+      "start": 82.04,
+      "end": 87.84,
+      "text": "end-to-end, so many advanced projects I"
+    },
+    {
+      "start": 84.88,
+      "end": 90.75999999999999,
+      "text": "have developed in this playlist as well."
+    },
+    {
+      "start": 87.84,
+      "end": 92.8,
+      "text": "So that's why people wanted to me create"
+    },
+    {
+      "start": 90.76,
+      "end": 95.04,
+      "text": "a learning road map video so that they"
+    },
+    {
+      "start": 92.8,
+      "end": 97.52,
+      "text": "can understand if I'm a complete"
+    },
+    {
+      "start": 95.04,
+      "end": 100.04,
+      "text": "beginner, okay, or if I'm completely"
+    },
+    {
+      "start": 97.52,
+      "end": 102.56,
+      "text": "intermediate or advanced, so which"
+    },
+    {
+      "start": 100.04,
+      "end": 105.36000000000001,
+      "text": "sequence actually I have to watch your"
+    },
+    {
+      "start": 102.56,
+      "end": 107.2,
+      "text": "videos, which sequence I have to follow"
+    },
+    {
+      "start": 105.36,
+      "end": 109.0,
+      "text": "your playlist, okay? For this, I need a"
+    },
+    {
+      "start": 107.2,
+      "end": 110.68,
+      "text": "learning road map video."
+    },
+    {
+      "start": 109.0,
+      "end": 112.56,
+      "text": "So that's why I'm creating this learning"
+    },
+    {
+      "start": 110.68,
+      "end": 114.64,
+      "text": "road map video and here I'm going to"
+    },
+    {
+      "start": 112.56,
+      "end": 117.12,
+      "text": "explain each and everything. I'm going"
+    },
+    {
+      "start": 114.64,
+      "end": 119.64,
+      "text": "to give each and every steps you have to"
+    },
+    {
+      "start": 117.12,
+      "end": 121.76,
+      "text": "follow. If you are learning Agent Decay"
+    },
+    {
+      "start": 119.64,
+      "end": 124.56,
+      "text": "from my playlist, okay?"
+    },
+    {
+      "start": 121.76,
+      "end": 126.24000000000001,
+      "text": "So, here I'm not only going to give you"
+    },
+    {
+      "start": 124.56,
+      "end": 128.399,
+      "text": "the step. I'm not only going to give you"
+    },
+    {
+      "start": 126.24,
+      "end": 131.32,
+      "text": "the road map. Even I'm also going to"
+    },
+    {
+      "start": 128.399,
+      "end": 134.24,
+      "text": "give you the resources you can follow to"
+    },
+    {
+      "start": 131.32,
+      "end": 136.92,
+      "text": "complete all of the steps you have to"
+    },
+    {
+      "start": 134.24,
+      "end": 138.76000000000002,
+      "text": "learn before you start with Agent Decay."
+    },
+    {
+      "start": 136.92,
+      "end": 140.92,
+      "text": "So, make sure you watch this video till"
+    },
+    {
+      "start": 138.76,
+      "end": 142.6,
+      "text": "the end. And if you found my content"
+    },
+    {
+      "start": 140.92,
+      "end": 144.92,
+      "text": "useful, guys, please try to subscribe to"
+    },
+    {
+      "start": 142.6,
+      "end": 147.28,
+      "text": "my channel and hit the like in this"
+    },
+    {
+      "start": 144.92,
+      "end": 149.64,
+      "text": "video. And if you have any question,"
+    },
+    {
+      "start": 147.28,
+      "end": 151.72,
+      "text": "please try to write the comments in the"
+    },
+    {
+      "start": 149.64,
+      "end": 154.35999999999999,
+      "text": "comment section. So, definitely I'm"
+    },
+    {
+      "start": 151.72,
+      "end": 156.6,
+      "text": "going to clarify all of your doubts. And"
+    },
+    {
+      "start": 154.36,
+      "end": 158.04000000000002,
+      "text": "specially at the last of this video, I'm"
+    },
+    {
+      "start": 156.6,
+      "end": 161.16,
+      "text": "going to tell you"
+    },
+    {
+      "start": 158.04,
+      "end": 163.07999999999998,
+      "text": "uh the different types of road map you"
+    },
+    {
+      "start": 161.16,
+      "end": 164.64,
+      "text": "have to follow if you are completely"
+    },
+    {
+      "start": 163.08,
+      "end": 167.24,
+      "text": "beginner, if you are completely"
+    },
+    {
+      "start": 164.64,
+      "end": 169.76,
+      "text": "intermediate, or advanced, okay? So, for"
+    },
+    {
+      "start": 167.24,
+      "end": 172.32000000000002,
+      "text": "for beginner, I'm going to suggest you a"
+    },
+    {
+      "start": 169.76,
+      "end": 174.39999999999998,
+      "text": "road map. For intermediate people, I'm"
+    },
+    {
+      "start": 172.32,
+      "end": 176.79999999999998,
+      "text": "going to suggest you another road map."
+    },
+    {
+      "start": 174.4,
+      "end": 178.92000000000002,
+      "text": "And uh for advanced people, I'm going to"
+    },
+    {
+      "start": 176.8,
+      "end": 181.88000000000002,
+      "text": "suggest you, okay, a different kinds of"
+    },
+    {
+      "start": 178.92,
+      "end": 184.44,
+      "text": "road map. So, here I have divided this"
+    },
+    {
+      "start": 181.88,
+      "end": 186.239,
+      "text": "particular road map into three sections."
+    },
+    {
+      "start": 184.44,
+      "end": 188.28,
+      "text": "One is for the beginner."
+    },
+    {
+      "start": 186.239,
+      "end": 190.519,
+      "text": "One is for the intermediate, and one is"
+    },
+    {
+      "start": 188.28,
+      "end": 193.04,
+      "text": "for the advanced people, okay? So, make"
+    },
+    {
+      "start": 190.519,
+      "end": 195.08,
+      "text": "sure you watch this video till the end."
+    },
+    {
+      "start": 193.04,
+      "end": 196.72,
+      "text": "So, after this video, I believe you"
+    },
+    {
+      "start": 195.08,
+      "end": 198.0,
+      "text": "won't be having any kinds of question."
+    },
+    {
+      "start": 196.72,
+      "end": 199.88,
+      "text": "You won't be having any kinds of"
+    },
+    {
+      "start": 198.0,
+      "end": 202.4,
+      "text": "confusion, okay?"
+    },
+    {
+      "start": 199.88,
+      "end": 205.28,
+      "text": "So, let's start with this uh Agent Decay"
+    },
+    {
+      "start": 202.4,
+      "end": 207.28,
+      "text": "learning road map um discussion, guys."
+    },
+    {
+      "start": 205.28,
+      "end": 209.0,
+      "text": "But before we start, one thing I have"
+    },
+    {
+      "start": 207.28,
+      "end": 210.08,
+      "text": "mentioned on my screen, I think you can"
+    },
+    {
+      "start": 209.0,
+      "end": 212.0,
+      "text": "see."
+    },
+    {
+      "start": 210.08,
+      "end": 214.519,
+      "text": "Uh this is kinds of road map message, as"
+    },
+    {
+      "start": 212.0,
+      "end": 215.92,
+      "text": "you can see here. Do not jump directly"
+    },
+    {
+      "start": 214.519,
+      "end": 217.92000000000002,
+      "text": "into agents."
+    },
+    {
+      "start": 215.92,
+      "end": 220.39999999999998,
+      "text": "Build foundation first, then agent"
+    },
+    {
+      "start": 217.92,
+      "end": 222.76,
+      "text": "workflows becomes easy, okay?"
+    },
+    {
+      "start": 220.4,
+      "end": 225.239,
+      "text": "So, this thing I always tell to my"
+    },
+    {
+      "start": 222.76,
+      "end": 227.76,
+      "text": "learners, okay? Specially when I started"
+    },
+    {
+      "start": 225.239,
+      "end": 229.64000000000001,
+      "text": "my Agent Decay playlist, that time also"
+    },
+    {
+      "start": 227.76,
+      "end": 232.32,
+      "text": "I told you this part."
+    },
+    {
+      "start": 229.64,
+      "end": 233.92,
+      "text": "Do not directly jump into agents, okay?"
+    },
+    {
+      "start": 232.32,
+      "end": 236.35999999999999,
+      "text": "If you are completely beginner, you"
+    },
+    {
+      "start": 233.92,
+      "end": 237.48,
+      "text": "don't need to directly jump into agents,"
+    },
+    {
+      "start": 236.36,
+      "end": 239.52,
+      "text": "okay?"
+    },
+    {
+      "start": 237.48,
+      "end": 242.48,
+      "text": "If you're jumping into agents,"
+    },
+    {
+      "start": 239.52,
+      "end": 244.92000000000002,
+      "text": "you can implement the agents, but there"
+    },
+    {
+      "start": 242.48,
+      "end": 247.72,
+      "text": "definitely some kinds of difficulties"
+    },
+    {
+      "start": 244.92,
+      "end": 249.76,
+      "text": "you will face, okay? But if you first of"
+    },
+    {
+      "start": 247.72,
+      "end": 252.24,
+      "text": "all master the foundation, if you first"
+    },
+    {
+      "start": 249.76,
+      "end": 254.88,
+      "text": "of all build your foundation, then these"
+    },
+    {
+      "start": 252.24,
+      "end": 257.28000000000003,
+      "text": "kinds of agent workflows will be very"
+    },
+    {
+      "start": 254.88,
+      "end": 259.28,
+      "text": "easy for you, okay? So, that's why I'm"
+    },
+    {
+      "start": 257.28,
+      "end": 261.4,
+      "text": "going to give you the step-by-step"
+    },
+    {
+      "start": 259.28,
+      "end": 263.28,
+      "text": "learning road map you have to follow if"
+    },
+    {
+      "start": 261.4,
+      "end": 264.88,
+      "text": "you want to master this Agent AI"
+    },
+    {
+      "start": 263.28,
+      "end": 266.55999999999995,
+      "text": "concept, okay?"
+    },
+    {
+      "start": 264.88,
+      "end": 268.6,
+      "text": "So, as you can see on my screen, I have"
+    },
+    {
+      "start": 266.56,
+      "end": 270.72,
+      "text": "already added some high-level step like"
+    },
+    {
+      "start": 268.6,
+      "end": 272.04,
+      "text": "Python, then Generate API, then Agent"
+    },
+    {
+      "start": 270.72,
+      "end": 274.0,
+      "text": "AI, okay?"
+    },
+    {
+      "start": 272.04,
+      "end": 276.8,
+      "text": "So, I think you are getting a high-level"
+    },
+    {
+      "start": 274.0,
+      "end": 278.6,
+      "text": "glimpse on my screen, right?"
+    },
+    {
+      "start": 276.8,
+      "end": 281.08,
+      "text": "But wait, I'm going to clarify each and"
+    },
+    {
+      "start": 278.6,
+      "end": 283.52000000000004,
+      "text": "everything like why Python is required,"
+    },
+    {
+      "start": 281.08,
+      "end": 285.35999999999996,
+      "text": "why Generate API is required, okay?"
+    },
+    {
+      "start": 283.52,
+      "end": 287.03999999999996,
+      "text": "Before we start with the Agent AI"
+    },
+    {
+      "start": 285.36,
+      "end": 289.52000000000004,
+      "text": "concept, each and everything I'm going"
+    },
+    {
+      "start": 287.04,
+      "end": 291.72,
+      "text": "to clarify. So guys, as you can see"
+    },
+    {
+      "start": 289.52,
+      "end": 292.79999999999995,
+      "text": "here, I have added three learning"
+    },
+    {
+      "start": 291.72,
+      "end": 295.44000000000005,
+      "text": "layers."
+    },
+    {
+      "start": 292.8,
+      "end": 297.68,
+      "text": "Uh the first one is the Python."
+    },
+    {
+      "start": 295.44,
+      "end": 299.88,
+      "text": "Second one is the Generate API."
+    },
+    {
+      "start": 297.68,
+      "end": 300.919,
+      "text": "And the third one is your Agent AI,"
+    },
+    {
+      "start": 299.88,
+      "end": 302.96,
+      "text": "okay?"
+    },
+    {
+      "start": 300.919,
+      "end": 305.64,
+      "text": "So, if you want to start with the Agent"
+    },
+    {
+      "start": 302.96,
+      "end": 308.4,
+      "text": "AI concept, first of all, you have to"
+    },
+    {
+      "start": 305.64,
+      "end": 310.59999999999997,
+      "text": "complete these first two layers, okay?"
+    },
+    {
+      "start": 308.4,
+      "end": 312.2,
+      "text": "One is the Python, and second one is the"
+    },
+    {
+      "start": 310.6,
+      "end": 314.88,
+      "text": "Generate API."
+    },
+    {
+      "start": 312.2,
+      "end": 316.52,
+      "text": "Now see, why Python is required? First"
+    },
+    {
+      "start": 314.88,
+      "end": 319.6,
+      "text": "of all, we have to understand because"
+    },
+    {
+      "start": 316.52,
+      "end": 320.68,
+      "text": "Python gives you the programming logic,"
+    },
+    {
+      "start": 319.6,
+      "end": 322.84000000000003,
+      "text": "API,"
+    },
+    {
+      "start": 320.68,
+      "end": 325.24,
+      "text": "uh working with APIs and JSON,"
+    },
+    {
+      "start": 322.84,
+      "end": 328.08,
+      "text": "asynchronous execution, Pydantic"
+    },
+    {
+      "start": 325.24,
+      "end": 330.36,
+      "text": "validation, as well as the fast API fast"
+    },
+    {
+      "start": 328.08,
+      "end": 333.0,
+      "text": "API back end, okay?"
+    },
+    {
+      "start": 330.36,
+      "end": 335.2,
+      "text": "So, see, if you are starting with any"
+    },
+    {
+      "start": 333.0,
+      "end": 337.12,
+      "text": "kinds of technology, not only with the"
+    },
+    {
+      "start": 335.2,
+      "end": 339.32,
+      "text": "Agent AI, if you are starting with game"
+    },
+    {
+      "start": 337.12,
+      "end": 340.52,
+      "text": "development, web development, okay? Or"
+    },
+    {
+      "start": 339.32,
+      "end": 343.08,
+      "text": "let's say"
+    },
+    {
+      "start": 340.52,
+      "end": 344.68,
+      "text": "um any kinds of domain,"
+    },
+    {
+      "start": 343.08,
+      "end": 346.64,
+      "text": "you need a programming skill definitely,"
+    },
+    {
+      "start": 344.68,
+      "end": 348.6,
+      "text": "right? Because with the help of this"
+    },
+    {
+      "start": 346.64,
+      "end": 350.71999999999997,
+      "text": "programming language, you will develop a"
+    },
+    {
+      "start": 348.6,
+      "end": 352.36,
+      "text": "product. Okay, you will develop a"
+    },
+    {
+      "start": 350.72,
+      "end": 354.20000000000005,
+      "text": "software product."
+    },
+    {
+      "start": 352.36,
+      "end": 356.64,
+      "text": "And without programming, we can't"
+    },
+    {
+      "start": 354.2,
+      "end": 358.92,
+      "text": "implement software product. Now, you can"
+    },
+    {
+      "start": 356.64,
+      "end": 360.0,
+      "text": "ask me why we have to select the Python,"
+    },
+    {
+      "start": 358.92,
+      "end": 362.04,
+      "text": "whether"
+    },
+    {
+      "start": 360.0,
+      "end": 364.96,
+      "text": "we can work with the JavaScript or any"
+    },
+    {
+      "start": 362.04,
+      "end": 367.8,
+      "text": "other programming language or not. Yes,"
+    },
+    {
+      "start": 364.96,
+      "end": 370.0,
+      "text": "you can work with any other programming"
+    },
+    {
+      "start": 367.8,
+      "end": 371.48,
+      "text": "language is completely fine. But if you"
+    },
+    {
+      "start": 370.0,
+      "end": 373.44,
+      "text": "see especially"
+    },
+    {
+      "start": 371.48,
+      "end": 376.08000000000004,
+      "text": "if I'm talking about generative AI AI"
+    },
+    {
+      "start": 373.44,
+      "end": 378.08,
+      "text": "agents, agentic AI, people are using"
+    },
+    {
+      "start": 376.08,
+      "end": 380.52,
+      "text": "Python for that. Like all the frameworks"
+    },
+    {
+      "start": 378.08,
+      "end": 382.68,
+      "text": "we're getting right now, like"
+    },
+    {
+      "start": 380.52,
+      "end": 384.08,
+      "text": "LangGraph is there, CrewAI is there,"
+    },
+    {
+      "start": 382.68,
+      "end": 385.68,
+      "text": "right? All of the orchestration"
+    },
+    {
+      "start": 384.08,
+      "end": 387.96,
+      "text": "frameworks we're getting,"
+    },
+    {
+      "start": 385.68,
+      "end": 390.12,
+      "text": "everything actually coming up with this"
+    },
+    {
+      "start": 387.96,
+      "end": 392.84,
+      "text": "particular Python programming. So,"
+    },
+    {
+      "start": 390.12,
+      "end": 394.28000000000003,
+      "text": "Python is the root language if you are"
+    },
+    {
+      "start": 392.84,
+      "end": 396.0,
+      "text": "learning agentic AI, if you are"
+    },
+    {
+      "start": 394.28,
+      "end": 397.4,
+      "text": "implementing these kinds of agentic AI"
+    },
+    {
+      "start": 396.0,
+      "end": 399.28,
+      "text": "applications."
+    },
+    {
+      "start": 397.4,
+      "end": 401.919,
+      "text": "But yes, you can still use some"
+    },
+    {
+      "start": 399.28,
+      "end": 404.03999999999996,
+      "text": "different programming language, okay?"
+    },
+    {
+      "start": 401.919,
+      "end": 405.919,
+      "text": "Like Java or any other programming"
+    },
+    {
+      "start": 404.04,
+      "end": 408.04,
+      "text": "language, it's completely fine. With the"
+    },
+    {
+      "start": 405.919,
+      "end": 409.56,
+      "text": "help of that, there are some kinds of"
+    },
+    {
+      "start": 408.04,
+      "end": 412.20000000000005,
+      "text": "orchestration framework you can use"
+    },
+    {
+      "start": 409.56,
+      "end": 413.96,
+      "text": "because LangGraph also supports"
+    },
+    {
+      "start": 412.2,
+      "end": 415.52,
+      "text": "other programming language as well,"
+    },
+    {
+      "start": 413.96,
+      "end": 417.03999999999996,
+      "text": "okay? You can also use other programming"
+    },
+    {
+      "start": 415.52,
+      "end": 419.68,
+      "text": "language to implement these kinds of AI"
+    },
+    {
+      "start": 417.04,
+      "end": 422.04,
+      "text": "agents. But the first root programming"
+    },
+    {
+      "start": 419.68,
+      "end": 423.72,
+      "text": "language would be the Python, okay? So,"
+    },
+    {
+      "start": 422.04,
+      "end": 425.44,
+      "text": "you have to start with the Python at the"
+    },
+    {
+      "start": 423.72,
+      "end": 427.24,
+      "text": "very first time if you are completely"
+    },
+    {
+      "start": 425.44,
+      "end": 430.28,
+      "text": "beginner, okay?"
+    },
+    {
+      "start": 427.24,
+      "end": 432.40000000000003,
+      "text": "Because everywhere in every company,"
+    },
+    {
+      "start": 430.28,
+      "end": 435.32,
+      "text": "people use Python to create these kinds"
+    },
+    {
+      "start": 432.4,
+      "end": 438.56,
+      "text": "of agentic AI applications, okay?"
+    },
+    {
+      "start": 435.32,
+      "end": 440.12,
+      "text": "Now, your question is, \"Sir, why I can"
+    },
+    {
+      "start": 438.56,
+      "end": 441.64,
+      "text": "learn these kinds of Python programming?"
+    },
+    {
+      "start": 440.12,
+      "end": 443.8,
+      "text": "Let's say I'm completely beginner. I"
+    },
+    {
+      "start": 441.64,
+      "end": 445.8,
+      "text": "don't know about anything.\" So, don't"
+    },
+    {
+      "start": 443.8,
+      "end": 447.84000000000003,
+      "text": "worry. I have a Python playlist on my"
+    },
+    {
+      "start": 445.8,
+      "end": 449.88,
+      "text": "channel. The playlist name is Python for"
+    },
+    {
+      "start": 447.84,
+      "end": 452.0,
+      "text": "AI, okay? So, here I have already"
+    },
+    {
+      "start": 449.88,
+      "end": 454.4,
+      "text": "provided the link. So, if you click on"
+    },
+    {
+      "start": 452.0,
+      "end": 456.08,
+      "text": "this link, it will redirect to my"
+    },
+    {
+      "start": 454.4,
+      "end": 459.08,
+      "text": "Python playlist, guys. As you can see"
+    },
+    {
+      "start": 456.08,
+      "end": 462.56,
+      "text": "here, you will be getting around 111"
+    },
+    {
+      "start": 459.08,
+      "end": 464.59999999999997,
+      "text": "videos. Mostly covered all of the topics"
+    },
+    {
+      "start": 462.56,
+      "end": 466.6,
+      "text": "you need to master the Python including"
+    },
+    {
+      "start": 464.6,
+      "end": 469.36,
+      "text": "the object-oriented programming, okay,"
+    },
+    {
+      "start": 466.6,
+      "end": 471.6,
+      "text": "OOP concept. As you can see, OOP concept"
+    },
+    {
+      "start": 469.36,
+      "end": 474.0,
+      "text": "it will also cover with some amazing"
+    },
+    {
+      "start": 471.6,
+      "end": 476.08000000000004,
+      "text": "project implementation, okay. So, make"
+    },
+    {
+      "start": 474.0,
+      "end": 478.96,
+      "text": "sure you complete this playlist at the"
+    },
+    {
+      "start": 476.08,
+      "end": 480.88,
+      "text": "very first days, then you start with the"
+    },
+    {
+      "start": 478.96,
+      "end": 482.96,
+      "text": "next step, okay?"
+    },
+    {
+      "start": 480.88,
+      "end": 484.52,
+      "text": "Which is nothing but our"
+    },
+    {
+      "start": 482.96,
+      "end": 487.44,
+      "text": "Uh, as you can see, which is nothing but"
+    },
+    {
+      "start": 484.52,
+      "end": 490.0,
+      "text": "our generative AI, okay? So, basically"
+    },
+    {
+      "start": 487.44,
+      "end": 491.8,
+      "text": "Python will give you the foundation."
+    },
+    {
+      "start": 490.0,
+      "end": 492.44,
+      "text": "Python will give you the"
+    },
+    {
+      "start": 491.8,
+      "end": 495.68,
+      "text": "uh,"
+    },
+    {
+      "start": 492.44,
+      "end": 497.8,
+      "text": "start starting phase for these kinds of"
+    },
+    {
+      "start": 495.68,
+      "end": 501.36,
+      "text": "technology, okay? So, with the help of"
+    },
+    {
+      "start": 497.8,
+      "end": 503.28000000000003,
+      "text": "Python, you can uh, basically uh, start"
+    },
+    {
+      "start": 501.36,
+      "end": 505.8,
+      "text": "your product development, start your"
+    },
+    {
+      "start": 503.28,
+      "end": 507.71999999999997,
+      "text": "software development, okay? Now, it"
+    },
+    {
+      "start": 505.8,
+      "end": 509.6,
+      "text": "doesn't matter uh, which technology you"
+    },
+    {
+      "start": 507.72,
+      "end": 511.44000000000005,
+      "text": "are using, uh, either you are using"
+    },
+    {
+      "start": 509.6,
+      "end": 513.52,
+      "text": "generative AI, either you are using"
+    },
+    {
+      "start": 511.44,
+      "end": 515.32,
+      "text": "Agentic AI. It doesn't matter, but if"
+    },
+    {
+      "start": 513.52,
+      "end": 518.039,
+      "text": "you know a programming language, okay,"
+    },
+    {
+      "start": 515.32,
+      "end": 519.84,
+      "text": "you can implement any kinds of uh,"
+    },
+    {
+      "start": 518.039,
+      "end": 521.24,
+      "text": "software or any kinds of product, okay?"
+    },
+    {
+      "start": 519.84,
+      "end": 523.96,
+      "text": "That's why at the very first time you"
+    },
+    {
+      "start": 521.24,
+      "end": 527.04,
+      "text": "need the Python skills, guys, okay?"
+    },
+    {
+      "start": 523.96,
+      "end": 528.6,
+      "text": "Yes. Now, the second layer, the second"
+    },
+    {
+      "start": 527.04,
+      "end": 531.8,
+      "text": "stage you have to start with the"
+    },
+    {
+      "start": 528.6,
+      "end": 534.24,
+      "text": "generative AI, okay? Now, many people"
+    },
+    {
+      "start": 531.8,
+      "end": 536.3199999999999,
+      "text": "uh, do one mistake. After learning"
+    },
+    {
+      "start": 534.24,
+      "end": 538.72,
+      "text": "Python, they will directly jump into the"
+    },
+    {
+      "start": 536.32,
+      "end": 541.32,
+      "text": "Agentic AI, but don't do that, okay?"
+    },
+    {
+      "start": 538.72,
+      "end": 542.88,
+      "text": "See, I'm not telling you can't do that,"
+    },
+    {
+      "start": 541.32,
+      "end": 546.36,
+      "text": "you can do that. Still you can learn"
+    },
+    {
+      "start": 542.88,
+      "end": 547.68,
+      "text": "Agentic AI. Especially uh, the practical"
+    },
+    {
+      "start": 546.36,
+      "end": 549.52,
+      "text": "development wise you can learn"
+    },
+    {
+      "start": 547.68,
+      "end": 552.3199999999999,
+      "text": "everything, but when it comes to the"
+    },
+    {
+      "start": 549.52,
+      "end": 554.96,
+      "text": "theoretical understanding, debugging of"
+    },
+    {
+      "start": 552.32,
+      "end": 557.08,
+      "text": "your agents, okay, implementing the"
+    },
+    {
+      "start": 554.96,
+      "end": 558.48,
+      "text": "right workflows for your product, okay?"
+    },
+    {
+      "start": 557.08,
+      "end": 562.2800000000001,
+      "text": "That time definitely will face the"
+    },
+    {
+      "start": 558.48,
+      "end": 565.16,
+      "text": "difficulties. Because Agentic AI, it is"
+    },
+    {
+      "start": 562.28,
+      "end": 567.24,
+      "text": "the extended version of the Agentic"
+    },
+    {
+      "start": 565.16,
+      "end": 568.8389999999999,
+      "text": "generative AI, okay? So, those who have"
+    },
+    {
+      "start": 567.24,
+      "end": 570.64,
+      "text": "already studied generative AI, I think"
+    },
+    {
+      "start": 568.839,
+      "end": 572.96,
+      "text": "you know that in generative AI we have"
+    },
+    {
+      "start": 570.64,
+      "end": 575.04,
+      "text": "learned large language model, prompt"
+    },
+    {
+      "start": 572.96,
+      "end": 577.0,
+      "text": "engineering, token and context,"
+    },
+    {
+      "start": 575.04,
+      "end": 580.0,
+      "text": "embeddings and rag, okay, function"
+    },
+    {
+      "start": 577.0,
+      "end": 581.76,
+      "text": "calling, LLM limitations, okay? And so"
+    },
+    {
+      "start": 580.0,
+      "end": 585.2,
+      "text": "many concepts we have learned inside"
+    },
+    {
+      "start": 581.76,
+      "end": 586.84,
+      "text": "Agentic AI. Okay, even I have also uh"
+    },
+    {
+      "start": 585.2,
+      "end": 588.6800000000001,
+      "text": "uh Agentic AI playlist on my YouTube"
+    },
+    {
+      "start": 586.84,
+      "end": 590.32,
+      "text": "channel, guys. So, this is the mega"
+    },
+    {
+      "start": 588.68,
+      "end": 592.2399999999999,
+      "text": "course I created. Uh there you will be"
+    },
+    {
+      "start": 590.32,
+      "end": 594.6400000000001,
+      "text": "getting two parts. So, let me show you."
+    },
+    {
+      "start": 592.24,
+      "end": 596.48,
+      "text": "So, if I click on this Generative AI, so"
+    },
+    {
+      "start": 594.64,
+      "end": 597.84,
+      "text": "it will redirect to my Generative AI"
+    },
+    {
+      "start": 596.48,
+      "end": 600.2,
+      "text": "playlist, guys. As you can see, this is"
+    },
+    {
+      "start": 597.84,
+      "end": 602.32,
+      "text": "the part one. This is around uh"
+    },
+    {
+      "start": 600.2,
+      "end": 605.6800000000001,
+      "text": "11 hours of recording, and this is also"
+    },
+    {
+      "start": 602.32,
+      "end": 608.6,
+      "text": "around 11 hours of recording. So, um"
+    },
+    {
+      "start": 605.68,
+      "end": 610.7199999999999,
+      "text": "if you complete this uh two parts,"
+    },
+    {
+      "start": 608.6,
+      "end": 612.6,
+      "text": "you will be able to master the complete"
+    },
+    {
+      "start": 610.72,
+      "end": 614.88,
+      "text": "Generative AI stack. Okay, so whatever"
+    },
+    {
+      "start": 612.6,
+      "end": 617.28,
+      "text": "things we have inside Generative AI,"
+    },
+    {
+      "start": 614.88,
+      "end": 619.24,
+      "text": "like large language model, okay, prompt"
+    },
+    {
+      "start": 617.28,
+      "end": 621.4,
+      "text": "engineering, then transformer"
+    },
+    {
+      "start": 619.24,
+      "end": 624.32,
+      "text": "architecture, different kinds of LLM"
+    },
+    {
+      "start": 621.4,
+      "end": 626.52,
+      "text": "architecture, fine-tuning, rag"
+    },
+    {
+      "start": 624.32,
+      "end": 628.48,
+      "text": "implementation, okay, LangChain,"
+    },
+    {
+      "start": 626.52,
+      "end": 631.4399999999999,
+      "text": "LlamaIndex, each and everything,"
+    },
+    {
+      "start": 628.48,
+      "end": 633.48,
+      "text": "whatever you need um need to know inside"
+    },
+    {
+      "start": 631.44,
+      "end": 635.48,
+      "text": "Agentic AI uh Generative AI, I have"
+    },
+    {
+      "start": 633.48,
+      "end": 637.72,
+      "text": "covered each and everything here. Okay?"
+    },
+    {
+      "start": 635.48,
+      "end": 639.96,
+      "text": "So, if you are beginner, guys, after"
+    },
+    {
+      "start": 637.72,
+      "end": 641.64,
+      "text": "completing Python, you have to complete"
+    },
+    {
+      "start": 639.96,
+      "end": 643.32,
+      "text": "this Generative AI at the very first"
+    },
+    {
+      "start": 641.64,
+      "end": 645.56,
+      "text": "time, okay? Then once you have"
+    },
+    {
+      "start": 643.32,
+      "end": 648.36,
+      "text": "completed, then you are ready to start"
+    },
+    {
+      "start": 645.56,
+      "end": 650.8389999999999,
+      "text": "with the Agentic AI topics, okay? So,"
+    },
+    {
+      "start": 648.36,
+      "end": 653.48,
+      "text": "that's why, instead of directly jumping"
+    },
+    {
+      "start": 650.839,
+      "end": 656.12,
+      "text": "from Python to Agentic AI, first of all,"
+    },
+    {
+      "start": 653.48,
+      "end": 657.72,
+      "text": "try to complete the Generative AI, okay?"
+    },
+    {
+      "start": 656.12,
+      "end": 659.88,
+      "text": "Don't uh skip the Generative AI because"
+    },
+    {
+      "start": 657.72,
+      "end": 662.64,
+      "text": "Generative AI is the foundation."
+    },
+    {
+      "start": 659.88,
+      "end": 664.52,
+      "text": "Generative AI is the fast technologies,"
+    },
+    {
+      "start": 662.64,
+      "end": 666.4,
+      "text": "okay? You have to learn before starting"
+    },
+    {
+      "start": 664.52,
+      "end": 668.8389999999999,
+      "text": "with the Agentic AI because you always"
+    },
+    {
+      "start": 666.4,
+      "end": 671.1999999999999,
+      "text": "need to remember Agentic AI is the"
+    },
+    {
+      "start": 668.839,
+      "end": 673.6400000000001,
+      "text": "extended version of Generative AI, okay?"
+    },
+    {
+      "start": 671.2,
+      "end": 676.0,
+      "text": "This is not a separate technology, okay?"
+    },
+    {
+      "start": 673.64,
+      "end": 679.48,
+      "text": "So, all of the large language model, all"
+    },
+    {
+      "start": 676.0,
+      "end": 681.64,
+      "text": "of the, let's say, prompting, let's say,"
+    },
+    {
+      "start": 679.48,
+      "end": 682.88,
+      "text": "memory concept, okay? Everything will be"
+    },
+    {
+      "start": 681.64,
+      "end": 684.92,
+      "text": "using You'll be using from the"
+    },
+    {
+      "start": 682.88,
+      "end": 686.64,
+      "text": "Generative AI only. So, that's why you"
+    },
+    {
+      "start": 684.92,
+      "end": 688.68,
+      "text": "don't need to skip the Generative AI uh"
+    },
+    {
+      "start": 686.64,
+      "end": 690.4,
+      "text": "Generative AI if you want to perfectly"
+    },
+    {
+      "start": 688.68,
+      "end": 692.4799999999999,
+      "text": "learn this Agentic AI, okay? If you want"
+    },
+    {
+      "start": 690.4,
+      "end": 694.0,
+      "text": "to build the robust agentic AI"
+    },
+    {
+      "start": 692.48,
+      "end": 696.2,
+      "text": "application, definitely generative AI"
+    },
+    {
+      "start": 694.0,
+      "end": 698.12,
+      "text": "knowledge is required. Okay? So, you"
+    },
+    {
+      "start": 696.2,
+      "end": 700.36,
+      "text": "have to complete this."
+    },
+    {
+      "start": 698.12,
+      "end": 702.5600000000001,
+      "text": "Then, after completing completing the"
+    },
+    {
+      "start": 700.36,
+      "end": 705.16,
+      "text": "generative AI, you can start with the"
+    },
+    {
+      "start": 702.56,
+      "end": 706.3199999999999,
+      "text": "agentic AI. Okay? Now, in agentic AI,"
+    },
+    {
+      "start": 705.16,
+      "end": 707.7199999999999,
+      "text": "you'll be learning different different"
+    },
+    {
+      "start": 706.32,
+      "end": 710.7600000000001,
+      "text": "things like tool memory, planning,"
+    },
+    {
+      "start": 707.72,
+      "end": 714.24,
+      "text": "reflections, okay? LangGraph, Crew AI,"
+    },
+    {
+      "start": 710.76,
+      "end": 716.48,
+      "text": "okay? AutoGen, Anything, then you have"
+    },
+    {
+      "start": 714.24,
+      "end": 718.72,
+      "text": "uh different kinds of, let's say,"
+    },
+    {
+      "start": 716.48,
+      "end": 719.8000000000001,
+      "text": "uh concept like guardrails, MCP, you'll"
+    },
+    {
+      "start": 718.72,
+      "end": 720.84,
+      "text": "be learning these are the concepts,"
+    },
+    {
+      "start": 719.8,
+      "end": 724.0,
+      "text": "right?"
+    },
+    {
+      "start": 720.84,
+      "end": 725.96,
+      "text": "So, again, I have a complete agentic AI"
+    },
+    {
+      "start": 724.0,
+      "end": 727.24,
+      "text": "course playlist on my channel, guys. Uh"
+    },
+    {
+      "start": 725.96,
+      "end": 729.5600000000001,
+      "text": "I think you know that this playlist I"
+    },
+    {
+      "start": 727.24,
+      "end": 731.6800000000001,
+      "text": "have created recently. So, again, if you"
+    },
+    {
+      "start": 729.56,
+      "end": 733.0799999999999,
+      "text": "click here, so it'll redirect to you on"
+    },
+    {
+      "start": 731.68,
+      "end": 734.7199999999999,
+      "text": "my playlist, okay? So, this is my"
+    },
+    {
+      "start": 733.08,
+      "end": 736.6,
+      "text": "playlist, guys. As you can see here"
+    },
+    {
+      "start": 734.72,
+      "end": 739.0400000000001,
+      "text": "here, I have completed each and"
+    },
+    {
+      "start": 736.6,
+      "end": 741.28,
+      "text": "everything you need to know, okay? To"
+    },
+    {
+      "start": 739.04,
+      "end": 742.16,
+      "text": "learn this complete agentic AI concept."
+    },
+    {
+      "start": 741.28,
+      "end": 744.72,
+      "text": "Okay?"
+    },
+    {
+      "start": 742.16,
+      "end": 746.24,
+      "text": "Now, many people has one confusion. If I"
+    },
+    {
+      "start": 744.72,
+      "end": 748.08,
+      "text": "show you my YouTube channel, guys, this"
+    },
+    {
+      "start": 746.24,
+      "end": 750.28,
+      "text": "is my YouTube channel."
+    },
+    {
+      "start": 748.08,
+      "end": 751.5200000000001,
+      "text": "Now, in this YouTube channel, I have"
+    },
+    {
+      "start": 750.28,
+      "end": 752.76,
+      "text": "different different playlist on the"
+    },
+    {
+      "start": 751.52,
+      "end": 754.56,
+      "text": "agentic AI."
+    },
+    {
+      "start": 752.76,
+      "end": 756.3199999999999,
+      "text": "So, see carefully."
+    },
+    {
+      "start": 754.56,
+      "end": 758.1999999999999,
+      "text": "If you see this particular playlist,"
+    },
+    {
+      "start": 756.32,
+      "end": 759.7600000000001,
+      "text": "okay? Complete agentic AI course, so"
+    },
+    {
+      "start": 758.2,
+      "end": 761.5600000000001,
+      "text": "this is the root playlist actually I'm"
+    },
+    {
+      "start": 759.76,
+      "end": 763.4399999999999,
+      "text": "creating right now, and I'm upgrading"
+    },
+    {
+      "start": 761.56,
+      "end": 765.5999999999999,
+      "text": "day by day. Okay, so this is the mega"
+    },
+    {
+      "start": 763.44,
+      "end": 768.08,
+      "text": "playlist, guys, as you can see."
+    },
+    {
+      "start": 765.6,
+      "end": 770.48,
+      "text": "This place is the is the main playlist."
+    },
+    {
+      "start": 768.08,
+      "end": 773.44,
+      "text": "So, here I'm going to upload all of the"
+    },
+    {
+      "start": 770.48,
+      "end": 775.6800000000001,
+      "text": "concept, okay? Which is included inside"
+    },
+    {
+      "start": 773.44,
+      "end": 778.36,
+      "text": "agentic AI. That means I showed you one"
+    },
+    {
+      "start": 775.68,
+      "end": 780.0,
+      "text": "uh my agentic AI um agentic AI course"
+    },
+    {
+      "start": 778.36,
+      "end": 782.04,
+      "text": "plan, right?"
+    },
+    {
+      "start": 780.0,
+      "end": 783.839,
+      "text": "So, whatever topic I told you to cover,"
+    },
+    {
+      "start": 782.04,
+      "end": 786.5999999999999,
+      "text": "everything will come up here. So, you"
+    },
+    {
+      "start": 783.839,
+      "end": 787.8800000000001,
+      "text": "have to always uh follow this playlist,"
+    },
+    {
+      "start": 786.6,
+      "end": 788.88,
+      "text": "okay? You have to always follow this"
+    },
+    {
+      "start": 787.88,
+      "end": 790.4399999999999,
+      "text": "playlist."
+    },
+    {
+      "start": 788.88,
+      "end": 792.76,
+      "text": "But, there is some other playlist as"
+    },
+    {
+      "start": 790.44,
+      "end": 794.9200000000001,
+      "text": "well, like agentic AI with LangGraph,"
+    },
+    {
+      "start": 792.76,
+      "end": 796.56,
+      "text": "okay? Full course. Now, here actually"
+    },
+    {
+      "start": 794.92,
+      "end": 798.0799999999999,
+      "text": "I'm uploading one-shot video, as you can"
+    },
+    {
+      "start": 796.56,
+      "end": 800.3199999999999,
+      "text": "see. Part one and part two I have"
+    },
+    {
+      "start": 798.08,
+      "end": 802.2,
+      "text": "uploaded. So, this is only focusing on"
+    },
+    {
+      "start": 800.32,
+      "end": 804.36,
+      "text": "the LangGraph, okay? Agentic AI with"
+    },
+    {
+      "start": 802.2,
+      "end": 806.72,
+      "text": "LangGraph. It will not cover like Crew"
+    },
+    {
+      "start": 804.36,
+      "end": 810.0,
+      "text": "AI, it will not cover like Microsoft"
+    },
+    {
+      "start": 806.72,
+      "end": 811.9200000000001,
+      "text": "AutoGen, will not cover like N8N, okay?"
+    },
+    {
+      "start": 810.0,
+      "end": 813.72,
+      "text": "So, that's why this is only for those"
+    },
+    {
+      "start": 811.92,
+      "end": 815.9599999999999,
+      "text": "who are interested learning actually"
+    },
+    {
+      "start": 813.72,
+      "end": 817.0,
+      "text": "LangGraph, AgenticAI with LangGraph,"
+    },
+    {
+      "start": 815.96,
+      "end": 819.0400000000001,
+      "text": "they can"
+    },
+    {
+      "start": 817.0,
+      "end": 821.0,
+      "text": "follow this particular playlist, okay?"
+    },
+    {
+      "start": 819.04,
+      "end": 823.16,
+      "text": "But, if you want to learn everything,"
+    },
+    {
+      "start": 821.0,
+      "end": 825.92,
+      "text": "all of the orchestration framework like"
+    },
+    {
+      "start": 823.16,
+      "end": 827.56,
+      "text": "AutoGen, CrewAI, okay? N8N, you have to"
+    },
+    {
+      "start": 825.92,
+      "end": 829.04,
+      "text": "follow this complete AgenticAI course,"
+    },
+    {
+      "start": 827.56,
+      "end": 830.5999999999999,
+      "text": "okay? So, this is the mega playlist you"
+    },
+    {
+      "start": 829.04,
+      "end": 832.28,
+      "text": "have to follow, guys. And this is"
+    },
+    {
+      "start": 830.6,
+      "end": 833.6,
+      "text": "nothing but the end-to-end AgenticAI"
+    },
+    {
+      "start": 832.28,
+      "end": 835.88,
+      "text": "project playlist, okay? So, here I'm"
+    },
+    {
+      "start": 833.6,
+      "end": 837.9200000000001,
+      "text": "uploading projects only, okay? Not any"
+    },
+    {
+      "start": 835.88,
+      "end": 840.2,
+      "text": "concept, only for the end-to-end"
+    },
+    {
+      "start": 837.92,
+      "end": 842.0,
+      "text": "projects development, okay?"
+    },
+    {
+      "start": 840.2,
+      "end": 843.96,
+      "text": "And there's another one you will be"
+    },
+    {
+      "start": 842.0,
+      "end": 846.08,
+      "text": "getting called this one, AgenticAI"
+    },
+    {
+      "start": 843.96,
+      "end": 847.8000000000001,
+      "text": "interview preparation, okay? So, this"
+    },
+    {
+      "start": 846.08,
+      "end": 849.48,
+      "text": "playlist you have to follow along with"
+    },
+    {
+      "start": 847.8,
+      "end": 850.9599999999999,
+      "text": "this particular playlist, okay? So, if"
+    },
+    {
+      "start": 849.48,
+      "end": 853.32,
+      "text": "you are let's say completing your"
+    },
+    {
+      "start": 850.96,
+      "end": 854.9200000000001,
+      "text": "AgenticAI topic and if you are preparing"
+    },
+    {
+      "start": 853.32,
+      "end": 856.48,
+      "text": "for the interview, that time you can"
+    },
+    {
+      "start": 854.92,
+      "end": 857.88,
+      "text": "follow this playlist, okay? So, here I'm"
+    },
+    {
+      "start": 856.48,
+      "end": 859.24,
+      "text": "uploading"
+    },
+    {
+      "start": 857.88,
+      "end": 861.6,
+      "text": "all the concept related interview"
+    },
+    {
+      "start": 859.24,
+      "end": 863.24,
+      "text": "preparation, resume guideline, okay?"
+    },
+    {
+      "start": 861.6,
+      "end": 865.36,
+      "text": "Each and everything would be included"
+    },
+    {
+      "start": 863.24,
+      "end": 866.96,
+      "text": "here. So, yeah, this is the order you"
+    },
+    {
+      "start": 865.36,
+      "end": 868.76,
+      "text": "have to follow is always, okay? On my"
+    },
+    {
+      "start": 866.96,
+      "end": 870.96,
+      "text": "channel. So, you don't need to be"
+    },
+    {
+      "start": 868.76,
+      "end": 872.52,
+      "text": "confused, guys. So, see, you always need"
+    },
+    {
+      "start": 870.96,
+      "end": 873.96,
+      "text": "to remember this this should be the main"
+    },
+    {
+      "start": 872.52,
+      "end": 876.92,
+      "text": "playlist, okay? So, here I'm going to"
+    },
+    {
+      "start": 873.96,
+      "end": 878.48,
+      "text": "upload all of the video. And"
+    },
+    {
+      "start": 876.92,
+      "end": 880.24,
+      "text": "this playlist will only have the"
+    },
+    {
+      "start": 878.48,
+      "end": 882.48,
+      "text": "LangGraph related"
+    },
+    {
+      "start": 880.24,
+      "end": 884.4,
+      "text": "LangGraph related videos, okay? So, only"
+    },
+    {
+      "start": 882.48,
+      "end": 886.72,
+      "text": "AgenticAI with LangGraph."
+    },
+    {
+      "start": 884.4,
+      "end": 888.48,
+      "text": "Okay? And this is only for the projects"
+    },
+    {
+      "start": 886.72,
+      "end": 890.2,
+      "text": "implementation. And this is for the"
+    },
+    {
+      "start": 888.48,
+      "end": 892.8000000000001,
+      "text": "interview preparation, okay? I hope you"
+    },
+    {
+      "start": 890.2,
+      "end": 894.2,
+      "text": "get it. Now, which one you prefer, you"
+    },
+    {
+      "start": 892.8,
+      "end": 896.16,
+      "text": "have to choose that particular playlist,"
+    },
+    {
+      "start": 894.2,
+      "end": 897.88,
+      "text": "okay? But, for the beginner, for the"
+    },
+    {
+      "start": 896.16,
+      "end": 899.68,
+      "text": "intermediate, this playlist you have to"
+    },
+    {
+      "start": 897.88,
+      "end": 901.48,
+      "text": "follow. But, for the advanced people,"
+    },
+    {
+      "start": 899.68,
+      "end": 903.2399999999999,
+      "text": "they let's say they know each and"
+    },
+    {
+      "start": 901.48,
+      "end": 905.0,
+      "text": "everything about the"
+    },
+    {
+      "start": 903.24,
+      "end": 906.48,
+      "text": "different different framework, okay?"
+    },
+    {
+      "start": 905.0,
+      "end": 908.4,
+      "text": "But, they only want to master the"
+    },
+    {
+      "start": 906.48,
+      "end": 910.24,
+      "text": "LangGraph. That time, for them only this"
+    },
+    {
+      "start": 908.4,
+      "end": 912.16,
+      "text": "particular quick playlist is available,"
+    },
+    {
+      "start": 910.24,
+      "end": 914.44,
+      "text": "okay? I hope you get it. So, don't"
+    },
+    {
+      "start": 912.16,
+      "end": 916.12,
+      "text": "worry, just be with me. I'm going to"
+    },
+    {
+      "start": 914.44,
+      "end": 918.6400000000001,
+      "text": "clarify all of your question, okay? One"
+    },
+    {
+      "start": 916.12,
+      "end": 920.24,
+      "text": "by one. So, yes, guys, this is the three"
+    },
+    {
+      "start": 918.64,
+      "end": 921.48,
+      "text": "learning layers you have to follow if"
+    },
+    {
+      "start": 920.24,
+      "end": 923.6,
+      "text": "you want to"
+    },
+    {
+      "start": 921.48,
+      "end": 925.04,
+      "text": "if you want to master the agent again,"
+    },
+    {
+      "start": 923.6,
+      "end": 926.32,
+      "text": "instead of directly focusing on the"
+    },
+    {
+      "start": 925.04,
+      "end": 928.64,
+      "text": "agent again, first of all try to"
+    },
+    {
+      "start": 926.32,
+      "end": 930.84,
+      "text": "complete the python, then complete the"
+    },
+    {
+      "start": 928.64,
+      "end": 932.8,
+      "text": "generative AI, then just try to complete"
+    },
+    {
+      "start": 930.84,
+      "end": 933.9200000000001,
+      "text": "the agent again, okay? And all of the"
+    },
+    {
+      "start": 932.8,
+      "end": 936.0,
+      "text": "learning"
+    },
+    {
+      "start": 933.92,
+      "end": 937.56,
+      "text": "playlist, okay, all of the like course"
+    },
+    {
+      "start": 936.0,
+      "end": 938.84,
+      "text": "playlist, I already have on my YouTube"
+    },
+    {
+      "start": 937.56,
+      "end": 941.4,
+      "text": "channel. Even I have already had the"
+    },
+    {
+      "start": 938.84,
+      "end": 943.64,
+      "text": "links here. So please try to check from"
+    },
+    {
+      "start": 941.4,
+      "end": 946.04,
+      "text": "my playlist from my YouTube channel and"
+    },
+    {
+      "start": 943.64,
+      "end": 948.04,
+      "text": "start learning from here, okay?"
+    },
+    {
+      "start": 946.04,
+      "end": 950.1999999999999,
+      "text": "I hope you get it. So this is the three"
+    },
+    {
+      "start": 948.04,
+      "end": 951.1999999999999,
+      "text": "learning layers you have to follow."
+    },
+    {
+      "start": 950.2,
+      "end": 952.9200000000001,
+      "text": "Now"
+    },
+    {
+      "start": 951.2,
+      "end": 954.5600000000001,
+      "text": "I told you inside"
+    },
+    {
+      "start": 952.92,
+      "end": 957.8399999999999,
+      "text": "python, there are some topics that are"
+    },
+    {
+      "start": 954.56,
+      "end": 959.04,
+      "text": "available. Now, which topics you have to"
+    },
+    {
+      "start": 957.84,
+      "end": 960.9200000000001,
+      "text": "learn?"
+    },
+    {
+      "start": 959.04,
+      "end": 962.52,
+      "text": "All the already I have"
+    },
+    {
+      "start": 960.92,
+      "end": 964.4,
+      "text": "added all inside my playlist, okay, step"
+    },
+    {
+      "start": 962.52,
+      "end": 966.12,
+      "text": "by step all of the videos are available."
+    },
+    {
+      "start": 964.4,
+      "end": 967.72,
+      "text": "Try to complete everything. So after"
+    },
+    {
+      "start": 966.12,
+      "end": 969.36,
+      "text": "completing all of these videos, you'll"
+    },
+    {
+      "start": 967.72,
+      "end": 970.96,
+      "text": "be able to see that you are learning the"
+    },
+    {
+      "start": 969.36,
+      "end": 973.36,
+      "text": "core python concept like variable"
+    },
+    {
+      "start": 970.96,
+      "end": 974.96,
+      "text": "function OP, error files, okay, these"
+    },
+    {
+      "start": 973.36,
+      "end": 977.16,
+      "text": "are the things. Then you will be getting"
+    },
+    {
+      "start": 974.96,
+      "end": 978.88,
+      "text": "the API skills, okay, working with the"
+    },
+    {
+      "start": 977.16,
+      "end": 981.04,
+      "text": "request JSON authentication, the"
+    },
+    {
+      "start": 978.88,
+      "end": 983.12,
+      "text": "response handling. So Okay, you'll be"
+    },
+    {
+      "start": 981.04,
+      "end": 985.36,
+      "text": "also mastering the asynchronous"
+    },
+    {
+      "start": 983.12,
+      "end": 987.8,
+      "text": "programming in python like asynchronous"
+    },
+    {
+      "start": 985.36,
+      "end": 988.96,
+      "text": "async asyncio, await, event loop,"
+    },
+    {
+      "start": 987.8,
+      "end": 990.52,
+      "text": "streaming, okay, these are the things"
+    },
+    {
+      "start": 988.96,
+      "end": 992.44,
+      "text": "we'll also try to cover. Then you'll"
+    },
+    {
+      "start": 990.52,
+      "end": 994.3199999999999,
+      "text": "also master the by entity for the data"
+    },
+    {
+      "start": 992.44,
+      "end": 995.8000000000001,
+      "text": "validation and structured output. Then"
+    },
+    {
+      "start": 994.32,
+      "end": 997.44,
+      "text": "you'll be also covering the backend"
+    },
+    {
+      "start": 995.8,
+      "end": 999.52,
+      "text": "basics like fast API, environment"
+    },
+    {
+      "start": 997.44,
+      "end": 1001.0400000000001,
+      "text": "variables and project structuring, okay?"
+    },
+    {
+      "start": 999.52,
+      "end": 1002.92,
+      "text": "So these are the skills you'll be"
+    },
+    {
+      "start": 1001.04,
+      "end": 1005.76,
+      "text": "learning from the python playlist, guys,"
+    },
+    {
+      "start": 1002.92,
+      "end": 1008.56,
+      "text": "okay? And why it matters, every CDS AI"
+    },
+    {
+      "start": 1005.76,
+      "end": 1011.36,
+      "text": "agents need needs tool, API, database,"
+    },
+    {
+      "start": 1008.56,
+      "end": 1012.5999999999999,
+      "text": "error handling and deployment you want"
+    },
+    {
+      "start": 1011.36,
+      "end": 1014.4,
+      "text": "you'll be implementing these are the"
+    },
+    {
+      "start": 1012.6,
+      "end": 1015.839,
+      "text": "logics with the help of python only,"
+    },
+    {
+      "start": 1014.4,
+      "end": 1016.88,
+      "text": "okay? Not any other programming"
+    },
+    {
+      "start": 1015.839,
+      "end": 1019.24,
+      "text": "language."
+    },
+    {
+      "start": 1016.88,
+      "end": 1021.52,
+      "text": "Now step two, guys."
+    },
+    {
+      "start": 1019.24,
+      "end": 1023.0,
+      "text": "The generative AI, okay, definitely. So"
+    },
+    {
+      "start": 1021.52,
+      "end": 1024.4,
+      "text": "after completing the generative AI"
+    },
+    {
+      "start": 1023.0,
+      "end": 1026.48,
+      "text": "playlist, you'll be able to learn the"
+    },
+    {
+      "start": 1024.4,
+      "end": 1028.8000000000002,
+      "text": "LLM basics like token, context window,"
+    },
+    {
+      "start": 1026.48,
+      "end": 1030.48,
+      "text": "temperature, model behavior, okay, how"
+    },
+    {
+      "start": 1028.8,
+      "end": 1032.76,
+      "text": "to work with different different LLM,"
+    },
+    {
+      "start": 1030.48,
+      "end": 1033.8,
+      "text": "how we can fine-tune the LLM, okay, how"
+    },
+    {
+      "start": 1032.76,
+      "end": 1035.839,
+      "text": "to connect with different different"
+    },
+    {
+      "start": 1033.8,
+      "end": 1038.04,
+      "text": "providers like OpenAI,"
+    },
+    {
+      "start": 1035.839,
+      "end": 1039.48,
+      "text": "Grok, okay, Hugging Face. You'll will be"
+    },
+    {
+      "start": 1038.04,
+      "end": 1040.8799999999999,
+      "text": "learning each and everything. Then you"
+    },
+    {
+      "start": 1039.48,
+      "end": 1042.72,
+      "text": "will be learning the prompt engineerings"
+    },
+    {
+      "start": 1040.88,
+      "end": 1044.5600000000002,
+      "text": "like system prompt, template, structured"
+    },
+    {
+      "start": 1042.72,
+      "end": 1046.319,
+      "text": "responses. You'll be also mastering the"
+    },
+    {
+      "start": 1044.56,
+      "end": 1048.8799999999999,
+      "text": "function calling concept like connect uh"
+    },
+    {
+      "start": 1046.319,
+      "end": 1050.12,
+      "text": "models decisions with real tools. Then"
+    },
+    {
+      "start": 1048.88,
+      "end": 1052.2,
+      "text": "you'll be also mastering one very"
+    },
+    {
+      "start": 1050.12,
+      "end": 1053.8,
+      "text": "important and uh"
+    },
+    {
+      "start": 1052.2,
+      "end": 1055.8400000000001,
+      "text": "mostly used uh"
+    },
+    {
+      "start": 1053.8,
+      "end": 1057.6399999999999,
+      "text": "uh like uh architecture which is rag,"
+    },
+    {
+      "start": 1055.84,
+      "end": 1059.08,
+      "text": "okay? Retrieval augmented generations."
+    },
+    {
+      "start": 1057.64,
+      "end": 1061.44,
+      "text": "Here you'll be learning embedding vector"
+    },
+    {
+      "start": 1059.08,
+      "end": 1062.56,
+      "text": "database retrieval workflows, okay? Then"
+    },
+    {
+      "start": 1061.44,
+      "end": 1064.3600000000001,
+      "text": "the limitation as well like"
+    },
+    {
+      "start": 1062.56,
+      "end": 1065.96,
+      "text": "hallucination, bias, cost, latency, and"
+    },
+    {
+      "start": 1064.36,
+      "end": 1067.56,
+      "text": "evaluation, okay? So, these are the"
+    },
+    {
+      "start": 1065.96,
+      "end": 1069.1200000000001,
+      "text": "concept you will be mastering from my"
+    },
+    {
+      "start": 1067.56,
+      "end": 1070.76,
+      "text": "generative AI playlist, okay? So, make"
+    },
+    {
+      "start": 1069.12,
+      "end": 1073.04,
+      "text": "sure you complete these are the topics"
+    },
+    {
+      "start": 1070.76,
+      "end": 1075.28,
+      "text": "because this thing you need, okay?"
+    },
+    {
+      "start": 1073.04,
+      "end": 1076.8799999999999,
+      "text": "Inside AI agents as well, okay? So,"
+    },
+    {
+      "start": 1075.28,
+      "end": 1078.92,
+      "text": "that's why here I have written why it"
+    },
+    {
+      "start": 1076.88,
+      "end": 1081.92,
+      "text": "matters. If you do not understand LLMs,"
+    },
+    {
+      "start": 1078.92,
+      "end": 1083.8400000000001,
+      "text": "okay? Your agents will be unreliable,"
+    },
+    {
+      "start": 1081.92,
+      "end": 1085.96,
+      "text": "expensive, and diffic- difficult to"
+    },
+    {
+      "start": 1083.84,
+      "end": 1088.72,
+      "text": "control, okay? That's why this is"
+    },
+    {
+      "start": 1085.96,
+      "end": 1090.52,
+      "text": "uh this is uh actually you have to"
+    },
+    {
+      "start": 1088.72,
+      "end": 1093.72,
+      "text": "always need, okay? This understanding is"
+    },
+    {
+      "start": 1090.52,
+      "end": 1096.6,
+      "text": "always needed inside your AI agents."
+    },
+    {
+      "start": 1093.72,
+      "end": 1098.52,
+      "text": "Then you can start with the uh agentic"
+    },
+    {
+      "start": 1096.6,
+      "end": 1099.7199999999998,
+      "text": "AI guys, okay? Now, what are the things"
+    },
+    {
+      "start": 1098.52,
+      "end": 1101.36,
+      "text": "you have to"
+    },
+    {
+      "start": 1099.72,
+      "end": 1102.8,
+      "text": "know inside agentic AI? What are the"
+    },
+    {
+      "start": 1101.36,
+      "end": 1104.76,
+      "text": "topics you have to learn inside agentic"
+    },
+    {
+      "start": 1102.8,
+      "end": 1106.84,
+      "text": "AI? So, here I have given all of the"
+    },
+    {
+      "start": 1104.76,
+      "end": 1109.32,
+      "text": "topics, okay? So, simply just click"
+    },
+    {
+      "start": 1106.84,
+      "end": 1111.6799999999998,
+      "text": "here. So, it will redirect to you um on"
+    },
+    {
+      "start": 1109.32,
+      "end": 1113.8,
+      "text": "the agentic AI course plan. So, here I"
+    },
+    {
+      "start": 1111.68,
+      "end": 1116.52,
+      "text": "have divided this agentic AI course in"
+    },
+    {
+      "start": 1113.8,
+      "end": 1118.28,
+      "text": "multiple phases, okay? As you can see,"
+    },
+    {
+      "start": 1116.52,
+      "end": 1120.6399999999999,
+      "text": "first of all, phase one you have to"
+    },
+    {
+      "start": 1118.28,
+      "end": 1122.56,
+      "text": "complete the introduction to agentic AI."
+    },
+    {
+      "start": 1120.64,
+      "end": 1123.48,
+      "text": "So, if you check my playlist guys, here"
+    },
+    {
+      "start": 1122.56,
+      "end": 1125.8,
+      "text": "I have"
+    },
+    {
+      "start": 1123.48,
+      "end": 1127.64,
+      "text": "uh started till introduction, okay? Like"
+    },
+    {
+      "start": 1125.8,
+      "end": 1130.08,
+      "text": "I've given you the entire course plan,"
+    },
+    {
+      "start": 1127.64,
+      "end": 1132.0800000000002,
+      "text": "evaluations LLM to agent AI agents,"
+    },
+    {
+      "start": 1130.08,
+      "end": 1134.6399999999999,
+      "text": "agentic AI introduction, okay? These are"
+    },
+    {
+      "start": 1132.08,
+      "end": 1136.84,
+      "text": "the things I have already covered in my"
+    },
+    {
+      "start": 1134.64,
+      "end": 1139.16,
+      "text": "first uh phase, okay?"
+    },
+    {
+      "start": 1136.84,
+      "end": 1140.72,
+      "text": "Then second phase guys, as you can see,"
+    },
+    {
+      "start": 1139.16,
+      "end": 1142.2,
+      "text": "uh it will cover the asynchronous"
+    },
+    {
+      "start": 1140.72,
+      "end": 1144.0,
+      "text": "programming and Pydantic which is"
+    },
+    {
+      "start": 1142.2,
+      "end": 1146.1200000000001,
+      "text": "required to implement a"
+    },
+    {
+      "start": 1144.0,
+      "end": 1148.04,
+      "text": "a- AI agents application, okay? Again,"
+    },
+    {
+      "start": 1146.12,
+      "end": 1149.6799999999998,
+      "text": "if you see my playlist guys, as you can"
+    },
+    {
+      "start": 1148.04,
+      "end": 1151.36,
+      "text": "see I have covered asynchronous"
+    },
+    {
+      "start": 1149.68,
+      "end": 1153.2,
+      "text": "programming, Pydantic, okay? These are"
+    },
+    {
+      "start": 1151.36,
+      "end": 1154.4399999999998,
+      "text": "the things I have covered in detail. So"
+    },
+    {
+      "start": 1153.2,
+      "end": 1156.96,
+      "text": "again, you will be learning these are"
+    },
+    {
+      "start": 1154.44,
+      "end": 1159.68,
+      "text": "the things here. Okay, so every phases"
+    },
+    {
+      "start": 1156.96,
+      "end": 1161.64,
+      "text": "has a goal, okay, and it has a"
+    },
+    {
+      "start": 1159.68,
+      "end": 1163.76,
+      "text": "topic subtopics we'll be covering inside"
+    },
+    {
+      "start": 1161.64,
+      "end": 1165.4,
+      "text": "our phases. So if you are following my"
+    },
+    {
+      "start": 1163.76,
+      "end": 1166.48,
+      "text": "channel guys from the very beginning, I"
+    },
+    {
+      "start": 1165.4,
+      "end": 1168.44,
+      "text": "think you will know that I'm not"
+    },
+    {
+      "start": 1166.48,
+      "end": 1170.1200000000001,
+      "text": "escaping anything. We are covering each"
+    },
+    {
+      "start": 1168.44,
+      "end": 1172.8,
+      "text": "and everything in detail here. Then"
+    },
+    {
+      "start": 1170.12,
+      "end": 1174.7199999999998,
+      "text": "phase three guys, you have to learn the"
+    },
+    {
+      "start": 1172.8,
+      "end": 1176.76,
+      "text": "LangChain agent fundamentals like how we"
+    },
+    {
+      "start": 1174.72,
+      "end": 1178.64,
+      "text": "can use LangChain for these kinds of AI"
+    },
+    {
+      "start": 1176.76,
+      "end": 1181.2,
+      "text": "agents implementation, okay, before we"
+    },
+    {
+      "start": 1178.64,
+      "end": 1183.0800000000002,
+      "text": "start with our uh actual orchestration"
+    },
+    {
+      "start": 1181.2,
+      "end": 1184.88,
+      "text": "framework. So after learning LangChain,"
+    },
+    {
+      "start": 1183.08,
+      "end": 1187.08,
+      "text": "so as you can see we have used LangChain"
+    },
+    {
+      "start": 1184.88,
+      "end": 1188.68,
+      "text": "to implement single AI agents as well"
+    },
+    {
+      "start": 1187.08,
+      "end": 1190.48,
+      "text": "multi AI agents as well, okay, each and"
+    },
+    {
+      "start": 1188.68,
+      "end": 1192.1200000000001,
+      "text": "everything we have"
+    },
+    {
+      "start": 1190.48,
+      "end": 1194.1200000000001,
+      "text": "already learned that."
+    },
+    {
+      "start": 1192.12,
+      "end": 1196.0,
+      "text": "Then phase three guys, uh sorry, phase"
+    },
+    {
+      "start": 1194.12,
+      "end": 1199.6799999999998,
+      "text": "four we have we have started with the"
+    },
+    {
+      "start": 1196.0,
+      "end": 1202.56,
+      "text": "actual like orchestration framework."
+    },
+    {
+      "start": 1199.68,
+      "end": 1204.28,
+      "text": "Uh actual let's say uh our agent"
+    },
+    {
+      "start": 1202.56,
+      "end": 1206.6,
+      "text": "framework which is LangGraph, okay, this"
+    },
+    {
+      "start": 1204.28,
+      "end": 1207.92,
+      "text": "is the core section. So here we have"
+    },
+    {
+      "start": 1206.6,
+      "end": 1209.9199999999998,
+      "text": "already completed what what is"
+    },
+    {
+      "start": 1207.92,
+      "end": 1211.48,
+      "text": "LangGraph, why LangGraph is required,"
+    },
+    {
+      "start": 1209.92,
+      "end": 1213.6000000000001,
+      "text": "LangChain versus LangGraph, okay, then"
+    },
+    {
+      "start": 1211.48,
+      "end": 1216.08,
+      "text": "we have completed state management node,"
+    },
+    {
+      "start": 1213.6,
+      "end": 1218.32,
+      "text": "edges, state, okay, then conditional"
+    },
+    {
+      "start": 1216.08,
+      "end": 1219.6399999999999,
+      "text": "edges, state graph, checkpointer, each"
+    },
+    {
+      "start": 1218.32,
+      "end": 1220.9199999999998,
+      "text": "and everything, okay, each and"
+    },
+    {
+      "start": 1219.64,
+      "end": 1223.2,
+      "text": "everything I have covered here. You can"
+    },
+    {
+      "start": 1220.92,
+      "end": 1225.48,
+      "text": "see I started with the LangGraph and all"
+    },
+    {
+      "start": 1223.2,
+      "end": 1227.52,
+      "text": "of the topics it's available here, okay,"
+    },
+    {
+      "start": 1225.48,
+      "end": 1229.28,
+      "text": "all of the topics it's available. So if"
+    },
+    {
+      "start": 1227.52,
+      "end": 1231.6399999999999,
+      "text": "you just match with this, all of the"
+    },
+    {
+      "start": 1229.28,
+      "end": 1233.44,
+      "text": "topics are available, okay. Then phase"
+    },
+    {
+      "start": 1231.64,
+      "end": 1234.68,
+      "text": "five guys, you have to learn the agent"
+    },
+    {
+      "start": 1233.44,
+      "end": 1236.4,
+      "text": "memory planning, monitoring, and"
+    },
+    {
+      "start": 1234.68,
+      "end": 1238.16,
+      "text": "autonomous agents. So here you have to"
+    },
+    {
+      "start": 1236.4,
+      "end": 1239.96,
+      "text": "learn the persistence memory, agent"
+    },
+    {
+      "start": 1238.16,
+      "end": 1243.76,
+      "text": "memory, short-term memory, chat history,"
+    },
+    {
+      "start": 1239.96,
+      "end": 1246.76,
+      "text": "streaming, okay. Then you have HITL,"
+    },
+    {
+      "start": 1243.76,
+      "end": 1249.32,
+      "text": "then rag integration, tool integration,"
+    },
+    {
+      "start": 1246.76,
+      "end": 1250.8799999999999,
+      "text": "okay, vector database integration,"
+    },
+    {
+      "start": 1249.32,
+      "end": 1253.0,
+      "text": "human in the loop, LangSmith for"
+    },
+    {
+      "start": 1250.88,
+      "end": 1254.88,
+      "text": "monitoring, debugging agent behavior,"
+    },
+    {
+      "start": 1253.0,
+      "end": 1256.52,
+      "text": "each and everything I have also covered"
+    },
+    {
+      "start": 1254.88,
+      "end": 1258.8000000000002,
+      "text": "inside my playlist as you can see it is"
+    },
+    {
+      "start": 1256.52,
+      "end": 1261.24,
+      "text": "already available, okay."
+    },
+    {
+      "start": 1258.8,
+      "end": 1263.28,
+      "text": "Now phase six guys, you have to"
+    },
+    {
+      "start": 1261.24,
+      "end": 1265.48,
+      "text": "complete you have to learn the"
+    },
+    {
+      "start": 1263.28,
+      "end": 1267.08,
+      "text": "deployment and production engineering"
+    },
+    {
+      "start": 1265.48,
+      "end": 1269.16,
+      "text": "uh because after implementing the"
+    },
+    {
+      "start": 1267.08,
+      "end": 1270.9199999999998,
+      "text": "agents, how we can productionize it, how"
+    },
+    {
+      "start": 1269.16,
+      "end": 1272.8400000000001,
+      "text": "we can deploy it. So, this particular"
+    },
+    {
+      "start": 1270.92,
+      "end": 1274.96,
+      "text": "topics I have also covered as you can"
+    },
+    {
+      "start": 1272.84,
+      "end": 1276.48,
+      "text": "see in my playlist also. I have showed"
+    },
+    {
+      "start": 1274.96,
+      "end": 1278.56,
+      "text": "you the CICD deployment, Docker"
+    },
+    {
+      "start": 1276.48,
+      "end": 1280.2,
+      "text": "integration, okay? Deployment with"
+    },
+    {
+      "start": 1278.56,
+      "end": 1282.36,
+      "text": "different clouds, each and everything I"
+    },
+    {
+      "start": 1280.2,
+      "end": 1284.16,
+      "text": "have already covered for the deployment"
+    },
+    {
+      "start": 1282.36,
+      "end": 1286.4799999999998,
+      "text": "and production engineering."
+    },
+    {
+      "start": 1284.16,
+      "end": 1288.16,
+      "text": "Then, I have implemented some end-to-end"
+    },
+    {
+      "start": 1286.48,
+      "end": 1290.92,
+      "text": "projects as well. Like as you can see,"
+    },
+    {
+      "start": 1288.16,
+      "end": 1292.8000000000002,
+      "text": "we have implemented this uh"
+    },
+    {
+      "start": 1290.92,
+      "end": 1295.48,
+      "text": "agentic chatbot, we have implemented"
+    },
+    {
+      "start": 1292.8,
+      "end": 1297.1599999999999,
+      "text": "ChatGPT agent, Tripment AI, okay? Then,"
+    },
+    {
+      "start": 1295.48,
+      "end": 1298.68,
+      "text": "we have learned the"
+    },
+    {
+      "start": 1297.16,
+      "end": 1300.68,
+      "text": "model context protocol. Then, again, we"
+    },
+    {
+      "start": 1298.68,
+      "end": 1302.96,
+      "text": "have implemented some amazing end-to-end"
+    },
+    {
+      "start": 1300.68,
+      "end": 1304.72,
+      "text": "projects. Okay. So, this is the phase"
+    },
+    {
+      "start": 1302.96,
+      "end": 1306.56,
+      "text": "seven you have to complete. Then, phase"
+    },
+    {
+      "start": 1304.72,
+      "end": 1308.64,
+      "text": "eight, guys, I started with the model"
+    },
+    {
+      "start": 1306.56,
+      "end": 1310.8,
+      "text": "context protocol, okay? After completing"
+    },
+    {
+      "start": 1308.64,
+      "end": 1312.5200000000002,
+      "text": "this implementation, you just need to"
+    },
+    {
+      "start": 1310.8,
+      "end": 1315.08,
+      "text": "start with model context protocol, which"
+    },
+    {
+      "start": 1312.52,
+      "end": 1317.0,
+      "text": "is MCP. Now, here you will be learning"
+    },
+    {
+      "start": 1315.08,
+      "end": 1319.4399999999998,
+      "text": "how why MCP is required, okay? Why we"
+    },
+    {
+      "start": 1317.0,
+      "end": 1320.96,
+      "text": "have to integrate MCP inside our agents."
+    },
+    {
+      "start": 1319.44,
+      "end": 1322.72,
+      "text": "These are the things we'll be learning"
+    },
+    {
+      "start": 1320.96,
+      "end": 1324.4,
+      "text": "along with the practical implementation"
+    },
+    {
+      "start": 1322.72,
+      "end": 1326.24,
+      "text": "as you can see. So, I'm not only"
+    },
+    {
+      "start": 1324.4,
+      "end": 1328.96,
+      "text": "covering the theoretical along with the"
+    },
+    {
+      "start": 1326.24,
+      "end": 1332.32,
+      "text": "practical project implementation. I'm"
+    },
+    {
+      "start": 1328.96,
+      "end": 1335.16,
+      "text": "telling you how MCP helps us, okay? To"
+    },
+    {
+      "start": 1332.32,
+      "end": 1336.1599999999999,
+      "text": "build these kinds of AI agents, okay?"
+    },
+    {
+      "start": 1335.16,
+      "end": 1338.68,
+      "text": "Then,"
+    },
+    {
+      "start": 1336.16,
+      "end": 1340.88,
+      "text": "uh the next is, guys, next phase after"
+    },
+    {
+      "start": 1338.68,
+      "end": 1343.1200000000001,
+      "text": "MCP, we are covering the AI safety and"
+    },
+    {
+      "start": 1340.88,
+      "end": 1344.6000000000001,
+      "text": "evaluation, phase nine. So, here we are"
+    },
+    {
+      "start": 1343.12,
+      "end": 1347.4799999999998,
+      "text": "learning about the guardrails, okay?"
+    },
+    {
+      "start": 1344.6,
+      "end": 1350.6399999999999,
+      "text": "Safety topics like prompt injections,"
+    },
+    {
+      "start": 1347.48,
+      "end": 1352.84,
+      "text": "okay? Then, violation related input,"
+    },
+    {
+      "start": 1350.64,
+      "end": 1354.4,
+      "text": "harmful content, okay? So, each and"
+    },
+    {
+      "start": 1352.84,
+      "end": 1356.48,
+      "text": "everything we are covering here, AI"
+    },
+    {
+      "start": 1354.4,
+      "end": 1358.92,
+      "text": "safety and uh integration we are also"
+    },
+    {
+      "start": 1356.48,
+      "end": 1360.68,
+      "text": "doing here. Specially, I have the"
+    },
+    {
+      "start": 1358.92,
+      "end": 1362.92,
+      "text": "guardrails uh"
+    },
+    {
+      "start": 1360.68,
+      "end": 1364.8,
+      "text": "concept here as you can see, guardrails"
+    },
+    {
+      "start": 1362.92,
+      "end": 1366.72,
+      "text": "guardrails topic. So, after completing"
+    },
+    {
+      "start": 1364.8,
+      "end": 1368.3999999999999,
+      "text": "this guardrails, even I also showed you"
+    },
+    {
+      "start": 1366.72,
+      "end": 1370.68,
+      "text": "how we can integrate this guardrails"
+    },
+    {
+      "start": 1368.4,
+      "end": 1372.2,
+      "text": "concept inside our end-to-end process,"
+    },
+    {
+      "start": 1370.68,
+      "end": 1374.0800000000002,
+      "text": "okay? And this is not a simple project,"
+    },
+    {
+      "start": 1372.2,
+      "end": 1375.92,
+      "text": "guys. This is completely end-to-end. As"
+    },
+    {
+      "start": 1374.08,
+      "end": 1378.36,
+      "text": "you can see, we are using LangGraph,"
+    },
+    {
+      "start": 1375.92,
+      "end": 1381.0,
+      "text": "MCP, supervisor agents, guardrails,"
+    },
+    {
+      "start": 1378.36,
+      "end": 1383.56,
+      "text": "safety, HITL, okay? And this is See See"
+    },
+    {
+      "start": 1381.0,
+      "end": 1385.68,
+      "text": "the like duration of this project. It's"
+    },
+    {
+      "start": 1383.56,
+      "end": 1386.96,
+      "text": "5 hours of recording. Just try to think"
+    },
+    {
+      "start": 1385.68,
+      "end": 1389.2,
+      "text": "what are the things I have covered here"
+    },
+    {
+      "start": 1386.96,
+      "end": 1390.6000000000001,
+      "text": "completely end-to-end, okay? So, this is"
+    },
+    {
+      "start": 1389.2,
+      "end": 1392.0,
+      "text": "the sequence, guys, you have to always"
+    },
+    {
+      "start": 1390.6,
+      "end": 1393.9199999999998,
+      "text": "follow whenever you are learning"
+    },
+    {
+      "start": 1392.0,
+      "end": 1395.76,
+      "text": "something, especially my Agent-Key"
+    },
+    {
+      "start": 1393.92,
+      "end": 1398.0800000000002,
+      "text": "playlist, okay? And one thing you have"
+    },
+    {
+      "start": 1395.76,
+      "end": 1400.56,
+      "text": "to also cover, which is nothing but"
+    },
+    {
+      "start": 1398.08,
+      "end": 1402.24,
+      "text": "evaluation, okay? So, this evaluation"
+    },
+    {
+      "start": 1400.56,
+      "end": 1404.76,
+      "text": "techniques we have to also know how to"
+    },
+    {
+      "start": 1402.24,
+      "end": 1406.68,
+      "text": "do the LLM evaluation, okay?"
+    },
+    {
+      "start": 1404.76,
+      "end": 1408.52,
+      "text": "LLM gateway, these are the things we"
+    },
+    {
+      "start": 1406.68,
+      "end": 1410.76,
+      "text": "have to also understand. So, in my"
+    },
+    {
+      "start": 1408.52,
+      "end": 1412.6,
+      "text": "playlist, guys, I will be uploading uh"
+    },
+    {
+      "start": 1410.76,
+      "end": 1414.52,
+      "text": "more videos regarding the evaluation,"
+    },
+    {
+      "start": 1412.6,
+      "end": 1418.1599999999999,
+      "text": "okay? Still, I haven't up uploaded the"
+    },
+    {
+      "start": 1414.52,
+      "end": 1419.96,
+      "text": "video about the evaluation, but yes, in"
+    },
+    {
+      "start": 1418.16,
+      "end": 1422.24,
+      "text": "uh 1 to 2 days, I'll be also uploading"
+    },
+    {
+      "start": 1419.96,
+      "end": 1423.52,
+      "text": "this evaluation-related topics as well,"
+    },
+    {
+      "start": 1422.24,
+      "end": 1425.08,
+      "text": "okay? Even after completing this"
+    },
+    {
+      "start": 1423.52,
+      "end": 1427.16,
+      "text": "evaluation, we'll also integrate inside"
+    },
+    {
+      "start": 1425.08,
+      "end": 1429.56,
+      "text": "the project itself, okay? Then, phase"
+    },
+    {
+      "start": 1427.16,
+      "end": 1431.0800000000002,
+      "text": "10, guys, we'll be covering the CrewAI,"
+    },
+    {
+      "start": 1429.56,
+      "end": 1432.8,
+      "text": "okay? The"
+    },
+    {
+      "start": 1431.08,
+      "end": 1434.4399999999998,
+      "text": "uh next orchestration framework, which"
+    },
+    {
+      "start": 1432.8,
+      "end": 1437.04,
+      "text": "is CrewAI."
+    },
+    {
+      "start": 1434.44,
+      "end": 1438.68,
+      "text": "And again, in CrewAI, whatever topics uh"
+    },
+    {
+      "start": 1437.04,
+      "end": 1441.12,
+      "text": "uh actually are required, we'll be"
+    },
+    {
+      "start": 1438.68,
+      "end": 1442.48,
+      "text": "covering the uh all the topics, okay?"
+    },
+    {
+      "start": 1441.12,
+      "end": 1444.36,
+      "text": "And mostly, whatever topics we have"
+    },
+    {
+      "start": 1442.48,
+      "end": 1446.32,
+      "text": "learned in uh inside our Agent-Key AI,"
+    },
+    {
+      "start": 1444.36,
+      "end": 1448.52,
+      "text": "okay? This topic would be common for all"
+    },
+    {
+      "start": 1446.32,
+      "end": 1450.24,
+      "text": "the orchestration framework. Only See,"
+    },
+    {
+      "start": 1448.52,
+      "end": 1451.96,
+      "text": "we have implemented these agents with"
+    },
+    {
+      "start": 1450.24,
+      "end": 1454.24,
+      "text": "the help of LangGraph, okay? Now, we"
+    },
+    {
+      "start": 1451.96,
+      "end": 1455.6000000000001,
+      "text": "have to know how to implement this uh"
+    },
+    {
+      "start": 1454.24,
+      "end": 1457.0,
+      "text": "same kinds of agents with different"
+    },
+    {
+      "start": 1455.6,
+      "end": 1459.1999999999998,
+      "text": "kinds of orchestration framework, like"
+    },
+    {
+      "start": 1457.0,
+      "end": 1460.84,
+      "text": "CrewAI, AutoGen. So, framework, you can"
+    },
+    {
+      "start": 1459.2,
+      "end": 1463.2,
+      "text": "use any framework, but these are the"
+    },
+    {
+      "start": 1460.84,
+      "end": 1465.4399999999998,
+      "text": "concepts are same for all the framework,"
+    },
+    {
+      "start": 1463.2,
+      "end": 1466.8400000000001,
+      "text": "right? So, this is not going to change."
+    },
+    {
+      "start": 1465.44,
+      "end": 1468.68,
+      "text": "This is the foundation, right? This is"
+    },
+    {
+      "start": 1466.84,
+      "end": 1471.0,
+      "text": "not going to change. But, framework, you"
+    },
+    {
+      "start": 1468.68,
+      "end": 1472.48,
+      "text": "can change anytime. You can use either"
+    },
+    {
+      "start": 1471.0,
+      "end": 1474.16,
+      "text": "LangGraph, either CrewAI, it doesn't"
+    },
+    {
+      "start": 1472.48,
+      "end": 1476.1200000000001,
+      "text": "matter, okay? But again, I'm going to"
+    },
+    {
+      "start": 1474.16,
+      "end": 1478.0,
+      "text": "cover the CrewAI framework as well in"
+    },
+    {
+      "start": 1476.12,
+      "end": 1479.52,
+      "text": "the phase 10. Then, phase 11, we'll be"
+    },
+    {
+      "start": 1478.0,
+      "end": 1481.52,
+      "text": "covering the Microsoft AutoGen. This is"
+    },
+    {
+      "start": 1479.52,
+      "end": 1483.6,
+      "text": "another uh Agent-Key orchestration"
+    },
+    {
+      "start": 1481.52,
+      "end": 1485.24,
+      "text": "framework. Then, we'll be also covering"
+    },
+    {
+      "start": 1483.6,
+      "end": 1486.76,
+      "text": "another uh"
+    },
+    {
+      "start": 1485.24,
+      "end": 1489.88,
+      "text": "amazing framework. This is basically"
+    },
+    {
+      "start": 1486.76,
+      "end": 1491.96,
+      "text": "no-code platform called n8n. Uh with the"
+    },
+    {
+      "start": 1489.88,
+      "end": 1494.0800000000002,
+      "text": "help of like some diagrams, okay? We'll"
+    },
+    {
+      "start": 1491.96,
+      "end": 1495.8400000000001,
+      "text": "be also creating AI automation and AI"
+    },
+    {
+      "start": 1494.08,
+      "end": 1497.9199999999998,
+      "text": "agents, okay? With the help of n8n,"
+    },
+    {
+      "start": 1495.84,
+      "end": 1499.76,
+      "text": "okay? So, this is the entire plan for my"
+    },
+    {
+      "start": 1497.92,
+      "end": 1501.76,
+      "text": "agent AKI course and all of the video"
+    },
+    {
+      "start": 1499.76,
+      "end": 1503.64,
+      "text": "will uploaded inside my complete agent"
+    },
+    {
+      "start": 1501.76,
+      "end": 1505.8,
+      "text": "AKI course playlist guys here only."
+    },
+    {
+      "start": 1503.64,
+      "end": 1507.2800000000002,
+      "text": "Okay, not in this playlist guys, not"
+    },
+    {
+      "start": 1505.8,
+      "end": 1509.2,
+      "text": "inside my agent AKI with LangGraph"
+    },
+    {
+      "start": 1507.28,
+      "end": 1511.2,
+      "text": "playlist. Everything will be available"
+    },
+    {
+      "start": 1509.2,
+      "end": 1513.52,
+      "text": "inside my complete agent AKI course"
+    },
+    {
+      "start": 1511.2,
+      "end": 1515.52,
+      "text": "build AI agents and automate workflow in"
+    },
+    {
+      "start": 1513.52,
+      "end": 1517.24,
+      "text": "this playlist guys. So make sure you are"
+    },
+    {
+      "start": 1515.52,
+      "end": 1518.8799999999999,
+      "text": "following this playlist. Okay, you are"
+    },
+    {
+      "start": 1517.24,
+      "end": 1521.1200000000001,
+      "text": "following this particular playlist. All"
+    },
+    {
+      "start": 1518.88,
+      "end": 1523.0400000000002,
+      "text": "of this concept will be uploaded inside"
+    },
+    {
+      "start": 1521.12,
+      "end": 1525.56,
+      "text": "this playlist only. Okay, now you don't"
+    },
+    {
+      "start": 1523.04,
+      "end": 1527.0,
+      "text": "have any kinds of confusion why I have"
+    },
+    {
+      "start": 1525.56,
+      "end": 1529.48,
+      "text": "multiple playlist here. Okay, and which"
+    },
+    {
+      "start": 1527.0,
+      "end": 1531.96,
+      "text": "one you have to follow. So for you those"
+    },
+    {
+      "start": 1529.48,
+      "end": 1533.0,
+      "text": "were let's say advance"
+    },
+    {
+      "start": 1531.96,
+      "end": 1534.48,
+      "text": "Sorry, those were beginner,"
+    },
+    {
+      "start": 1533.0,
+      "end": 1536.92,
+      "text": "intermediate, advance, it doesn't"
+    },
+    {
+      "start": 1534.48,
+      "end": 1539.0,
+      "text": "matter. For you this playlist should you"
+    },
+    {
+      "start": 1536.92,
+      "end": 1540.1200000000001,
+      "text": "have to follow. Okay, and for revision"
+    },
+    {
+      "start": 1539.0,
+      "end": 1541.6,
+      "text": "purpose let's say you want to only"
+    },
+    {
+      "start": 1540.12,
+      "end": 1543.84,
+      "text": "revise LangGraph. That time you can"
+    },
+    {
+      "start": 1541.6,
+      "end": 1545.52,
+      "text": "follow this one. If you want to only"
+    },
+    {
+      "start": 1543.84,
+      "end": 1547.12,
+      "text": "implement the agent AKI projects that"
+    },
+    {
+      "start": 1545.52,
+      "end": 1549.04,
+      "text": "time you can follow this playlist. Okay,"
+    },
+    {
+      "start": 1547.12,
+      "end": 1550.3999999999999,
+      "text": "if you want to prepare for the interview"
+    },
+    {
+      "start": 1549.04,
+      "end": 1552.08,
+      "text": "you can follow this particular playlist."
+    },
+    {
+      "start": 1550.4,
+      "end": 1554.3600000000001,
+      "text": "Okay, so this is the order you have to"
+    },
+    {
+      "start": 1552.08,
+      "end": 1556.9199999999998,
+      "text": "always follow inside my"
+    },
+    {
+      "start": 1554.36,
+      "end": 1559.3999999999999,
+      "text": "um YouTube channel guys."
+    },
+    {
+      "start": 1556.92,
+      "end": 1562.28,
+      "text": "Okay, so I believe guys you already"
+    },
+    {
+      "start": 1559.4,
+      "end": 1563.72,
+      "text": "understood the entire roadmap, entire"
+    },
+    {
+      "start": 1562.28,
+      "end": 1567.2,
+      "text": "step. Okay."
+    },
+    {
+      "start": 1563.72,
+      "end": 1569.44,
+      "text": "Now, let's try to understand why Python"
+    },
+    {
+      "start": 1567.2,
+      "end": 1571.16,
+      "text": "and generative AI must come before agent"
+    },
+    {
+      "start": 1569.44,
+      "end": 1572.48,
+      "text": "AKI. Okay, without that what should be"
+    },
+    {
+      "start": 1571.16,
+      "end": 1574.3600000000001,
+      "text": "the issue. Okay, we'll try to"
+    },
+    {
+      "start": 1572.48,
+      "end": 1576.48,
+      "text": "understand. So as you can see Python"
+    },
+    {
+      "start": 1574.36,
+      "end": 1578.3999999999999,
+      "text": "gives agents the ability to execute and"
+    },
+    {
+      "start": 1576.48,
+      "end": 1581.04,
+      "text": "generative AI gives the agents the"
+    },
+    {
+      "start": 1578.4,
+      "end": 1582.4,
+      "text": "ability to think. Okay, so I think by"
+    },
+    {
+      "start": 1581.04,
+      "end": 1584.2,
+      "text": "this definition itself you can"
+    },
+    {
+      "start": 1582.4,
+      "end": 1586.0400000000002,
+      "text": "understand why this Python and"
+    },
+    {
+      "start": 1584.2,
+      "end": 1588.88,
+      "text": "generative AI is required. So this is"
+    },
+    {
+      "start": 1586.04,
+      "end": 1590.92,
+      "text": "the order we have to always follow. Now,"
+    },
+    {
+      "start": 1588.88,
+      "end": 1593.3600000000001,
+      "text": "this is the big picture."
+    },
+    {
+      "start": 1590.92,
+      "end": 1594.96,
+      "text": "Agent AKI sits on top of two foundation."
+    },
+    {
+      "start": 1593.36,
+      "end": 1598.08,
+      "text": "The first foundation"
+    },
+    {
+      "start": 1594.96,
+      "end": 1600.1200000000001,
+      "text": "is the Python. Okay, so Python basically"
+    },
+    {
+      "start": 1598.08,
+      "end": 1602.52,
+      "text": "we can use for API handling, data"
+    },
+    {
+      "start": 1600.12,
+      "end": 1604.9599999999998,
+      "text": "handling, asynchronous validation"
+    },
+    {
+      "start": 1602.52,
+      "end": 1607.72,
+      "text": "validation, back-end logics. Okay, for"
+    },
+    {
+      "start": 1604.96,
+      "end": 1610.28,
+      "text": "all of this task we can use Python."
+    },
+    {
+      "start": 1607.72,
+      "end": 1612.0,
+      "text": "Okay, then generative AI. Generative AI"
+    },
+    {
+      "start": 1610.28,
+      "end": 1613.68,
+      "text": "will be using for LLM prompting,"
+    },
+    {
+      "start": 1612.0,
+      "end": 1615.12,
+      "text": "embeddings, Lang function calling. Okay,"
+    },
+    {
+      "start": 1613.68,
+      "end": 1616.3200000000002,
+      "text": "for these are the topics we'll be using"
+    },
+    {
+      "start": 1615.12,
+      "end": 1618.9199999999998,
+      "text": "generative AI."
+    },
+    {
+      "start": 1616.32,
+      "end": 1620.8799999999999,
+      "text": "And on top of you can see agent AI sits."
+    },
+    {
+      "start": 1618.92,
+      "end": 1622.3600000000001,
+      "text": "Okay? So here we build the autonomous"
+    },
+    {
+      "start": 1620.88,
+      "end": 1623.7600000000002,
+      "text": "workflows, planning tools, memory"
+    },
+    {
+      "start": 1622.36,
+      "end": 1624.6799999999998,
+      "text": "control logic, each and everything we"
+    },
+    {
+      "start": 1623.76,
+      "end": 1627.24,
+      "text": "build."
+    },
+    {
+      "start": 1624.68,
+      "end": 1628.76,
+      "text": "Okay? With the help of this agent AI and"
+    },
+    {
+      "start": 1627.24,
+      "end": 1630.84,
+      "text": "Python."
+    },
+    {
+      "start": 1628.76,
+      "end": 1632.76,
+      "text": "Okay? So this is the"
+    },
+    {
+      "start": 1630.84,
+      "end": 1635.08,
+      "text": "uh big picture if you are talking about"
+    },
+    {
+      "start": 1632.76,
+      "end": 1636.84,
+      "text": "the agent AI. That's why agent AI is not"
+    },
+    {
+      "start": 1635.08,
+      "end": 1638.84,
+      "text": "the starting point. It is the"
+    },
+    {
+      "start": 1636.84,
+      "end": 1640.1599999999999,
+      "text": "integration point. Okay? This is not a"
+    },
+    {
+      "start": 1638.84,
+      "end": 1642.72,
+      "text": "starting point, this is integration"
+    },
+    {
+      "start": 1640.16,
+      "end": 1645.24,
+      "text": "point for Python and"
+    },
+    {
+      "start": 1642.72,
+      "end": 1647.0,
+      "text": "generative AI. So uh uh"
+    },
+    {
+      "start": 1645.24,
+      "end": 1650.2,
+      "text": "uh agent AI is the extended version of"
+    },
+    {
+      "start": 1647.0,
+      "end": 1652.2,
+      "text": "the generative AI."
+    },
+    {
+      "start": 1650.2,
+      "end": 1654.48,
+      "text": "So here you can see why Python is"
+    },
+    {
+      "start": 1652.2,
+      "end": 1655.68,
+      "text": "required before agent AI. Uh so as you"
+    },
+    {
+      "start": 1654.48,
+      "end": 1659.0,
+      "text": "can see"
+    },
+    {
+      "start": 1655.68,
+      "end": 1660.72,
+      "text": "uh agent must call tools, API, database,"
+    },
+    {
+      "start": 1659.0,
+      "end": 1661.36,
+      "text": "files, and backend."
+    },
+    {
+      "start": 1660.72,
+      "end": 1662.4,
+      "text": "Uh"
+    },
+    {
+      "start": 1661.36,
+      "end": 1664.04,
+      "text": "Python"
+    },
+    {
+      "start": 1662.4,
+      "end": 1665.68,
+      "text": "connects all of them as I already told"
+    },
+    {
+      "start": 1664.04,
+      "end": 1666.8799999999999,
+      "text": "you. Like with the help of Python we can"
+    },
+    {
+      "start": 1665.68,
+      "end": 1669.16,
+      "text": "perform the tool calling, API"
+    },
+    {
+      "start": 1666.88,
+      "end": 1671.0800000000002,
+      "text": "integration, data handling, backend"
+    },
+    {
+      "start": 1669.16,
+      "end": 1674.3200000000002,
+      "text": "logic, async process execution. So"
+    },
+    {
+      "start": 1671.08,
+      "end": 1676.6799999999998,
+      "text": "simple line, Python is the hand and legs"
+    },
+    {
+      "start": 1674.32,
+      "end": 1678.76,
+      "text": "of an AI agents. Okay?"
+    },
+    {
+      "start": 1676.68,
+      "end": 1681.2,
+      "text": "Then next, why generative AI is required"
+    },
+    {
+      "start": 1678.76,
+      "end": 1683.76,
+      "text": "before agent AI? So agents are powered"
+    },
+    {
+      "start": 1681.2,
+      "end": 1686.32,
+      "text": "by LLM. So learners must understand how"
+    },
+    {
+      "start": 1683.76,
+      "end": 1687.32,
+      "text": "LLM reads, reason, and response. So here"
+    },
+    {
+      "start": 1686.32,
+      "end": 1688.72,
+      "text": "you'll be learning the prompt"
+    },
+    {
+      "start": 1687.32,
+      "end": 1690.24,
+      "text": "engineering, token and context,"
+    },
+    {
+      "start": 1688.72,
+      "end": 1692.56,
+      "text": "embeddings and rags, large language"
+    },
+    {
+      "start": 1690.24,
+      "end": 1694.48,
+      "text": "model, function calling limitations,"
+    },
+    {
+      "start": 1692.56,
+      "end": 1696.52,
+      "text": "okay? And so on. So simple line,"
+    },
+    {
+      "start": 1694.48,
+      "end": 1698.2,
+      "text": "generative AI is the brain of an AI"
+    },
+    {
+      "start": 1696.52,
+      "end": 1700.08,
+      "text": "agents."
+    },
+    {
+      "start": 1698.2,
+      "end": 1701.92,
+      "text": "Okay? I hope you get it."
+    },
+    {
+      "start": 1700.08,
+      "end": 1704.36,
+      "text": "So what happens if you skip these are"
+    },
+    {
+      "start": 1701.92,
+      "end": 1706.52,
+      "text": "the foundations, okay? AI agent AI"
+    },
+    {
+      "start": 1704.36,
+      "end": 1709.08,
+      "text": "learners become confused because too"
+    },
+    {
+      "start": 1706.52,
+      "end": 1712.08,
+      "text": "many concepts appear at once, especially"
+    },
+    {
+      "start": 1709.08,
+      "end": 1713.8,
+      "text": "if you're skipping that uh that two"
+    },
+    {
+      "start": 1712.08,
+      "end": 1715.76,
+      "text": "layer, right? Especially Python and"
+    },
+    {
+      "start": 1713.8,
+      "end": 1717.84,
+      "text": "generative AI. So you will definitely"
+    },
+    {
+      "start": 1715.76,
+      "end": 1720.92,
+      "text": "encounter with too many concept at one"
+    },
+    {
+      "start": 1717.84,
+      "end": 1723.1999999999998,
+      "text": "place only in the agent AI. So directly"
+    },
+    {
+      "start": 1720.92,
+      "end": 1724.76,
+      "text": "we'll be getting something called"
+    },
+    {
+      "start": 1723.2,
+      "end": 1727.2,
+      "text": "uh langraph, directly we'll be getting"
+    },
+    {
+      "start": 1724.76,
+      "end": 1729.12,
+      "text": "something called memory. Okay, tool."
+    },
+    {
+      "start": 1727.2,
+      "end": 1730.68,
+      "text": "These are the concept and definitely you"
+    },
+    {
+      "start": 1729.12,
+      "end": 1732.76,
+      "text": "won't be familiar with this if you are"
+    },
+    {
+      "start": 1730.68,
+      "end": 1734.3200000000002,
+      "text": "learning not learning the foundation,"
+    },
+    {
+      "start": 1732.76,
+      "end": 1735.92,
+      "text": "okay? So, that's why skipping the"
+    },
+    {
+      "start": 1734.32,
+      "end": 1737.6799999999998,
+      "text": "foundation, you'll be getting two"
+    },
+    {
+      "start": 1735.92,
+      "end": 1739.76,
+      "text": "letters, weak prompting, poor rag"
+    },
+    {
+      "start": 1737.68,
+      "end": 1741.5600000000002,
+      "text": "quality, no debugging skills, and unsafe"
+    },
+    {
+      "start": 1739.76,
+      "end": 1743.56,
+      "text": "automations. But if you're learning the"
+    },
+    {
+      "start": 1741.56,
+      "end": 1745.72,
+      "text": "foundation first, you will have the"
+    },
+    {
+      "start": 1743.56,
+      "end": 1748.2,
+      "text": "clear architecture, okay, understanding,"
+    },
+    {
+      "start": 1745.72,
+      "end": 1749.96,
+      "text": "better tool design, reliable agents,"
+    },
+    {
+      "start": 1748.2,
+      "end": 1751.72,
+      "text": "faster debugging, and production"
+    },
+    {
+      "start": 1749.96,
+      "end": 1753.8,
+      "text": "mindset, okay? So, this is always"
+    },
+    {
+      "start": 1751.72,
+      "end": 1755.56,
+      "text": "important. So, this is the main reason"
+    },
+    {
+      "start": 1753.8,
+      "end": 1757.1599999999999,
+      "text": "your roadmap should start with Python"
+    },
+    {
+      "start": 1755.56,
+      "end": 1758.44,
+      "text": "and generative AI."
+    },
+    {
+      "start": 1757.16,
+      "end": 1761.3200000000002,
+      "text": "Okay?"
+    },
+    {
+      "start": 1758.44,
+      "end": 1763.68,
+      "text": "Now, guys, here is the main part, that"
+    },
+    {
+      "start": 1761.32,
+      "end": 1765.48,
+      "text": "means for all level learners, this is"
+    },
+    {
+      "start": 1763.68,
+      "end": 1766.96,
+      "text": "the roadmap I have prepared. So, if"
+    },
+    {
+      "start": 1765.48,
+      "end": 1769.2,
+      "text": "you're completely beginner, guys, as you"
+    },
+    {
+      "start": 1766.96,
+      "end": 1770.72,
+      "text": "can see, for you, all of these three"
+    },
+    {
+      "start": 1769.2,
+      "end": 1771.96,
+      "text": "learning layers should be available,"
+    },
+    {
+      "start": 1770.72,
+      "end": 1773.84,
+      "text": "okay? All of these learning layers"
+    },
+    {
+      "start": 1771.96,
+      "end": 1775.24,
+      "text": "should be completed first of all. First"
+    },
+    {
+      "start": 1773.84,
+      "end": 1778.28,
+      "text": "of all, you just need to complete the"
+    },
+    {
+      "start": 1775.24,
+      "end": 1780.04,
+      "text": "Python, generative AI, then agent AI."
+    },
+    {
+      "start": 1778.28,
+      "end": 1782.2,
+      "text": "So, you have to follow a sequence, okay?"
+    },
+    {
+      "start": 1780.04,
+      "end": 1783.48,
+      "text": "For beginner, guys, these three layers"
+    },
+    {
+      "start": 1782.2,
+      "end": 1785.0,
+      "text": "is important. But if you're"
+    },
+    {
+      "start": 1783.48,
+      "end": 1786.92,
+      "text": "intermediate, let's say you already know"
+    },
+    {
+      "start": 1785.0,
+      "end": 1787.92,
+      "text": "the Python, okay? You already know the"
+    },
+    {
+      "start": 1786.92,
+      "end": 1789.16,
+      "text": "Python, you have already learned the"
+    },
+    {
+      "start": 1787.92,
+      "end": 1790.92,
+      "text": "Python. Now, you want to start with"
+    },
+    {
+      "start": 1789.16,
+      "end": 1793.0400000000002,
+      "text": "agent AI. So, first of all, try to"
+    },
+    {
+      "start": 1790.92,
+      "end": 1794.88,
+      "text": "complete the generative AI, okay? After"
+    },
+    {
+      "start": 1793.04,
+      "end": 1796.24,
+      "text": "completing generative AI, then start"
+    },
+    {
+      "start": 1794.88,
+      "end": 1798.8000000000002,
+      "text": "with agent AI. So, this is for the"
+    },
+    {
+      "start": 1796.24,
+      "end": 1800.36,
+      "text": "intermediate level uh people, okay? Now,"
+    },
+    {
+      "start": 1798.8,
+      "end": 1801.3999999999999,
+      "text": "let's say you are advanced people. So,"
+    },
+    {
+      "start": 1800.36,
+      "end": 1802.76,
+      "text": "you already"
+    },
+    {
+      "start": 1801.4,
+      "end": 1804.8000000000002,
+      "text": "know the Python as well as the"
+    },
+    {
+      "start": 1802.76,
+      "end": 1806.4,
+      "text": "generative AI. Now, where should where"
+    },
+    {
+      "start": 1804.8,
+      "end": 1808.32,
+      "text": "you have to start with? You have to"
+    },
+    {
+      "start": 1806.4,
+      "end": 1810.0400000000002,
+      "text": "start with only my agent AI playlist,"
+    },
+    {
+      "start": 1808.32,
+      "end": 1811.24,
+      "text": "okay? Only just try to learn the agent"
+    },
+    {
+      "start": 1810.04,
+      "end": 1813.12,
+      "text": "AI concept. You don't need to learn"
+    },
+    {
+      "start": 1811.24,
+      "end": 1814.24,
+      "text": "Python and generative AI. So, this is"
+    },
+    {
+      "start": 1813.12,
+      "end": 1816.1599999999999,
+      "text": "the three"
+    },
+    {
+      "start": 1814.24,
+      "end": 1818.1200000000001,
+      "text": "uh three actually level I have prepared"
+    },
+    {
+      "start": 1816.16,
+      "end": 1819.44,
+      "text": "for three kinds of learner. I think on"
+    },
+    {
+      "start": 1818.12,
+      "end": 1820.6,
+      "text": "my YouTube channel, these three kinds of"
+    },
+    {
+      "start": 1819.44,
+      "end": 1822.3200000000002,
+      "text": "learners are available, beginner,"
+    },
+    {
+      "start": 1820.6,
+      "end": 1824.08,
+      "text": "intermediate, and advanced. Now, you"
+    },
+    {
+      "start": 1822.32,
+      "end": 1825.56,
+      "text": "have the clear picture in your mind"
+    },
+    {
+      "start": 1824.08,
+      "end": 1826.8799999999999,
+      "text": "which order you have to follow, what are"
+    },
+    {
+      "start": 1825.56,
+      "end": 1828.6399999999999,
+      "text": "the topics you have to know. If you're"
+    },
+    {
+      "start": 1826.88,
+      "end": 1829.92,
+      "text": "beginner, complete all of them. If"
+    },
+    {
+      "start": 1828.64,
+      "end": 1831.48,
+      "text": "you're intermediate, complete only"
+    },
+    {
+      "start": 1829.92,
+      "end": 1833.44,
+      "text": "generative AI and agent AI. If you're"
+    },
+    {
+      "start": 1831.48,
+      "end": 1835.96,
+      "text": "advanced, try to focus on the agent AI"
+    },
+    {
+      "start": 1833.44,
+      "end": 1837.72,
+      "text": "only, okay? I hope you get it, guys. So,"
+    },
+    {
+      "start": 1835.96,
+      "end": 1839.68,
+      "text": "this is the final explanation, that"
+    },
+    {
+      "start": 1837.72,
+      "end": 1841.72,
+      "text": "means Python teaches you how to build"
+    },
+    {
+      "start": 1839.68,
+      "end": 1843.76,
+      "text": "the body of any AI agents, tool, API,"
+    },
+    {
+      "start": 1841.72,
+      "end": 1846.08,
+      "text": "files, database, backend logic, essence"
+    },
+    {
+      "start": 1843.76,
+      "end": 1848.12,
+      "text": "execution. Generative AI teaches you how"
+    },
+    {
+      "start": 1846.08,
+      "end": 1850.56,
+      "text": "the brain works, okay? LLM prompting,"
+    },
+    {
+      "start": 1848.12,
+      "end": 1852.8,
+      "text": "tokens, embedding rag, found uh function"
+    },
+    {
+      "start": 1850.56,
+      "end": 1855.32,
+      "text": "calling, and limitations. And Agent-ICAI"
+    },
+    {
+      "start": 1852.8,
+      "end": 1857.6,
+      "text": "combines both the LLM tokens uh LLM"
+    },
+    {
+      "start": 1855.32,
+      "end": 1860.24,
+      "text": "things, Python execution, and workflows"
+    },
+    {
+      "start": 1857.6,
+      "end": 1862.24,
+      "text": "con- uh controls the full process, okay?"
+    },
+    {
+      "start": 1860.24,
+      "end": 1863.96,
+      "text": "So, here in my playlist, guys, I'm only"
+    },
+    {
+      "start": 1862.24,
+      "end": 1865.76,
+      "text": "not"
+    },
+    {
+      "start": 1863.96,
+      "end": 1867.64,
+      "text": "teaching you the tools, okay? Here, I'm"
+    },
+    {
+      "start": 1865.76,
+      "end": 1869.32,
+      "text": "not just teaching you the tools. I'm"
+    },
+    {
+      "start": 1867.64,
+      "end": 1870.64,
+      "text": "teaching the concept uh complete"
+    },
+    {
+      "start": 1869.32,
+      "end": 1872.8,
+      "text": "foundations to build the"
+    },
+    {
+      "start": 1870.64,
+      "end": 1874.72,
+      "text": "production-ready AI agents. That's why"
+    },
+    {
+      "start": 1872.8,
+      "end": 1876.3999999999999,
+      "text": "all of the topics, okay, I have covered"
+    },
+    {
+      "start": 1874.72,
+      "end": 1879.04,
+      "text": "on my channel, Python, Generative AI, as"
+    },
+    {
+      "start": 1876.4,
+      "end": 1881.68,
+      "text": "well as the Agent-ICAI. Okay. Now, one"
+    },
+    {
+      "start": 1879.04,
+      "end": 1883.6,
+      "text": "thing um I think uh"
+    },
+    {
+      "start": 1881.68,
+      "end": 1886.2,
+      "text": "people will ask me, let me clarify this"
+    },
+    {
+      "start": 1883.6,
+      "end": 1887.4399999999998,
+      "text": "topic also. Uh see, whether I need"
+    },
+    {
+      "start": 1886.2,
+      "end": 1889.8400000000001,
+      "text": "machine learning and deep learning"
+    },
+    {
+      "start": 1887.44,
+      "end": 1892.16,
+      "text": "knowledge or not. See, haha, if you're"
+    },
+    {
+      "start": 1889.84,
+      "end": 1894.28,
+      "text": "learning Generative AI, so definitely"
+    },
+    {
+      "start": 1892.16,
+      "end": 1896.5600000000002,
+      "text": "I'm expecting you are already familiar"
+    },
+    {
+      "start": 1894.28,
+      "end": 1898.8,
+      "text": "with machine learning and deep learning,"
+    },
+    {
+      "start": 1896.56,
+      "end": 1900.6799999999998,
+      "text": "okay? Because machine learning and deep"
+    },
+    {
+      "start": 1898.8,
+      "end": 1902.8,
+      "text": "learning, this is the oldest"
+    },
+    {
+      "start": 1900.68,
+      "end": 1904.28,
+      "text": "technologies, right? People used to use"
+    },
+    {
+      "start": 1902.8,
+      "end": 1905.76,
+      "text": "before that to create different"
+    },
+    {
+      "start": 1904.28,
+      "end": 1907.68,
+      "text": "different application."
+    },
+    {
+      "start": 1905.76,
+      "end": 1908.96,
+      "text": "And Generative AI came in the market,"
+    },
+    {
+      "start": 1907.68,
+      "end": 1909.96,
+      "text": "okay?"
+    },
+    {
+      "start": 1908.96,
+      "end": 1911.1200000000001,
+      "text": "So,"
+    },
+    {
+      "start": 1909.96,
+      "end": 1913.24,
+      "text": "those who are already learning"
+    },
+    {
+      "start": 1911.12,
+      "end": 1914.6399999999999,
+      "text": "Agent-ICAI, they must be familiar with"
+    },
+    {
+      "start": 1913.24,
+      "end": 1915.88,
+      "text": "machine learning and deep learning,"
+    },
+    {
+      "start": 1914.64,
+      "end": 1917.68,
+      "text": "because without a machine learning and"
+    },
+    {
+      "start": 1915.88,
+      "end": 1919.7600000000002,
+      "text": "deep learning, you don't know about"
+    },
+    {
+      "start": 1917.68,
+      "end": 1921.3200000000002,
+      "text": "artificial intelligence, because this"
+    },
+    {
+      "start": 1919.76,
+      "end": 1923.36,
+      "text": "was the starting, this was the hello"
+    },
+    {
+      "start": 1921.32,
+      "end": 1925.8,
+      "text": "world stage actually we used to learn"
+    },
+    {
+      "start": 1923.36,
+      "end": 1927.52,
+      "text": "inside artificial intelligence, right?"
+    },
+    {
+      "start": 1925.8,
+      "end": 1929.6399999999999,
+      "text": "So, that's why machine learning, deep"
+    },
+    {
+      "start": 1927.52,
+      "end": 1932.6,
+      "text": "learning is always required, okay? This"
+    },
+    {
+      "start": 1929.64,
+      "end": 1934.88,
+      "text": "will give you the starting point of your"
+    },
+    {
+      "start": 1932.6,
+      "end": 1937.3999999999999,
+      "text": "artificial intelligence journey, okay?"
+    },
+    {
+      "start": 1934.88,
+      "end": 1938.68,
+      "text": "So, that's why uh I'm expecting, guys,"
+    },
+    {
+      "start": 1937.4,
+      "end": 1940.3600000000001,
+      "text": "those who are following me since the"
+    },
+    {
+      "start": 1938.68,
+      "end": 1942.0800000000002,
+      "text": "very beginning, you should be familiar"
+    },
+    {
+      "start": 1940.36,
+      "end": 1943.6399999999999,
+      "text": "with machine learning and deep learning."
+    },
+    {
+      "start": 1942.08,
+      "end": 1945.6399999999999,
+      "text": "Unfortunately, machine learning and deep"
+    },
+    {
+      "start": 1943.64,
+      "end": 1947.2,
+      "text": "learning playlist I don't have as of now"
+    },
+    {
+      "start": 1945.64,
+      "end": 1948.88,
+      "text": "on my channel, but in future, definitely"
+    },
+    {
+      "start": 1947.2,
+      "end": 1950.4,
+      "text": "I'm also going to create that playlist."
+    },
+    {
+      "start": 1948.88,
+      "end": 1952.3200000000002,
+      "text": "First of all, let me cover all of the"
+    },
+    {
+      "start": 1950.4,
+      "end": 1954.16,
+      "text": "Agent-ICAI concept, the latest uh"
+    },
+    {
+      "start": 1952.32,
+      "end": 1956.24,
+      "text": "concept, then I'm going to also focus"
+    },
+    {
+      "start": 1954.16,
+      "end": 1958.44,
+      "text": "those other topics as well, okay? So,"
+    },
+    {
+      "start": 1956.24,
+      "end": 1960.48,
+      "text": "yes, guys, this is the"
+    },
+    {
+      "start": 1958.44,
+      "end": 1963.0,
+      "text": "entire plan. This is the entire learning"
+    },
+    {
+      "start": 1960.48,
+      "end": 1964.88,
+      "text": "road map. Now, I think uh"
+    },
+    {
+      "start": 1963.0,
+      "end": 1966.8,
+      "text": "now I think you have"
+    },
+    {
+      "start": 1964.88,
+      "end": 1969.0400000000002,
+      "text": "enough amount of understanding"
+    },
+    {
+      "start": 1966.8,
+      "end": 1971.08,
+      "text": "enough amount of let's say"
+    },
+    {
+      "start": 1969.04,
+      "end": 1972.8,
+      "text": "uh clarity. Uh"
+    },
+    {
+      "start": 1971.08,
+      "end": 1975.12,
+      "text": "you won't be having any kinds of uh"
+    },
+    {
+      "start": 1972.8,
+      "end": 1976.3999999999999,
+      "text": "confusion right now, right? And even if"
+    },
+    {
+      "start": 1975.12,
+      "end": 1978.36,
+      "text": "you are suggesting this playlist with"
+    },
+    {
+      "start": 1976.4,
+      "end": 1979.68,
+      "text": "anyone else as well, you can also follow"
+    },
+    {
+      "start": 1978.36,
+      "end": 1981.9199999999998,
+      "text": "that. This is the order we have to"
+    },
+    {
+      "start": 1979.68,
+      "end": 1983.68,
+      "text": "always follow. So, yes guys, uh this is"
+    },
+    {
+      "start": 1981.92,
+      "end": 1985.72,
+      "text": "all about from this video and all of the"
+    },
+    {
+      "start": 1983.68,
+      "end": 1987.6000000000001,
+      "text": "links would be given in my description."
+    },
+    {
+      "start": 1985.72,
+      "end": 1989.76,
+      "text": "From there, uh please try to check all"
+    },
+    {
+      "start": 1987.6,
+      "end": 1991.36,
+      "text": "of my playlist, okay? A sequence as per"
+    },
+    {
+      "start": 1989.76,
+      "end": 1993.64,
+      "text": "your level. If you're a beginner, you"
+    },
+    {
+      "start": 1991.36,
+      "end": 1995.36,
+      "text": "can follow that uh level, right? If"
+    },
+    {
+      "start": 1993.64,
+      "end": 1996.6000000000001,
+      "text": "you're intermediate, you can follow that"
+    },
+    {
+      "start": 1995.36,
+      "end": 1998.7199999999998,
+      "text": "level. And if you're advanced, you can"
+    },
+    {
+      "start": 1996.6,
+      "end": 2000.28,
+      "text": "follow that level. So, as per your"
+    },
+    {
+      "start": 1998.72,
+      "end": 2002.04,
+      "text": "requirement, you can follow from my"
+    },
+    {
+      "start": 2000.28,
+      "end": 2003.44,
+      "text": "playlist itself, okay? And if you found"
+    },
+    {
+      "start": 2002.04,
+      "end": 2005.68,
+      "text": "my content useful, guys, please try to"
+    },
+    {
+      "start": 2003.44,
+      "end": 2007.92,
+      "text": "subscribe to my channel. Let's hit 100k"
+    },
+    {
+      "start": 2005.68,
+      "end": 2010.3600000000001,
+      "text": "subscriber, guys. If you are helping me"
+    },
+    {
+      "start": 2007.92,
+      "end": 2012.6000000000001,
+      "text": "to get 100k subscriber, I'm having lots"
+    },
+    {
+      "start": 2010.36,
+      "end": 2014.1999999999998,
+      "text": "of plan for my channel, guys. I'm having"
+    },
+    {
+      "start": 2012.6,
+      "end": 2015.8799999999999,
+      "text": "lots of content planned. So, definitely"
+    },
+    {
+      "start": 2014.2,
+      "end": 2017.76,
+      "text": "you will be loving a lot, right? So,"
+    },
+    {
+      "start": 2015.88,
+      "end": 2020.3200000000002,
+      "text": "let's uh hit 100k subscriber, guys, as"
+    },
+    {
+      "start": 2017.76,
+      "end": 2022.52,
+      "text": "soon as possible. And definitely"
+    },
+    {
+      "start": 2020.32,
+      "end": 2023.9199999999998,
+      "text": "I can bring you lots of content for you."
+    },
+    {
+      "start": 2022.52,
+      "end": 2025.56,
+      "text": "So, yes guys, this is all about from"
+    },
+    {
+      "start": 2023.92,
+      "end": 2027.2,
+      "text": "this video. Thanks for watching. And I"
+    },
+    {
+      "start": 2025.56,
+      "end": 2030.0,
+      "text": "will see you in the next topic, guys."
+    },
+    {
+      "start": 2027.2,
+      "end": 2030.0,
+      "text": "Thanks for watching."
+    }
+  ],
+  "video_id": "sZLZsW74uQ0",
+  "title": "Complete Agentic AI Learning Roadmap: From Beginner to Pro Level",
+  "position": 2,
+  "url": "https://www.youtube.com/watch?v=sZLZsW74uQ0"
+}

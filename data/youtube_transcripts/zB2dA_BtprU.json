@@ -1,0 +1,1972 @@
+{
+  "source": "youtube_captions",
+  "language": "en",
+  "is_generated": true,
+  "text": "Hi guys. My name is Bapi and you are welcome to my YouTube channel. So guys, as you know, we have implemented one agentic chatbot and in my last video, I showed you how we can deploy this agentic chatbot as a CICD on AWS Cloud. After publishing this video, I got so many messages from your end, like \"Sir, is there any way we can deploy this project, okay, on any other cloud platform as free? And the step you showed you that requires so many configurations, so many setups, okay, to build the entire CICD pipeline. So is there any way we can deploy our project in few minutes, okay, without configuring that much and still we can deploy as in as a CICD, right?\" So that's why I planned for another deployment video, guys. In this video, I'm going to show you how we can deploy your agentic chatbot in few minutes, okay, on Render Cloud. So if you have already missed out my previous video, you can check my playlist. All of the recordings are available. As you can see in the my last video, I showed you the CICD deployment on AWS, okay, with Docker. And it was around more than 1 hours of like video and it has all of the steps you need to follow to do the CICD deployment. But AWS is not free. Definitely, you have to take the subscription of AWS, then you will be able to deploy your project. But let's say you don't have the AWS, okay, but still you want to deploy this project, you want to make this project as live and you want to share this, okay, with your friends and family. So how to do that? So for this guys, I'm going to use one cloud platform named render.com, okay? So what is Render? Render is a cloud platform. So there you can deploy any kinds of web application, okay? This is the like a very fastest and very easy to use cloud platform. So here you don't need to do so many configuration, okay? With some few clicks actually you can do the deployment. I'm going to show you how okay how to do that. And definitely for this you have to create one account on Render. And Render is not completely free, but they have a free instance. In that free instance you can at least deploy some application, okay? But if you want to do the production grade deployment, okay, with some higher infrastructure and higher instance, that time you have to take the subscription, okay? But I think this is fine as a learning purpose and just to just to actually live our app, okay, just to test our app, we'll be using the free instance. So free instance is having like very low configuration like machine. And yeah, I think this is completely fine for us. So we can manage that, okay? So if you found my content useful, guys, please do try to subscribe to my channel and please try to share and please try to hit the like. I need your support. If you provide the support, guys, so I can bring these kinds of content more in future. So what let's start with the deployment, guys. First of all here you have to create an account. If you don't have account, guys, please try to create an account with your Google Google address you can create your account. So I already have the account. I'll just try to sign in. So here I'll just try to sign in with my Google. So after signing guys, you'll be able to see these kinds of interface. So this is the Render dashboard. And previously I deployed some app, that's why it's coming, okay? Like that, but for you it would be completely empty. So here what I have to do, guys? First of all, I have to I have to actually commit my code to the GitHub, okay? And in my previous deployment video I already pushed this code in my GitHub. So this is already available in my GitHub repo. As you can see, this is the repository we created Agentic Chatbot using LangGraph. So we can utilize that. And one best part is that if you are using Render, so Render uh it is already having the CI/CD integrated. You don't need to set up the CI/CD separately, okay? Like we did in on AWS, right? Here, CI/CD uh it is included, okay? Only you just need to connect your repository and automatically the CI/CD uh pipeline would be created. You don't need to manually create that. That part I'm going to show you. So, first of all, um here, just try to copy this URL, okay? Copy your GitHub URL. And in on Render, you will see one option called new, okay? Just click on new. And here is a service called web service, okay? Just click on web service. And uh here you can see Git provider is available, okay? Just try to paste your URL. Okay? Or you can go to this public repo uh Git repository and you can provide the URL, okay? And if you want, you can also pass your existing, let's say, Docker image. I So, I think you remember uh in my last video I uh like pushed my uh Docker image in my Docker Hub. So, you can also provide that image URL that uh and with the help of that you can also perform the deployment. You can also uh use your GitHub to do the deployment, okay? But make sure you have this Dockerfile here. So, I already have the Dockerfile and uh in my last video I already created this Dockerfile. So, Dockerfile should be available, okay? So, we have the Dockerfile, it's completely fine. Now, simply what I'm going to do, I'm going to just paste this URL here and I'll just connect this repository. Okay? Once you have connected, you can provide the name, the name you want to provide for this deployment, but I'll keep the same name. And the language you have to select the Docker, okay? If you don't have the Docker, you can also select the simple Python, but I have the Docker, I'll try to select the Docker, okay? Language. Then everything will remain same as it is, no need to change anything. And here in the instance type, see, they have some plan. You can take the plan as per your requirement. If you have, let's say, very high configuration project that needs lots of computation, that time you can take these are the uh like a plan, but uh we'll be using this uh free plan for the hobby project, okay? Uh just to show you I'm using this uh free plan and it is having 512 MB RAM and 0.1 CPU core, okay? It is uh it would be a little bit slow, lagging, but uh just to I mean make our project live it's completely fine because nowadays none of the cloud provides the free uh a free let's say instance, right? To uh do the deployment, but at least they're providing. I think this is fine for us, right? So, I'll select this free instance. Then here you have to set all of your environment variable uh you have inside your project. So, I think you remember inside our project these are the environment variable is required, so try to set one by one. So, uh I'm not using OpenAI, so I will not set the OpenAI. I'll select set from Tabnine. So, Tabnine API key here you have to give the value. Okay, then the next one you have this OpenWeather API key. That's how I'll try to add all of the environment variable I have here. You can also upload your .env file that will also load, but let's try to add like that. Google API key because I'm using Gemini model. Now, next I have this LangSmith tracing. LangSmith endpoint. Then uh LangSmith API key. Then we have LangSmith project. So yeah, all of the API key has set successfully now. Uh in the advanced advanced part you don't need to do anything. Uh just keep it same as it is now. Let's try to deploy our web service. Okay. Now it will start building your Docker, okay? Uh all of the setup, everything will uh uh going on here. So we have to wait for some times, okay? So this will set up and prepare everything. And once this starter should be live, you'll be able to access your application. Now let's wait guys. So what I'm going to do, I'm going to pause the video. Once this uh um Docker building is complete, then I'll come back. So as you can see guys, our application is live right now. And all of the um setup has complete successfully. Now we can access this application. So this is the URL. Just try to copy this URL and open in a new tab. So you'll be able to see that your application will open. Yeah, so it has loaded my application. So this is our agentic chatbot. Now let's test this chatbot. Uh let me zoom out so that you can see the entire screen. Yeah. So now let's test this chatbot. So here I will give Hi. So see, it's giving you hello, how I can assist you. Now I'll tell um what is the current weather in Bangalore. So this is the current weather in Bangalore. Now I will ask tell me the latest score of FIFA. Okay, today. Yeah, so this is the score it has given. Now you can um you can check about this um stock price. Um what is the stock price of Google? Okay, so the API I was using uh so the rate rate limit has been uh over, okay? So I have to create an another API key. It's completely fine. Now let me test uh with my documents upload. So I'll just try to provide my resume and I'll ask who is Bakhtiar Ahmed Bappy based on the PDF uploaded. Now it is giving you the entire answer about me, right? So yeah, it's working perfectly. So only the issue we found our API keyword using, right? For this stock price, this has been I think limit is over. So I have to create an another API key and I have to set there. Because we are using the free one, right? And free one definitely has some limitation. It's completely fine. Yeah, so it's working fine. Then you can also create a new trades. Okay, you can create a new trades and you can again do the conversation. Let's say hi. I'm Alex, okay? See, everything is working fine, okay? Now this application is completely live. You can share this with your friends and family. They will be able to access your application. And this will not charge you, okay? Because this is running completely on the free instance. And that's how you can deploy any kinds of project, okay? Just for the testing purpose, okay? But if you want to do the production grade deployment, that time just try to make sure you are taking the subscription plan. Now guys, one best part I will show you, which is this CI/CD, okay? That means if you are changing something inside your code and if you are again committing to the GitHub, so what will happen? So let's say right now here I have an emoji, okay? So I want to remove this emoji. As of now, let's try to consider this is our features, okay? We are adding inside this chatbot. Uh where start part? Yeah, so here. So let's say I will delete this emoji, okay? And I will again push my changes to the GitHub. So let's say app file updated. Now I'll push the changes. Done. Now if I go to my GitHub, see, this commit is over, okay? Um I have file added added. Uh now here if I come to this uh uh I mean uh render and if I go to this event, so you have to go to this event and there is an option called uh manual deploy. Just try to click here, okay? And there is an option called deploy last commit, okay? So, you can also like make it as automated. There is a setting you can turn on that. Uh but if you just click here, deploy latest commit, now if I let's say deploy latest commit. So, you'll see that uh automatically um my new feature should be added. See, still my application is running. See, still my application is running and my deployment is going on, okay? So, that's how they have integrated this inbuilt CI/CD uh and all of these, okay? Whatever we have learned in my previous deployment. So, here uh you don't need uh that much of configuration, only few clicks you can do the deployment, okay? So, this is the best part uh on this Render cloud. Uh let's see. So, see our application is live. Now if I go to my application refresh. So, see this emoji got removed, okay? So, that's how uh we can add uh our new features. Uh and you just need to commit the code on GitHub and you can uh just uh trigger that pipeline, okay? And you can also make it an automated. There is a settings you can turn on. So, yes, guys, uh that's how we can do the deployment. Now I'll show you how we can delete the instance, okay? Let's say this project I have deployed. Now how I can delete this instance, okay? So, for this you you just need to go to the settings and go below. There is an option called delete web service and you have to copy this command. And give it here and delete the web service, okay? So, if you delete it, so this service would be deleted and your application would be offline, okay? So, yeah, that's how we can do that. So, if you found my content useful, guys, please try to support me. And this is my LinkedIn profile. If you want to connect me, guys, you can connect on my LinkedIn. You can follow me on LinkedIn. And please let me know how you are enjoying this complete list. If you found this useful, so please try to tag me on LinkedIn, okay? I'll happy to see that. And just try to implement something from your end and please try to tag me. So, if you are tagging me on LinkedIn, I would be happy to see your work and definitely I'll put my feedback and comments, okay? So, yes, guys, this is all about from this video. I hope you liked it. Thank you so much and I will see you in the next video. Thank you.",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.92,
+      "text": "Hi guys. My name is Bapi and you are"
+    },
+    {
+      "start": 2.84,
+      "end": 7.2,
+      "text": "welcome to my YouTube channel."
+    },
+    {
+      "start": 4.92,
+      "end": 10.16,
+      "text": "So guys, as you know, we have"
+    },
+    {
+      "start": 7.2,
+      "end": 12.4,
+      "text": "implemented one agentic chatbot and in"
+    },
+    {
+      "start": 10.16,
+      "end": 15.08,
+      "text": "my last video, I showed you"
+    },
+    {
+      "start": 12.4,
+      "end": 18.32,
+      "text": "how we can deploy this agentic chatbot"
+    },
+    {
+      "start": 15.08,
+      "end": 21.68,
+      "text": "as a CICD on AWS Cloud."
+    },
+    {
+      "start": 18.32,
+      "end": 24.2,
+      "text": "After publishing this video, I got so"
+    },
+    {
+      "start": 21.68,
+      "end": 26.56,
+      "text": "many messages from your end, like"
+    },
+    {
+      "start": 24.2,
+      "end": 28.56,
+      "text": "\"Sir, is there any way we can deploy"
+    },
+    {
+      "start": 26.56,
+      "end": 31.96,
+      "text": "this project, okay,"
+    },
+    {
+      "start": 28.56,
+      "end": 34.04,
+      "text": "on any other cloud platform as free? And"
+    },
+    {
+      "start": 31.96,
+      "end": 36.160000000000004,
+      "text": "the step you showed you that requires so"
+    },
+    {
+      "start": 34.04,
+      "end": 38.6,
+      "text": "many configurations, so many setups,"
+    },
+    {
+      "start": 36.16,
+      "end": 40.519999999999996,
+      "text": "okay, to build the entire CICD pipeline."
+    },
+    {
+      "start": 38.6,
+      "end": 43.64,
+      "text": "So is there any way we can deploy our"
+    },
+    {
+      "start": 40.52,
+      "end": 47.040000000000006,
+      "text": "project in few minutes, okay, without"
+    },
+    {
+      "start": 43.64,
+      "end": 49.84,
+      "text": "configuring that much and still we can"
+    },
+    {
+      "start": 47.04,
+      "end": 52.36,
+      "text": "deploy as in as a CICD, right?\""
+    },
+    {
+      "start": 49.84,
+      "end": 54.080000000000005,
+      "text": "So that's why I planned for another"
+    },
+    {
+      "start": 52.36,
+      "end": 55.68,
+      "text": "deployment video, guys. In this video,"
+    },
+    {
+      "start": 54.08,
+      "end": 58.56,
+      "text": "I'm going to show you"
+    },
+    {
+      "start": 55.68,
+      "end": 61.519999999999996,
+      "text": "how we can deploy your agentic chatbot"
+    },
+    {
+      "start": 58.56,
+      "end": 63.28,
+      "text": "in few minutes, okay, on Render Cloud."
+    },
+    {
+      "start": 61.52,
+      "end": 65.48,
+      "text": "So if you have already missed out my"
+    },
+    {
+      "start": 63.28,
+      "end": 67.08,
+      "text": "previous video, you can check my"
+    },
+    {
+      "start": 65.48,
+      "end": 68.84,
+      "text": "playlist. All of the recordings are"
+    },
+    {
+      "start": 67.08,
+      "end": 71.72,
+      "text": "available. As you can see in the my last"
+    },
+    {
+      "start": 68.84,
+      "end": 74.0,
+      "text": "video, I showed you the CICD deployment"
+    },
+    {
+      "start": 71.72,
+      "end": 75.96,
+      "text": "on AWS, okay, with Docker."
+    },
+    {
+      "start": 74.0,
+      "end": 79.04,
+      "text": "And it was around"
+    },
+    {
+      "start": 75.96,
+      "end": 81.6,
+      "text": "more than 1 hours of like video and it"
+    },
+    {
+      "start": 79.04,
+      "end": 83.80000000000001,
+      "text": "has all of the steps you need to follow"
+    },
+    {
+      "start": 81.6,
+      "end": 86.39999999999999,
+      "text": "to do the CICD deployment."
+    },
+    {
+      "start": 83.8,
+      "end": 88.03999999999999,
+      "text": "But AWS is not free. Definitely, you"
+    },
+    {
+      "start": 86.4,
+      "end": 89.60000000000001,
+      "text": "have to take the subscription"
+    },
+    {
+      "start": 88.04,
+      "end": 91.4,
+      "text": "of AWS, then you will be able to deploy"
+    },
+    {
+      "start": 89.6,
+      "end": 93.16,
+      "text": "your project. But let's say you don't"
+    },
+    {
+      "start": 91.4,
+      "end": 94.88000000000001,
+      "text": "have the AWS, okay, but still you want"
+    },
+    {
+      "start": 93.16,
+      "end": 96.96,
+      "text": "to deploy this project, you want to make"
+    },
+    {
+      "start": 94.88,
+      "end": 98.52,
+      "text": "this project as live and you want to"
+    },
+    {
+      "start": 96.96,
+      "end": 101.19999999999999,
+      "text": "share this, okay, with your friends and"
+    },
+    {
+      "start": 98.52,
+      "end": 102.08,
+      "text": "family. So how to do that? So for this"
+    },
+    {
+      "start": 101.2,
+      "end": 104.48,
+      "text": "guys,"
+    },
+    {
+      "start": 102.08,
+      "end": 106.96,
+      "text": "I'm going to use one cloud platform"
+    },
+    {
+      "start": 104.48,
+      "end": 109.16,
+      "text": "named render.com, okay? So what is"
+    },
+    {
+      "start": 106.96,
+      "end": 111.36,
+      "text": "Render? Render is a cloud platform. So"
+    },
+    {
+      "start": 109.16,
+      "end": 113.52,
+      "text": "there you can deploy any kinds of web"
+    },
+    {
+      "start": 111.36,
+      "end": 117.0,
+      "text": "application, okay?"
+    },
+    {
+      "start": 113.52,
+      "end": 118.96,
+      "text": "This is the like a very fastest and very"
+    },
+    {
+      "start": 117.0,
+      "end": 121.36,
+      "text": "easy to use cloud platform. So here you"
+    },
+    {
+      "start": 118.96,
+      "end": 122.24,
+      "text": "don't need to do so many configuration,"
+    },
+    {
+      "start": 121.36,
+      "end": 124.04,
+      "text": "okay?"
+    },
+    {
+      "start": 122.24,
+      "end": 125.32,
+      "text": "With some few clicks actually you can do"
+    },
+    {
+      "start": 124.04,
+      "end": 128.03900000000002,
+      "text": "the deployment. I'm going to show you"
+    },
+    {
+      "start": 125.32,
+      "end": 129.51999999999998,
+      "text": "how okay how to do that. And definitely"
+    },
+    {
+      "start": 128.039,
+      "end": 131.88,
+      "text": "for this you have to create one account"
+    },
+    {
+      "start": 129.52,
+      "end": 133.92000000000002,
+      "text": "on Render. And Render is not completely"
+    },
+    {
+      "start": 131.88,
+      "end": 135.92,
+      "text": "free, but they have a free instance. In"
+    },
+    {
+      "start": 133.92,
+      "end": 138.04,
+      "text": "that free instance you can at least"
+    },
+    {
+      "start": 135.92,
+      "end": 139.32,
+      "text": "deploy some application, okay? But if"
+    },
+    {
+      "start": 138.04,
+      "end": 141.959,
+      "text": "you want to do the production grade"
+    },
+    {
+      "start": 139.32,
+      "end": 144.4,
+      "text": "deployment, okay, with some higher"
+    },
+    {
+      "start": 141.959,
+      "end": 145.8,
+      "text": "infrastructure and higher instance, that"
+    },
+    {
+      "start": 144.4,
+      "end": 147.88,
+      "text": "time you have to take the subscription,"
+    },
+    {
+      "start": 145.8,
+      "end": 150.84,
+      "text": "okay? But I think"
+    },
+    {
+      "start": 147.88,
+      "end": 151.959,
+      "text": "this is fine as a learning purpose and"
+    },
+    {
+      "start": 150.84,
+      "end": 154.24,
+      "text": "just to"
+    },
+    {
+      "start": 151.959,
+      "end": 155.959,
+      "text": "just to actually live our app, okay,"
+    },
+    {
+      "start": 154.24,
+      "end": 157.76000000000002,
+      "text": "just to test our app, we'll be using the"
+    },
+    {
+      "start": 155.959,
+      "end": 160.4,
+      "text": "free instance. So free instance is"
+    },
+    {
+      "start": 157.76,
+      "end": 161.92,
+      "text": "having like very low configuration like"
+    },
+    {
+      "start": 160.4,
+      "end": 164.04,
+      "text": "machine. And yeah, I think this is"
+    },
+    {
+      "start": 161.92,
+      "end": 166.07999999999998,
+      "text": "completely fine for us. So we can manage"
+    },
+    {
+      "start": 164.04,
+      "end": 167.79999999999998,
+      "text": "that, okay?"
+    },
+    {
+      "start": 166.08,
+      "end": 169.84,
+      "text": "So if you found my content useful, guys,"
+    },
+    {
+      "start": 167.8,
+      "end": 171.44,
+      "text": "please do try to subscribe to my channel"
+    },
+    {
+      "start": 169.84,
+      "end": 173.92000000000002,
+      "text": "and please try to share and please try"
+    },
+    {
+      "start": 171.44,
+      "end": 176.2,
+      "text": "to hit the like. I need your support. If"
+    },
+    {
+      "start": 173.92,
+      "end": 177.51999999999998,
+      "text": "you provide the support, guys, so I can"
+    },
+    {
+      "start": 176.2,
+      "end": 179.07999999999998,
+      "text": "bring these kinds of content more in"
+    },
+    {
+      "start": 177.52,
+      "end": 180.44,
+      "text": "future. So"
+    },
+    {
+      "start": 179.08,
+      "end": 182.28,
+      "text": "what let's start with the deployment,"
+    },
+    {
+      "start": 180.44,
+      "end": 183.44,
+      "text": "guys. First of all here you have to"
+    },
+    {
+      "start": 182.28,
+      "end": 184.72,
+      "text": "create an account. If you don't have"
+    },
+    {
+      "start": 183.44,
+      "end": 187.07999999999998,
+      "text": "account, guys, please try to create an"
+    },
+    {
+      "start": 184.72,
+      "end": 188.239,
+      "text": "account with your Google"
+    },
+    {
+      "start": 187.08,
+      "end": 190.0,
+      "text": "Google address you can create your"
+    },
+    {
+      "start": 188.239,
+      "end": 193.0,
+      "text": "account. So I already have the account."
+    },
+    {
+      "start": 190.0,
+      "end": 193.0,
+      "text": "I'll just try to sign in."
+    },
+    {
+      "start": 193.56,
+      "end": 197.8,
+      "text": "So here I'll just try to sign in with my"
+    },
+    {
+      "start": 195.36,
+      "end": 197.8,
+      "text": "Google."
+    },
+    {
+      "start": 198.84,
+      "end": 202.56,
+      "text": "So after signing guys, you'll be able to"
+    },
+    {
+      "start": 200.92,
+      "end": 204.48,
+      "text": "see these kinds of interface. So this is"
+    },
+    {
+      "start": 202.56,
+      "end": 206.28,
+      "text": "the Render dashboard."
+    },
+    {
+      "start": 204.48,
+      "end": 208.04,
+      "text": "And previously I deployed some app,"
+    },
+    {
+      "start": 206.28,
+      "end": 209.36,
+      "text": "that's why it's coming, okay? Like that,"
+    },
+    {
+      "start": 208.04,
+      "end": 210.4,
+      "text": "but for you it would be completely"
+    },
+    {
+      "start": 209.36,
+      "end": 212.76000000000002,
+      "text": "empty."
+    },
+    {
+      "start": 210.4,
+      "end": 214.519,
+      "text": "So here what I have to do, guys?"
+    },
+    {
+      "start": 212.76,
+      "end": 217.28,
+      "text": "First of all, I have to"
+    },
+    {
+      "start": 214.519,
+      "end": 219.44,
+      "text": "I have to actually commit my code to the"
+    },
+    {
+      "start": 217.28,
+      "end": 221.68,
+      "text": "GitHub, okay? And in my previous"
+    },
+    {
+      "start": 219.44,
+      "end": 223.2,
+      "text": "deployment video I already pushed this"
+    },
+    {
+      "start": 221.68,
+      "end": 224.84,
+      "text": "code in my GitHub. So this is already"
+    },
+    {
+      "start": 223.2,
+      "end": 226.6,
+      "text": "available in my GitHub repo. As you can"
+    },
+    {
+      "start": 224.84,
+      "end": 228.68,
+      "text": "see, this is the repository we created"
+    },
+    {
+      "start": 226.6,
+      "end": 231.2,
+      "text": "Agentic Chatbot using LangGraph."
+    },
+    {
+      "start": 228.68,
+      "end": 233.0,
+      "text": "So we can utilize that. And one best"
+    },
+    {
+      "start": 231.2,
+      "end": 234.16,
+      "text": "part is that if you are using Render, so"
+    },
+    {
+      "start": 233.0,
+      "end": 236.08,
+      "text": "Render"
+    },
+    {
+      "start": 234.16,
+      "end": 238.07999999999998,
+      "text": "uh it is already having the CI/CD"
+    },
+    {
+      "start": 236.08,
+      "end": 240.56,
+      "text": "integrated. You don't need to set up the"
+    },
+    {
+      "start": 238.08,
+      "end": 243.64000000000001,
+      "text": "CI/CD separately, okay? Like we did in"
+    },
+    {
+      "start": 240.56,
+      "end": 245.52,
+      "text": "on AWS, right? Here, CI/CD uh it is"
+    },
+    {
+      "start": 243.64,
+      "end": 247.11999999999998,
+      "text": "included, okay?"
+    },
+    {
+      "start": 245.52,
+      "end": 250.60000000000002,
+      "text": "Only you just need to connect your"
+    },
+    {
+      "start": 247.12,
+      "end": 252.12,
+      "text": "repository and automatically the CI/CD"
+    },
+    {
+      "start": 250.6,
+      "end": 253.64,
+      "text": "uh pipeline would be created. You don't"
+    },
+    {
+      "start": 252.12,
+      "end": 255.76,
+      "text": "need to manually create that. That part"
+    },
+    {
+      "start": 253.64,
+      "end": 258.4,
+      "text": "I'm going to show you. So, first of all,"
+    },
+    {
+      "start": 255.76,
+      "end": 261.48,
+      "text": "um here, just try to copy this URL,"
+    },
+    {
+      "start": 258.4,
+      "end": 262.96,
+      "text": "okay? Copy your GitHub URL. And"
+    },
+    {
+      "start": 261.48,
+      "end": 265.04,
+      "text": "in on Render, you will see one option"
+    },
+    {
+      "start": 262.96,
+      "end": 266.32,
+      "text": "called new, okay? Just click on new."
+    },
+    {
+      "start": 265.04,
+      "end": 267.56,
+      "text": "And here is a service called web"
+    },
+    {
+      "start": 266.32,
+      "end": 269.919,
+      "text": "service, okay? Just click on web"
+    },
+    {
+      "start": 267.56,
+      "end": 272.28000000000003,
+      "text": "service."
+    },
+    {
+      "start": 269.919,
+      "end": 274.08,
+      "text": "And uh here you can see Git provider is"
+    },
+    {
+      "start": 272.28,
+      "end": 275.84,
+      "text": "available, okay? Just try to paste your"
+    },
+    {
+      "start": 274.08,
+      "end": 277.96,
+      "text": "URL. Okay?"
+    },
+    {
+      "start": 275.84,
+      "end": 280.47999999999996,
+      "text": "Or you can go to this public repo uh Git"
+    },
+    {
+      "start": 277.96,
+      "end": 282.35999999999996,
+      "text": "repository and you can provide the URL,"
+    },
+    {
+      "start": 280.48,
+      "end": 284.16,
+      "text": "okay? And if you want, you can also pass"
+    },
+    {
+      "start": 282.36,
+      "end": 285.88,
+      "text": "your existing, let's say, Docker image."
+    },
+    {
+      "start": 284.16,
+      "end": 288.76000000000005,
+      "text": "I So, I think you remember uh in my last"
+    },
+    {
+      "start": 285.88,
+      "end": 290.919,
+      "text": "video I uh like pushed my uh Docker"
+    },
+    {
+      "start": 288.76,
+      "end": 293.44,
+      "text": "image in my Docker Hub. So, you can also"
+    },
+    {
+      "start": 290.919,
+      "end": 294.56,
+      "text": "provide that image URL that uh and with"
+    },
+    {
+      "start": 293.44,
+      "end": 296.919,
+      "text": "the help of that you can also perform"
+    },
+    {
+      "start": 294.56,
+      "end": 298.72,
+      "text": "the deployment. You can also uh use your"
+    },
+    {
+      "start": 296.919,
+      "end": 300.96,
+      "text": "GitHub to do the deployment, okay? But"
+    },
+    {
+      "start": 298.72,
+      "end": 303.04,
+      "text": "make sure you have this Dockerfile here."
+    },
+    {
+      "start": 300.96,
+      "end": 304.52,
+      "text": "So, I already have the Dockerfile and uh"
+    },
+    {
+      "start": 303.04,
+      "end": 306.36,
+      "text": "in my last video I already created this"
+    },
+    {
+      "start": 304.52,
+      "end": 307.919,
+      "text": "Dockerfile. So, Dockerfile should be"
+    },
+    {
+      "start": 306.36,
+      "end": 310.64,
+      "text": "available, okay? So, we have the"
+    },
+    {
+      "start": 307.919,
+      "end": 312.4,
+      "text": "Dockerfile, it's completely fine. Now,"
+    },
+    {
+      "start": 310.64,
+      "end": 314.71999999999997,
+      "text": "simply what I'm going to do, I'm going"
+    },
+    {
+      "start": 312.4,
+      "end": 316.919,
+      "text": "to just paste this URL here and I'll"
+    },
+    {
+      "start": 314.72,
+      "end": 318.8,
+      "text": "just connect this repository."
+    },
+    {
+      "start": 316.919,
+      "end": 320.44,
+      "text": "Okay? Once you have connected, you can"
+    },
+    {
+      "start": 318.8,
+      "end": 322.96000000000004,
+      "text": "provide the name, the name you want to"
+    },
+    {
+      "start": 320.44,
+      "end": 324.88,
+      "text": "provide for this deployment, but I'll"
+    },
+    {
+      "start": 322.96,
+      "end": 326.4,
+      "text": "keep the same name. And the language you"
+    },
+    {
+      "start": 324.88,
+      "end": 327.52,
+      "text": "have to select the Docker, okay? If you"
+    },
+    {
+      "start": 326.4,
+      "end": 329.56,
+      "text": "don't have the Docker, you can also"
+    },
+    {
+      "start": 327.52,
+      "end": 331.28,
+      "text": "select the simple Python, but I have the"
+    },
+    {
+      "start": 329.56,
+      "end": 332.96,
+      "text": "Docker, I'll try to select the Docker,"
+    },
+    {
+      "start": 331.28,
+      "end": 334.47999999999996,
+      "text": "okay? Language."
+    },
+    {
+      "start": 332.96,
+      "end": 336.28,
+      "text": "Then everything will remain same as it"
+    },
+    {
+      "start": 334.48,
+      "end": 338.28000000000003,
+      "text": "is, no need to change anything. And here"
+    },
+    {
+      "start": 336.28,
+      "end": 340.59999999999997,
+      "text": "in the instance type, see, they have"
+    },
+    {
+      "start": 338.28,
+      "end": 342.76,
+      "text": "some plan. You can take the plan as per"
+    },
+    {
+      "start": 340.6,
+      "end": 345.08000000000004,
+      "text": "your requirement. If you have, let's"
+    },
+    {
+      "start": 342.76,
+      "end": 346.59999999999997,
+      "text": "say, very high configuration project"
+    },
+    {
+      "start": 345.08,
+      "end": 348.64,
+      "text": "that needs lots of computation, that"
+    },
+    {
+      "start": 346.6,
+      "end": 352.12,
+      "text": "time you can take these are the uh like"
+    },
+    {
+      "start": 348.64,
+      "end": 354.08,
+      "text": "a plan, but uh we'll be using this uh"
+    },
+    {
+      "start": 352.12,
+      "end": 355.44,
+      "text": "free plan for the hobby project, okay?"
+    },
+    {
+      "start": 354.08,
+      "end": 358.91999999999996,
+      "text": "Uh just to show you I'm using this uh"
+    },
+    {
+      "start": 355.44,
+      "end": 362.6,
+      "text": "free plan and it is having 512 MB RAM"
+    },
+    {
+      "start": 358.92,
+      "end": 364.40000000000003,
+      "text": "and 0.1 CPU core, okay? It is uh it"
+    },
+    {
+      "start": 362.6,
+      "end": 366.52000000000004,
+      "text": "would be a little bit slow, lagging, but"
+    },
+    {
+      "start": 364.4,
+      "end": 368.64,
+      "text": "uh just to I mean make our project live"
+    },
+    {
+      "start": 366.52,
+      "end": 370.84,
+      "text": "it's completely fine because nowadays"
+    },
+    {
+      "start": 368.64,
+      "end": 373.03999999999996,
+      "text": "none of the cloud provides the free"
+    },
+    {
+      "start": 370.84,
+      "end": 374.56,
+      "text": "uh a free let's say instance, right? To"
+    },
+    {
+      "start": 373.04,
+      "end": 375.88,
+      "text": "uh do the deployment, but at least"
+    },
+    {
+      "start": 374.56,
+      "end": 377.88,
+      "text": "they're providing. I think this is fine"
+    },
+    {
+      "start": 375.88,
+      "end": 379.64,
+      "text": "for us, right? So, I'll select this free"
+    },
+    {
+      "start": 377.88,
+      "end": 381.68,
+      "text": "instance. Then here you have to set all"
+    },
+    {
+      "start": 379.64,
+      "end": 383.24,
+      "text": "of your environment variable uh you have"
+    },
+    {
+      "start": 381.68,
+      "end": 384.68,
+      "text": "inside your project. So, I think you"
+    },
+    {
+      "start": 383.24,
+      "end": 386.40000000000003,
+      "text": "remember inside our project these are"
+    },
+    {
+      "start": 384.68,
+      "end": 388.2,
+      "text": "the environment variable is required, so"
+    },
+    {
+      "start": 386.4,
+      "end": 390.67999999999995,
+      "text": "try to set one by one."
+    },
+    {
+      "start": 388.2,
+      "end": 393.28,
+      "text": "So, uh I'm not using OpenAI, so I will"
+    },
+    {
+      "start": 390.68,
+      "end": 395.56,
+      "text": "not set the OpenAI. I'll select"
+    },
+    {
+      "start": 393.28,
+      "end": 397.08,
+      "text": "set from Tabnine."
+    },
+    {
+      "start": 395.56,
+      "end": 399.8,
+      "text": "So, Tabnine API key here you have to"
+    },
+    {
+      "start": 397.08,
+      "end": 399.8,
+      "text": "give the value."
+    },
+    {
+      "start": 403.919,
+      "end": 411.4,
+      "text": "Okay, then the next one you have"
+    },
+    {
+      "start": 407.88,
+      "end": 411.4,
+      "text": "this OpenWeather API key."
+    },
+    {
+      "start": 415.72,
+      "end": 419.20000000000005,
+      "text": "That's how I'll try to add all of the"
+    },
+    {
+      "start": 417.6,
+      "end": 421.44,
+      "text": "environment variable I have here. You"
+    },
+    {
+      "start": 419.2,
+      "end": 423.32,
+      "text": "can also upload your .env file that will"
+    },
+    {
+      "start": 421.44,
+      "end": 425.68,
+      "text": "also load, but let's try to add like"
+    },
+    {
+      "start": 423.32,
+      "end": 425.68,
+      "text": "that."
+    },
+    {
+      "start": 426.16,
+      "end": 430.84000000000003,
+      "text": "Google API key because I'm using Gemini"
+    },
+    {
+      "start": 428.44,
+      "end": 430.84,
+      "text": "model."
+    },
+    {
+      "start": 438.36,
+      "end": 443.8,
+      "text": "Now, next I have this LangSmith tracing."
+    },
+    {
+      "start": 451.8,
+      "end": 455.08,
+      "text": "LangSmith endpoint."
+    },
+    {
+      "start": 463.8,
+      "end": 467.68,
+      "text": "Then uh LangSmith API key."
+    },
+    {
+      "start": 477.0,
+      "end": 480.8,
+      "text": "Then we have LangSmith project."
+    },
+    {
+      "start": 487.12,
+      "end": 490.56,
+      "text": "So yeah, all of the API key has set"
+    },
+    {
+      "start": 489.04,
+      "end": 492.8,
+      "text": "successfully now."
+    },
+    {
+      "start": 490.56,
+      "end": 494.48,
+      "text": "Uh in the advanced advanced part you"
+    },
+    {
+      "start": 492.8,
+      "end": 496.56,
+      "text": "don't need to do anything. Uh just keep"
+    },
+    {
+      "start": 494.48,
+      "end": 499.76,
+      "text": "it same as it is now. Let's try to"
+    },
+    {
+      "start": 496.56,
+      "end": 499.76,
+      "text": "deploy our web service."
+    },
+    {
+      "start": 501.88,
+      "end": 505.08,
+      "text": "Okay."
+    },
+    {
+      "start": 502.8,
+      "end": 507.72,
+      "text": "Now it will start building your Docker,"
+    },
+    {
+      "start": 505.08,
+      "end": 511.68,
+      "text": "okay? Uh all of the setup, everything"
+    },
+    {
+      "start": 507.72,
+      "end": 511.68,
+      "text": "will uh uh going on here."
+    },
+    {
+      "start": 512.64,
+      "end": 516.96,
+      "text": "So we have to wait for some times, okay?"
+    },
+    {
+      "start": 515.08,
+      "end": 518.8000000000001,
+      "text": "So this will set up and prepare"
+    },
+    {
+      "start": 516.96,
+      "end": 520.32,
+      "text": "everything. And once this starter should"
+    },
+    {
+      "start": 518.8,
+      "end": 522.919,
+      "text": "be live, you'll be able to access your"
+    },
+    {
+      "start": 520.32,
+      "end": 522.9190000000001,
+      "text": "application."
+    },
+    {
+      "start": 523.08,
+      "end": 527.0,
+      "text": "Now let's wait guys. So what I'm going"
+    },
+    {
+      "start": 525.12,
+      "end": 528.44,
+      "text": "to do, I'm going to pause the video."
+    },
+    {
+      "start": 527.0,
+      "end": 530.24,
+      "text": "Once this uh"
+    },
+    {
+      "start": 528.44,
+      "end": 533.0,
+      "text": "um Docker building is complete, then"
+    },
+    {
+      "start": 530.24,
+      "end": 533.0,
+      "text": "I'll come back."
+    },
+    {
+      "start": 542.839,
+      "end": 547.7600000000001,
+      "text": "So as you can see guys, our application"
+    },
+    {
+      "start": 544.56,
+      "end": 550.04,
+      "text": "is live right now. And all of the um"
+    },
+    {
+      "start": 547.76,
+      "end": 551.72,
+      "text": "setup has complete successfully. Now we"
+    },
+    {
+      "start": 550.04,
+      "end": 555.0,
+      "text": "can access this application. So this is"
+    },
+    {
+      "start": 551.72,
+      "end": 556.72,
+      "text": "the URL. Just try to copy this URL and"
+    },
+    {
+      "start": 555.0,
+      "end": 557.92,
+      "text": "open in a new tab."
+    },
+    {
+      "start": 556.72,
+      "end": 560.96,
+      "text": "So you'll be able to see that your"
+    },
+    {
+      "start": 557.92,
+      "end": 560.9599999999999,
+      "text": "application will open."
+    },
+    {
+      "start": 566.48,
+      "end": 570.36,
+      "text": "Yeah, so it has loaded my application."
+    },
+    {
+      "start": 569.0,
+      "end": 572.64,
+      "text": "So this is our"
+    },
+    {
+      "start": 570.36,
+      "end": 574.04,
+      "text": "agentic chatbot. Now let's test this"
+    },
+    {
+      "start": 572.64,
+      "end": 575.8,
+      "text": "chatbot."
+    },
+    {
+      "start": 574.04,
+      "end": 578.0,
+      "text": "Uh let me zoom out so that you can see"
+    },
+    {
+      "start": 575.8,
+      "end": 581.0,
+      "text": "the entire screen. Yeah. So now let's"
+    },
+    {
+      "start": 578.0,
+      "end": 583.4,
+      "text": "test this chatbot. So here I will give"
+    },
+    {
+      "start": 581.0,
+      "end": 583.4,
+      "text": "Hi."
+    },
+    {
+      "start": 584.84,
+      "end": 589.0400000000001,
+      "text": "So see, it's giving you hello, how I can"
+    },
+    {
+      "start": 586.68,
+      "end": 592.76,
+      "text": "assist you. Now I'll tell"
+    },
+    {
+      "start": 589.04,
+      "end": 592.76,
+      "text": "um what is the"
+    },
+    {
+      "start": 593.44,
+      "end": 597.32,
+      "text": "current"
+    },
+    {
+      "start": 594.76,
+      "end": 597.3199999999999,
+      "text": "weather"
+    },
+    {
+      "start": 598.56,
+      "end": 603.68,
+      "text": "in"
+    },
+    {
+      "start": 600.96,
+      "end": 603.6800000000001,
+      "text": "Bangalore."
+    },
+    {
+      "start": 608.0,
+      "end": 612.48,
+      "text": "So this is the current weather in"
+    },
+    {
+      "start": 609.52,
+      "end": 615.4399999999999,
+      "text": "Bangalore. Now I will ask"
+    },
+    {
+      "start": 612.48,
+      "end": 615.44,
+      "text": "tell me"
+    },
+    {
+      "start": 615.56,
+      "end": 619.2399999999999,
+      "text": "the latest"
+    },
+    {
+      "start": 620.48,
+      "end": 624.88,
+      "text": "score of"
+    },
+    {
+      "start": 623.6,
+      "end": 627.64,
+      "text": "FIFA."
+    },
+    {
+      "start": 624.88,
+      "end": 627.64,
+      "text": "Okay, today."
+    },
+    {
+      "start": 634.28,
+      "end": 638.88,
+      "text": "Yeah, so this is the score it has given."
+    },
+    {
+      "start": 636.96,
+      "end": 641.88,
+      "text": "Now you can"
+    },
+    {
+      "start": 638.88,
+      "end": 645.64,
+      "text": "um you can check about this um"
+    },
+    {
+      "start": 641.88,
+      "end": 648.4399999999999,
+      "text": "stock price. Um what is the"
+    },
+    {
+      "start": 645.64,
+      "end": 648.4399999999999,
+      "text": "stock"
+    },
+    {
+      "start": 648.76,
+      "end": 652.48,
+      "text": "price of Google?"
+    },
+    {
+      "start": 662.2,
+      "end": 667.839,
+      "text": "Okay, so the API I was using uh so the"
+    },
+    {
+      "start": 665.08,
+      "end": 669.8000000000001,
+      "text": "rate rate limit has been uh over, okay?"
+    },
+    {
+      "start": 667.839,
+      "end": 672.44,
+      "text": "So I have to create an another API key."
+    },
+    {
+      "start": 669.8,
+      "end": 674.3599999999999,
+      "text": "It's completely fine. Now let me test uh"
+    },
+    {
+      "start": 672.44,
+      "end": 676.8800000000001,
+      "text": "with my documents upload."
+    },
+    {
+      "start": 674.36,
+      "end": 680.36,
+      "text": "So I'll just try to"
+    },
+    {
+      "start": 676.88,
+      "end": 682.2,
+      "text": "provide my resume and I'll ask"
+    },
+    {
+      "start": 680.36,
+      "end": 684.6,
+      "text": "who is"
+    },
+    {
+      "start": 682.2,
+      "end": 687.2800000000001,
+      "text": "Bakhtiar Ahmed"
+    },
+    {
+      "start": 684.6,
+      "end": 687.28,
+      "text": "Bappy"
+    },
+    {
+      "start": 687.68,
+      "end": 693.8399999999999,
+      "text": "based on the"
+    },
+    {
+      "start": 690.28,
+      "end": 693.8399999999999,
+      "text": "PDF uploaded."
+    },
+    {
+      "start": 700.0,
+      "end": 704.72,
+      "text": "Now it is giving you the entire answer"
+    },
+    {
+      "start": 702.48,
+      "end": 707.08,
+      "text": "about me, right? So yeah, it's working"
+    },
+    {
+      "start": 704.72,
+      "end": 709.5600000000001,
+      "text": "perfectly. So only the issue we found"
+    },
+    {
+      "start": 707.08,
+      "end": 711.84,
+      "text": "our API keyword using, right? For this"
+    },
+    {
+      "start": 709.56,
+      "end": 714.1199999999999,
+      "text": "stock price, this has been I think limit"
+    },
+    {
+      "start": 711.84,
+      "end": 716.2800000000001,
+      "text": "is over. So I have to create an"
+    },
+    {
+      "start": 714.12,
+      "end": 717.44,
+      "text": "another API key and I have to set there."
+    },
+    {
+      "start": 716.28,
+      "end": 719.04,
+      "text": "Because we are using the free one,"
+    },
+    {
+      "start": 717.44,
+      "end": 721.1600000000001,
+      "text": "right? And free one definitely has some"
+    },
+    {
+      "start": 719.04,
+      "end": 722.8,
+      "text": "limitation. It's completely fine. Yeah,"
+    },
+    {
+      "start": 721.16,
+      "end": 724.8399999999999,
+      "text": "so it's working fine. Then you can also"
+    },
+    {
+      "start": 722.8,
+      "end": 726.16,
+      "text": "create a new trades."
+    },
+    {
+      "start": 724.84,
+      "end": 728.2,
+      "text": "Okay, you can create a new trades and"
+    },
+    {
+      "start": 726.16,
+      "end": 732.0799999999999,
+      "text": "you can again do the conversation. Let's"
+    },
+    {
+      "start": 728.2,
+      "end": 733.96,
+      "text": "say hi. I'm Alex, okay? See, everything"
+    },
+    {
+      "start": 732.08,
+      "end": 735.72,
+      "text": "is working fine, okay? Now this"
+    },
+    {
+      "start": 733.96,
+      "end": 737.9200000000001,
+      "text": "application is completely live. You can"
+    },
+    {
+      "start": 735.72,
+      "end": 739.0,
+      "text": "share this with your friends and family."
+    },
+    {
+      "start": 737.92,
+      "end": 740.4799999999999,
+      "text": "They will be able to access your"
+    },
+    {
+      "start": 739.0,
+      "end": 742.92,
+      "text": "application."
+    },
+    {
+      "start": 740.48,
+      "end": 745.04,
+      "text": "And this will not charge you, okay?"
+    },
+    {
+      "start": 742.92,
+      "end": 746.76,
+      "text": "Because this is running completely on"
+    },
+    {
+      "start": 745.04,
+      "end": 749.4,
+      "text": "the free instance. And that's how you"
+    },
+    {
+      "start": 746.76,
+      "end": 751.2,
+      "text": "can deploy any kinds of project, okay?"
+    },
+    {
+      "start": 749.4,
+      "end": 752.64,
+      "text": "Just for the"
+    },
+    {
+      "start": 751.2,
+      "end": 753.96,
+      "text": "testing purpose, okay? But if you want"
+    },
+    {
+      "start": 752.64,
+      "end": 755.56,
+      "text": "to do the production grade deployment,"
+    },
+    {
+      "start": 753.96,
+      "end": 757.9200000000001,
+      "text": "that time just try to make sure you are"
+    },
+    {
+      "start": 755.56,
+      "end": 760.88,
+      "text": "taking the subscription plan. Now guys,"
+    },
+    {
+      "start": 757.92,
+      "end": 764.1999999999999,
+      "text": "one best part I will show you, which is"
+    },
+    {
+      "start": 760.88,
+      "end": 766.48,
+      "text": "this CI/CD, okay? That means if you are"
+    },
+    {
+      "start": 764.2,
+      "end": 767.96,
+      "text": "changing something inside your code and"
+    },
+    {
+      "start": 766.48,
+      "end": 769.9200000000001,
+      "text": "if you are again committing to the"
+    },
+    {
+      "start": 767.96,
+      "end": 771.48,
+      "text": "GitHub, so what will happen? So let's"
+    },
+    {
+      "start": 769.92,
+      "end": 773.68,
+      "text": "say right now"
+    },
+    {
+      "start": 771.48,
+      "end": 775.32,
+      "text": "here I have an emoji, okay? So I want to"
+    },
+    {
+      "start": 773.68,
+      "end": 776.92,
+      "text": "remove this emoji."
+    },
+    {
+      "start": 775.32,
+      "end": 778.44,
+      "text": "As of now, let's try to consider this is"
+    },
+    {
+      "start": 776.92,
+      "end": 782.0799999999999,
+      "text": "our features, okay? We are adding inside"
+    },
+    {
+      "start": 778.44,
+      "end": 783.6400000000001,
+      "text": "this chatbot. Uh where"
+    },
+    {
+      "start": 782.08,
+      "end": 786.5600000000001,
+      "text": "start part? Yeah, so here. So let's say"
+    },
+    {
+      "start": 783.64,
+      "end": 788.12,
+      "text": "I will delete this emoji, okay?"
+    },
+    {
+      "start": 786.56,
+      "end": 790.4399999999999,
+      "text": "And I will"
+    },
+    {
+      "start": 788.12,
+      "end": 795.88,
+      "text": "again push my changes to the GitHub. So"
+    },
+    {
+      "start": 790.44,
+      "end": 795.8800000000001,
+      "text": "let's say app file updated."
+    },
+    {
+      "start": 796.839,
+      "end": 800.2800000000001,
+      "text": "Now I'll push the changes."
+    },
+    {
+      "start": 801.12,
+      "end": 808.44,
+      "text": "Done. Now if I go to my GitHub,"
+    },
+    {
+      "start": 805.76,
+      "end": 810.24,
+      "text": "see, this commit is over, okay? Um I"
+    },
+    {
+      "start": 808.44,
+      "end": 813.1600000000001,
+      "text": "have file added added."
+    },
+    {
+      "start": 810.24,
+      "end": 815.16,
+      "text": "Uh now here if I come to this uh"
+    },
+    {
+      "start": 813.16,
+      "end": 817.3199999999999,
+      "text": "uh I mean uh render"
+    },
+    {
+      "start": 815.16,
+      "end": 819.16,
+      "text": "and if I go to this event, so you have"
+    },
+    {
+      "start": 817.32,
+      "end": 821.72,
+      "text": "to go to this event and there is an"
+    },
+    {
+      "start": 819.16,
+      "end": 823.76,
+      "text": "option called uh manual deploy. Just try"
+    },
+    {
+      "start": 821.72,
+      "end": 826.28,
+      "text": "to click here, okay? And there is an"
+    },
+    {
+      "start": 823.76,
+      "end": 828.56,
+      "text": "option called deploy last commit, okay?"
+    },
+    {
+      "start": 826.28,
+      "end": 830.28,
+      "text": "So, you can also like make it as"
+    },
+    {
+      "start": 828.56,
+      "end": 831.52,
+      "text": "automated. There is a setting you can"
+    },
+    {
+      "start": 830.28,
+      "end": 833.48,
+      "text": "turn on that."
+    },
+    {
+      "start": 831.52,
+      "end": 835.52,
+      "text": "Uh but if you just click here, deploy"
+    },
+    {
+      "start": 833.48,
+      "end": 838.32,
+      "text": "latest commit, now if I let's say deploy"
+    },
+    {
+      "start": 835.52,
+      "end": 838.3199999999999,
+      "text": "latest commit."
+    },
+    {
+      "start": 840.92,
+      "end": 847.64,
+      "text": "So, you'll see that uh automatically um"
+    },
+    {
+      "start": 844.24,
+      "end": 847.64,
+      "text": "my new feature should be added."
+    },
+    {
+      "start": 847.84,
+      "end": 851.52,
+      "text": "See, still my application is running."
+    },
+    {
+      "start": 855.72,
+      "end": 860.0,
+      "text": "See, still my application is running and"
+    },
+    {
+      "start": 857.76,
+      "end": 862.12,
+      "text": "my deployment is going on, okay?"
+    },
+    {
+      "start": 860.0,
+      "end": 865.32,
+      "text": "So, that's how they have integrated this"
+    },
+    {
+      "start": 862.12,
+      "end": 867.0,
+      "text": "inbuilt CI/CD uh and all of these, okay?"
+    },
+    {
+      "start": 865.32,
+      "end": 869.44,
+      "text": "Whatever we have learned in my previous"
+    },
+    {
+      "start": 867.0,
+      "end": 871.48,
+      "text": "deployment. So, here uh you don't need"
+    },
+    {
+      "start": 869.44,
+      "end": 873.32,
+      "text": "uh that much of configuration, only few"
+    },
+    {
+      "start": 871.48,
+      "end": 875.32,
+      "text": "clicks you can do the deployment, okay?"
+    },
+    {
+      "start": 873.32,
+      "end": 876.9200000000001,
+      "text": "So, this is the best part uh on this"
+    },
+    {
+      "start": 875.32,
+      "end": 879.8000000000001,
+      "text": "Render cloud."
+    },
+    {
+      "start": 876.92,
+      "end": 879.8,
+      "text": "Uh let's see."
+    },
+    {
+      "start": 884.96,
+      "end": 890.52,
+      "text": "So, see our application is live. Now if"
+    },
+    {
+      "start": 886.8,
+      "end": 890.52,
+      "text": "I go to my application refresh."
+    },
+    {
+      "start": 895.08,
+      "end": 899.8000000000001,
+      "text": "So, see this emoji got removed, okay?"
+    },
+    {
+      "start": 897.44,
+      "end": 901.8800000000001,
+      "text": "So, that's how uh we can add uh our new"
+    },
+    {
+      "start": 899.8,
+      "end": 904.68,
+      "text": "features. Uh and you just need to commit"
+    },
+    {
+      "start": 901.88,
+      "end": 906.36,
+      "text": "the code on GitHub and you can uh just"
+    },
+    {
+      "start": 904.68,
+      "end": 907.76,
+      "text": "uh trigger that pipeline, okay? And you"
+    },
+    {
+      "start": 906.36,
+      "end": 909.4,
+      "text": "can also make it an automated. There is"
+    },
+    {
+      "start": 907.76,
+      "end": 910.76,
+      "text": "a settings you can turn on. So, yes,"
+    },
+    {
+      "start": 909.4,
+      "end": 912.48,
+      "text": "guys, uh that's how we can do the"
+    },
+    {
+      "start": 910.76,
+      "end": 914.16,
+      "text": "deployment. Now I'll show you how we can"
+    },
+    {
+      "start": 912.48,
+      "end": 915.5600000000001,
+      "text": "delete the instance, okay? Let's say"
+    },
+    {
+      "start": 914.16,
+      "end": 917.8,
+      "text": "this project I have deployed. Now how I"
+    },
+    {
+      "start": 915.56,
+      "end": 919.0799999999999,
+      "text": "can delete this instance, okay? So, for"
+    },
+    {
+      "start": 917.8,
+      "end": 921.12,
+      "text": "this you you just need to go to the"
+    },
+    {
+      "start": 919.08,
+      "end": 922.24,
+      "text": "settings"
+    },
+    {
+      "start": 921.12,
+      "end": 924.04,
+      "text": "and"
+    },
+    {
+      "start": 922.24,
+      "end": 926.16,
+      "text": "go below. There is an option called"
+    },
+    {
+      "start": 924.04,
+      "end": 928.88,
+      "text": "delete web service and you have to copy"
+    },
+    {
+      "start": 926.16,
+      "end": 928.88,
+      "text": "this command."
+    },
+    {
+      "start": 929.52,
+      "end": 933.84,
+      "text": "And give it here and delete the web"
+    },
+    {
+      "start": 931.76,
+      "end": 935.36,
+      "text": "service, okay? So, if you delete it, so"
+    },
+    {
+      "start": 933.84,
+      "end": 937.8000000000001,
+      "text": "this service would be deleted and your"
+    },
+    {
+      "start": 935.36,
+      "end": 939.36,
+      "text": "application would be offline, okay? So,"
+    },
+    {
+      "start": 937.8,
+      "end": 940.76,
+      "text": "yeah, that's how we can do that. So, if"
+    },
+    {
+      "start": 939.36,
+      "end": 942.72,
+      "text": "you found my content useful, guys,"
+    },
+    {
+      "start": 940.76,
+      "end": 944.84,
+      "text": "please try to support me."
+    },
+    {
+      "start": 942.72,
+      "end": 946.4,
+      "text": "And this is my LinkedIn profile. If you"
+    },
+    {
+      "start": 944.84,
+      "end": 947.88,
+      "text": "want to connect me, guys, you can"
+    },
+    {
+      "start": 946.4,
+      "end": 950.52,
+      "text": "connect on my LinkedIn. You can follow"
+    },
+    {
+      "start": 947.88,
+      "end": 953.08,
+      "text": "me on LinkedIn. And please let me know"
+    },
+    {
+      "start": 950.52,
+      "end": 954.72,
+      "text": "how you are enjoying this complete list."
+    },
+    {
+      "start": 953.08,
+      "end": 956.76,
+      "text": "If you found this useful, so please try"
+    },
+    {
+      "start": 954.72,
+      "end": 959.0,
+      "text": "to tag me on LinkedIn, okay? I'll happy"
+    },
+    {
+      "start": 956.76,
+      "end": 960.36,
+      "text": "to see that. And just try to implement"
+    },
+    {
+      "start": 959.0,
+      "end": 962.4,
+      "text": "something from your end and please try"
+    },
+    {
+      "start": 960.36,
+      "end": 964.16,
+      "text": "to tag me. So, if you are tagging me on"
+    },
+    {
+      "start": 962.4,
+      "end": 966.72,
+      "text": "LinkedIn, I would be happy to see your"
+    },
+    {
+      "start": 964.16,
+      "end": 968.7199999999999,
+      "text": "work and definitely I'll put my feedback"
+    },
+    {
+      "start": 966.72,
+      "end": 970.32,
+      "text": "and comments, okay? So, yes, guys, this"
+    },
+    {
+      "start": 968.72,
+      "end": 971.72,
+      "text": "is all about from this video. I hope you"
+    },
+    {
+      "start": 970.32,
+      "end": 975.36,
+      "text": "liked it. Thank you so much and I will"
+    },
+    {
+      "start": 971.72,
+      "end": 975.36,
+      "text": "see you in the next video. Thank you."
+    }
+  ],
+  "video_id": "zB2dA_BtprU",
+  "title": "23. Deploy Agentic AI Chatbot on Render for FREE with Docker | Fastest Deployment | Agentic AI",
+  "position": 25,
+  "url": "https://www.youtube.com/watch?v=zB2dA_BtprU"
+}

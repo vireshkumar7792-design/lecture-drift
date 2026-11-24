@@ -4,3 +4,8 @@ streamlit>=1.49,<2
 yt-dlp
 # Existing YouTube captions; audio transcription will be added in a later stage.
 youtube-transcript-api>=1.2,<2
+# RAG: multilingual embeddings, DeepSeek API calls, .env support
+sentence-transformers>=3
+numpy
+requests
+python-dotenv

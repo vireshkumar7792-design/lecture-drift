@@ -1,0 +1,3807 @@
+{
+  "source": "youtube_captions",
+  "language": "en",
+  "is_generated": true,
+  "text": "Hi guys. My name is Bapi Ahmed and you are welcome to my YouTube channel. So guys, we are continuing with our agentic chatbot implementation with the help of LangGraph. And this is the part of our complete agentic AI course playlist on my YouTube channel. So this is the part three of our agentic chatbot implementation. And we have already covered part one and part two. As you can see in the part one, I already showed you like how we can implement this agentic chatbot workflow. So we have created our basic skeleton basic agentic chatbot workflow. So here you can perform any kinds of chat operation right now. So let's see if I give a message uh generate a blog about let's say Python. So if I send this prompt, now see it is able to generate the blog, okay? So we have already created this kinds of skeleton, this kinds of workflow like chat workflow and everything is working fine. And I think you remember in my first video that means in the first part I showed you how we can add the streaming feature as well, okay? Streaming feature means you saw like it was a streaming kinds of output it was giving me like ChatGPT, okay? Now in this video guys, I'm going to just deep dive into this streaming like what this streaming is and why it is required and we'll also try to understand if we don't use this kinds of streaming features inside our agentic chatbot or any other agentic application you are creating, so what should be the issue, okay? We'll try to understand each and everything in detail. Because I already told you this is going to be a in detailed course guys. Here I'm not going to skip anything. Everything I'm going to explain in detail. That's why I decided to make this particular agentic chatbot part by part instead of recording everything in one video. I want to create multiple video and I want to explain everything, okay? Like part by part. Then later on I will show you other projects, other some real world projects. There I'm going to show you each and every like implementation, each and every component in a single video itself, okay? But I'm considering we are beginner, okay? We just started with agentic AI. And this is our first project. That's why I'll be recording this particular project part by part, okay? So that you won't be having any kinds of doubt or confusion going forward whenever we'll be creating more projects, okay? I hope it's clear. So if you haven't checked this playlist, guys, please try to check. I have already given the link in my description. From there you can check and if you found this useful, guys, please try to subscribe to my channel and hit the like definitely and please try to share it with your friends and family. So guys, we'll try to continue with our discussion of the streaming features inside uh agentic chatbot. And if you are using LangGraph, guys, by default inside LangGraph the streaming features is available, okay? With the help of that you can easily create the streaming features. So for this you can go to the documentation of this LangGraph. So there they have given some code example, okay? But let me first of all show you my code example, okay? Then after that you can go through the entire documentation, okay? And you can understand about the streaming, okay? So yes, this is the application, guys, we created the first part of our video. And second part I discussed about the persistence concept inside our agentic chatbot, why persistence is required. We added the persistence memory, right? Uh so each and everything I have already discussed in the second part of this agentic chatbot. If you haven't check it out, please try to check that video also. Yeah. So guys, see, if I'm not using the streaming features, so how my chatbot will look like? First of all, let me show you. So guys, as you can see, this is the code we have already written for this agentic chatbot, and this is our first initial workflow we have created, okay? This is the chatbot workflow we have created. And here, if you just go to the last part, so here I already discussed about the streaming, okay? How to add the streaming features. But yeah, I think in the first part, you might have some kinds of confusion, like how we have added this particular stream stream features here. So, in this particular video, I'm going to clarify each and everything, then I think this would be more clear, okay? So, here what I'm going to do, guys, let me show you the non-streaming like features first of all. So, I think this code is also common. Initially, I also created this code, and you remember, there I'm not using any kinds of streaming features, okay? So, what I'm doing, I'm just generating the response. After that, I was um like waiting for the entire response. Once I got the response, I was just showing on the Streamlit user interface. So, if I execute this particular file, let me show you. So, I'll stop my app.py, and I will execute this non-stream.py. So, I'll just write Streamlit. Okay, Streamlit. Run non-stream.py. Now, if I hit enter, so this will load my application. Now here, let's see if I give the same prompt, generate a blog about Okay, about let's say I'll give um machine learning. Now see, if I give this prompt, now see, here we have to wait, right? We have to wait uh, the execution. Now see, so here I think you have observed uh, we had to wait uh, unless and until this output got generated here. Uh, so let's say if you are generating uh, some more uh, let's say content here, some more big content, that time it will take some time. Maybe it it can take let's say 30 seconds, 60 seconds, okay? It depends upon your uh, output or the prompt you are giving. Let's say we're running an agent and it that agent is taking time. It is using some kinds of tool, okay? So, uh, in between actually it will do lots of work and you have to wait for the execution. So, this is not good, right? Uh, this is not good uh, user experience. So, if I open Chat GPT, okay? If I open Chat GPT, in Chat GPT, if you give any kinds of prompt, let's say I will give the same prompt in the Chat GPT, okay? You'll see that Chat GPT also will give you some kinds of streaming response. See, this is giving you a streaming response one by one, right? And this is more interactive, right? This is more interactive because we don't need to wait for the entire execution to be completed, okay? Whether it is using any kinds of tool, whether it is uh, doing the reasoning operation, it doesn't matter, but I'm able to see my output token by token, okay? So, this is good user experience here, but inside this particular application, this is not good experience. So, if I uh, give this kinds of prompt, so what is happening? It is taking some time, right? That's why I'll give right now deep learning. See, it's taking lots of time. So, this is not a good experience, okay? So, that's why streaming feature is required, okay? Streaming feature is required. Now, let's try to understand what is streaming exactly and why it is important inside our application development. So, guys, first of all, let's try to understand uh, what is streaming. So, here I have already written a definition. In LLM, streaming means the model starts sending tokens, uh, that means word, as soon as they they are generated instead of waiting for the entire response to be ready before returning it, okay? See, what happens whenever we are using any kinds of large language model, it generates the output as token by token or word by word, okay? So, whenever let's say we invoke any kinds of large language model, let's say this is our LLM, and we are giving some kinds of prompt here, and we get a response here, okay? So, what you can do, either you can get this response in one shot, that means you have to wait uh for the entire output to be generated, okay? For this, we use something called invoke function, okay? Invoke function, I think you already know that we are using, okay? So far. So, invoke, what it does, it will uh wait for the entire output to be generated, but LLM will try to generate the output as token by token. Let's say it is generating something. So, first of all, uh one token will come, then another token will come, another token will come, okay? That's how it will complete the entire execution, okay? That's That's how it will complete the entire execution, then you will be able to see the response. But, in streaming actually, what we do, we use something called stream function. Instead of uh invoke, we use dot stream function. Uh this is already a default inside LangGraph. Whenever we are defining any kinds of graph object, right? And uh you remember we we are doing the invoking operations. Instead of invoking operation, we have to perform dot stream operation. So, if you do dot stream operation, so what will happen that time, you will be getting this particular output as a token by token or word by word as soon as they are generated, okay? Instead of waiting for the entire response to be ready before returning it, okay? So, this is what actually your streaming is. I think you already saw inside ChatGPT, okay? ChatGPT, it was generating token by token. Let me show you again. So, maybe I can give another prompt. So, I'll give, let's say, let's generate a blog about deep learning. Now, see, it will generate the output token by token. You can see token by token it is generating. Okay? Now, I think this definition is pretty much clear. Now, let's try to understand uh why this uh streaming is required, okay? You can see the first point, uh faster response time and low drop-off rates, okay? I think by this uh point itself, you can understand what I'm trying to say. Uh faster time time res- uh response time is, let's say, whenever I'm using any kinds of chatbot. Let's say I'm using ChatGPT, okay? I'm using ChatGPT or any other thing. Uh so, there I definitely need a faster response. So, if it is not giving faster response, that time, like I won't be getting interest, right? To use this particular application because nowadays, time is expensive, right? Time is expensive and and nowadays, people don't have that much of time so that they will wait for the entire execution, okay? That is taking 1 minute to run. So, they don't have that much of time. They will wait and they will get the let's say entire output, okay? So, they need a faster response. So, definitely, faster response is required whenever you are creating any kinds of application, whether you are creating chatbot, whether you are creating AI agents, okay? Anything you are creating, faster response is required. Otherwise, what will happen? There would be a drop-off rates, okay? Drop-off rate means people will leave your application, okay? Let's say if it is taking 1 minute to run. So, definitely, I'll leave your application, okay? I'll leave your application and I'll look for some other application which can give me faster response. So, that's why uh if it is faster response time, that means low drop-off rates, okay? Low drop-off rate means people will not leave your application. They will be continuously using. Like ChatGPT, people are using daily, right? Because it is having the faster response because of the streaming features, okay? We know that LLM takes some time to generate the entire output, but we have to handle it smartly. Instead of waiting for the entire uh let's say output to be generated, whatever token it is generating, okay, one by one, we'll show to the users so that they will see something in the screen, okay? This is what we have understood in the first point. Now, the second point you can understand, guys, mimics the human-like conversation, build trust, feel alive, and keep the user engaged, okay? See, whenever you are doing any kinds of conversation with any kinds of agent or chatbot or whatever you are doing the conversation, so definitely uh there some kinds of engagement should be there. Let's say if this application is taking 1 minute to run, right? And you have to wait for the execution. So, definitely I can't tell this is like a human-like conversation. Let's say you are talking with someone. Let's say this is you, okay? This is you and this is someone. You are talking with someone, right? And if you're asking something, and let's say this person is taking 1 minute to give you the response, so definitely you will not feel like interested, you will not feel engaged, okay? You will uh you will not be able to build a trust with that particular person, okay? Uh I can give you another example. Let's say I think you know uh nowadays people are using lots of uh uh hardware assistant, right? Hardware assistant means like uh Amazon Alexa, Amazon Alexa, then Google Home Mini. Okay, Google Home Mini people are using that, right? So, this is kinds of personal assistant system. And what we do, we use this particular assistant system so that we can speak with uh them, right? Speak with them and we can uh do lots of task. Now, let's say if you're talking with your uh personal assistant, you're talking with your let's say Google Home Mini, okay? You're talking with your Google Home Mini. And let's say it is giving you the response after 1 minute. So, definitely you will not feel engaged, you will not uh feel alive, you will not feel uh like uh you are not going to build a trust, okay, with that particular device. So, that's why uh mimic human-like conversation it is required. So, whenever I will talk with my, let's say, bot or, let's say, agents, so I'll feel like, okay, I'm talking with the human. Okay, instantly I'm getting the response and the response is engaging as well. Okay, like ChatGPT, if you if you're using ChatGPT, I think you know that. This um engagement, then a live trust is super important, right? And we we found inside that particular chatbot, right? That's why we are using continuously. So, that's why this is super important. Then important for multi-model UI's, okay? So, whenever you are using multi-model and you are getting a user interface, so this is also required there. Okay, sometimes you will be generating some kinds of image. And whenever you are generating the image, that time you can show like, we are okay, we are generating the image, we are taking this particular, let's say, color or there should be a image window. Continuously it will tell, okay, we are generating something. So, that's why you have to show something. Streaming means you have to show something on the screen, okay? Instead of uh just keep waiting the user here. Then uh better UX UX for long output such as code. So, whenever you are generating any kinds of code, let's say you created a agent that generates the code. So, instead of waiting for the entire code generation, you can uh show the streaming, okay? Like it is importing, it is defining the model, it is creating the architecture. So, one by one you can show it here, okay? So, this is another user experience we get. Then you can see uh you can cancel midway savings uh tokens. That means whenever, let's say, you were chatting with your agents or chatbot and uh you were generating a long-form content, right? And let's say you found some kinds of content useful and you don't need um like uh the remaining content. So, what you can do, you can stop, you can cancel the midway execution uh to save the token. Because what happens, whenever LLM generates the output, it generates as a token, right? And whenever you're using any kinds of provider, let's say OpenAI or Gemini, it charge based on the tokens, like how much token you are giving as an input and how much token your model is returning as an output, okay? So, based on the token count, it will charge you. So, let's say I don't need uh some unnecessary information. So, definitely I can uh stop the execution and I can save my tokens, okay? This is only possible whenever you're adding these kinds of streaming features. So, if you're adding like one-shot one-shot output, that time this is not possible, okay? Then you can interleave UI updates, uh uh example, uh show thinking, show tool result, okay? Et cetera. So, whenever we'll be creating any kinds of agents, so definitely it will be using tools, right? And whenever it is using tools, that mean uh that execution will take some time. First of all, tool will be executed and this will fetch the uh informations, then it will pass to the LLM. So, it's taking some time, right? That time, instead of waiting I can show something in the user interface. Let's say, uh it is right now using this particular tool and uh this tool is uh facing these kinds of information, okay? I can just show these kinds of output to the user, so that user feels like, \"Okay, now my uh application are using some kinds of tools.\" Uh so that it will generate the final output. User will wait. But if it is if you are not showing that, so what will happen? User will think like, \"Okay, my application got hang.\" So, definitely they will leave your application. Okay? So, that's why this streaming is super important and we need the streaming whenever we are getting these kinds of agentic system, guys. Now, we have already understood this uh streaming. Now, let's try to understand through the code. Although I have showed you the code uh implementation before, so let me show you. So, this is the code implementation I showed you. But in this video, let me show you how things are working, okay? How we are adding these kinds of streaming features. So, for this uh I think you know, we have already written this uh agentic chatbot backend. So, in the backend, I already created the entire workflow. So, this is our workflow we created and this is our chatbot object we created. Okay, this is the graph. So, what I can do, maybe I can uh show you uh I will create another file. Let's say I'm going to name it as test.py. So, inside that I'm going to first of all import my uh import my chatbot from agentic backend. So, from agentic chatbot backend, we're importing chatbot. Now, see if I'm not using this uh uh if I'm not using uh like uh streaming, that time I was using invoke, I think you remember. I was using invoke and we also need to import this library as well. Mhm. Yeah. Human message and base message we have to also import. Mhm. So, let me check again. Then I I need to also pass the configuration as well. So, let me copy the configuration. Config should be also passed here. So, I'll also import the uh define the configuration. Because we're using persistence here, okay? We have to pass the trade and everything. I think you know that. Now, we'll try to replace with that. Yeah. Now, this is the code, guys. So, basically we're using invoke here. And if you're using invoke, so that means you have to wait for the entire execution to be completed. Let me show you. Now, let's say if I stop the execution. Python test.py Now, see. Uh we have to wait for the execution. Maybe I can show you with another question. Generate a blog. >> about Python programming. Now, you'll be able to observe. Now, see, okay? You have to wait for the entire execution. So, this is not good, okay? Now, we have to add the streaming features here. So, here instead of using invoke, we'll be using dot stream. So, you can write like that chatbot dot stream, okay? Stream. Mhm. Now, stream takes some argument. First of all, you have to provide uh the messages. Okay, I'll try to provide the messages. Mhm. Yeah. We'll try to provide the messages. Uh now, let's say I'll give the same messages. Generate uh block about LangGraph. Or let's say machine learning. Okay, this is the messages. Now, the second parameter you have to provide the configuration, okay? And the third uh parameter you have to provide the stream mode, okay? Now, there are multiple stream modes are available. If I go to the documentation, as you can see, we have update values messages, okay? Custom. So, here I want to print the messages only. So, that's why I'll be using stream mode is equal to messages, okay? Because I want to show show my message streaming, okay? Whatever output I'm getting from my LLM, I want to show show this, okay? That's why we're using this. Now, once it is done, now if I let's say um show you the result, see, this stream will return two things. One is the message chunk. Okay? Message chunk That means the token, okay? Token output. And it will also give you some kinds of metadata. Okay? Metadata. But I don't need the metadata. I only need the message chunk and metadata. Okay, so basically this returns a generator object. Let me show you. So, I'll give you example response. Now, if I print the response Now, if I execute this code Python test.py So, this will give you a generator object, as you can see, okay? Stream generator object. And you already studied it inside Python. If you're getting the generator object, I can use any kinds of iterator to get the output. And what is the iterator? We can use for loop here, okay? Uh for loop will try to iterate the output one by one here, okay? Instead of getting everything in one shot, it will take one by one. So, for this, I will just write a for loop. So, now I can write like that instead of uh going through the response, maybe I can write the for loop here only. I think that would be amazing. So, for I told you it will return two things I told you. One is the message chunk and it will return the metadata. Okay? In chatbot.stream Okay? Now, I'll keep this one. Mhm. Yeah. Now, here I'll I'll write a condition. If uh let's say message message chunk message chunk um dot content, okay? I will extract the content only, okay? If there is a content Sorry, content. Content I'll just try to print this content. So, print message chunk dot content, okay? And here I will give some other parameter like end is equal to this empty string and uh and I will give this splash is equal to true. Okay, these two things you have to give. If you check the documentation, they have written the same thing, okay? Now, let me show you how this output would be generated. Now, I'll again I'll execute my test.py. Now, see. It is giving you token by token as a streaming output, okay? I think you saw the difference. And that's how we can um implement the streaming features inside LangGraph. Okay? I hope you clear. Now, the same thing uh you have to also do in the user interface because user interface uh we created, this should also show as a streaming output. And how we have done, guys? Uh I think I already written the code. Let me show you. See, it is available in the app.py. So, here is the code, guys, okay? We written already. Now, we are using something called um this one. Write a stream here. From Streamlit, we're using write a stream. So, if you go to the Streamlit documentation, as you can see, Streamlit is having a chat element. So, it is having multiple chat element like chat input, chat message, status container, and there is another one called write a stream, okay? If you check the write a stream, so they have already written like how to um actually write this particular use this particular write a stream, okay? So, we are using this write a stream here. Let me show you. We're using this right a stream. So inside that we have written the same code where um instead of doing the invoking operation we're doing the streaming operation. We're giving the input config and stream. And we are running the for loop. It is returning two things, message chunks and metadata. We're only taking the message chunks. Okay? And once we got the message chunks what we're doing guys we're just writing the stream on the Streamlit con Streamlit user interface. And once everything is done we're updating inside this uh message story inside uh Streamlit session state. Okay? This is a simple code we have written. Now I think this code is clear guys. Okay? How I have written. So I think many people has the confusion how these things are working. Now I think this is clear. Now let me show you the final execution. I'll clear. I'll run my app.py so Streamlit run app.py. So this is our app. Now I'll give generate generate let's say code for image classification in Python. Now see. Okay? See streaming output we are getting. So yes guys this is all about from this video. I hope you got it what is the streaming and why it is required and why we have implemented inside our chatbot. So please try to go through the entire playlist if you haven't checked it out because all the videos are interconnected with each other. If you missed out any session so I think you might get difficulties for sure uh in my future video. So yes now in the next video guys I'm going to uh I'm going to show you another uh new things we'll be adding inside our chatbot. So I already told you we'll try to make this agentic chatbot more advanced, we'll try to add new new component, new new features, okay? In as a part by part. So, yes, I'll connect you with the next video, guys. This is all about from this video. Thanks for watching, guys.",
+  "segments": [
+    {
+      "start": 0.56,
+      "end": 3.44,
+      "text": "Hi guys."
+    },
+    {
+      "start": 1.84,
+      "end": 5.72,
+      "text": "My name is Bapi Ahmed and you are"
+    },
+    {
+      "start": 3.44,
+      "end": 8.56,
+      "text": "welcome to my YouTube channel."
+    },
+    {
+      "start": 5.72,
+      "end": 11.36,
+      "text": "So guys, we are continuing with our"
+    },
+    {
+      "start": 8.56,
+      "end": 13.24,
+      "text": "agentic chatbot implementation"
+    },
+    {
+      "start": 11.36,
+      "end": 15.84,
+      "text": "with the help of LangGraph."
+    },
+    {
+      "start": 13.24,
+      "end": 18.72,
+      "text": "And this is the part of our"
+    },
+    {
+      "start": 15.84,
+      "end": 20.48,
+      "text": "complete agentic AI course playlist on"
+    },
+    {
+      "start": 18.72,
+      "end": 24.2,
+      "text": "my YouTube channel."
+    },
+    {
+      "start": 20.48,
+      "end": 25.96,
+      "text": "So this is the part three of our agentic"
+    },
+    {
+      "start": 24.2,
+      "end": 28.32,
+      "text": "chatbot implementation."
+    },
+    {
+      "start": 25.96,
+      "end": 30.12,
+      "text": "And we have already covered part one and"
+    },
+    {
+      "start": 28.32,
+      "end": 32.2,
+      "text": "part two. As you can see in the part"
+    },
+    {
+      "start": 30.12,
+      "end": 34.76,
+      "text": "one, I already showed you like how we"
+    },
+    {
+      "start": 32.2,
+      "end": 37.800000000000004,
+      "text": "can implement this agentic chatbot"
+    },
+    {
+      "start": 34.76,
+      "end": 39.36,
+      "text": "workflow. So we have created our basic"
+    },
+    {
+      "start": 37.8,
+      "end": 41.519999999999996,
+      "text": "skeleton basic"
+    },
+    {
+      "start": 39.36,
+      "end": 43.8,
+      "text": "agentic chatbot workflow. So here you"
+    },
+    {
+      "start": 41.52,
+      "end": 46.080000000000005,
+      "text": "can perform any kinds of chat operation"
+    },
+    {
+      "start": 43.8,
+      "end": 48.879999999999995,
+      "text": "right now. So let's see if I"
+    },
+    {
+      "start": 46.08,
+      "end": 51.68,
+      "text": "give a message uh"
+    },
+    {
+      "start": 48.88,
+      "end": 55.0,
+      "text": "generate a"
+    },
+    {
+      "start": 51.68,
+      "end": 56.36,
+      "text": "blog about"
+    },
+    {
+      "start": 55.0,
+      "end": 58.92,
+      "text": "let's say"
+    },
+    {
+      "start": 56.36,
+      "end": 58.92,
+      "text": "Python."
+    },
+    {
+      "start": 60.04,
+      "end": 63.8,
+      "text": "So if I"
+    },
+    {
+      "start": 61.52,
+      "end": 65.8,
+      "text": "send this prompt, now see it is able to"
+    },
+    {
+      "start": 63.8,
+      "end": 68.52,
+      "text": "generate the blog, okay?"
+    },
+    {
+      "start": 65.8,
+      "end": 70.44,
+      "text": "So we have already created this kinds of"
+    },
+    {
+      "start": 68.52,
+      "end": 72.24,
+      "text": "skeleton, this kinds of workflow like"
+    },
+    {
+      "start": 70.44,
+      "end": 73.2,
+      "text": "chat workflow and everything is working"
+    },
+    {
+      "start": 72.24,
+      "end": 75.47999999999999,
+      "text": "fine."
+    },
+    {
+      "start": 73.2,
+      "end": 77.76,
+      "text": "And I think you remember in my first"
+    },
+    {
+      "start": 75.48,
+      "end": 79.64,
+      "text": "video that means in the first part I"
+    },
+    {
+      "start": 77.76,
+      "end": 81.92,
+      "text": "showed you how we can add the streaming"
+    },
+    {
+      "start": 79.64,
+      "end": 83.72,
+      "text": "feature as well, okay? Streaming feature"
+    },
+    {
+      "start": 81.92,
+      "end": 85.92,
+      "text": "means you saw like it was a streaming"
+    },
+    {
+      "start": 83.72,
+      "end": 87.76,
+      "text": "kinds of output it was giving me like"
+    },
+    {
+      "start": 85.92,
+      "end": 90.24000000000001,
+      "text": "ChatGPT, okay?"
+    },
+    {
+      "start": 87.76,
+      "end": 92.76,
+      "text": "Now in this video guys, I'm going to"
+    },
+    {
+      "start": 90.24,
+      "end": 94.67999999999999,
+      "text": "just deep dive into this streaming like"
+    },
+    {
+      "start": 92.76,
+      "end": 96.32000000000001,
+      "text": "what this streaming is and why it is"
+    },
+    {
+      "start": 94.68,
+      "end": 98.28,
+      "text": "required and we'll also try to"
+    },
+    {
+      "start": 96.32,
+      "end": 100.36,
+      "text": "understand if we don't use this kinds of"
+    },
+    {
+      "start": 98.28,
+      "end": 102.4,
+      "text": "streaming features inside our agentic"
+    },
+    {
+      "start": 100.36,
+      "end": 104.16,
+      "text": "chatbot or any other agentic application"
+    },
+    {
+      "start": 102.4,
+      "end": 106.36,
+      "text": "you are creating, so what should be the"
+    },
+    {
+      "start": 104.16,
+      "end": 108.28,
+      "text": "issue, okay? We'll try to understand"
+    },
+    {
+      "start": 106.36,
+      "end": 110.24,
+      "text": "each and everything in detail. Because I"
+    },
+    {
+      "start": 108.28,
+      "end": 112.4,
+      "text": "already told you this is going to be a"
+    },
+    {
+      "start": 110.24,
+      "end": 114.91999999999999,
+      "text": "in detailed course guys. Here I'm not"
+    },
+    {
+      "start": 112.4,
+      "end": 117.60000000000001,
+      "text": "going to skip anything. Everything I'm"
+    },
+    {
+      "start": 114.92,
+      "end": 119.16,
+      "text": "going to explain in detail. That's why I"
+    },
+    {
+      "start": 117.6,
+      "end": 121.03999999999999,
+      "text": "decided to"
+    },
+    {
+      "start": 119.16,
+      "end": 123.16,
+      "text": "make this particular agentic chatbot"
+    },
+    {
+      "start": 121.04,
+      "end": 125.2,
+      "text": "part by part instead of recording"
+    },
+    {
+      "start": 123.16,
+      "end": 126.64,
+      "text": "everything in one video. I want to"
+    },
+    {
+      "start": 125.2,
+      "end": 129.119,
+      "text": "create multiple video and I want to"
+    },
+    {
+      "start": 126.64,
+      "end": 131.32,
+      "text": "explain everything, okay?"
+    },
+    {
+      "start": 129.119,
+      "end": 133.36,
+      "text": "Like part by part. Then later on I will"
+    },
+    {
+      "start": 131.32,
+      "end": 135.28,
+      "text": "show you other projects, other some real"
+    },
+    {
+      "start": 133.36,
+      "end": 138.04000000000002,
+      "text": "world projects. There I'm going to show"
+    },
+    {
+      "start": 135.28,
+      "end": 139.44,
+      "text": "you each and every like implementation,"
+    },
+    {
+      "start": 138.04,
+      "end": 142.16,
+      "text": "each and every component in a single"
+    },
+    {
+      "start": 139.44,
+      "end": 144.2,
+      "text": "video itself, okay? But I'm considering"
+    },
+    {
+      "start": 142.16,
+      "end": 145.84,
+      "text": "we are beginner, okay? We just started"
+    },
+    {
+      "start": 144.2,
+      "end": 148.67999999999998,
+      "text": "with agentic AI. And this is our first"
+    },
+    {
+      "start": 145.84,
+      "end": 150.68,
+      "text": "project. That's why I'll be"
+    },
+    {
+      "start": 148.68,
+      "end": 152.72,
+      "text": "recording this particular project part"
+    },
+    {
+      "start": 150.68,
+      "end": 155.68,
+      "text": "by part, okay? So that you won't be"
+    },
+    {
+      "start": 152.72,
+      "end": 157.8,
+      "text": "having any kinds of doubt or confusion"
+    },
+    {
+      "start": 155.68,
+      "end": 160.4,
+      "text": "going forward whenever we'll be creating"
+    },
+    {
+      "start": 157.8,
+      "end": 162.12,
+      "text": "more projects, okay? I hope it's clear."
+    },
+    {
+      "start": 160.4,
+      "end": 163.52,
+      "text": "So if you haven't checked this playlist,"
+    },
+    {
+      "start": 162.12,
+      "end": 164.6,
+      "text": "guys, please try to check. I have"
+    },
+    {
+      "start": 163.52,
+      "end": 166.20000000000002,
+      "text": "already given the link in my"
+    },
+    {
+      "start": 164.6,
+      "end": 168.2,
+      "text": "description. From there you can check"
+    },
+    {
+      "start": 166.2,
+      "end": 170.16,
+      "text": "and if you found this useful, guys,"
+    },
+    {
+      "start": 168.2,
+      "end": 172.48,
+      "text": "please try to subscribe to my channel"
+    },
+    {
+      "start": 170.16,
+      "end": 173.76,
+      "text": "and hit the like definitely and please"
+    },
+    {
+      "start": 172.48,
+      "end": 174.88,
+      "text": "try to share it with your friends and"
+    },
+    {
+      "start": 173.76,
+      "end": 177.07999999999998,
+      "text": "family."
+    },
+    {
+      "start": 174.88,
+      "end": 179.2,
+      "text": "So guys, we'll try to continue with our"
+    },
+    {
+      "start": 177.08,
+      "end": 180.92000000000002,
+      "text": "discussion of the streaming features"
+    },
+    {
+      "start": 179.2,
+      "end": 183.44,
+      "text": "inside uh"
+    },
+    {
+      "start": 180.92,
+      "end": 184.92,
+      "text": "agentic chatbot. And if you are using"
+    },
+    {
+      "start": 183.44,
+      "end": 186.32,
+      "text": "LangGraph, guys,"
+    },
+    {
+      "start": 184.92,
+      "end": 188.88,
+      "text": "by default inside LangGraph the"
+    },
+    {
+      "start": 186.32,
+      "end": 190.519,
+      "text": "streaming features is available, okay?"
+    },
+    {
+      "start": 188.88,
+      "end": 192.12,
+      "text": "With the help of that you can easily"
+    },
+    {
+      "start": 190.519,
+      "end": 193.84,
+      "text": "create the streaming features. So for"
+    },
+    {
+      "start": 192.12,
+      "end": 195.92000000000002,
+      "text": "this you can go to the documentation of"
+    },
+    {
+      "start": 193.84,
+      "end": 197.959,
+      "text": "this LangGraph. So there they have given"
+    },
+    {
+      "start": 195.92,
+      "end": 200.28,
+      "text": "some code example, okay? But let me"
+    },
+    {
+      "start": 197.959,
+      "end": 201.68,
+      "text": "first of all show you my code example,"
+    },
+    {
+      "start": 200.28,
+      "end": 203.519,
+      "text": "okay? Then after that you can go through"
+    },
+    {
+      "start": 201.68,
+      "end": 205.16,
+      "text": "the entire documentation, okay? And you"
+    },
+    {
+      "start": 203.519,
+      "end": 206.32,
+      "text": "can understand about the streaming,"
+    },
+    {
+      "start": 205.16,
+      "end": 208.04,
+      "text": "okay?"
+    },
+    {
+      "start": 206.32,
+      "end": 211.07999999999998,
+      "text": "So yes, this is the application, guys,"
+    },
+    {
+      "start": 208.04,
+      "end": 213.04,
+      "text": "we created the first part of our video."
+    },
+    {
+      "start": 211.08,
+      "end": 215.60000000000002,
+      "text": "And second part I discussed about the"
+    },
+    {
+      "start": 213.04,
+      "end": 217.84,
+      "text": "persistence concept inside our agentic"
+    },
+    {
+      "start": 215.6,
+      "end": 220.76,
+      "text": "chatbot, why persistence is required. We"
+    },
+    {
+      "start": 217.84,
+      "end": 222.48,
+      "text": "added the persistence memory, right? Uh"
+    },
+    {
+      "start": 220.76,
+      "end": 224.35999999999999,
+      "text": "so each and everything I have already"
+    },
+    {
+      "start": 222.48,
+      "end": 226.23899999999998,
+      "text": "discussed in the second part of this"
+    },
+    {
+      "start": 224.36,
+      "end": 227.48000000000002,
+      "text": "agentic chatbot. If you haven't check it"
+    },
+    {
+      "start": 226.239,
+      "end": 230.56,
+      "text": "out, please try to check that video"
+    },
+    {
+      "start": 227.48,
+      "end": 233.11999999999998,
+      "text": "also. Yeah. So guys, see, if I'm not"
+    },
+    {
+      "start": 230.56,
+      "end": 234.6,
+      "text": "using the streaming features, so how my"
+    },
+    {
+      "start": 233.12,
+      "end": 236.56,
+      "text": "chatbot will look like? First of all,"
+    },
+    {
+      "start": 234.6,
+      "end": 238.32,
+      "text": "let me show you. So guys, as you can"
+    },
+    {
+      "start": 236.56,
+      "end": 241.32,
+      "text": "see, this is the code we have already"
+    },
+    {
+      "start": 238.32,
+      "end": 244.23999999999998,
+      "text": "written for this agentic chatbot, and"
+    },
+    {
+      "start": 241.32,
+      "end": 246.0,
+      "text": "this is our first initial workflow we"
+    },
+    {
+      "start": 244.24,
+      "end": 248.16,
+      "text": "have created, okay?"
+    },
+    {
+      "start": 246.0,
+      "end": 249.32,
+      "text": "This is the chatbot workflow we have"
+    },
+    {
+      "start": 248.16,
+      "end": 251.4,
+      "text": "created."
+    },
+    {
+      "start": 249.32,
+      "end": 254.0,
+      "text": "And here, if you just go to the last"
+    },
+    {
+      "start": 251.4,
+      "end": 255.48000000000002,
+      "text": "part, so here I already discussed about"
+    },
+    {
+      "start": 254.0,
+      "end": 258.2,
+      "text": "the streaming, okay? How to add the"
+    },
+    {
+      "start": 255.48,
+      "end": 260.88,
+      "text": "streaming features. But yeah, I think in"
+    },
+    {
+      "start": 258.2,
+      "end": 262.56,
+      "text": "the first part, you might have some"
+    },
+    {
+      "start": 260.88,
+      "end": 264.68,
+      "text": "kinds of confusion, like how we have"
+    },
+    {
+      "start": 262.56,
+      "end": 266.6,
+      "text": "added this particular stream stream"
+    },
+    {
+      "start": 264.68,
+      "end": 268.04,
+      "text": "features here. So, in this particular"
+    },
+    {
+      "start": 266.6,
+      "end": 269.91900000000004,
+      "text": "video, I'm going to clarify each and"
+    },
+    {
+      "start": 268.04,
+      "end": 271.64000000000004,
+      "text": "everything, then I think this would be"
+    },
+    {
+      "start": 269.919,
+      "end": 273.84,
+      "text": "more clear, okay?"
+    },
+    {
+      "start": 271.64,
+      "end": 276.15999999999997,
+      "text": "So, here what I'm going to do, guys,"
+    },
+    {
+      "start": 273.84,
+      "end": 278.23999999999995,
+      "text": "let me show you the non-streaming"
+    },
+    {
+      "start": 276.16,
+      "end": 279.91900000000004,
+      "text": "like features first of all. So, I think"
+    },
+    {
+      "start": 278.24,
+      "end": 281.44,
+      "text": "this code is also common. Initially, I"
+    },
+    {
+      "start": 279.919,
+      "end": 283.47999999999996,
+      "text": "also created this code, and you"
+    },
+    {
+      "start": 281.44,
+      "end": 285.4,
+      "text": "remember, there I'm not using any kinds"
+    },
+    {
+      "start": 283.48,
+      "end": 286.91900000000004,
+      "text": "of streaming features, okay? So, what"
+    },
+    {
+      "start": 285.4,
+      "end": 290.52,
+      "text": "I'm doing, I'm just generating the"
+    },
+    {
+      "start": 286.919,
+      "end": 292.4,
+      "text": "response. After that, I was um"
+    },
+    {
+      "start": 290.52,
+      "end": 294.76,
+      "text": "like waiting for the entire response."
+    },
+    {
+      "start": 292.4,
+      "end": 297.28,
+      "text": "Once I got the response, I was just"
+    },
+    {
+      "start": 294.76,
+      "end": 299.4,
+      "text": "showing on the Streamlit user interface."
+    },
+    {
+      "start": 297.28,
+      "end": 300.919,
+      "text": "So, if I execute this particular file,"
+    },
+    {
+      "start": 299.4,
+      "end": 303.84,
+      "text": "let me show you."
+    },
+    {
+      "start": 300.919,
+      "end": 307.03999999999996,
+      "text": "So, I'll stop my app.py, and I will"
+    },
+    {
+      "start": 303.84,
+      "end": 310.08,
+      "text": "execute this non-stream.py."
+    },
+    {
+      "start": 307.04,
+      "end": 311.56,
+      "text": "So, I'll just write Streamlit."
+    },
+    {
+      "start": 310.08,
+      "end": 312.8,
+      "text": "Okay, Streamlit."
+    },
+    {
+      "start": 311.56,
+      "end": 315.12,
+      "text": "Run"
+    },
+    {
+      "start": 312.8,
+      "end": 317.04,
+      "text": "non-stream.py."
+    },
+    {
+      "start": 315.12,
+      "end": 319.16,
+      "text": "Now, if I hit enter,"
+    },
+    {
+      "start": 317.04,
+      "end": 320.64000000000004,
+      "text": "so this will load my application. Now"
+    },
+    {
+      "start": 319.16,
+      "end": 322.84000000000003,
+      "text": "here, let's see if I give the same"
+    },
+    {
+      "start": 320.64,
+      "end": 324.96,
+      "text": "prompt, generate"
+    },
+    {
+      "start": 322.84,
+      "end": 327.64,
+      "text": "a blog"
+    },
+    {
+      "start": 324.96,
+      "end": 331.08,
+      "text": "about"
+    },
+    {
+      "start": 327.64,
+      "end": 333.08,
+      "text": "Okay, about let's say"
+    },
+    {
+      "start": 331.08,
+      "end": 335.84,
+      "text": "I'll give um"
+    },
+    {
+      "start": 333.08,
+      "end": 335.84,
+      "text": "machine learning."
+    },
+    {
+      "start": 338.2,
+      "end": 343.84,
+      "text": "Now see, if I give this prompt,"
+    },
+    {
+      "start": 340.84,
+      "end": 346.84,
+      "text": "now see, here we have to wait, right? We"
+    },
+    {
+      "start": 343.84,
+      "end": 348.71999999999997,
+      "text": "have to wait uh, the execution. Now see,"
+    },
+    {
+      "start": 346.84,
+      "end": 350.79999999999995,
+      "text": "so here I think you have observed uh, we"
+    },
+    {
+      "start": 348.72,
+      "end": 353.56,
+      "text": "had to wait uh, unless and until this"
+    },
+    {
+      "start": 350.8,
+      "end": 356.12,
+      "text": "output got generated here. Uh, so let's"
+    },
+    {
+      "start": 353.56,
+      "end": 358.48,
+      "text": "say if you are generating uh, some more"
+    },
+    {
+      "start": 356.12,
+      "end": 360.64,
+      "text": "uh, let's say content here, some more"
+    },
+    {
+      "start": 358.48,
+      "end": 363.44,
+      "text": "big content, that time it will take some"
+    },
+    {
+      "start": 360.64,
+      "end": 366.08,
+      "text": "time. Maybe it it can take let's say"
+    },
+    {
+      "start": 363.44,
+      "end": 368.2,
+      "text": "30 seconds, 60 seconds, okay? It depends"
+    },
+    {
+      "start": 366.08,
+      "end": 369.84,
+      "text": "upon your uh, output or the prompt you"
+    },
+    {
+      "start": 368.2,
+      "end": 372.15999999999997,
+      "text": "are giving. Let's say we're running an"
+    },
+    {
+      "start": 369.84,
+      "end": 374.47999999999996,
+      "text": "agent and it that agent is taking time."
+    },
+    {
+      "start": 372.16,
+      "end": 376.64000000000004,
+      "text": "It is using some kinds of tool, okay?"
+    },
+    {
+      "start": 374.48,
+      "end": 378.44,
+      "text": "So, uh, in between actually it will do"
+    },
+    {
+      "start": 376.64,
+      "end": 380.32,
+      "text": "lots of work and you have to wait for"
+    },
+    {
+      "start": 378.44,
+      "end": 382.4,
+      "text": "the execution. So, this is not good,"
+    },
+    {
+      "start": 380.32,
+      "end": 385.52,
+      "text": "right? Uh, this is not good uh, user"
+    },
+    {
+      "start": 382.4,
+      "end": 388.12,
+      "text": "experience. So, if I open Chat GPT,"
+    },
+    {
+      "start": 385.52,
+      "end": 389.79999999999995,
+      "text": "okay? If I open Chat GPT, in Chat GPT,"
+    },
+    {
+      "start": 388.12,
+      "end": 391.28000000000003,
+      "text": "if you give any kinds of prompt, let's"
+    },
+    {
+      "start": 389.8,
+      "end": 394.44,
+      "text": "say I will give the same prompt in the"
+    },
+    {
+      "start": 391.28,
+      "end": 395.88,
+      "text": "Chat GPT, okay? You'll see that Chat GPT"
+    },
+    {
+      "start": 394.44,
+      "end": 397.68,
+      "text": "also will give you some kinds of"
+    },
+    {
+      "start": 395.88,
+      "end": 399.36,
+      "text": "streaming response. See, this is giving"
+    },
+    {
+      "start": 397.68,
+      "end": 401.84000000000003,
+      "text": "you a streaming response one by one,"
+    },
+    {
+      "start": 399.36,
+      "end": 403.76,
+      "text": "right? And this is more interactive,"
+    },
+    {
+      "start": 401.84,
+      "end": 405.35999999999996,
+      "text": "right? This is more interactive because"
+    },
+    {
+      "start": 403.76,
+      "end": 407.96,
+      "text": "we don't need to wait for the entire"
+    },
+    {
+      "start": 405.36,
+      "end": 409.64,
+      "text": "execution to be completed, okay? Whether"
+    },
+    {
+      "start": 407.96,
+      "end": 411.68,
+      "text": "it is using any kinds of tool, whether"
+    },
+    {
+      "start": 409.64,
+      "end": 413.64,
+      "text": "it is uh, doing the reasoning operation,"
+    },
+    {
+      "start": 411.68,
+      "end": 416.08,
+      "text": "it doesn't matter, but I'm able to see"
+    },
+    {
+      "start": 413.64,
+      "end": 418.52,
+      "text": "my output token by token, okay? So, this"
+    },
+    {
+      "start": 416.08,
+      "end": 420.12,
+      "text": "is good user experience here, but inside"
+    },
+    {
+      "start": 418.52,
+      "end": 422.71999999999997,
+      "text": "this particular application, this is not"
+    },
+    {
+      "start": 420.12,
+      "end": 424.28000000000003,
+      "text": "good experience. So, if I uh, give this"
+    },
+    {
+      "start": 422.72,
+      "end": 425.91900000000004,
+      "text": "kinds of prompt, so what is happening?"
+    },
+    {
+      "start": 424.28,
+      "end": 429.32,
+      "text": "It is taking some time, right? That's"
+    },
+    {
+      "start": 425.919,
+      "end": 432.0,
+      "text": "why I'll give right now deep learning."
+    },
+    {
+      "start": 429.32,
+      "end": 433.71999999999997,
+      "text": "See, it's taking lots of time. So, this"
+    },
+    {
+      "start": 432.0,
+      "end": 435.12,
+      "text": "is not a good experience, okay? So,"
+    },
+    {
+      "start": 433.72,
+      "end": 436.8,
+      "text": "that's why streaming feature is"
+    },
+    {
+      "start": 435.12,
+      "end": 438.919,
+      "text": "required, okay? Streaming feature is"
+    },
+    {
+      "start": 436.8,
+      "end": 441.24,
+      "text": "required. Now, let's try to understand"
+    },
+    {
+      "start": 438.919,
+      "end": 443.08,
+      "text": "what is streaming exactly and why it is"
+    },
+    {
+      "start": 441.24,
+      "end": 444.88,
+      "text": "important inside our application"
+    },
+    {
+      "start": 443.08,
+      "end": 446.919,
+      "text": "development. So, guys, first of all,"
+    },
+    {
+      "start": 444.88,
+      "end": 448.4,
+      "text": "let's try to understand uh, what is"
+    },
+    {
+      "start": 446.919,
+      "end": 451.2,
+      "text": "streaming. So, here I have already"
+    },
+    {
+      "start": 448.4,
+      "end": 454.44,
+      "text": "written a definition. In LLM, streaming"
+    },
+    {
+      "start": 451.2,
+      "end": 456.88,
+      "text": "means the model starts sending tokens,"
+    },
+    {
+      "start": 454.44,
+      "end": 458.68,
+      "text": "uh, that means word, as soon as they"
+    },
+    {
+      "start": 456.88,
+      "end": 461.68,
+      "text": "they are generated instead of waiting"
+    },
+    {
+      "start": 458.68,
+      "end": 464.08,
+      "text": "for the entire response to be ready"
+    },
+    {
+      "start": 461.68,
+      "end": 466.12,
+      "text": "before returning it, okay? See, what"
+    },
+    {
+      "start": 464.08,
+      "end": 467.84,
+      "text": "happens whenever we are using any kinds"
+    },
+    {
+      "start": 466.12,
+      "end": 471.36,
+      "text": "of large language model,"
+    },
+    {
+      "start": 467.84,
+      "end": 474.0,
+      "text": "it generates the output as token by"
+    },
+    {
+      "start": 471.36,
+      "end": 475.6,
+      "text": "token or word by word, okay? So,"
+    },
+    {
+      "start": 474.0,
+      "end": 477.04,
+      "text": "whenever let's say we invoke any kinds"
+    },
+    {
+      "start": 475.6,
+      "end": 478.92,
+      "text": "of large language model, let's say this"
+    },
+    {
+      "start": 477.04,
+      "end": 480.68,
+      "text": "is our LLM,"
+    },
+    {
+      "start": 478.92,
+      "end": 483.92,
+      "text": "and we are giving some kinds of prompt"
+    },
+    {
+      "start": 480.68,
+      "end": 484.92,
+      "text": "here, and we get a response here, okay?"
+    },
+    {
+      "start": 483.92,
+      "end": 487.32,
+      "text": "So,"
+    },
+    {
+      "start": 484.92,
+      "end": 489.24,
+      "text": "what you can do, either you can get this"
+    },
+    {
+      "start": 487.32,
+      "end": 492.59999999999997,
+      "text": "response in one shot, that means you"
+    },
+    {
+      "start": 489.24,
+      "end": 494.88,
+      "text": "have to wait uh for the entire output to"
+    },
+    {
+      "start": 492.6,
+      "end": 497.72,
+      "text": "be generated, okay? For this, we use"
+    },
+    {
+      "start": 494.88,
+      "end": 499.12,
+      "text": "something called invoke function, okay?"
+    },
+    {
+      "start": 497.72,
+      "end": 501.72,
+      "text": "Invoke function, I think you already"
+    },
+    {
+      "start": 499.12,
+      "end": 504.0,
+      "text": "know that we are using, okay? So far."
+    },
+    {
+      "start": 501.72,
+      "end": 505.40000000000003,
+      "text": "So, invoke, what it does, it will uh"
+    },
+    {
+      "start": 504.0,
+      "end": 507.04,
+      "text": "wait for"
+    },
+    {
+      "start": 505.4,
+      "end": 509.03999999999996,
+      "text": "the entire output to be generated, but"
+    },
+    {
+      "start": 507.04,
+      "end": 510.84000000000003,
+      "text": "LLM will try to generate the output as"
+    },
+    {
+      "start": 509.04,
+      "end": 513.2,
+      "text": "token by token. Let's say it is"
+    },
+    {
+      "start": 510.84,
+      "end": 514.68,
+      "text": "generating something. So, first of all,"
+    },
+    {
+      "start": 513.2,
+      "end": 516.2,
+      "text": "uh one token will come, then another"
+    },
+    {
+      "start": 514.68,
+      "end": 518.159,
+      "text": "token will come, another token will"
+    },
+    {
+      "start": 516.2,
+      "end": 520.2,
+      "text": "come, okay? That's how it will complete"
+    },
+    {
+      "start": 518.159,
+      "end": 521.88,
+      "text": "the entire execution, okay? That's"
+    },
+    {
+      "start": 520.2,
+      "end": 523.76,
+      "text": "That's how it will complete the entire"
+    },
+    {
+      "start": 521.88,
+      "end": 526.0,
+      "text": "execution, then you will be able to see"
+    },
+    {
+      "start": 523.76,
+      "end": 527.92,
+      "text": "the response. But, in streaming"
+    },
+    {
+      "start": 526.0,
+      "end": 530.6,
+      "text": "actually, what we do, we use something"
+    },
+    {
+      "start": 527.92,
+      "end": 533.4399999999999,
+      "text": "called stream function. Instead of"
+    },
+    {
+      "start": 530.6,
+      "end": 535.32,
+      "text": "uh invoke, we use dot stream function."
+    },
+    {
+      "start": 533.44,
+      "end": 536.7600000000001,
+      "text": "Uh this is already a default inside"
+    },
+    {
+      "start": 535.32,
+      "end": 538.32,
+      "text": "LangGraph."
+    },
+    {
+      "start": 536.76,
+      "end": 540.72,
+      "text": "Whenever we are defining any kinds of"
+    },
+    {
+      "start": 538.32,
+      "end": 542.5600000000001,
+      "text": "graph object, right? And uh you remember"
+    },
+    {
+      "start": 540.72,
+      "end": 544.0,
+      "text": "we we are doing the invoking operations."
+    },
+    {
+      "start": 542.56,
+      "end": 546.2399999999999,
+      "text": "Instead of invoking operation, we have"
+    },
+    {
+      "start": 544.0,
+      "end": 548.2,
+      "text": "to perform dot stream operation. So, if"
+    },
+    {
+      "start": 546.24,
+      "end": 549.839,
+      "text": "you do dot stream operation, so what"
+    },
+    {
+      "start": 548.2,
+      "end": 551.48,
+      "text": "will happen that time, you will be"
+    },
+    {
+      "start": 549.839,
+      "end": 553.8000000000001,
+      "text": "getting this particular output as a"
+    },
+    {
+      "start": 551.48,
+      "end": 555.6,
+      "text": "token by token or word by word as soon"
+    },
+    {
+      "start": 553.8,
+      "end": 558.0,
+      "text": "as they are generated, okay? Instead of"
+    },
+    {
+      "start": 555.6,
+      "end": 560.0,
+      "text": "waiting for the entire response to be"
+    },
+    {
+      "start": 558.0,
+      "end": 562.04,
+      "text": "ready before returning it, okay? So,"
+    },
+    {
+      "start": 560.0,
+      "end": 564.32,
+      "text": "this is what actually your streaming is."
+    },
+    {
+      "start": 562.04,
+      "end": 566.64,
+      "text": "I think you already saw inside ChatGPT,"
+    },
+    {
+      "start": 564.32,
+      "end": 568.9200000000001,
+      "text": "okay? ChatGPT, it was generating token"
+    },
+    {
+      "start": 566.64,
+      "end": 570.36,
+      "text": "by token. Let me show you again. So,"
+    },
+    {
+      "start": 568.92,
+      "end": 572.4,
+      "text": "maybe I can"
+    },
+    {
+      "start": 570.36,
+      "end": 575.12,
+      "text": "give another prompt. So, I'll give,"
+    },
+    {
+      "start": 572.4,
+      "end": 576.8389999999999,
+      "text": "let's say, let's generate a blog about"
+    },
+    {
+      "start": 575.12,
+      "end": 579.0,
+      "text": "deep learning. Now, see, it will"
+    },
+    {
+      "start": 576.839,
+      "end": 581.08,
+      "text": "generate the output token by token. You"
+    },
+    {
+      "start": 579.0,
+      "end": 583.36,
+      "text": "can see token by token it is generating."
+    },
+    {
+      "start": 581.08,
+      "end": 585.32,
+      "text": "Okay? Now, I think this definition is"
+    },
+    {
+      "start": 583.36,
+      "end": 588.6,
+      "text": "pretty much clear. Now, let's try to"
+    },
+    {
+      "start": 585.32,
+      "end": 590.72,
+      "text": "understand uh why this uh streaming is"
+    },
+    {
+      "start": 588.6,
+      "end": 593.28,
+      "text": "required, okay? You can see the first"
+    },
+    {
+      "start": 590.72,
+      "end": 597.36,
+      "text": "point, uh faster response time and low"
+    },
+    {
+      "start": 593.28,
+      "end": 599.16,
+      "text": "drop-off rates, okay? I think by this uh"
+    },
+    {
+      "start": 597.36,
+      "end": 602.16,
+      "text": "point itself, you can understand what"
+    },
+    {
+      "start": 599.16,
+      "end": 602.9599999999999,
+      "text": "I'm trying to say. Uh faster time time"
+    },
+    {
+      "start": 602.16,
+      "end": 604.4,
+      "text": "res-"
+    },
+    {
+      "start": 602.96,
+      "end": 606.2,
+      "text": "uh response time is, let's say, whenever"
+    },
+    {
+      "start": 604.4,
+      "end": 608.68,
+      "text": "I'm using any kinds of chatbot. Let's"
+    },
+    {
+      "start": 606.2,
+      "end": 611.8000000000001,
+      "text": "say I'm using ChatGPT, okay? I'm using"
+    },
+    {
+      "start": 608.68,
+      "end": 614.3199999999999,
+      "text": "ChatGPT or any other thing. Uh so, there"
+    },
+    {
+      "start": 611.8,
+      "end": 616.52,
+      "text": "I definitely need a faster response. So,"
+    },
+    {
+      "start": 614.32,
+      "end": 619.12,
+      "text": "if it is not giving faster response,"
+    },
+    {
+      "start": 616.52,
+      "end": 621.0799999999999,
+      "text": "that time, like I won't be getting"
+    },
+    {
+      "start": 619.12,
+      "end": 623.64,
+      "text": "interest, right? To use this particular"
+    },
+    {
+      "start": 621.08,
+      "end": 625.76,
+      "text": "application because nowadays, time is"
+    },
+    {
+      "start": 623.64,
+      "end": 627.72,
+      "text": "expensive, right? Time is expensive and"
+    },
+    {
+      "start": 625.76,
+      "end": 629.6,
+      "text": "and nowadays, people don't have that"
+    },
+    {
+      "start": 627.72,
+      "end": 631.76,
+      "text": "much of time so that they will wait for"
+    },
+    {
+      "start": 629.6,
+      "end": 633.5600000000001,
+      "text": "the entire execution, okay? That is"
+    },
+    {
+      "start": 631.76,
+      "end": 635.68,
+      "text": "taking 1 minute to run. So, they don't"
+    },
+    {
+      "start": 633.56,
+      "end": 637.88,
+      "text": "have that much of time. They will wait"
+    },
+    {
+      "start": 635.68,
+      "end": 640.16,
+      "text": "and they will get the let's say entire"
+    },
+    {
+      "start": 637.88,
+      "end": 641.76,
+      "text": "output, okay? So, they need a faster"
+    },
+    {
+      "start": 640.16,
+      "end": 643.16,
+      "text": "response. So, definitely, faster"
+    },
+    {
+      "start": 641.76,
+      "end": 644.56,
+      "text": "response is required whenever you are"
+    },
+    {
+      "start": 643.16,
+      "end": 646.52,
+      "text": "creating any kinds of application,"
+    },
+    {
+      "start": 644.56,
+      "end": 648.3199999999999,
+      "text": "whether you are creating chatbot,"
+    },
+    {
+      "start": 646.52,
+      "end": 650.3199999999999,
+      "text": "whether you are creating AI agents,"
+    },
+    {
+      "start": 648.32,
+      "end": 652.12,
+      "text": "okay? Anything you are creating, faster"
+    },
+    {
+      "start": 650.32,
+      "end": 653.72,
+      "text": "response is required. Otherwise, what"
+    },
+    {
+      "start": 652.12,
+      "end": 655.839,
+      "text": "will happen?"
+    },
+    {
+      "start": 653.72,
+      "end": 657.64,
+      "text": "There would be a drop-off rates, okay?"
+    },
+    {
+      "start": 655.839,
+      "end": 659.32,
+      "text": "Drop-off rate means people will leave"
+    },
+    {
+      "start": 657.64,
+      "end": 661.28,
+      "text": "your application, okay? Let's say if it"
+    },
+    {
+      "start": 659.32,
+      "end": 663.32,
+      "text": "is taking 1 minute to run. So,"
+    },
+    {
+      "start": 661.28,
+      "end": 664.4399999999999,
+      "text": "definitely, I'll leave your application,"
+    },
+    {
+      "start": 663.32,
+      "end": 666.48,
+      "text": "okay? I'll leave your application and"
+    },
+    {
+      "start": 664.44,
+      "end": 668.0,
+      "text": "I'll look for some other application"
+    },
+    {
+      "start": 666.48,
+      "end": 670.5600000000001,
+      "text": "which can give me faster response. So,"
+    },
+    {
+      "start": 668.0,
+      "end": 672.68,
+      "text": "that's why uh if it is faster response"
+    },
+    {
+      "start": 670.56,
+      "end": 674.68,
+      "text": "time, that means low drop-off rates,"
+    },
+    {
+      "start": 672.68,
+      "end": 676.12,
+      "text": "okay? Low drop-off rate means people"
+    },
+    {
+      "start": 674.68,
+      "end": 677.8,
+      "text": "will not leave your application. They"
+    },
+    {
+      "start": 676.12,
+      "end": 680.0,
+      "text": "will be continuously using. Like"
+    },
+    {
+      "start": 677.8,
+      "end": 682.04,
+      "text": "ChatGPT, people are using daily, right?"
+    },
+    {
+      "start": 680.0,
+      "end": 684.2,
+      "text": "Because it is having the faster response"
+    },
+    {
+      "start": 682.04,
+      "end": 686.16,
+      "text": "because of the streaming features, okay?"
+    },
+    {
+      "start": 684.2,
+      "end": 688.32,
+      "text": "We know that LLM takes some time to"
+    },
+    {
+      "start": 686.16,
+      "end": 690.36,
+      "text": "generate the entire output, but"
+    },
+    {
+      "start": 688.32,
+      "end": 692.2,
+      "text": "we have to handle it smartly. Instead of"
+    },
+    {
+      "start": 690.36,
+      "end": 694.4,
+      "text": "waiting for the entire uh let's say"
+    },
+    {
+      "start": 692.2,
+      "end": 696.1600000000001,
+      "text": "output to be generated, whatever token"
+    },
+    {
+      "start": 694.4,
+      "end": 698.24,
+      "text": "it is generating, okay, one by one,"
+    },
+    {
+      "start": 696.16,
+      "end": 700.1999999999999,
+      "text": "we'll show to the users so that they"
+    },
+    {
+      "start": 698.24,
+      "end": 701.96,
+      "text": "will see something in the screen, okay?"
+    },
+    {
+      "start": 700.2,
+      "end": 703.8000000000001,
+      "text": "This is what we have understood in the"
+    },
+    {
+      "start": 701.96,
+      "end": 705.1600000000001,
+      "text": "first point. Now, the second point you"
+    },
+    {
+      "start": 703.8,
+      "end": 707.68,
+      "text": "can understand, guys, mimics the"
+    },
+    {
+      "start": 705.16,
+      "end": 708.92,
+      "text": "human-like conversation, build trust,"
+    },
+    {
+      "start": 707.68,
+      "end": 710.92,
+      "text": "feel alive,"
+    },
+    {
+      "start": 708.92,
+      "end": 712.76,
+      "text": "and keep the"
+    },
+    {
+      "start": 710.92,
+      "end": 714.68,
+      "text": "user engaged, okay? See, whenever you"
+    },
+    {
+      "start": 712.76,
+      "end": 717.24,
+      "text": "are doing any kinds of conversation with"
+    },
+    {
+      "start": 714.68,
+      "end": 719.7199999999999,
+      "text": "any kinds of agent or chatbot or"
+    },
+    {
+      "start": 717.24,
+      "end": 721.6,
+      "text": "whatever you are doing the conversation,"
+    },
+    {
+      "start": 719.72,
+      "end": 723.6800000000001,
+      "text": "so definitely uh"
+    },
+    {
+      "start": 721.6,
+      "end": 725.6,
+      "text": "there some kinds of engagement should be"
+    },
+    {
+      "start": 723.68,
+      "end": 728.4799999999999,
+      "text": "there. Let's say if this application is"
+    },
+    {
+      "start": 725.6,
+      "end": 730.2,
+      "text": "taking 1 minute to run, right? And you"
+    },
+    {
+      "start": 728.48,
+      "end": 732.04,
+      "text": "have to wait for the execution. So,"
+    },
+    {
+      "start": 730.2,
+      "end": 734.5200000000001,
+      "text": "definitely I can't tell this is like a"
+    },
+    {
+      "start": 732.04,
+      "end": 736.48,
+      "text": "human-like conversation. Let's say you"
+    },
+    {
+      "start": 734.52,
+      "end": 738.88,
+      "text": "are talking with someone. Let's say this"
+    },
+    {
+      "start": 736.48,
+      "end": 740.8000000000001,
+      "text": "is you, okay? This is you and this is"
+    },
+    {
+      "start": 738.88,
+      "end": 743.12,
+      "text": "someone. You are talking with someone,"
+    },
+    {
+      "start": 740.8,
+      "end": 745.28,
+      "text": "right? And if you're asking something,"
+    },
+    {
+      "start": 743.12,
+      "end": 747.44,
+      "text": "and let's say this person is taking 1"
+    },
+    {
+      "start": 745.28,
+      "end": 749.64,
+      "text": "minute to give you the response, so"
+    },
+    {
+      "start": 747.44,
+      "end": 751.44,
+      "text": "definitely you will not feel like"
+    },
+    {
+      "start": 749.64,
+      "end": 753.8,
+      "text": "interested, you will not feel engaged,"
+    },
+    {
+      "start": 751.44,
+      "end": 755.32,
+      "text": "okay? You will uh you will not be able"
+    },
+    {
+      "start": 753.8,
+      "end": 756.92,
+      "text": "to build a trust with that particular"
+    },
+    {
+      "start": 755.32,
+      "end": 758.4000000000001,
+      "text": "person, okay?"
+    },
+    {
+      "start": 756.92,
+      "end": 760.4399999999999,
+      "text": "Uh I can give you another example. Let's"
+    },
+    {
+      "start": 758.4,
+      "end": 762.1999999999999,
+      "text": "say I think you know uh nowadays people"
+    },
+    {
+      "start": 760.44,
+      "end": 764.36,
+      "text": "are using lots of uh"
+    },
+    {
+      "start": 762.2,
+      "end": 767.4000000000001,
+      "text": "uh hardware assistant, right? Hardware"
+    },
+    {
+      "start": 764.36,
+      "end": 770.6,
+      "text": "assistant means like uh Amazon Alexa,"
+    },
+    {
+      "start": 767.4,
+      "end": 772.0799999999999,
+      "text": "Amazon Alexa, then Google Home Mini."
+    },
+    {
+      "start": 770.6,
+      "end": 773.8000000000001,
+      "text": "Okay, Google Home Mini people are using"
+    },
+    {
+      "start": 772.08,
+      "end": 776.8000000000001,
+      "text": "that, right? So, this is kinds of"
+    },
+    {
+      "start": 773.8,
+      "end": 778.4,
+      "text": "personal assistant system. And what we"
+    },
+    {
+      "start": 776.8,
+      "end": 780.4799999999999,
+      "text": "do, we use this particular assistant"
+    },
+    {
+      "start": 778.4,
+      "end": 782.64,
+      "text": "system so that we can speak with uh"
+    },
+    {
+      "start": 780.48,
+      "end": 784.48,
+      "text": "them, right? Speak with them and we can"
+    },
+    {
+      "start": 782.64,
+      "end": 786.4399999999999,
+      "text": "uh do lots of task. Now, let's say if"
+    },
+    {
+      "start": 784.48,
+      "end": 787.76,
+      "text": "you're talking with your uh personal"
+    },
+    {
+      "start": 786.44,
+      "end": 789.5600000000001,
+      "text": "assistant, you're talking with your"
+    },
+    {
+      "start": 787.76,
+      "end": 791.48,
+      "text": "let's say Google Home Mini, okay? You're"
+    },
+    {
+      "start": 789.56,
+      "end": 793.3599999999999,
+      "text": "talking with your Google Home Mini. And"
+    },
+    {
+      "start": 791.48,
+      "end": 795.2,
+      "text": "let's say it is giving you the response"
+    },
+    {
+      "start": 793.36,
+      "end": 797.8000000000001,
+      "text": "after 1 minute. So, definitely you will"
+    },
+    {
+      "start": 795.2,
+      "end": 799.44,
+      "text": "not feel engaged, you will not uh feel"
+    },
+    {
+      "start": 797.8,
+      "end": 800.92,
+      "text": "alive, you will not feel"
+    },
+    {
+      "start": 799.44,
+      "end": 802.08,
+      "text": "uh like uh you are not going to build a"
+    },
+    {
+      "start": 800.92,
+      "end": 804.52,
+      "text": "trust, okay, with that particular"
+    },
+    {
+      "start": 802.08,
+      "end": 806.6800000000001,
+      "text": "device. So, that's why uh mimic"
+    },
+    {
+      "start": 804.52,
+      "end": 809.24,
+      "text": "human-like conversation it is required."
+    },
+    {
+      "start": 806.68,
+      "end": 811.8399999999999,
+      "text": "So, whenever I will talk with my, let's"
+    },
+    {
+      "start": 809.24,
+      "end": 813.16,
+      "text": "say, bot or, let's say, agents, so I'll"
+    },
+    {
+      "start": 811.84,
+      "end": 815.0,
+      "text": "feel like, okay, I'm talking with the"
+    },
+    {
+      "start": 813.16,
+      "end": 817.52,
+      "text": "human. Okay, instantly I'm getting the"
+    },
+    {
+      "start": 815.0,
+      "end": 820.08,
+      "text": "response and the response is engaging as"
+    },
+    {
+      "start": 817.52,
+      "end": 822.16,
+      "text": "well. Okay, like ChatGPT, if you"
+    },
+    {
+      "start": 820.08,
+      "end": 824.1600000000001,
+      "text": "if you're using ChatGPT, I think you"
+    },
+    {
+      "start": 822.16,
+      "end": 826.52,
+      "text": "know that. This um"
+    },
+    {
+      "start": 824.16,
+      "end": 828.76,
+      "text": "engagement, then a live trust is super"
+    },
+    {
+      "start": 826.52,
+      "end": 830.12,
+      "text": "important, right? And we we found inside"
+    },
+    {
+      "start": 828.76,
+      "end": 831.8,
+      "text": "that particular chatbot, right? That's"
+    },
+    {
+      "start": 830.12,
+      "end": 833.6,
+      "text": "why we are using continuously. So,"
+    },
+    {
+      "start": 831.8,
+      "end": 836.0799999999999,
+      "text": "that's why this is super important. Then"
+    },
+    {
+      "start": 833.6,
+      "end": 838.64,
+      "text": "important for multi-model UI's, okay?"
+    },
+    {
+      "start": 836.08,
+      "end": 840.24,
+      "text": "So, whenever you are using multi-model"
+    },
+    {
+      "start": 838.64,
+      "end": 842.08,
+      "text": "and you are getting a user interface, so"
+    },
+    {
+      "start": 840.24,
+      "end": 844.04,
+      "text": "this is also required there. Okay,"
+    },
+    {
+      "start": 842.08,
+      "end": 845.6800000000001,
+      "text": "sometimes you will be generating some"
+    },
+    {
+      "start": 844.04,
+      "end": 848.4399999999999,
+      "text": "kinds of image. And whenever you are"
+    },
+    {
+      "start": 845.68,
+      "end": 849.76,
+      "text": "generating the image, that time"
+    },
+    {
+      "start": 848.44,
+      "end": 851.4000000000001,
+      "text": "you can show like, we are okay, we are"
+    },
+    {
+      "start": 849.76,
+      "end": 854.76,
+      "text": "generating the image, we are taking this"
+    },
+    {
+      "start": 851.4,
+      "end": 857.0,
+      "text": "particular, let's say, color or there"
+    },
+    {
+      "start": 854.76,
+      "end": 858.56,
+      "text": "should be a image window. Continuously"
+    },
+    {
+      "start": 857.0,
+      "end": 859.88,
+      "text": "it will tell, okay, we are generating"
+    },
+    {
+      "start": 858.56,
+      "end": 861.9599999999999,
+      "text": "something. So, that's why you have to"
+    },
+    {
+      "start": 859.88,
+      "end": 863.88,
+      "text": "show something. Streaming means you have"
+    },
+    {
+      "start": 861.96,
+      "end": 865.08,
+      "text": "to show something on the screen, okay?"
+    },
+    {
+      "start": 863.88,
+      "end": 867.76,
+      "text": "Instead of"
+    },
+    {
+      "start": 865.08,
+      "end": 869.6800000000001,
+      "text": "uh just keep waiting the user here. Then"
+    },
+    {
+      "start": 867.76,
+      "end": 871.88,
+      "text": "uh better UX"
+    },
+    {
+      "start": 869.68,
+      "end": 873.4399999999999,
+      "text": "UX for long output such as code. So,"
+    },
+    {
+      "start": 871.88,
+      "end": 875.64,
+      "text": "whenever you are generating any kinds of"
+    },
+    {
+      "start": 873.44,
+      "end": 877.6800000000001,
+      "text": "code, let's say you created a agent that"
+    },
+    {
+      "start": 875.64,
+      "end": 879.52,
+      "text": "generates the code. So, instead of"
+    },
+    {
+      "start": 877.68,
+      "end": 880.5999999999999,
+      "text": "waiting for the entire code generation,"
+    },
+    {
+      "start": 879.52,
+      "end": 883.4399999999999,
+      "text": "you can"
+    },
+    {
+      "start": 880.6,
+      "end": 886.08,
+      "text": "uh show the streaming, okay? Like it is"
+    },
+    {
+      "start": 883.44,
+      "end": 887.72,
+      "text": "importing, it is defining the model, it"
+    },
+    {
+      "start": 886.08,
+      "end": 889.32,
+      "text": "is creating the architecture. So, one by"
+    },
+    {
+      "start": 887.72,
+      "end": 892.0400000000001,
+      "text": "one you can show it here, okay? So, this"
+    },
+    {
+      "start": 889.32,
+      "end": 895.0400000000001,
+      "text": "is another user experience we get. Then"
+    },
+    {
+      "start": 892.04,
+      "end": 897.7199999999999,
+      "text": "you can see uh you can cancel midway"
+    },
+    {
+      "start": 895.04,
+      "end": 899.68,
+      "text": "savings uh tokens. That means whenever,"
+    },
+    {
+      "start": 897.72,
+      "end": 902.4,
+      "text": "let's say, you were chatting with your"
+    },
+    {
+      "start": 899.68,
+      "end": 905.0799999999999,
+      "text": "agents or chatbot and uh you were"
+    },
+    {
+      "start": 902.4,
+      "end": 908.0,
+      "text": "generating a long-form content, right?"
+    },
+    {
+      "start": 905.08,
+      "end": 910.5200000000001,
+      "text": "And let's say you found some kinds of"
+    },
+    {
+      "start": 908.0,
+      "end": 912.4,
+      "text": "content useful and you don't need"
+    },
+    {
+      "start": 910.52,
+      "end": 913.96,
+      "text": "um like uh the remaining content. So,"
+    },
+    {
+      "start": 912.4,
+      "end": 916.72,
+      "text": "what you can do, you can stop, you can"
+    },
+    {
+      "start": 913.96,
+      "end": 918.64,
+      "text": "cancel the midway execution uh to save"
+    },
+    {
+      "start": 916.72,
+      "end": 921.6800000000001,
+      "text": "the token. Because what happens,"
+    },
+    {
+      "start": 918.64,
+      "end": 924.08,
+      "text": "whenever LLM generates the output, it"
+    },
+    {
+      "start": 921.68,
+      "end": 925.28,
+      "text": "generates as a token, right? And"
+    },
+    {
+      "start": 924.08,
+      "end": 928.12,
+      "text": "whenever you're using any kinds of"
+    },
+    {
+      "start": 925.28,
+      "end": 929.68,
+      "text": "provider, let's say OpenAI or Gemini, it"
+    },
+    {
+      "start": 928.12,
+      "end": 932.28,
+      "text": "charge based on the tokens, like how"
+    },
+    {
+      "start": 929.68,
+      "end": 934.1999999999999,
+      "text": "much token you are giving as an input"
+    },
+    {
+      "start": 932.28,
+      "end": 936.36,
+      "text": "and how much token your model is"
+    },
+    {
+      "start": 934.2,
+      "end": 938.36,
+      "text": "returning as an output, okay? So, based"
+    },
+    {
+      "start": 936.36,
+      "end": 940.5600000000001,
+      "text": "on the token count, it will charge you."
+    },
+    {
+      "start": 938.36,
+      "end": 942.36,
+      "text": "So, let's say I don't need uh some"
+    },
+    {
+      "start": 940.56,
+      "end": 944.64,
+      "text": "unnecessary information. So, definitely"
+    },
+    {
+      "start": 942.36,
+      "end": 946.12,
+      "text": "I can uh stop the execution and I can"
+    },
+    {
+      "start": 944.64,
+      "end": 948.24,
+      "text": "save my tokens, okay? This is only"
+    },
+    {
+      "start": 946.12,
+      "end": 949.64,
+      "text": "possible whenever you're adding these"
+    },
+    {
+      "start": 948.24,
+      "end": 951.64,
+      "text": "kinds of streaming features. So, if"
+    },
+    {
+      "start": 949.64,
+      "end": 953.84,
+      "text": "you're adding like one-shot one-shot"
+    },
+    {
+      "start": 951.64,
+      "end": 956.68,
+      "text": "output, that time this is not possible,"
+    },
+    {
+      "start": 953.84,
+      "end": 957.76,
+      "text": "okay? Then you can interleave UI"
+    },
+    {
+      "start": 956.68,
+      "end": 960.1999999999999,
+      "text": "updates,"
+    },
+    {
+      "start": 957.76,
+      "end": 962.36,
+      "text": "uh uh example, uh show thinking, show"
+    },
+    {
+      "start": 960.2,
+      "end": 963.9200000000001,
+      "text": "tool result, okay? Et cetera. So,"
+    },
+    {
+      "start": 962.36,
+      "end": 965.5600000000001,
+      "text": "whenever we'll be creating any kinds of"
+    },
+    {
+      "start": 963.92,
+      "end": 967.7199999999999,
+      "text": "agents, so definitely it will be using"
+    },
+    {
+      "start": 965.56,
+      "end": 969.92,
+      "text": "tools, right? And whenever it is using"
+    },
+    {
+      "start": 967.72,
+      "end": 971.6,
+      "text": "tools, that mean uh that execution will"
+    },
+    {
+      "start": 969.92,
+      "end": 974.24,
+      "text": "take some time. First of all, tool will"
+    },
+    {
+      "start": 971.6,
+      "end": 975.96,
+      "text": "be executed and this will fetch the"
+    },
+    {
+      "start": 974.24,
+      "end": 977.84,
+      "text": "uh informations, then it will pass to"
+    },
+    {
+      "start": 975.96,
+      "end": 980.2,
+      "text": "the LLM. So, it's taking some time,"
+    },
+    {
+      "start": 977.84,
+      "end": 981.64,
+      "text": "right? That time, instead of waiting I"
+    },
+    {
+      "start": 980.2,
+      "end": 983.88,
+      "text": "can show something in the user"
+    },
+    {
+      "start": 981.64,
+      "end": 986.56,
+      "text": "interface. Let's say, uh it is right now"
+    },
+    {
+      "start": 983.88,
+      "end": 988.04,
+      "text": "using this particular tool and uh this"
+    },
+    {
+      "start": 986.56,
+      "end": 990.16,
+      "text": "tool is uh facing these kinds of"
+    },
+    {
+      "start": 988.04,
+      "end": 991.68,
+      "text": "information, okay? I can just show these"
+    },
+    {
+      "start": 990.16,
+      "end": 994.0799999999999,
+      "text": "kinds of output to the user, so that"
+    },
+    {
+      "start": 991.68,
+      "end": 996.2399999999999,
+      "text": "user feels like, \"Okay, now my uh"
+    },
+    {
+      "start": 994.08,
+      "end": 998.44,
+      "text": "application are using some kinds of"
+    },
+    {
+      "start": 996.24,
+      "end": 1000.6800000000001,
+      "text": "tools.\" Uh so that it will generate the"
+    },
+    {
+      "start": 998.44,
+      "end": 1002.44,
+      "text": "final output. User will wait. But if it"
+    },
+    {
+      "start": 1000.68,
+      "end": 1004.16,
+      "text": "is if you are not showing that, so what"
+    },
+    {
+      "start": 1002.44,
+      "end": 1005.96,
+      "text": "will happen? User will think like,"
+    },
+    {
+      "start": 1004.16,
+      "end": 1007.4399999999999,
+      "text": "\"Okay, my application got hang.\" So,"
+    },
+    {
+      "start": 1005.96,
+      "end": 1009.44,
+      "text": "definitely they will leave your"
+    },
+    {
+      "start": 1007.44,
+      "end": 1011.5600000000001,
+      "text": "application. Okay? So, that's why this"
+    },
+    {
+      "start": 1009.44,
+      "end": 1013.36,
+      "text": "streaming is super important and we need"
+    },
+    {
+      "start": 1011.56,
+      "end": 1015.4799999999999,
+      "text": "the streaming whenever we are getting"
+    },
+    {
+      "start": 1013.36,
+      "end": 1017.48,
+      "text": "these kinds of agentic system, guys."
+    },
+    {
+      "start": 1015.48,
+      "end": 1019.28,
+      "text": "Now, we have already understood this uh"
+    },
+    {
+      "start": 1017.48,
+      "end": 1021.08,
+      "text": "streaming. Now, let's try to understand"
+    },
+    {
+      "start": 1019.28,
+      "end": 1023.28,
+      "text": "through the code. Although I have showed"
+    },
+    {
+      "start": 1021.08,
+      "end": 1024.76,
+      "text": "you the code uh implementation before,"
+    },
+    {
+      "start": 1023.28,
+      "end": 1026.68,
+      "text": "so let me show you. So, this is the code"
+    },
+    {
+      "start": 1024.76,
+      "end": 1028.48,
+      "text": "implementation I showed you. But in this"
+    },
+    {
+      "start": 1026.68,
+      "end": 1030.199,
+      "text": "video, let me show you how things are"
+    },
+    {
+      "start": 1028.48,
+      "end": 1032.3600000000001,
+      "text": "working, okay? How we are adding these"
+    },
+    {
+      "start": 1030.199,
+      "end": 1033.8390000000002,
+      "text": "kinds of streaming features. So, for"
+    },
+    {
+      "start": 1032.36,
+      "end": 1036.6,
+      "text": "this uh I think you know, we have"
+    },
+    {
+      "start": 1033.839,
+      "end": 1038.6799999999998,
+      "text": "already written this uh agentic chatbot"
+    },
+    {
+      "start": 1036.6,
+      "end": 1040.7199999999998,
+      "text": "backend. So, in the backend, I already"
+    },
+    {
+      "start": 1038.68,
+      "end": 1042.959,
+      "text": "created the entire workflow. So, this is"
+    },
+    {
+      "start": 1040.72,
+      "end": 1044.68,
+      "text": "our workflow we created and this is our"
+    },
+    {
+      "start": 1042.959,
+      "end": 1046.68,
+      "text": "chatbot object we created. Okay, this is"
+    },
+    {
+      "start": 1044.68,
+      "end": 1049.4,
+      "text": "the graph. So, what I can do, maybe I"
+    },
+    {
+      "start": 1046.68,
+      "end": 1051.96,
+      "text": "can uh show you"
+    },
+    {
+      "start": 1049.4,
+      "end": 1053.52,
+      "text": "uh I will create another file."
+    },
+    {
+      "start": 1051.96,
+      "end": 1056.04,
+      "text": "Let's say I'm going to name it as"
+    },
+    {
+      "start": 1053.52,
+      "end": 1057.56,
+      "text": "test.py."
+    },
+    {
+      "start": 1056.04,
+      "end": 1059.76,
+      "text": "So, inside that I'm going to first of"
+    },
+    {
+      "start": 1057.56,
+      "end": 1062.1599999999999,
+      "text": "all import my"
+    },
+    {
+      "start": 1059.76,
+      "end": 1063.8799999999999,
+      "text": "uh import my chatbot from agentic"
+    },
+    {
+      "start": 1062.16,
+      "end": 1065.8400000000001,
+      "text": "backend."
+    },
+    {
+      "start": 1063.88,
+      "end": 1068.0800000000002,
+      "text": "So, from agentic chatbot backend, we're"
+    },
+    {
+      "start": 1065.84,
+      "end": 1070.36,
+      "text": "importing chatbot. Now, see if I'm not"
+    },
+    {
+      "start": 1068.08,
+      "end": 1073.1599999999999,
+      "text": "using this uh"
+    },
+    {
+      "start": 1070.36,
+      "end": 1075.4799999999998,
+      "text": "uh if I'm not using uh like uh"
+    },
+    {
+      "start": 1073.16,
+      "end": 1077.0800000000002,
+      "text": "streaming, that time I was using invoke,"
+    },
+    {
+      "start": 1075.48,
+      "end": 1078.24,
+      "text": "I think you remember. I was using invoke"
+    },
+    {
+      "start": 1077.08,
+      "end": 1079.9199999999998,
+      "text": "and"
+    },
+    {
+      "start": 1078.24,
+      "end": 1082.2,
+      "text": "we also need to import this library as"
+    },
+    {
+      "start": 1079.92,
+      "end": 1082.2,
+      "text": "well."
+    },
+    {
+      "start": 1082.28,
+      "end": 1086.32,
+      "text": "Mhm."
+    },
+    {
+      "start": 1084.08,
+      "end": 1086.32,
+      "text": "Yeah."
+    },
+    {
+      "start": 1088.72,
+      "end": 1092.24,
+      "text": "Human message and base message we have"
+    },
+    {
+      "start": 1090.12,
+      "end": 1093.9599999999998,
+      "text": "to also import."
+    },
+    {
+      "start": 1092.24,
+      "end": 1097.64,
+      "text": "Mhm."
+    },
+    {
+      "start": 1093.96,
+      "end": 1097.64,
+      "text": "So, let me check again."
+    },
+    {
+      "start": 1100.28,
+      "end": 1104.12,
+      "text": "Then I I need to also pass the"
+    },
+    {
+      "start": 1101.84,
+      "end": 1107.04,
+      "text": "configuration as well. So, let me copy"
+    },
+    {
+      "start": 1104.12,
+      "end": 1107.04,
+      "text": "the configuration."
+    },
+    {
+      "start": 1107.16,
+      "end": 1110.48,
+      "text": "Config should be also passed here. So,"
+    },
+    {
+      "start": 1108.8,
+      "end": 1112.8,
+      "text": "I'll also import the"
+    },
+    {
+      "start": 1110.48,
+      "end": 1114.28,
+      "text": "uh define the configuration."
+    },
+    {
+      "start": 1112.8,
+      "end": 1115.8799999999999,
+      "text": "Because we're using persistence here,"
+    },
+    {
+      "start": 1114.28,
+      "end": 1117.04,
+      "text": "okay? We have to pass the trade and"
+    },
+    {
+      "start": 1115.88,
+      "end": 1118.96,
+      "text": "everything."
+    },
+    {
+      "start": 1117.04,
+      "end": 1120.92,
+      "text": "I think you know that. Now, we'll try to"
+    },
+    {
+      "start": 1118.96,
+      "end": 1121.68,
+      "text": "replace with that."
+    },
+    {
+      "start": 1120.92,
+      "end": 1123.24,
+      "text": "Yeah."
+    },
+    {
+      "start": 1121.68,
+      "end": 1125.3200000000002,
+      "text": "Now, this is the code, guys. So,"
+    },
+    {
+      "start": 1123.24,
+      "end": 1126.72,
+      "text": "basically we're using invoke here. And"
+    },
+    {
+      "start": 1125.32,
+      "end": 1127.6799999999998,
+      "text": "if you're using invoke, so that means"
+    },
+    {
+      "start": 1126.72,
+      "end": 1129.3600000000001,
+      "text": "you have to wait for the entire"
+    },
+    {
+      "start": 1127.68,
+      "end": 1131.68,
+      "text": "execution to be completed. Let me show"
+    },
+    {
+      "start": 1129.36,
+      "end": 1134.3999999999999,
+      "text": "you. Now, let's say if I stop the"
+    },
+    {
+      "start": 1131.68,
+      "end": 1134.4,
+      "text": "execution."
+    },
+    {
+      "start": 1135.08,
+      "end": 1139.48,
+      "text": "Python"
+    },
+    {
+      "start": 1136.48,
+      "end": 1139.48,
+      "text": "test.py"
+    },
+    {
+      "start": 1143.52,
+      "end": 1146.04,
+      "text": "Now, see."
+    },
+    {
+      "start": 1144.64,
+      "end": 1147.4,
+      "text": "Uh we have to wait for the execution."
+    },
+    {
+      "start": 1146.04,
+      "end": 1148.52,
+      "text": "Maybe I can show you with another"
+    },
+    {
+      "start": 1147.4,
+      "end": 1151.8000000000002,
+      "text": "question."
+    },
+    {
+      "start": 1148.52,
+      "end": 1151.8,
+      "text": "Generate a blog."
+    },
+    {
+      "start": 1155.16,
+      "end": 1161.3600000000001,
+      "text": ">> about Python programming."
+    },
+    {
+      "start": 1157.88,
+      "end": 1161.3600000000001,
+      "text": "Now, you'll be able to observe."
+    },
+    {
+      "start": 1165.88,
+      "end": 1170.1200000000001,
+      "text": "Now, see, okay? You have to wait for the"
+    },
+    {
+      "start": 1167.92,
+      "end": 1171.76,
+      "text": "entire execution. So, this is not good,"
+    },
+    {
+      "start": 1170.12,
+      "end": 1174.28,
+      "text": "okay? Now, we have to add the streaming"
+    },
+    {
+      "start": 1171.76,
+      "end": 1177.36,
+      "text": "features here. So, here instead of using"
+    },
+    {
+      "start": 1174.28,
+      "end": 1179.12,
+      "text": "invoke, we'll be using dot stream."
+    },
+    {
+      "start": 1177.36,
+      "end": 1183.3999999999999,
+      "text": "So,"
+    },
+    {
+      "start": 1179.12,
+      "end": 1183.3999999999999,
+      "text": "you can write like that chatbot"
+    },
+    {
+      "start": 1183.44,
+      "end": 1187.44,
+      "text": "dot stream, okay?"
+    },
+    {
+      "start": 1187.52,
+      "end": 1190.92,
+      "text": "Stream."
+    },
+    {
+      "start": 1189.52,
+      "end": 1193.72,
+      "text": "Mhm."
+    },
+    {
+      "start": 1190.92,
+      "end": 1196.4,
+      "text": "Now, stream takes some argument. First"
+    },
+    {
+      "start": 1193.72,
+      "end": 1199.56,
+      "text": "of all, you have to provide"
+    },
+    {
+      "start": 1196.4,
+      "end": 1199.5600000000002,
+      "text": "uh the messages."
+    },
+    {
+      "start": 1200.2,
+      "end": 1206.0800000000002,
+      "text": "Okay, I'll try to provide the messages."
+    },
+    {
+      "start": 1203.92,
+      "end": 1206.0800000000002,
+      "text": "Mhm."
+    },
+    {
+      "start": 1206.92,
+      "end": 1211.44,
+      "text": "Yeah. We'll try to provide the messages."
+    },
+    {
+      "start": 1209.68,
+      "end": 1215.24,
+      "text": "Uh now, let's say I'll give the same"
+    },
+    {
+      "start": 1211.44,
+      "end": 1215.24,
+      "text": "messages. Generate"
+    },
+    {
+      "start": 1217.28,
+      "end": 1220.12,
+      "text": "uh block"
+    },
+    {
+      "start": 1220.24,
+      "end": 1225.36,
+      "text": "about LangGraph."
+    },
+    {
+      "start": 1222.72,
+      "end": 1227.28,
+      "text": "Or let's say"
+    },
+    {
+      "start": 1225.36,
+      "end": 1229.36,
+      "text": "machine learning."
+    },
+    {
+      "start": 1227.28,
+      "end": 1231.28,
+      "text": "Okay, this is the messages."
+    },
+    {
+      "start": 1229.36,
+      "end": 1233.28,
+      "text": "Now, the second parameter you have to"
+    },
+    {
+      "start": 1231.28,
+      "end": 1236.48,
+      "text": "provide the configuration,"
+    },
+    {
+      "start": 1233.28,
+      "end": 1238.76,
+      "text": "okay? And the third uh"
+    },
+    {
+      "start": 1236.48,
+      "end": 1240.84,
+      "text": "parameter you have to provide the stream"
+    },
+    {
+      "start": 1238.76,
+      "end": 1242.4,
+      "text": "mode, okay? Now, there are multiple"
+    },
+    {
+      "start": 1240.84,
+      "end": 1244.48,
+      "text": "stream modes are available. If I go to"
+    },
+    {
+      "start": 1242.4,
+      "end": 1246.1200000000001,
+      "text": "the documentation, as you can see, we"
+    },
+    {
+      "start": 1244.48,
+      "end": 1247.3600000000001,
+      "text": "have update values messages, okay?"
+    },
+    {
+      "start": 1246.12,
+      "end": 1249.4399999999998,
+      "text": "Custom."
+    },
+    {
+      "start": 1247.36,
+      "end": 1250.6799999999998,
+      "text": "So, here I want to print the messages"
+    },
+    {
+      "start": 1249.44,
+      "end": 1252.04,
+      "text": "only. So, that's why I'll be using"
+    },
+    {
+      "start": 1250.68,
+      "end": 1254.44,
+      "text": "stream mode is equal to messages, okay?"
+    },
+    {
+      "start": 1252.04,
+      "end": 1256.68,
+      "text": "Because I want to show show my message"
+    },
+    {
+      "start": 1254.44,
+      "end": 1259.0800000000002,
+      "text": "streaming, okay? Whatever output I'm"
+    },
+    {
+      "start": 1256.68,
+      "end": 1261.28,
+      "text": "getting from my LLM, I want to show show"
+    },
+    {
+      "start": 1259.08,
+      "end": 1264.6,
+      "text": "this, okay? That's why we're using this."
+    },
+    {
+      "start": 1261.28,
+      "end": 1266.8799999999999,
+      "text": "Now, once it is done, now if I let's say"
+    },
+    {
+      "start": 1264.6,
+      "end": 1269.3999999999999,
+      "text": "um show you the result,"
+    },
+    {
+      "start": 1266.88,
+      "end": 1271.24,
+      "text": "see, this stream will return two things."
+    },
+    {
+      "start": 1269.4,
+      "end": 1273.68,
+      "text": "One is the"
+    },
+    {
+      "start": 1271.24,
+      "end": 1274.64,
+      "text": "message chunk."
+    },
+    {
+      "start": 1273.68,
+      "end": 1277.3600000000001,
+      "text": "Okay?"
+    },
+    {
+      "start": 1274.64,
+      "end": 1277.3600000000001,
+      "text": "Message"
+    },
+    {
+      "start": 1277.64,
+      "end": 1280.24,
+      "text": "chunk"
+    },
+    {
+      "start": 1280.64,
+      "end": 1286.0800000000002,
+      "text": "That means the token, okay? Token"
+    },
+    {
+      "start": 1282.76,
+      "end": 1288.24,
+      "text": "output. And it will also give you some"
+    },
+    {
+      "start": 1286.08,
+      "end": 1289.84,
+      "text": "kinds of metadata."
+    },
+    {
+      "start": 1288.24,
+      "end": 1291.16,
+      "text": "Okay? Metadata. But I don't need the"
+    },
+    {
+      "start": 1289.84,
+      "end": 1293.3999999999999,
+      "text": "metadata."
+    },
+    {
+      "start": 1291.16,
+      "end": 1295.24,
+      "text": "I only need the message chunk and"
+    },
+    {
+      "start": 1293.4,
+      "end": 1296.52,
+      "text": "metadata. Okay, so basically this"
+    },
+    {
+      "start": 1295.24,
+      "end": 1298.84,
+      "text": "returns"
+    },
+    {
+      "start": 1296.52,
+      "end": 1300.92,
+      "text": "a generator object. Let me show you. So,"
+    },
+    {
+      "start": 1298.84,
+      "end": 1303.84,
+      "text": "I'll give you"
+    },
+    {
+      "start": 1300.92,
+      "end": 1307.48,
+      "text": "example response."
+    },
+    {
+      "start": 1303.84,
+      "end": 1307.48,
+      "text": "Now, if I print the response"
+    },
+    {
+      "start": 1311.36,
+      "end": 1317.56,
+      "text": "Now, if I execute this code"
+    },
+    {
+      "start": 1314.88,
+      "end": 1318.88,
+      "text": "Python test.py"
+    },
+    {
+      "start": 1317.56,
+      "end": 1320.76,
+      "text": "So, this will give you a generator"
+    },
+    {
+      "start": 1318.88,
+      "end": 1323.16,
+      "text": "object, as you can see, okay? Stream"
+    },
+    {
+      "start": 1320.76,
+      "end": 1324.84,
+      "text": "generator object. And you already"
+    },
+    {
+      "start": 1323.16,
+      "end": 1327.0400000000002,
+      "text": "studied it inside Python. If you're"
+    },
+    {
+      "start": 1324.84,
+      "end": 1329.04,
+      "text": "getting the generator object, I can use"
+    },
+    {
+      "start": 1327.04,
+      "end": 1330.6399999999999,
+      "text": "any kinds of iterator to get the output."
+    },
+    {
+      "start": 1329.04,
+      "end": 1333.08,
+      "text": "And what is the iterator?"
+    },
+    {
+      "start": 1330.64,
+      "end": 1335.48,
+      "text": "We can use for loop here, okay?"
+    },
+    {
+      "start": 1333.08,
+      "end": 1337.84,
+      "text": "Uh for loop will try to iterate the"
+    },
+    {
+      "start": 1335.48,
+      "end": 1339.8,
+      "text": "output one by one here, okay? Instead of"
+    },
+    {
+      "start": 1337.84,
+      "end": 1341.24,
+      "text": "getting everything in one shot, it will"
+    },
+    {
+      "start": 1339.8,
+      "end": 1342.96,
+      "text": "take one by one."
+    },
+    {
+      "start": 1341.24,
+      "end": 1344.96,
+      "text": "So, for this, I will just write a for"
+    },
+    {
+      "start": 1342.96,
+      "end": 1346.16,
+      "text": "loop. So, now I can write like that"
+    },
+    {
+      "start": 1344.96,
+      "end": 1347.72,
+      "text": "instead of"
+    },
+    {
+      "start": 1346.16,
+      "end": 1348.96,
+      "text": "uh going through the response, maybe I"
+    },
+    {
+      "start": 1347.72,
+      "end": 1350.8,
+      "text": "can"
+    },
+    {
+      "start": 1348.96,
+      "end": 1352.16,
+      "text": "write the for loop here only. I think"
+    },
+    {
+      "start": 1350.8,
+      "end": 1353.8,
+      "text": "that would be amazing."
+    },
+    {
+      "start": 1352.16,
+      "end": 1354.92,
+      "text": "So, for"
+    },
+    {
+      "start": 1353.8,
+      "end": 1357.0,
+      "text": "I told you it will return two things I"
+    },
+    {
+      "start": 1354.92,
+      "end": 1359.5600000000002,
+      "text": "told you. One is the message"
+    },
+    {
+      "start": 1357.0,
+      "end": 1359.56,
+      "text": "chunk"
+    },
+    {
+      "start": 1361.52,
+      "end": 1365.84,
+      "text": "and it will return the metadata."
+    },
+    {
+      "start": 1366.28,
+      "end": 1368.3999999999999,
+      "text": "Okay?"
+    },
+    {
+      "start": 1367.44,
+      "end": 1370.1200000000001,
+      "text": "In"
+    },
+    {
+      "start": 1368.4,
+      "end": 1374.64,
+      "text": "chatbot.stream"
+    },
+    {
+      "start": 1370.12,
+      "end": 1374.6399999999999,
+      "text": "Okay? Now, I'll keep this one. Mhm."
+    },
+    {
+      "start": 1378.48,
+      "end": 1382.2,
+      "text": "Yeah."
+    },
+    {
+      "start": 1379.44,
+      "end": 1383.48,
+      "text": "Now, here I'll I'll write a condition."
+    },
+    {
+      "start": 1382.2,
+      "end": 1386.88,
+      "text": "If"
+    },
+    {
+      "start": 1383.48,
+      "end": 1386.88,
+      "text": "uh let's say message"
+    },
+    {
+      "start": 1387.04,
+      "end": 1390.24,
+      "text": "message chunk"
+    },
+    {
+      "start": 1393.0,
+      "end": 1397.4,
+      "text": "message chunk"
+    },
+    {
+      "start": 1394.88,
+      "end": 1399.8000000000002,
+      "text": "um dot content, okay? I will extract the"
+    },
+    {
+      "start": 1397.4,
+      "end": 1403.48,
+      "text": "content only, okay? If there is a"
+    },
+    {
+      "start": 1399.8,
+      "end": 1404.48,
+      "text": "content Sorry, content."
+    },
+    {
+      "start": 1403.48,
+      "end": 1406.44,
+      "text": "Content"
+    },
+    {
+      "start": 1404.48,
+      "end": 1409.0,
+      "text": "I'll just try to print this content. So,"
+    },
+    {
+      "start": 1406.44,
+      "end": 1409.0,
+      "text": "print"
+    },
+    {
+      "start": 1409.36,
+      "end": 1413.6,
+      "text": "message chunk dot content, okay? And"
+    },
+    {
+      "start": 1411.84,
+      "end": 1414.56,
+      "text": "here I will give some other parameter"
+    },
+    {
+      "start": 1413.6,
+      "end": 1419.36,
+      "text": "like"
+    },
+    {
+      "start": 1414.56,
+      "end": 1419.36,
+      "text": "end is equal to this empty string and uh"
+    },
+    {
+      "start": 1419.4,
+      "end": 1423.2,
+      "text": "and I will give this splash is equal to"
+    },
+    {
+      "start": 1421.12,
+      "end": 1424.6,
+      "text": "true."
+    },
+    {
+      "start": 1423.2,
+      "end": 1425.8400000000001,
+      "text": "Okay, these two things you have to give."
+    },
+    {
+      "start": 1424.6,
+      "end": 1427.8799999999999,
+      "text": "If you check the documentation, they"
+    },
+    {
+      "start": 1425.84,
+      "end": 1429.6,
+      "text": "have written the same thing, okay? Now,"
+    },
+    {
+      "start": 1427.88,
+      "end": 1431.68,
+      "text": "let me show you how this output would be"
+    },
+    {
+      "start": 1429.6,
+      "end": 1434.48,
+      "text": "generated. Now, I'll again I'll execute"
+    },
+    {
+      "start": 1431.68,
+      "end": 1434.48,
+      "text": "my test.py."
+    },
+    {
+      "start": 1434.64,
+      "end": 1438.8400000000001,
+      "text": "Now, see. It is giving you token by"
+    },
+    {
+      "start": 1436.56,
+      "end": 1440.6799999999998,
+      "text": "token as a streaming output, okay? I"
+    },
+    {
+      "start": 1438.84,
+      "end": 1441.84,
+      "text": "think you saw the difference. And that's"
+    },
+    {
+      "start": 1440.68,
+      "end": 1443.92,
+      "text": "how we can"
+    },
+    {
+      "start": 1441.84,
+      "end": 1445.4399999999998,
+      "text": "um implement the streaming features"
+    },
+    {
+      "start": 1443.92,
+      "end": 1447.48,
+      "text": "inside LangGraph."
+    },
+    {
+      "start": 1445.44,
+      "end": 1450.4,
+      "text": "Okay? I hope you clear. Now, the same"
+    },
+    {
+      "start": 1447.48,
+      "end": 1452.88,
+      "text": "thing uh you have to also do in the user"
+    },
+    {
+      "start": 1450.4,
+      "end": 1455.64,
+      "text": "interface because user interface"
+    },
+    {
+      "start": 1452.88,
+      "end": 1457.6000000000001,
+      "text": "uh we created, this should also"
+    },
+    {
+      "start": 1455.64,
+      "end": 1458.96,
+      "text": "show as a streaming output. And how we"
+    },
+    {
+      "start": 1457.6,
+      "end": 1460.36,
+      "text": "have done, guys?"
+    },
+    {
+      "start": 1458.96,
+      "end": 1462.32,
+      "text": "Uh I think I already written the code."
+    },
+    {
+      "start": 1460.36,
+      "end": 1463.6399999999999,
+      "text": "Let me show you. See, it is available in"
+    },
+    {
+      "start": 1462.32,
+      "end": 1465.24,
+      "text": "the app.py."
+    },
+    {
+      "start": 1463.64,
+      "end": 1467.0800000000002,
+      "text": "So, here is the code, guys, okay? We"
+    },
+    {
+      "start": 1465.24,
+      "end": 1469.1200000000001,
+      "text": "written already. Now, we are using"
+    },
+    {
+      "start": 1467.08,
+      "end": 1470.1999999999998,
+      "text": "something called"
+    },
+    {
+      "start": 1469.12,
+      "end": 1471.6,
+      "text": "um"
+    },
+    {
+      "start": 1470.2,
+      "end": 1473.3600000000001,
+      "text": "this one."
+    },
+    {
+      "start": 1471.6,
+      "end": 1474.9199999999998,
+      "text": "Write a stream here. From Streamlit,"
+    },
+    {
+      "start": 1473.36,
+      "end": 1476.6399999999999,
+      "text": "we're using write a stream. So, if you"
+    },
+    {
+      "start": 1474.92,
+      "end": 1478.44,
+      "text": "go to the Streamlit documentation, as"
+    },
+    {
+      "start": 1476.64,
+      "end": 1480.6000000000001,
+      "text": "you can see, Streamlit is having a chat"
+    },
+    {
+      "start": 1478.44,
+      "end": 1482.92,
+      "text": "element. So, it is having multiple chat"
+    },
+    {
+      "start": 1480.6,
+      "end": 1484.9199999999998,
+      "text": "element like chat input, chat message,"
+    },
+    {
+      "start": 1482.92,
+      "end": 1486.4,
+      "text": "status container, and there is another"
+    },
+    {
+      "start": 1484.92,
+      "end": 1487.96,
+      "text": "one called write a stream, okay? If you"
+    },
+    {
+      "start": 1486.4,
+      "end": 1490.48,
+      "text": "check the write a stream, so they have"
+    },
+    {
+      "start": 1487.96,
+      "end": 1491.56,
+      "text": "already written like how to um actually"
+    },
+    {
+      "start": 1490.48,
+      "end": 1494.08,
+      "text": "write this particular use this"
+    },
+    {
+      "start": 1491.56,
+      "end": 1496.6,
+      "text": "particular write a stream, okay? So, we"
+    },
+    {
+      "start": 1494.08,
+      "end": 1497.96,
+      "text": "are using this write a stream here."
+    },
+    {
+      "start": 1496.6,
+      "end": 1499.6399999999999,
+      "text": "Let me show you. We're using this right"
+    },
+    {
+      "start": 1497.96,
+      "end": 1501.2,
+      "text": "a stream. So inside that we have written"
+    },
+    {
+      "start": 1499.64,
+      "end": 1502.5200000000002,
+      "text": "the same code where"
+    },
+    {
+      "start": 1501.2,
+      "end": 1503.64,
+      "text": "um instead of doing the invoking"
+    },
+    {
+      "start": 1502.52,
+      "end": 1505.52,
+      "text": "operation we're doing the streaming"
+    },
+    {
+      "start": 1503.64,
+      "end": 1506.64,
+      "text": "operation. We're giving the input config"
+    },
+    {
+      "start": 1505.52,
+      "end": 1509.52,
+      "text": "and stream."
+    },
+    {
+      "start": 1506.64,
+      "end": 1511.5600000000002,
+      "text": "And we are running the for loop. It is"
+    },
+    {
+      "start": 1509.52,
+      "end": 1513.2,
+      "text": "returning two things, message chunks and"
+    },
+    {
+      "start": 1511.56,
+      "end": 1515.36,
+      "text": "metadata. We're only taking the message"
+    },
+    {
+      "start": 1513.2,
+      "end": 1516.64,
+      "text": "chunks. Okay? And once we got the"
+    },
+    {
+      "start": 1515.36,
+      "end": 1518.52,
+      "text": "message chunks"
+    },
+    {
+      "start": 1516.64,
+      "end": 1521.0400000000002,
+      "text": "what we're doing guys"
+    },
+    {
+      "start": 1518.52,
+      "end": 1523.8,
+      "text": "we're just writing the stream on the"
+    },
+    {
+      "start": 1521.04,
+      "end": 1525.2,
+      "text": "Streamlit con Streamlit user interface."
+    },
+    {
+      "start": 1523.8,
+      "end": 1528.24,
+      "text": "And once everything is done we're"
+    },
+    {
+      "start": 1525.2,
+      "end": 1530.92,
+      "text": "updating inside this uh message story"
+    },
+    {
+      "start": 1528.24,
+      "end": 1532.28,
+      "text": "inside uh Streamlit session state. Okay?"
+    },
+    {
+      "start": 1530.92,
+      "end": 1533.88,
+      "text": "This is a simple code we have written."
+    },
+    {
+      "start": 1532.28,
+      "end": 1535.6399999999999,
+      "text": "Now I think this code is clear guys."
+    },
+    {
+      "start": 1533.88,
+      "end": 1537.2800000000002,
+      "text": "Okay? How I have written. So I think"
+    },
+    {
+      "start": 1535.64,
+      "end": 1539.1200000000001,
+      "text": "many people has the confusion how these"
+    },
+    {
+      "start": 1537.28,
+      "end": 1540.96,
+      "text": "things are working. Now I think this is"
+    },
+    {
+      "start": 1539.12,
+      "end": 1543.1999999999998,
+      "text": "clear. Now let me show you the final"
+    },
+    {
+      "start": 1540.96,
+      "end": 1547.04,
+      "text": "execution. I'll"
+    },
+    {
+      "start": 1543.2,
+      "end": 1548.48,
+      "text": "clear. I'll run my app.py so Streamlit"
+    },
+    {
+      "start": 1547.04,
+      "end": 1551.1599999999999,
+      "text": "run"
+    },
+    {
+      "start": 1548.48,
+      "end": 1551.16,
+      "text": "app.py."
+    },
+    {
+      "start": 1552.44,
+      "end": 1558.0800000000002,
+      "text": "So this is our app. Now I'll give"
+    },
+    {
+      "start": 1555.24,
+      "end": 1558.08,
+      "text": "generate"
+    },
+    {
+      "start": 1558.48,
+      "end": 1563.16,
+      "text": "generate let's say"
+    },
+    {
+      "start": 1560.96,
+      "end": 1564.44,
+      "text": "code"
+    },
+    {
+      "start": 1563.16,
+      "end": 1567.4,
+      "text": "for"
+    },
+    {
+      "start": 1564.44,
+      "end": 1570.2,
+      "text": "image classification"
+    },
+    {
+      "start": 1567.4,
+      "end": 1570.2,
+      "text": "in Python."
+    },
+    {
+      "start": 1571.6,
+      "end": 1575.1999999999998,
+      "text": "Now see."
+    },
+    {
+      "start": 1573.72,
+      "end": 1577.68,
+      "text": "Okay? See streaming output we are"
+    },
+    {
+      "start": 1575.2,
+      "end": 1580.1200000000001,
+      "text": "getting. So yes guys this is all about"
+    },
+    {
+      "start": 1577.68,
+      "end": 1582.76,
+      "text": "from this video. I hope you got it what"
+    },
+    {
+      "start": 1580.12,
+      "end": 1584.52,
+      "text": "is the streaming and why it is required"
+    },
+    {
+      "start": 1582.76,
+      "end": 1585.8,
+      "text": "and why we have implemented inside our"
+    },
+    {
+      "start": 1584.52,
+      "end": 1587.48,
+      "text": "chatbot."
+    },
+    {
+      "start": 1585.8,
+      "end": 1589.08,
+      "text": "So please try to go through the entire"
+    },
+    {
+      "start": 1587.48,
+      "end": 1590.44,
+      "text": "playlist if you haven't checked it out"
+    },
+    {
+      "start": 1589.08,
+      "end": 1592.3999999999999,
+      "text": "because all the videos are"
+    },
+    {
+      "start": 1590.44,
+      "end": 1594.92,
+      "text": "interconnected with each other. If you"
+    },
+    {
+      "start": 1592.4,
+      "end": 1597.72,
+      "text": "missed out any session so I think"
+    },
+    {
+      "start": 1594.92,
+      "end": 1599.8400000000001,
+      "text": "you might get difficulties for sure"
+    },
+    {
+      "start": 1597.72,
+      "end": 1602.0,
+      "text": "uh in my future video."
+    },
+    {
+      "start": 1599.84,
+      "end": 1603.8,
+      "text": "So yes now in the next video guys I'm"
+    },
+    {
+      "start": 1602.0,
+      "end": 1606.24,
+      "text": "going to"
+    },
+    {
+      "start": 1603.8,
+      "end": 1607.8799999999999,
+      "text": "uh I'm going to show you another uh new"
+    },
+    {
+      "start": 1606.24,
+      "end": 1609.88,
+      "text": "things we'll be adding inside our"
+    },
+    {
+      "start": 1607.88,
+      "end": 1612.5200000000002,
+      "text": "chatbot. So I already told you we'll try"
+    },
+    {
+      "start": 1609.88,
+      "end": 1615.0400000000002,
+      "text": "to make this agentic chatbot more"
+    },
+    {
+      "start": 1612.52,
+      "end": 1617.76,
+      "text": "advanced, we'll try to add new new"
+    },
+    {
+      "start": 1615.04,
+      "end": 1619.6399999999999,
+      "text": "component, new new features, okay? In as"
+    },
+    {
+      "start": 1617.76,
+      "end": 1621.6,
+      "text": "a part by part."
+    },
+    {
+      "start": 1619.64,
+      "end": 1623.0800000000002,
+      "text": "So, yes, I'll connect you with the next"
+    },
+    {
+      "start": 1621.6,
+      "end": 1626.84,
+      "text": "video, guys. This is all about from this"
+    },
+    {
+      "start": 1623.08,
+      "end": 1626.84,
+      "text": "video. Thanks for watching, guys."
+    }
+  ],
+  "video_id": "SvAuh1fuw0M",
+  "title": "15. Streaming Responses in Agentic Chatbot with LangGraph | Part 3 | Agentic AI Course Tutorial",
+  "position": 17,
+  "url": "https://www.youtube.com/watch?v=SvAuh1fuw0M"
+}

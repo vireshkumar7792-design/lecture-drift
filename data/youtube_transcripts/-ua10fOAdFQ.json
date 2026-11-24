@@ -1,0 +1,3657 @@
+{
+  "source": "youtube_captions",
+  "language": "en",
+  "is_generated": true,
+  "text": "Hi guys. My name is Bapi and you are welcome to my YouTube channel. So guys, we are implementing our Agentic chatbot and this is the part six of that implementation. And so far we have added some amazing features inside our Agentic chatbot. We have created the basic skeleton, then I showed you about the persistence memory concept, why persistence memory is required inside the Agentic chatbot. I already integrated the streaming features, chat trading features, even I also showed you how we can add the database for the permanent persistent memory. Each and everything I have already clarified. If you haven't checked those videos, guys, it is already available in my playlist. As you can see, this is my playlist and uh all of the parts are available for this Agentic chatbot implementation. So this is the part of of our complete Agentic AI course. So this is our first project. So as you can see, guys, from the part one I started implementing this project and so far we have completed so many concepts like persistence, streaming, trading features, permanent chat persistence memory with LangGraph and database and so on. So guys, in this video we'll be learning one very important and interesting concept called observability. So I think you have already heard of these kinds of word like observability, monitoring, tracing, okay, of Agentic application or any kinds of JNAI powered application. See, we use this observability, monitoring, tracing not only in Agentic application, uh but also we use these kinds of concept in any kinds of LLM powered application. So whenever you're implementing any kinds of LLM powered application with the help of LangChain or LangGraph or any kinds of framework, this observability, monitoring, tracing is super important there, okay? Without that, you can't actually debug, monitor, and evaluate your application. This is not possible. So, for this observability, guys, we can use one very interesting and powerful tool called LangSmith, okay? So, what is this LangSmith? LangSmith is a observability monitoring tool. It is created by LangChain. And with the help of that, actually, we can monitor any kinds of LLM-powered application, whether it's agentic AI, whether it's any kinds of rack system, okay? Any kinds of application we can monitor here. Real-time we can monitor here, okay? So, first of all, let me give you the idea what is this LangSmith is and why it is required. Then, we'll try to see the practical demo how we can observe, how we can monitor our entire agentic chatbot with the help of this LangSmith, okay? Each and every integration I'm going to show you, guys. And trust me, guys, if you learn this concept, I think uh uh it would be very helpful for you whenever you are creating production-grade agentic AI application because in productions, whenever you are creating these kinds of system, there would be lots of bugs, there would be lots of issues, and you can trace everything in a single platform with the help of this LangSmith. This is super important, guys. So, as you can see, guys, LangSmith is a debugging, monitoring, and evaluation platform for application uh built with LLM and AI agents. It is made by LangChain team, but it can also work with application that do not use LangChain, okay? So, I already told you this LangSmith is Let's say it is developed by LangChain. Uh but if you are not using any LangChain, let's say framework inside your application development, still you can use this LangSmith with other framework integration as well, okay? It has all kinds of integration. So, let's try to understand why this is useful. So, whenever you are creating any kinds of chatbot or any kinds of, let's say, agentic powered application or any kinds of LLM-powered application, there you perform some kinds of steps, some kinds of operation, right? Let's say user can send the questions, then in between you can construct the prompt, then you can perform the LLM call. If you're implementing any kinds of agents that will use any kinds of tool or database, okay? Then it can also use memory and check pointer for the retriever. Then it can give you the final responses. So that means in between there are some hidden operations are happening, but this is not visible to you. Okay, if you're writing only the code, if you're not monitoring the entire if you're not let's say tracing the entire application, this part is invisible to you. Okay? So that's why you can see LangSmith is a debugging, monitoring, and evaluation platform for application building built with large language model or AI agents, okay? Because inside all of this application, this hidden operation happens, okay? This hidden operation happens. So if you're using LangSmith, so what will happen? Um LangSmith uh records this complete execution as a trace. That means whatever execution you are doing here, okay? LangSmith records this complete execution as a trace, okay? It will record all of the execution as a trace, allowing you to inspect every step including inputs, outputs, error, execution time, token usages, tool calls, and model behavior, okay? This is super important, guys. I think by the definition itself you can understand whatever hidden operation you are executing, okay? Whatever things are happening in between, everything LangSmith can record as a trace, okay? In that platform itself. Okay, so that anytime you can see the input, output, errors, execution time, token usages, tool call, model behavior, each and everything should be visible to you in a single platform, okay? Now as you can see, for your LangGraph agentic chatbot, LangSmith can help you. That means the application we are developing right now. So here this LangSmith uh can help us for finding why an agent selected the wrong tool, let's say you are running your agents and it has selected a wrong tool. It is giving you some kinds of other responses. But you don't know why. Okay, why it is giving you these kinds of output, why it is selecting the wrong tool. If you want to see the step-by-step execution like after user query prompt construction LM call, which tool it has selected. Okay, based on the prompt or LM call. Okay, if you want to understand these things, you have to first of all monitor trace your entire application. Okay, monitoring is important. Any kinds of application whether you're creating ML DL CV whatever project you're creating, monitoring monitoring is super important. If you cannot monitor your application, that means in production you will be finding difficulties for sure. Okay, that's why application monitoring is super important and for this LangSmith is a very powerful tools we'll be using. Okay. So that's why find why an agent selected the wrong tool, we can easily understand with the help of LangSmith. Then inspect the exact prompt sent to the model. That means you can see like whether this prompt prompt construction is happening in a good way or not. The prompt you are constructing whether it is right or not. It is going to the LM or not. Okay, each and everything you can inspect here. Then debug failed nodes in a LangGraph workflow. That means if any of the nodes let's say failed during the execution, you can easily monitor inside the LangSmith dashboard. Then measures responses latency and token cost. So that means if some of the model is taking much time, you can see like how much time it is taking, why it is taking that time, and how much token token actually it is uh spending. Okay, to give you the response. Each and everything you can monitor. Then review conversations and multi-turn trades. That means you can review the construction sorry conversation. Review conversation and multi-turn trades. That means you can see the entire conversation. Even you can see the trades conversation. Trade conversation means I think you know we have integrated the trades inside our agentic chatbot. Now user can create different different trades. User can create different different chats, right? So you can see the trades as well. Not only the single conversation, you can also see the trades wise. Okay, this is also possible. I will also show you this part. Then compare different prompts or model versions. You can also compare different prompts or model versions. Then you can evaluate chatbot quality before and after the deployment. Okay? That means all of these things you will be getting inside this LangSmith and it will help you for these kinds of work. Okay, if you're using this this inside your application development. So I think apart from this there is nothing you can monitor inside your application. If you can monitor these are the thing I think uh your application should be production ready and you won't be having any kinds of problem. Okay, going forward. So now we'll try to see guys this LangSmith in practical. That means the application we have created. This code is already available in my description. From there you can get it get the code guys. I think you remember we created a agentic chatbot. Okay? And in my last video I showed you how we can integrate database features. Okay, so that it can it can have the permanent persistence memory. Okay? So first of all let me show you the application guys we have developed. So guys this is our agentic chatbot we have developed so far and we can perform any kinds of chat operation. Let's say if I give a prompt uh give me a road map to learn okay, ML. So see, this is giving you the detailed road map. And you can see the previous trades as well. You can also continue the conversation with the previous trades you had here. And this is your current trades. Okay? And if you refresh your application still this previous conversation will remain same because we have added the permanent memory here with the help of database, okay? So, in this particular video I already explained this concept. If you haven't checked that guys, please try to go through this recording. So, see guys, here we have performed conversation, it's completely fine, but this application doesn't have any kinds of observability or monitoring connection, okay? So, I can't monitor this application like in the back end what is happening, let's say. If I deploy this application in production server, so I don't have any kinds of platform where I can continuously monitor my application, what is happening, how much token it is taking, okay? Or let's say any of the nodes is giving you any kinds of errors, so I can't see this kinds of, let's say, issues, right? So, for this we can utilize this LangSmith platform. So, you have to visit smith.langchain.com. So, if you visit this website guys, this is the LangSmith platform. So, first of all here, what you have to do, you have to create an account, okay? So, here you just need to create an account guys, you can use your Google, GitHub, Discord, anything you can use and you can create an account. So, I already have an account guys, I'll just try to log in. So, once you log in guys, you will be able to see this kinds of dashboard. So, this is your LangSmith dashboard and previously I already created some of the project here. I already traced some of my project, that's why it's coming here. But, if you are using for the first time, you won't be able to see this kinds of like project name here or tracing name here, okay? So, first of all guys, if you want to use this LangSmith inside your application, you just need to collect the API key, okay? And this is super easy to use, you don't need to write like any kinds of code if you want to use this LangSmith guys. Only you just need to add some of the environment variables and automatically this LangSmith will start tracing your application, okay? I'll show you this part. So, if you want to get the uh API key, so what you have to do, you just need to go to the API section. So, I think API is available in the settings. And here is the API key, guys. Okay? Now, previously I already created some API key. What I will do, I'll just try to remove some of the API key so that I can create a new one. Mhm. So, I'll create a new API key. So, you can give the name. So, let's say I'll give the name of uh uh agentic chatbot. So, everything just keep it as as it is. Okay? Don't need to change anything. Now, just create the API key. So, once you have created the API key, just try to copy. And you have to add this API key in the environment variable. Okay? So, let's say this is our app. Uh so, this application we have created, guys. This is the code. I think you remember in my previous uh video, previous part. So, now you just need to open this .env file. Um after that, here you have to add uh some of the environment variable. Let me show you. So, these things you have to add here. Yeah. So, see, this things will common for all the project you will be creating going forward. Only you just uh need to change the project name. So, see, first of all, you have to provide LangSmith tracing. Uh this parameter is equal to true. Okay? That means you are allowing your allowing your LangSmith to trace your entire application. Whenever you are executing your application, LangSmith will automatically start tracing your application. It will automatically start monitoring your application. That's why this parameter you have to give as true. Then you are telling what should be the endpoint. That means after tracing it, uh the data it will get. Okay? The let's say information it will get, where it will save this information. Okay? It needs an endpoint. So, endpoint is a LangSmith platform. I'm giving a you have to save everything in the LangSmith platform. That means inside this particular platform. This is the dashboard, right? So, this is what actually we're doing. Then you have to pass the API key. Now, to authenticate with your dashboard, you need a API key. So, what I will do, I'll just copy this API key. And here you have to provide the API key. And make sure you don't share this API key with anyone, otherwise they will be able to uh use your platform, okay? Then you have to provide the LangSmith project name, okay? Because every time whenever you will uh execute for the first time, it will create a project, right? Inside the project, it will start tracing all of the execution. So, project is important. So, here I'm giving Agenty chatbot project, okay? If you're creating any other project, you can change the name as per your requirement. Once it is done, you just need to save this file. And no need to change anywhere, okay? No need to change anywhere. I can uh re-execute my app again. So, I'll stop the execution. Clear. And let's re-execute my app. Streamlit run my app.py, okay? So, once you have done, now what I will do, uh here I already saved this uh API key. Mhm. So, it's done. Now, I'll go to the uh home page. Yeah. Now, let's execute my app. See, my application is running right now. Now here again I will give the prompt. Let's say I'll give hi. My name is Buppy. I need a plan to learn AI. I'll send it. Now see, it is giving you some kinds of response, okay? Now, once I go to my platform, okay? Once I go to my platform, and if I refresh here, so see, this Agenty chatbot project is created few seconds ago. See, automatically it has created. I didn't uh change anything inside my code, okay? Now, if I go inside that Now, inside the project, guys, you will be able to see your trace, okay? So, this is our first trace. That means we have executed uh only one time. We have given a single prompt. That's why That's why one trace came. And by default, this trace name will be taken as LangGraph because we're using LangGraph. And now, if I click on the uh this trace, our first trace, uh so, whatever message you have given as an input, you will be able to see. And whatever uh output you got from your AI, even you will be also able to see, okay? And this is also coming as a chatbot interface, okay? This is uh like very interesting. Then, there is a option called details. So, you have to click on details, okay? If you click on details, you'll be able to see all of the details. That means you have executed your LangGraph. And it has a chat node. I think you remember uh we are using a chat node, if you can see uh our entire application workflow. So, this is the chat node. Inside chat node, we're using uh LLM, right? We're using a large language model, uh OpenAI model. And we are using GPT-3.5 Turbo model because I used a default model there, okay? And by default, GPT-3.5 Turbo would be available. Now, everything you can see, which model, which node you are executing, okay? Each and everything is visible. Now, you can see the input and output you got here. You can even see the attribute, okay? All of the attribute metadata, version, everything is visible here. And if you hover on each and every, let's say, uh step here, you you you will be able to see the um uh let's say estimated uh token cost. You can see token cost and uh how many how much token actually it used, okay? How much token it used for input, output, total, okay? Each and everything you'd be able to see that. Okay, that's how you can see the each and every execution of your application. If you're using multiple LLM calls, you'll be able to see the multiple LLM. You can see the prompt, okay? Each and everything should be available here. Okay. now let's say if I do for the second time, what I will do let's say I will give another message. Um, let's say how much time it will take. Now I got a response. Now if I again go to my um dashboard, now see another trace has created, okay? Because this is my second run. Now if I go to this trace and you'll be able to again see the uh conversation, okay? So how much time it will take based on that you got the entire output. Then you'll be able to also see the uh token, okay? Like input token, output token, okay? Total token, each and everything would be available here. Now even you can also switch to your previous uh trans as well. So if I go to my previous trans, this is the first trans. This is the second trans, okay? Everything you can see. Even you can see the name. So this is trans one and this is trans two, okay? So that's how everything would be available. And even if you zoom out here, so you'll be able to see some other information right side like start time, latency, like how much time it took to execute, then whether you're using any data set or not, then tokens, cost, okay? Uh first tokens, then metadata, LangSmith endpoint, okay? Each and everything you'll be able to see. So yes, so that's how you can utilize this uh LangSmith platform. Uh only you just need to add those uh three to four things in the environment variable and tracing would be uh automatically uh happening, okay? Inside this particular dashboard. But one issue I think you have observed here, which is that let's say uh here let's say if I create a new trace, okay? Let's say I create a new trace and if I do the conversation, let's say I'll give hi. I am Buppy. Let's say this is completely new trace. Okay? But if I go to my um dashboard, that is LangSmith dashboard. So as you can see, in the same um I mean trace only it has created my uh my current execution. That means the current trace, the execution we have done right now. So, see here I given I my name is Bapi and hello, I can assist you today. Okay? So, that's how actually it is uh as it is not separating my threads. Instead of that, it is saving everything inside a single trace only. So, here if you want to separate your threads, guys, it is also possible because LangSmith by default has these trading uh features here. So, if you want to separate out each and every threads, okay? The threads you are maintaining here. So, it is possible. For this inside the code, you have to only modify modify one particular line. Let me show you. So, this code only just need to modify. See, here I was writing the configuration and the configuration I was only giving the thread ID. Okay? Uh and we are passing this configuration whenever we're executing the uh chatbot. Whenever we're invoking the chatbot, okay? Now, instead of that, you have to write this configuration, okay? So, my other information you need to also pass this metadata and the run name, okay? So, run name see every time this run name is coming as a LangGraph uh by default name, but you can change this run name if you want. You can give any kinds of run name. Let's say I give I'll give chat trace, okay? You can also give any other name. And if you pass this configuration, guys, right now this uh uh trading would be uh trading would be applied. That means all of the threads individual threads would be saved in the threads, okay? Let me show you. So, I'll remove this configuration right now. This is not required. I'll use my new one, okay? New configuration. Yeah. So, let me show you the fresh execution. So, for this I'll remove my uh I'll remove my, let's say, project. So, here just go to the tracing and select your project and just try to delete the project. Okay, done. Now, I will re-execute my code. So, let's say here I'll give a message, \"Hi, my name is Bapi.\" Okay, done. So, this is this is the trade, guys. I just start the conversation. Now, if I come here, see my project has created. If I go inside that, so first trace has created that the name of the trace is chat trace because we change the name. And this is the conversation we have done. Okay. Now, let's say I will give another message. I'll create a new trace here. And I'll perform another message. Let's say, \"I am Alex.\" Now, if I come here, now if I go to the trace, now guys, you can see trace has created. Okay. Now, this is the trace. This was my first trace. Uh there I perform, \"Hello, my name is Bapi. Okay, how I can assist you today?\" Now, let's see if I give another message. Uh \"I need um I need a plan to learn Python.\" Now, if I go to my trace, so see inside the same trace uh inside the same trace there is two trans right now. Um now, if I go to this uh trace, as you can see, the first I given, \"Hi, my name is Bapi. Uh how and it it has given me, 'Hello, Bapi. How I can assist you today?'\" Now, in the second trace, uh you can see I given, \"I need a plan to learn Python.\" And uh it has given you the plan. Okay. That means in a single trade now it is storing multiple trans, that means multiple conversation. Uh previously I also did for Alex. See, Alex is also available here. Uh yeah, you can see the Alex. Uh but it takes some time, guys. I think it takes uh 10 to 20 seconds to update in the trades, okay? That's why initially whenever I showed you, uh this information was not updated. Now, see, here also whenever I did, let's say, Alex, right? Uh this is the Alex Alex conversation. Uh this is the Alex conversation. I'm Alex. I need uh a plan to learn Python, as you can see. I'm Alex, and here I given you I need a plan to learn Python, okay? So, that's how, guys, every uh trades you will be creating, all of the trades would be available. Inside the trades, whatever conversation you'll be doing, it would be saving as a tran. Now, let me show you another, let's execution. Let's say, in the Alex only I'll tell how much time it will take. Now, this is my third tran, okay? Now, if I come here, so you have to wait for some time, then this tran would be updated here. Now, see, it got updated. Tran three. Now, if I click here, now this is the tran three, guys. And here I asked how much time it will take, and this is the answer I got, okay? So, that's how, guys, you can separate out the trades uh by adding this line of code only. You just need to update your configuration, and everything will remain same, okay? So, that's how, guys, with the help of LangSmith, we can continuously monitor our application, we can continuously trace our application. Lots of thing we can perform with the help of this LangSmith. Going forward also, I'll be using this uh tool, okay, in my project development, and I will also show you some other advantage we can utilize from this Lang LangSmith itself, okay? So, all the code I'm going to uh upload in my uh GitHub, and give the link in the description. From there you can get, and please try to practice in your system and do let me know if you have any question. So yes guys this is all about it and if you found my content useful please try to subscribe to my channel and hit the like and please try to share this playlist with your friends and family guys so that they can also get the opportunity to learn this kind of concept. So yes guys this is all about it bye everyone and I will see you in the next video guys thank you.",
+  "segments": [
+    {
+      "start": 0.4,
+      "end": 3.64,
+      "text": "Hi guys."
+    },
+    {
+      "start": 1.68,
+      "end": 5.36,
+      "text": "My name is Bapi and you are welcome to"
+    },
+    {
+      "start": 3.64,
+      "end": 7.68,
+      "text": "my YouTube channel."
+    },
+    {
+      "start": 5.36,
+      "end": 10.4,
+      "text": "So guys, we are implementing our Agentic"
+    },
+    {
+      "start": 7.68,
+      "end": 11.84,
+      "text": "chatbot and this is the part six of that"
+    },
+    {
+      "start": 10.4,
+      "end": 15.120000000000001,
+      "text": "implementation."
+    },
+    {
+      "start": 11.84,
+      "end": 17.72,
+      "text": "And so far we have added some amazing"
+    },
+    {
+      "start": 15.12,
+      "end": 20.36,
+      "text": "features inside our Agentic chatbot."
+    },
+    {
+      "start": 17.72,
+      "end": 22.4,
+      "text": "We have created the basic skeleton, then"
+    },
+    {
+      "start": 20.36,
+      "end": 25.2,
+      "text": "I showed you about the persistence"
+    },
+    {
+      "start": 22.4,
+      "end": 27.799999999999997,
+      "text": "memory concept, why persistence memory"
+    },
+    {
+      "start": 25.2,
+      "end": 29.96,
+      "text": "is required inside the Agentic chatbot."
+    },
+    {
+      "start": 27.8,
+      "end": 31.2,
+      "text": "I already integrated the streaming"
+    },
+    {
+      "start": 29.96,
+      "end": 33.28,
+      "text": "features,"
+    },
+    {
+      "start": 31.2,
+      "end": 35.76,
+      "text": "chat trading features, even I also"
+    },
+    {
+      "start": 33.28,
+      "end": 38.480000000000004,
+      "text": "showed you how we can add the database"
+    },
+    {
+      "start": 35.76,
+      "end": 39.64,
+      "text": "for the permanent persistent memory."
+    },
+    {
+      "start": 38.48,
+      "end": 40.959999999999994,
+      "text": "Each and everything I have already"
+    },
+    {
+      "start": 39.64,
+      "end": 42.76,
+      "text": "clarified."
+    },
+    {
+      "start": 40.96,
+      "end": 45.0,
+      "text": "If you haven't checked those videos,"
+    },
+    {
+      "start": 42.76,
+      "end": 46.36,
+      "text": "guys, it is already available in my"
+    },
+    {
+      "start": 45.0,
+      "end": 48.08,
+      "text": "playlist. As you can see, this is my"
+    },
+    {
+      "start": 46.36,
+      "end": 50.4,
+      "text": "playlist and uh"
+    },
+    {
+      "start": 48.08,
+      "end": 52.48,
+      "text": "all of the parts are available for this"
+    },
+    {
+      "start": 50.4,
+      "end": 55.0,
+      "text": "Agentic chatbot implementation. So this"
+    },
+    {
+      "start": 52.48,
+      "end": 57.919999999999995,
+      "text": "is the part of of our complete Agentic"
+    },
+    {
+      "start": 55.0,
+      "end": 59.44,
+      "text": "AI course. So this is our first project."
+    },
+    {
+      "start": 57.92,
+      "end": 62.0,
+      "text": "So as you can see, guys,"
+    },
+    {
+      "start": 59.44,
+      "end": 63.959999999999994,
+      "text": "from the part one I started implementing"
+    },
+    {
+      "start": 62.0,
+      "end": 65.48,
+      "text": "this project and so far we have"
+    },
+    {
+      "start": 63.96,
+      "end": 67.48,
+      "text": "completed so many concepts like"
+    },
+    {
+      "start": 65.48,
+      "end": 69.2,
+      "text": "persistence, streaming, trading"
+    },
+    {
+      "start": 67.48,
+      "end": 71.72,
+      "text": "features, permanent chat persistence"
+    },
+    {
+      "start": 69.2,
+      "end": 73.92,
+      "text": "memory with LangGraph and database and"
+    },
+    {
+      "start": 71.72,
+      "end": 76.16,
+      "text": "so on. So guys, in this video we'll be"
+    },
+    {
+      "start": 73.92,
+      "end": 78.28,
+      "text": "learning one very important and"
+    },
+    {
+      "start": 76.16,
+      "end": 79.92,
+      "text": "interesting concept called"
+    },
+    {
+      "start": 78.28,
+      "end": 81.36,
+      "text": "observability."
+    },
+    {
+      "start": 79.92,
+      "end": 84.12,
+      "text": "So I think you have already heard of"
+    },
+    {
+      "start": 81.36,
+      "end": 86.52,
+      "text": "these kinds of word like observability,"
+    },
+    {
+      "start": 84.12,
+      "end": 89.08,
+      "text": "monitoring, tracing, okay, of Agentic"
+    },
+    {
+      "start": 86.52,
+      "end": 91.28,
+      "text": "application or any kinds of JNAI powered"
+    },
+    {
+      "start": 89.08,
+      "end": 93.6,
+      "text": "application. See, we use this"
+    },
+    {
+      "start": 91.28,
+      "end": 96.08,
+      "text": "observability, monitoring, tracing not"
+    },
+    {
+      "start": 93.6,
+      "end": 98.0,
+      "text": "only in Agentic application,"
+    },
+    {
+      "start": 96.08,
+      "end": 100.48,
+      "text": "uh but also we use these kinds of"
+    },
+    {
+      "start": 98.0,
+      "end": 102.28,
+      "text": "concept in any kinds of LLM powered"
+    },
+    {
+      "start": 100.48,
+      "end": 103.96000000000001,
+      "text": "application. So whenever you're"
+    },
+    {
+      "start": 102.28,
+      "end": 106.32000000000001,
+      "text": "implementing any kinds of LLM powered"
+    },
+    {
+      "start": 103.96,
+      "end": 109.67999999999999,
+      "text": "application with the help of LangChain"
+    },
+    {
+      "start": 106.32,
+      "end": 111.8,
+      "text": "or LangGraph or any kinds of framework,"
+    },
+    {
+      "start": 109.68,
+      "end": 114.16000000000001,
+      "text": "this observability, monitoring, tracing"
+    },
+    {
+      "start": 111.8,
+      "end": 116.75999999999999,
+      "text": "is super important there, okay? Without"
+    },
+    {
+      "start": 114.16,
+      "end": 118.67999999999999,
+      "text": "that, you can't actually debug, monitor,"
+    },
+    {
+      "start": 116.76,
+      "end": 120.12,
+      "text": "and evaluate your application. This is"
+    },
+    {
+      "start": 118.68,
+      "end": 122.72000000000001,
+      "text": "not possible."
+    },
+    {
+      "start": 120.12,
+      "end": 124.24000000000001,
+      "text": "So, for this observability, guys,"
+    },
+    {
+      "start": 122.72,
+      "end": 126.64,
+      "text": "we can use one"
+    },
+    {
+      "start": 124.24,
+      "end": 129.28,
+      "text": "very interesting and powerful tool"
+    },
+    {
+      "start": 126.64,
+      "end": 131.4,
+      "text": "called LangSmith, okay? So, what is this"
+    },
+    {
+      "start": 129.28,
+      "end": 134.28,
+      "text": "LangSmith? LangSmith is a"
+    },
+    {
+      "start": 131.4,
+      "end": 136.16,
+      "text": "observability monitoring tool. It is"
+    },
+    {
+      "start": 134.28,
+      "end": 137.92,
+      "text": "created by LangChain."
+    },
+    {
+      "start": 136.16,
+      "end": 140.0,
+      "text": "And with the help of that, actually, we"
+    },
+    {
+      "start": 137.92,
+      "end": 142.04,
+      "text": "can monitor any kinds of LLM-powered"
+    },
+    {
+      "start": 140.0,
+      "end": 143.959,
+      "text": "application, whether it's agentic AI,"
+    },
+    {
+      "start": 142.04,
+      "end": 146.51999999999998,
+      "text": "whether it's any kinds of rack system,"
+    },
+    {
+      "start": 143.959,
+      "end": 148.36,
+      "text": "okay? Any kinds of application we can"
+    },
+    {
+      "start": 146.52,
+      "end": 150.32000000000002,
+      "text": "monitor here. Real-time we can monitor"
+    },
+    {
+      "start": 148.36,
+      "end": 152.48000000000002,
+      "text": "here, okay? So, first of all, let me"
+    },
+    {
+      "start": 150.32,
+      "end": 155.12,
+      "text": "give you the idea what is this LangSmith"
+    },
+    {
+      "start": 152.48,
+      "end": 157.16,
+      "text": "is and why it is required. Then,"
+    },
+    {
+      "start": 155.12,
+      "end": 159.52,
+      "text": "we'll try to see the practical demo how"
+    },
+    {
+      "start": 157.16,
+      "end": 161.44,
+      "text": "we can observe, how we can monitor our"
+    },
+    {
+      "start": 159.52,
+      "end": 163.60000000000002,
+      "text": "entire agentic chatbot with the help of"
+    },
+    {
+      "start": 161.44,
+      "end": 165.68,
+      "text": "this LangSmith, okay? Each and every"
+    },
+    {
+      "start": 163.6,
+      "end": 167.64,
+      "text": "integration I'm going to show you, guys."
+    },
+    {
+      "start": 165.68,
+      "end": 169.88,
+      "text": "And trust me, guys, if you learn this"
+    },
+    {
+      "start": 167.64,
+      "end": 171.48,
+      "text": "concept, I think uh"
+    },
+    {
+      "start": 169.88,
+      "end": 172.4,
+      "text": "uh it would be very helpful for you"
+    },
+    {
+      "start": 171.48,
+      "end": 174.11999999999998,
+      "text": "whenever you are creating"
+    },
+    {
+      "start": 172.4,
+      "end": 176.08,
+      "text": "production-grade"
+    },
+    {
+      "start": 174.12,
+      "end": 177.4,
+      "text": "agentic AI application because in"
+    },
+    {
+      "start": 176.08,
+      "end": 178.68,
+      "text": "productions,"
+    },
+    {
+      "start": 177.4,
+      "end": 180.72,
+      "text": "whenever you are creating these kinds of"
+    },
+    {
+      "start": 178.68,
+      "end": 183.44,
+      "text": "system, there would be lots of bugs,"
+    },
+    {
+      "start": 180.72,
+      "end": 185.44,
+      "text": "there would be lots of issues, and you"
+    },
+    {
+      "start": 183.44,
+      "end": 186.68,
+      "text": "can trace everything in a single"
+    },
+    {
+      "start": 185.44,
+      "end": 188.04,
+      "text": "platform with the help of this"
+    },
+    {
+      "start": 186.68,
+      "end": 189.16,
+      "text": "LangSmith. This is super important,"
+    },
+    {
+      "start": 188.04,
+      "end": 190.79999999999998,
+      "text": "guys."
+    },
+    {
+      "start": 189.16,
+      "end": 193.64,
+      "text": "So, as you can see, guys, LangSmith is a"
+    },
+    {
+      "start": 190.8,
+      "end": 196.56,
+      "text": "debugging, monitoring, and evaluation"
+    },
+    {
+      "start": 193.64,
+      "end": 199.64,
+      "text": "platform for application uh built with"
+    },
+    {
+      "start": 196.56,
+      "end": 202.16,
+      "text": "LLM and AI agents. It is made by"
+    },
+    {
+      "start": 199.64,
+      "end": 204.07999999999998,
+      "text": "LangChain team, but it can also work"
+    },
+    {
+      "start": 202.16,
+      "end": 206.07999999999998,
+      "text": "with application that do not use"
+    },
+    {
+      "start": 204.08,
+      "end": 207.64000000000001,
+      "text": "LangChain, okay? So, I already told you"
+    },
+    {
+      "start": 206.08,
+      "end": 209.76000000000002,
+      "text": "this LangSmith is"
+    },
+    {
+      "start": 207.64,
+      "end": 211.6,
+      "text": "Let's say it is developed by LangChain."
+    },
+    {
+      "start": 209.76,
+      "end": 213.239,
+      "text": "Uh but if you are not using any"
+    },
+    {
+      "start": 211.6,
+      "end": 215.4,
+      "text": "LangChain, let's say framework inside"
+    },
+    {
+      "start": 213.239,
+      "end": 216.959,
+      "text": "your application development, still you"
+    },
+    {
+      "start": 215.4,
+      "end": 218.68,
+      "text": "can use this LangSmith with other"
+    },
+    {
+      "start": 216.959,
+      "end": 220.64000000000001,
+      "text": "framework integration as well, okay? It"
+    },
+    {
+      "start": 218.68,
+      "end": 222.20000000000002,
+      "text": "has all kinds of integration."
+    },
+    {
+      "start": 220.64,
+      "end": 223.27999999999997,
+      "text": "So, let's try to understand why this is"
+    },
+    {
+      "start": 222.2,
+      "end": 225.88,
+      "text": "useful."
+    },
+    {
+      "start": 223.28,
+      "end": 227.959,
+      "text": "So, whenever you are creating any kinds"
+    },
+    {
+      "start": 225.88,
+      "end": 230.519,
+      "text": "of chatbot or any kinds of, let's say,"
+    },
+    {
+      "start": 227.959,
+      "end": 232.76,
+      "text": "agentic powered application or any kinds"
+    },
+    {
+      "start": 230.519,
+      "end": 234.6,
+      "text": "of LLM-powered application, there you"
+    },
+    {
+      "start": 232.76,
+      "end": 237.07999999999998,
+      "text": "perform some kinds of steps, some kinds"
+    },
+    {
+      "start": 234.6,
+      "end": 239.44,
+      "text": "of operation, right? Let's say user can"
+    },
+    {
+      "start": 237.08,
+      "end": 242.12,
+      "text": "send the questions, then in between you"
+    },
+    {
+      "start": 239.44,
+      "end": 243.68,
+      "text": "can construct the prompt, then you can"
+    },
+    {
+      "start": 242.12,
+      "end": 245.48000000000002,
+      "text": "perform the LLM call. If you're"
+    },
+    {
+      "start": 243.68,
+      "end": 247.72,
+      "text": "implementing any kinds of agents that"
+    },
+    {
+      "start": 245.48,
+      "end": 249.72,
+      "text": "will use any kinds of tool or database,"
+    },
+    {
+      "start": 247.72,
+      "end": 252.04,
+      "text": "okay? Then it can also use memory and"
+    },
+    {
+      "start": 249.72,
+      "end": 253.68,
+      "text": "check pointer for the retriever. Then it"
+    },
+    {
+      "start": 252.04,
+      "end": 255.64,
+      "text": "can give you the final responses. So"
+    },
+    {
+      "start": 253.68,
+      "end": 257.76,
+      "text": "that means in between there are some"
+    },
+    {
+      "start": 255.64,
+      "end": 259.71999999999997,
+      "text": "hidden operations are happening, but"
+    },
+    {
+      "start": 257.76,
+      "end": 262.03999999999996,
+      "text": "this is not visible to you. Okay, if"
+    },
+    {
+      "start": 259.72,
+      "end": 264.28000000000003,
+      "text": "you're writing only the code, if you're"
+    },
+    {
+      "start": 262.04,
+      "end": 265.28000000000003,
+      "text": "not monitoring the entire if you're not"
+    },
+    {
+      "start": 264.28,
+      "end": 267.55999999999995,
+      "text": "let's say tracing the entire"
+    },
+    {
+      "start": 265.28,
+      "end": 269.03999999999996,
+      "text": "application, this part is invisible to"
+    },
+    {
+      "start": 267.56,
+      "end": 271.44,
+      "text": "you."
+    },
+    {
+      "start": 269.04,
+      "end": 273.08000000000004,
+      "text": "Okay? So that's why you can see"
+    },
+    {
+      "start": 271.44,
+      "end": 275.32,
+      "text": "LangSmith is a debugging, monitoring,"
+    },
+    {
+      "start": 273.08,
+      "end": 276.32,
+      "text": "and evaluation platform for application"
+    },
+    {
+      "start": 275.32,
+      "end": 278.12,
+      "text": "building"
+    },
+    {
+      "start": 276.32,
+      "end": 280.59999999999997,
+      "text": "built with large language model or AI"
+    },
+    {
+      "start": 278.12,
+      "end": 282.52,
+      "text": "agents, okay? Because inside all of this"
+    },
+    {
+      "start": 280.6,
+      "end": 284.52000000000004,
+      "text": "application, this hidden operation"
+    },
+    {
+      "start": 282.52,
+      "end": 285.56,
+      "text": "happens, okay? This hidden operation"
+    },
+    {
+      "start": 284.52,
+      "end": 287.12,
+      "text": "happens."
+    },
+    {
+      "start": 285.56,
+      "end": 288.32,
+      "text": "So if you're using LangSmith, so what"
+    },
+    {
+      "start": 287.12,
+      "end": 291.6,
+      "text": "will happen?"
+    },
+    {
+      "start": 288.32,
+      "end": 293.64,
+      "text": "Um LangSmith uh records this complete"
+    },
+    {
+      "start": 291.6,
+      "end": 295.8,
+      "text": "execution as a trace. That means"
+    },
+    {
+      "start": 293.64,
+      "end": 298.15999999999997,
+      "text": "whatever execution you are doing here,"
+    },
+    {
+      "start": 295.8,
+      "end": 300.84000000000003,
+      "text": "okay? LangSmith records this complete"
+    },
+    {
+      "start": 298.16,
+      "end": 303.20000000000005,
+      "text": "execution as a trace, okay? It will"
+    },
+    {
+      "start": 300.84,
+      "end": 305.08,
+      "text": "record all of the execution as a trace,"
+    },
+    {
+      "start": 303.2,
+      "end": 307.03999999999996,
+      "text": "allowing you to inspect every step"
+    },
+    {
+      "start": 305.08,
+      "end": 308.76,
+      "text": "including inputs, outputs, error,"
+    },
+    {
+      "start": 307.04,
+      "end": 311.20000000000005,
+      "text": "execution time, token usages, tool"
+    },
+    {
+      "start": 308.76,
+      "end": 312.64,
+      "text": "calls, and model behavior, okay? This is"
+    },
+    {
+      "start": 311.2,
+      "end": 314.12,
+      "text": "super important, guys."
+    },
+    {
+      "start": 312.64,
+      "end": 316.28,
+      "text": "I think by the definition itself you can"
+    },
+    {
+      "start": 314.12,
+      "end": 318.68,
+      "text": "understand whatever hidden operation you"
+    },
+    {
+      "start": 316.28,
+      "end": 320.52,
+      "text": "are executing, okay? Whatever things are"
+    },
+    {
+      "start": 318.68,
+      "end": 322.88,
+      "text": "happening in between, everything"
+    },
+    {
+      "start": 320.52,
+      "end": 324.919,
+      "text": "LangSmith can record as a trace, okay?"
+    },
+    {
+      "start": 322.88,
+      "end": 327.32,
+      "text": "In that platform itself."
+    },
+    {
+      "start": 324.919,
+      "end": 329.24,
+      "text": "Okay, so that anytime you can see the"
+    },
+    {
+      "start": 327.32,
+      "end": 331.12,
+      "text": "input, output, errors, execution time,"
+    },
+    {
+      "start": 329.24,
+      "end": 333.08,
+      "text": "token usages, tool call, model behavior,"
+    },
+    {
+      "start": 331.12,
+      "end": 335.72,
+      "text": "each and everything should be visible to"
+    },
+    {
+      "start": 333.08,
+      "end": 337.96,
+      "text": "you in a single platform, okay? Now as"
+    },
+    {
+      "start": 335.72,
+      "end": 339.96000000000004,
+      "text": "you can see, for your LangGraph agentic"
+    },
+    {
+      "start": 337.96,
+      "end": 341.919,
+      "text": "chatbot, LangSmith can help you. That"
+    },
+    {
+      "start": 339.96,
+      "end": 345.32,
+      "text": "means the application we are developing"
+    },
+    {
+      "start": 341.919,
+      "end": 347.32,
+      "text": "right now. So here this LangSmith uh"
+    },
+    {
+      "start": 345.32,
+      "end": 350.2,
+      "text": "can help us for"
+    },
+    {
+      "start": 347.32,
+      "end": 351.59999999999997,
+      "text": "finding why an agent selected the wrong"
+    },
+    {
+      "start": 350.2,
+      "end": 353.52,
+      "text": "tool, let's say"
+    },
+    {
+      "start": 351.6,
+      "end": 355.16,
+      "text": "you are running your agents and it has"
+    },
+    {
+      "start": 353.52,
+      "end": 357.35999999999996,
+      "text": "selected a wrong tool. It is giving you"
+    },
+    {
+      "start": 355.16,
+      "end": 359.64000000000004,
+      "text": "some kinds of other responses."
+    },
+    {
+      "start": 357.36,
+      "end": 361.40000000000003,
+      "text": "But you don't know why. Okay, why it is"
+    },
+    {
+      "start": 359.64,
+      "end": 363.28,
+      "text": "giving you these kinds of output, why it"
+    },
+    {
+      "start": 361.4,
+      "end": 365.32,
+      "text": "is selecting the wrong tool. If you want"
+    },
+    {
+      "start": 363.28,
+      "end": 367.28,
+      "text": "to see the step-by-step execution like"
+    },
+    {
+      "start": 365.32,
+      "end": 369.44,
+      "text": "after user query prompt construction LM"
+    },
+    {
+      "start": 367.28,
+      "end": 371.76,
+      "text": "call, which tool it has selected. Okay,"
+    },
+    {
+      "start": 369.44,
+      "end": 373.28,
+      "text": "based on the prompt or LM call. Okay, if"
+    },
+    {
+      "start": 371.76,
+      "end": 375.28,
+      "text": "you want to understand these things, you"
+    },
+    {
+      "start": 373.28,
+      "end": 377.47999999999996,
+      "text": "have to first of all monitor trace your"
+    },
+    {
+      "start": 375.28,
+      "end": 378.919,
+      "text": "entire application. Okay, monitoring is"
+    },
+    {
+      "start": 377.48,
+      "end": 380.96000000000004,
+      "text": "important. Any kinds of application"
+    },
+    {
+      "start": 378.919,
+      "end": 382.47999999999996,
+      "text": "whether you're creating ML DL CV"
+    },
+    {
+      "start": 380.96,
+      "end": 384.0,
+      "text": "whatever project you're creating,"
+    },
+    {
+      "start": 382.48,
+      "end": 386.12,
+      "text": "monitoring monitoring is super"
+    },
+    {
+      "start": 384.0,
+      "end": 388.2,
+      "text": "important. If you cannot monitor your"
+    },
+    {
+      "start": 386.12,
+      "end": 389.6,
+      "text": "application, that means in production"
+    },
+    {
+      "start": 388.2,
+      "end": 391.56,
+      "text": "you will be finding difficulties for"
+    },
+    {
+      "start": 389.6,
+      "end": 393.04,
+      "text": "sure. Okay, that's why application"
+    },
+    {
+      "start": 391.56,
+      "end": 395.96,
+      "text": "monitoring is super important and for"
+    },
+    {
+      "start": 393.04,
+      "end": 397.96000000000004,
+      "text": "this LangSmith is a very powerful tools"
+    },
+    {
+      "start": 395.96,
+      "end": 400.76,
+      "text": "we'll be using. Okay."
+    },
+    {
+      "start": 397.96,
+      "end": 402.79999999999995,
+      "text": "So that's why find why an agent selected"
+    },
+    {
+      "start": 400.76,
+      "end": 405.0,
+      "text": "the wrong tool, we can easily understand"
+    },
+    {
+      "start": 402.8,
+      "end": 407.72,
+      "text": "with the help of LangSmith. Then inspect"
+    },
+    {
+      "start": 405.0,
+      "end": 410.32,
+      "text": "the exact prompt sent to the model. That"
+    },
+    {
+      "start": 407.72,
+      "end": 412.16,
+      "text": "means you can see like whether this"
+    },
+    {
+      "start": 410.32,
+      "end": 414.0,
+      "text": "prompt prompt construction is happening"
+    },
+    {
+      "start": 412.16,
+      "end": 415.52000000000004,
+      "text": "in a good way or not. The prompt you are"
+    },
+    {
+      "start": 414.0,
+      "end": 417.16,
+      "text": "constructing"
+    },
+    {
+      "start": 415.52,
+      "end": 418.71999999999997,
+      "text": "whether it is right or not. It is going"
+    },
+    {
+      "start": 417.16,
+      "end": 420.88000000000005,
+      "text": "to the LM or not. Okay, each and"
+    },
+    {
+      "start": 418.72,
+      "end": 422.52000000000004,
+      "text": "everything you can inspect here. Then"
+    },
+    {
+      "start": 420.88,
+      "end": 425.76,
+      "text": "debug failed nodes in a LangGraph"
+    },
+    {
+      "start": 422.52,
+      "end": 427.79999999999995,
+      "text": "workflow. That means if any of the nodes"
+    },
+    {
+      "start": 425.76,
+      "end": 429.71999999999997,
+      "text": "let's say failed during the execution,"
+    },
+    {
+      "start": 427.8,
+      "end": 431.52000000000004,
+      "text": "you can easily monitor inside the"
+    },
+    {
+      "start": 429.72,
+      "end": 433.44000000000005,
+      "text": "LangSmith dashboard."
+    },
+    {
+      "start": 431.52,
+      "end": 436.2,
+      "text": "Then measures responses latency and"
+    },
+    {
+      "start": 433.44,
+      "end": 438.8,
+      "text": "token cost. So that means if"
+    },
+    {
+      "start": 436.2,
+      "end": 440.71999999999997,
+      "text": "some of the model is taking much time,"
+    },
+    {
+      "start": 438.8,
+      "end": 443.28000000000003,
+      "text": "you can see like how much time it is"
+    },
+    {
+      "start": 440.72,
+      "end": 446.36,
+      "text": "taking, why it is taking that time, and"
+    },
+    {
+      "start": 443.28,
+      "end": 447.59999999999997,
+      "text": "how much token token actually it is uh"
+    },
+    {
+      "start": 446.36,
+      "end": 448.84000000000003,
+      "text": "spending. Okay, to give you the"
+    },
+    {
+      "start": 447.6,
+      "end": 451.16,
+      "text": "response. Each and everything you can"
+    },
+    {
+      "start": 448.84,
+      "end": 453.64,
+      "text": "monitor. Then review conversations and"
+    },
+    {
+      "start": 451.16,
+      "end": 455.52000000000004,
+      "text": "multi-turn trades. That means you can"
+    },
+    {
+      "start": 453.64,
+      "end": 457.88,
+      "text": "review the construction sorry"
+    },
+    {
+      "start": 455.52,
+      "end": 460.08,
+      "text": "conversation. Review conversation and"
+    },
+    {
+      "start": 457.88,
+      "end": 462.12,
+      "text": "multi-turn trades. That means you can"
+    },
+    {
+      "start": 460.08,
+      "end": 464.52,
+      "text": "see the entire conversation. Even you"
+    },
+    {
+      "start": 462.12,
+      "end": 466.04,
+      "text": "can see the trades conversation. Trade"
+    },
+    {
+      "start": 464.52,
+      "end": 467.47999999999996,
+      "text": "conversation means I think you know we"
+    },
+    {
+      "start": 466.04,
+      "end": 470.12,
+      "text": "have integrated the trades inside our"
+    },
+    {
+      "start": 467.48,
+      "end": 471.84000000000003,
+      "text": "agentic chatbot. Now user can create"
+    },
+    {
+      "start": 470.12,
+      "end": 473.44,
+      "text": "different different trades. User can"
+    },
+    {
+      "start": 471.84,
+      "end": 475.88,
+      "text": "create different different chats, right?"
+    },
+    {
+      "start": 473.44,
+      "end": 477.92,
+      "text": "So you can see the trades as well. Not"
+    },
+    {
+      "start": 475.88,
+      "end": 479.68,
+      "text": "only the single conversation, you can"
+    },
+    {
+      "start": 477.92,
+      "end": 481.0,
+      "text": "also see the trades wise. Okay, this is"
+    },
+    {
+      "start": 479.68,
+      "end": 483.68,
+      "text": "also possible. I will also show you this"
+    },
+    {
+      "start": 481.0,
+      "end": 485.36,
+      "text": "part. Then compare different prompts or"
+    },
+    {
+      "start": 483.68,
+      "end": 487.32,
+      "text": "model versions. You can also compare"
+    },
+    {
+      "start": 485.36,
+      "end": 490.44,
+      "text": "different prompts or model versions."
+    },
+    {
+      "start": 487.32,
+      "end": 493.04,
+      "text": "Then you can evaluate chatbot quality"
+    },
+    {
+      "start": 490.44,
+      "end": 495.4,
+      "text": "before and after the deployment. Okay?"
+    },
+    {
+      "start": 493.04,
+      "end": 497.04,
+      "text": "That means all of these"
+    },
+    {
+      "start": 495.4,
+      "end": 499.28,
+      "text": "things you will be getting"
+    },
+    {
+      "start": 497.04,
+      "end": 500.24,
+      "text": "inside this LangSmith and it will help"
+    },
+    {
+      "start": 499.28,
+      "end": 502.28,
+      "text": "you"
+    },
+    {
+      "start": 500.24,
+      "end": 504.08,
+      "text": "for these kinds of work. Okay, if you're"
+    },
+    {
+      "start": 502.28,
+      "end": 506.64,
+      "text": "using this this inside your application"
+    },
+    {
+      "start": 504.08,
+      "end": 508.8,
+      "text": "development. So I think apart from this"
+    },
+    {
+      "start": 506.64,
+      "end": 510.52,
+      "text": "there is nothing you can monitor inside"
+    },
+    {
+      "start": 508.8,
+      "end": 512.6800000000001,
+      "text": "your application. If you can monitor"
+    },
+    {
+      "start": 510.52,
+      "end": 514.5989999999999,
+      "text": "these are the thing I think uh"
+    },
+    {
+      "start": 512.68,
+      "end": 516.52,
+      "text": "your application should be production"
+    },
+    {
+      "start": 514.599,
+      "end": 519.159,
+      "text": "ready and you won't be having any kinds"
+    },
+    {
+      "start": 516.52,
+      "end": 521.0799999999999,
+      "text": "of problem. Okay, going forward. So now"
+    },
+    {
+      "start": 519.159,
+      "end": 522.7189999999999,
+      "text": "we'll try to see guys this LangSmith in"
+    },
+    {
+      "start": 521.08,
+      "end": 524.72,
+      "text": "practical. That means the application we"
+    },
+    {
+      "start": 522.719,
+      "end": 526.1600000000001,
+      "text": "have created. This code is already"
+    },
+    {
+      "start": 524.72,
+      "end": 528.28,
+      "text": "available in my description. From there"
+    },
+    {
+      "start": 526.16,
+      "end": 530.24,
+      "text": "you can get it get the code guys. I"
+    },
+    {
+      "start": 528.28,
+      "end": 533.36,
+      "text": "think you remember we created a"
+    },
+    {
+      "start": 530.24,
+      "end": 534.88,
+      "text": "agentic chatbot. Okay? And"
+    },
+    {
+      "start": 533.36,
+      "end": 536.44,
+      "text": "in my last video I showed you how we can"
+    },
+    {
+      "start": 534.88,
+      "end": 537.76,
+      "text": "integrate database features. Okay, so"
+    },
+    {
+      "start": 536.44,
+      "end": 539.36,
+      "text": "that it can"
+    },
+    {
+      "start": 537.76,
+      "end": 541.3199999999999,
+      "text": "it can have the permanent persistence"
+    },
+    {
+      "start": 539.36,
+      "end": 542.52,
+      "text": "memory. Okay? So first of all let me"
+    },
+    {
+      "start": 541.32,
+      "end": 544.9200000000001,
+      "text": "show you the application guys we have"
+    },
+    {
+      "start": 542.52,
+      "end": 547.8389999999999,
+      "text": "developed. So guys this is our agentic"
+    },
+    {
+      "start": 544.92,
+      "end": 549.5999999999999,
+      "text": "chatbot we have developed so far and we"
+    },
+    {
+      "start": 547.839,
+      "end": 551.48,
+      "text": "can perform any kinds of chat operation."
+    },
+    {
+      "start": 549.6,
+      "end": 554.32,
+      "text": "Let's say if I give a prompt"
+    },
+    {
+      "start": 551.48,
+      "end": 556.8000000000001,
+      "text": "uh give me a"
+    },
+    {
+      "start": 554.32,
+      "end": 559.839,
+      "text": "road map to learn"
+    },
+    {
+      "start": 556.8,
+      "end": 559.8389999999999,
+      "text": "okay, ML."
+    },
+    {
+      "start": 563.76,
+      "end": 568.3199999999999,
+      "text": "So see, this is giving you the detailed"
+    },
+    {
+      "start": 565.4,
+      "end": 570.1999999999999,
+      "text": "road map. And you can see the previous"
+    },
+    {
+      "start": 568.32,
+      "end": 571.5600000000001,
+      "text": "trades as well. You can also continue"
+    },
+    {
+      "start": 570.2,
+      "end": 573.4000000000001,
+      "text": "the conversation with the previous"
+    },
+    {
+      "start": 571.56,
+      "end": 575.04,
+      "text": "trades you had here. And this is your"
+    },
+    {
+      "start": 573.4,
+      "end": 577.68,
+      "text": "current trades. Okay? And if you refresh"
+    },
+    {
+      "start": 575.04,
+      "end": 579.1999999999999,
+      "text": "your application still this"
+    },
+    {
+      "start": 577.68,
+      "end": 581.3199999999999,
+      "text": "previous conversation will remain same"
+    },
+    {
+      "start": 579.2,
+      "end": 582.88,
+      "text": "because we have added the permanent"
+    },
+    {
+      "start": 581.32,
+      "end": 584.7600000000001,
+      "text": "memory here with the help of database,"
+    },
+    {
+      "start": 582.88,
+      "end": 586.4399999999999,
+      "text": "okay? So, in this particular video I"
+    },
+    {
+      "start": 584.76,
+      "end": 587.64,
+      "text": "already explained this concept. If you"
+    },
+    {
+      "start": 586.44,
+      "end": 589.84,
+      "text": "haven't checked that guys, please try to"
+    },
+    {
+      "start": 587.64,
+      "end": 592.0,
+      "text": "go through this recording. So, see guys,"
+    },
+    {
+      "start": 589.84,
+      "end": 593.84,
+      "text": "here we have performed conversation,"
+    },
+    {
+      "start": 592.0,
+      "end": 595.92,
+      "text": "it's completely fine, but"
+    },
+    {
+      "start": 593.84,
+      "end": 598.2800000000001,
+      "text": "this application doesn't have any kinds"
+    },
+    {
+      "start": 595.92,
+      "end": 601.0,
+      "text": "of observability or monitoring"
+    },
+    {
+      "start": 598.28,
+      "end": 602.76,
+      "text": "connection, okay? So, I can't monitor"
+    },
+    {
+      "start": 601.0,
+      "end": 604.76,
+      "text": "this application like in the back end"
+    },
+    {
+      "start": 602.76,
+      "end": 606.36,
+      "text": "what is happening, let's say. If I"
+    },
+    {
+      "start": 604.76,
+      "end": 609.12,
+      "text": "deploy this application in production"
+    },
+    {
+      "start": 606.36,
+      "end": 611.0,
+      "text": "server, so I don't have any kinds of"
+    },
+    {
+      "start": 609.12,
+      "end": 612.72,
+      "text": "platform where I can continuously"
+    },
+    {
+      "start": 611.0,
+      "end": 615.0,
+      "text": "monitor my application, what is"
+    },
+    {
+      "start": 612.72,
+      "end": 617.12,
+      "text": "happening, how much token it is taking,"
+    },
+    {
+      "start": 615.0,
+      "end": 618.96,
+      "text": "okay? Or let's say any of the nodes is"
+    },
+    {
+      "start": 617.12,
+      "end": 621.6,
+      "text": "giving you any kinds of errors, so I"
+    },
+    {
+      "start": 618.96,
+      "end": 624.1600000000001,
+      "text": "can't see this kinds of, let's say,"
+    },
+    {
+      "start": 621.6,
+      "end": 626.52,
+      "text": "issues, right? So, for this we can"
+    },
+    {
+      "start": 624.16,
+      "end": 629.64,
+      "text": "utilize this LangSmith platform. So, you"
+    },
+    {
+      "start": 626.52,
+      "end": 631.16,
+      "text": "have to visit smith.langchain.com."
+    },
+    {
+      "start": 629.64,
+      "end": 633.28,
+      "text": "So, if you visit this website guys, this"
+    },
+    {
+      "start": 631.16,
+      "end": 634.9599999999999,
+      "text": "is the LangSmith platform. So, first of"
+    },
+    {
+      "start": 633.28,
+      "end": 636.88,
+      "text": "all here, what you have to do, you have"
+    },
+    {
+      "start": 634.96,
+      "end": 638.2,
+      "text": "to create an account, okay?"
+    },
+    {
+      "start": 636.88,
+      "end": 639.76,
+      "text": "So, here you just need to create an"
+    },
+    {
+      "start": 638.2,
+      "end": 641.76,
+      "text": "account guys, you can use your Google,"
+    },
+    {
+      "start": 639.76,
+      "end": 643.36,
+      "text": "GitHub, Discord, anything you can use"
+    },
+    {
+      "start": 641.76,
+      "end": 644.96,
+      "text": "and you can create an account. So, I"
+    },
+    {
+      "start": 643.36,
+      "end": 647.6800000000001,
+      "text": "already have an account guys, I'll just"
+    },
+    {
+      "start": 644.96,
+      "end": 647.6800000000001,
+      "text": "try to log in."
+    },
+    {
+      "start": 650.32,
+      "end": 653.88,
+      "text": "So, once you log in guys, you will be"
+    },
+    {
+      "start": 652.16,
+      "end": 655.4,
+      "text": "able to see this kinds of dashboard. So,"
+    },
+    {
+      "start": 653.88,
+      "end": 657.52,
+      "text": "this is your LangSmith dashboard and"
+    },
+    {
+      "start": 655.4,
+      "end": 659.0,
+      "text": "previously I"
+    },
+    {
+      "start": 657.52,
+      "end": 661.04,
+      "text": "already created some of the project"
+    },
+    {
+      "start": 659.0,
+      "end": 662.68,
+      "text": "here. I already traced some of my"
+    },
+    {
+      "start": 661.04,
+      "end": 664.52,
+      "text": "project, that's why it's coming here."
+    },
+    {
+      "start": 662.68,
+      "end": 665.92,
+      "text": "But, if you are using for the first"
+    },
+    {
+      "start": 664.52,
+      "end": 667.0799999999999,
+      "text": "time, you won't be able to see this"
+    },
+    {
+      "start": 665.92,
+      "end": 668.68,
+      "text": "kinds of"
+    },
+    {
+      "start": 667.08,
+      "end": 670.72,
+      "text": "like project name here or tracing name"
+    },
+    {
+      "start": 668.68,
+      "end": 672.92,
+      "text": "here, okay? So, first of all guys, if"
+    },
+    {
+      "start": 670.72,
+      "end": 675.36,
+      "text": "you want to use this LangSmith inside"
+    },
+    {
+      "start": 672.92,
+      "end": 678.12,
+      "text": "your application, you just need to"
+    },
+    {
+      "start": 675.36,
+      "end": 680.04,
+      "text": "collect the API key, okay? And this is"
+    },
+    {
+      "start": 678.12,
+      "end": 682.76,
+      "text": "super easy to use, you don't need to"
+    },
+    {
+      "start": 680.04,
+      "end": 684.92,
+      "text": "write like any kinds of code if you want"
+    },
+    {
+      "start": 682.76,
+      "end": 686.88,
+      "text": "to use this LangSmith guys. Only you"
+    },
+    {
+      "start": 684.92,
+      "end": 688.16,
+      "text": "just need to add some of the environment"
+    },
+    {
+      "start": 686.88,
+      "end": 689.96,
+      "text": "variables"
+    },
+    {
+      "start": 688.16,
+      "end": 692.1999999999999,
+      "text": "and automatically this LangSmith will"
+    },
+    {
+      "start": 689.96,
+      "end": 694.0400000000001,
+      "text": "start tracing your application, okay?"
+    },
+    {
+      "start": 692.2,
+      "end": 696.0400000000001,
+      "text": "I'll show you this part. So, if you want"
+    },
+    {
+      "start": 694.04,
+      "end": 697.76,
+      "text": "to get the uh"
+    },
+    {
+      "start": 696.04,
+      "end": 700.8399999999999,
+      "text": "API key, so what you have to do, you"
+    },
+    {
+      "start": 697.76,
+      "end": 702.16,
+      "text": "just need to go to the API section. So,"
+    },
+    {
+      "start": 700.84,
+      "end": 703.4,
+      "text": "I think API is available in the"
+    },
+    {
+      "start": 702.16,
+      "end": 705.64,
+      "text": "settings."
+    },
+    {
+      "start": 703.4,
+      "end": 706.9599999999999,
+      "text": "And here is the API key, guys. Okay?"
+    },
+    {
+      "start": 705.64,
+      "end": 708.3199999999999,
+      "text": "Now, previously I already created some"
+    },
+    {
+      "start": 706.96,
+      "end": 710.0400000000001,
+      "text": "API key. What I will do, I'll just try"
+    },
+    {
+      "start": 708.32,
+      "end": 713.0,
+      "text": "to remove some of the API key so that I"
+    },
+    {
+      "start": 710.04,
+      "end": 713.0,
+      "text": "can create a new one."
+    },
+    {
+      "start": 714.04,
+      "end": 718.36,
+      "text": "Mhm. So, I'll create a new API key."
+    },
+    {
+      "start": 716.4,
+      "end": 721.8,
+      "text": "So, you can give the name. So, let's say"
+    },
+    {
+      "start": 718.36,
+      "end": 721.8000000000001,
+      "text": "I'll give the name of uh"
+    },
+    {
+      "start": 721.84,
+      "end": 725.0,
+      "text": "uh agentic"
+    },
+    {
+      "start": 725.36,
+      "end": 727.92,
+      "text": "chatbot."
+    },
+    {
+      "start": 729.52,
+      "end": 733.16,
+      "text": "So, everything just keep it as as it is."
+    },
+    {
+      "start": 731.84,
+      "end": 735.96,
+      "text": "Okay? Don't need to change anything."
+    },
+    {
+      "start": 733.16,
+      "end": 737.16,
+      "text": "Now, just create the API key."
+    },
+    {
+      "start": 735.96,
+      "end": 738.72,
+      "text": "So, once you have created the API key,"
+    },
+    {
+      "start": 737.16,
+      "end": 741.76,
+      "text": "just try to copy."
+    },
+    {
+      "start": 738.72,
+      "end": 743.6,
+      "text": "And you have to add this API key in the"
+    },
+    {
+      "start": 741.76,
+      "end": 745.28,
+      "text": "environment variable. Okay? So, let's"
+    },
+    {
+      "start": 743.6,
+      "end": 746.88,
+      "text": "say this is our app."
+    },
+    {
+      "start": 745.28,
+      "end": 748.12,
+      "text": "Uh so, this application we have created,"
+    },
+    {
+      "start": 746.88,
+      "end": 750.52,
+      "text": "guys. This is the code. I think you"
+    },
+    {
+      "start": 748.12,
+      "end": 752.28,
+      "text": "remember in my previous uh video,"
+    },
+    {
+      "start": 750.52,
+      "end": 755.0,
+      "text": "previous part. So, now you just need to"
+    },
+    {
+      "start": 752.28,
+      "end": 755.9599999999999,
+      "text": "open this .env file."
+    },
+    {
+      "start": 755.0,
+      "end": 758.96,
+      "text": "Um"
+    },
+    {
+      "start": 755.96,
+      "end": 760.32,
+      "text": "after that, here you have to add uh some"
+    },
+    {
+      "start": 758.96,
+      "end": 761.64,
+      "text": "of the environment variable. Let me show"
+    },
+    {
+      "start": 760.32,
+      "end": 764.88,
+      "text": "you."
+    },
+    {
+      "start": 761.64,
+      "end": 766.04,
+      "text": "So, these things you have to add here."
+    },
+    {
+      "start": 764.88,
+      "end": 768.0,
+      "text": "Yeah."
+    },
+    {
+      "start": 766.04,
+      "end": 769.36,
+      "text": "So, see, this things will common for all"
+    },
+    {
+      "start": 768.0,
+      "end": 771.2,
+      "text": "the project you will be creating going"
+    },
+    {
+      "start": 769.36,
+      "end": 773.32,
+      "text": "forward. Only you just uh need to change"
+    },
+    {
+      "start": 771.2,
+      "end": 776.08,
+      "text": "the project name. So, see, first of all,"
+    },
+    {
+      "start": 773.32,
+      "end": 777.6800000000001,
+      "text": "you have to provide LangSmith tracing."
+    },
+    {
+      "start": 776.08,
+      "end": 779.72,
+      "text": "Uh this parameter is equal to true."
+    },
+    {
+      "start": 777.68,
+      "end": 781.28,
+      "text": "Okay? That means you are"
+    },
+    {
+      "start": 779.72,
+      "end": 782.88,
+      "text": "allowing your"
+    },
+    {
+      "start": 781.28,
+      "end": 784.48,
+      "text": "allowing your LangSmith to trace your"
+    },
+    {
+      "start": 782.88,
+      "end": 786.64,
+      "text": "entire application. Whenever you are"
+    },
+    {
+      "start": 784.48,
+      "end": 788.2,
+      "text": "executing your application, LangSmith"
+    },
+    {
+      "start": 786.64,
+      "end": 790.28,
+      "text": "will automatically start tracing your"
+    },
+    {
+      "start": 788.2,
+      "end": 791.5600000000001,
+      "text": "application. It will automatically start"
+    },
+    {
+      "start": 790.28,
+      "end": 794.12,
+      "text": "monitoring your application. That's why"
+    },
+    {
+      "start": 791.56,
+      "end": 795.68,
+      "text": "this parameter you have to give as true."
+    },
+    {
+      "start": 794.12,
+      "end": 798.28,
+      "text": "Then you are telling what should be the"
+    },
+    {
+      "start": 795.68,
+      "end": 800.88,
+      "text": "endpoint. That means after tracing it,"
+    },
+    {
+      "start": 798.28,
+      "end": 802.88,
+      "text": "uh the data it will get. Okay? The let's"
+    },
+    {
+      "start": 800.88,
+      "end": 805.2,
+      "text": "say information it will get, where it"
+    },
+    {
+      "start": 802.88,
+      "end": 807.88,
+      "text": "will save this information. Okay? It"
+    },
+    {
+      "start": 805.2,
+      "end": 810.08,
+      "text": "needs an endpoint. So, endpoint is"
+    },
+    {
+      "start": 807.88,
+      "end": 811.6,
+      "text": "a LangSmith platform. I'm giving a you"
+    },
+    {
+      "start": 810.08,
+      "end": 812.88,
+      "text": "have to save everything in the LangSmith"
+    },
+    {
+      "start": 811.6,
+      "end": 814.24,
+      "text": "platform. That means inside this"
+    },
+    {
+      "start": 812.88,
+      "end": 815.88,
+      "text": "particular platform. This is the"
+    },
+    {
+      "start": 814.24,
+      "end": 817.44,
+      "text": "dashboard, right? So, this is what"
+    },
+    {
+      "start": 815.88,
+      "end": 820.04,
+      "text": "actually we're doing. Then you have to"
+    },
+    {
+      "start": 817.44,
+      "end": 821.7600000000001,
+      "text": "pass the API key. Now, to authenticate"
+    },
+    {
+      "start": 820.04,
+      "end": 823.0799999999999,
+      "text": "with your dashboard, you need a API key."
+    },
+    {
+      "start": 821.76,
+      "end": 825.16,
+      "text": "So, what I will do, I'll just copy this"
+    },
+    {
+      "start": 823.08,
+      "end": 826.48,
+      "text": "API key. And here you have to provide"
+    },
+    {
+      "start": 825.16,
+      "end": 828.16,
+      "text": "the API key. And make sure you don't"
+    },
+    {
+      "start": 826.48,
+      "end": 830.24,
+      "text": "share this API key with anyone,"
+    },
+    {
+      "start": 828.16,
+      "end": 832.12,
+      "text": "otherwise they will be able to uh use"
+    },
+    {
+      "start": 830.24,
+      "end": 834.6800000000001,
+      "text": "your platform, okay? Then you have to"
+    },
+    {
+      "start": 832.12,
+      "end": 836.92,
+      "text": "provide the LangSmith project name,"
+    },
+    {
+      "start": 834.68,
+      "end": 837.92,
+      "text": "okay? Because every time whenever you"
+    },
+    {
+      "start": 836.92,
+      "end": 839.4399999999999,
+      "text": "will uh"
+    },
+    {
+      "start": 837.92,
+      "end": 841.24,
+      "text": "execute for the first time, it will"
+    },
+    {
+      "start": 839.44,
+      "end": 843.48,
+      "text": "create a project, right? Inside the"
+    },
+    {
+      "start": 841.24,
+      "end": 845.76,
+      "text": "project, it will start tracing all of"
+    },
+    {
+      "start": 843.48,
+      "end": 847.36,
+      "text": "the execution. So, project is important."
+    },
+    {
+      "start": 845.76,
+      "end": 848.96,
+      "text": "So, here I'm giving Agenty chatbot"
+    },
+    {
+      "start": 847.36,
+      "end": 850.4,
+      "text": "project, okay? If you're creating any"
+    },
+    {
+      "start": 848.96,
+      "end": 851.84,
+      "text": "other project, you can change the name"
+    },
+    {
+      "start": 850.4,
+      "end": 854.36,
+      "text": "as per your requirement. Once it is"
+    },
+    {
+      "start": 851.84,
+      "end": 856.0400000000001,
+      "text": "done, you just need to save this file."
+    },
+    {
+      "start": 854.36,
+      "end": 858.4,
+      "text": "And no need to change anywhere, okay? No"
+    },
+    {
+      "start": 856.04,
+      "end": 861.0,
+      "text": "need to change anywhere. I can uh"
+    },
+    {
+      "start": 858.4,
+      "end": 863.0,
+      "text": "re-execute my app again. So, I'll stop"
+    },
+    {
+      "start": 861.0,
+      "end": 865.08,
+      "text": "the execution. Clear."
+    },
+    {
+      "start": 863.0,
+      "end": 867.72,
+      "text": "And let's re-execute my app. Streamlit"
+    },
+    {
+      "start": 865.08,
+      "end": 869.839,
+      "text": "run my app.py, okay? So, once you have"
+    },
+    {
+      "start": 867.72,
+      "end": 872.88,
+      "text": "done, now what I will do, uh here I"
+    },
+    {
+      "start": 869.839,
+      "end": 875.0400000000001,
+      "text": "already saved this uh API key. Mhm. So,"
+    },
+    {
+      "start": 872.88,
+      "end": 877.04,
+      "text": "it's done. Now, I'll go to the uh"
+    },
+    {
+      "start": 875.04,
+      "end": 879.16,
+      "text": "home page."
+    },
+    {
+      "start": 877.04,
+      "end": 881.36,
+      "text": "Yeah. Now, let's execute my app. See, my"
+    },
+    {
+      "start": 879.16,
+      "end": 882.76,
+      "text": "application is running right now."
+    },
+    {
+      "start": 881.36,
+      "end": 884.36,
+      "text": "Now here again I will give the prompt."
+    },
+    {
+      "start": 882.76,
+      "end": 887.56,
+      "text": "Let's say I'll give hi."
+    },
+    {
+      "start": 884.36,
+      "end": 887.5600000000001,
+      "text": "My name"
+    },
+    {
+      "start": 887.8,
+      "end": 890.4399999999999,
+      "text": "is"
+    },
+    {
+      "start": 890.6,
+      "end": 893.24,
+      "text": "Buppy."
+    },
+    {
+      "start": 894.32,
+      "end": 899.24,
+      "text": "I need a"
+    },
+    {
+      "start": 897.0,
+      "end": 901.0,
+      "text": "plan to learn"
+    },
+    {
+      "start": 899.24,
+      "end": 903.72,
+      "text": "AI."
+    },
+    {
+      "start": 901.0,
+      "end": 903.72,
+      "text": "I'll send it."
+    },
+    {
+      "start": 903.88,
+      "end": 909.08,
+      "text": "Now see, it is giving you some kinds of"
+    },
+    {
+      "start": 905.92,
+      "end": 911.0,
+      "text": "response, okay? Now, once I go to my"
+    },
+    {
+      "start": 909.08,
+      "end": 914.6800000000001,
+      "text": "platform, okay? Once I go to my"
+    },
+    {
+      "start": 911.0,
+      "end": 914.68,
+      "text": "platform, and if I refresh here,"
+    },
+    {
+      "start": 917.64,
+      "end": 921.36,
+      "text": "so see, this Agenty chatbot project is"
+    },
+    {
+      "start": 920.16,
+      "end": 924.0,
+      "text": "created few seconds ago. See,"
+    },
+    {
+      "start": 921.36,
+      "end": 926.08,
+      "text": "automatically it has created. I didn't"
+    },
+    {
+      "start": 924.0,
+      "end": 928.48,
+      "text": "uh change anything inside my code, okay?"
+    },
+    {
+      "start": 926.08,
+      "end": 929.96,
+      "text": "Now, if I go inside that Now, inside the"
+    },
+    {
+      "start": 928.48,
+      "end": 932.08,
+      "text": "project, guys, you will be able to see"
+    },
+    {
+      "start": 929.96,
+      "end": 934.84,
+      "text": "your trace, okay? So, this is our first"
+    },
+    {
+      "start": 932.08,
+      "end": 936.5600000000001,
+      "text": "trace. That means we have executed uh"
+    },
+    {
+      "start": 934.84,
+      "end": 938.2800000000001,
+      "text": "only one time. We have given a single"
+    },
+    {
+      "start": 936.56,
+      "end": 940.56,
+      "text": "prompt. That's why That's why one trace"
+    },
+    {
+      "start": 938.28,
+      "end": 942.16,
+      "text": "came. And by default, this trace name"
+    },
+    {
+      "start": 940.56,
+      "end": 944.4399999999999,
+      "text": "will be taken as LangGraph because we're"
+    },
+    {
+      "start": 942.16,
+      "end": 946.9599999999999,
+      "text": "using LangGraph. And now, if I click on"
+    },
+    {
+      "start": 944.44,
+      "end": 948.72,
+      "text": "the uh this trace, our first trace, uh"
+    },
+    {
+      "start": 946.96,
+      "end": 950.6800000000001,
+      "text": "so, whatever message you have given as"
+    },
+    {
+      "start": 948.72,
+      "end": 953.2,
+      "text": "an input, you will be able to see. And"
+    },
+    {
+      "start": 950.68,
+      "end": 955.3199999999999,
+      "text": "whatever uh output you got from your AI,"
+    },
+    {
+      "start": 953.2,
+      "end": 956.9200000000001,
+      "text": "even you will be also able to see, okay?"
+    },
+    {
+      "start": 955.32,
+      "end": 958.4000000000001,
+      "text": "And this is also coming as a chatbot"
+    },
+    {
+      "start": 956.92,
+      "end": 960.4799999999999,
+      "text": "interface, okay? This is uh like very"
+    },
+    {
+      "start": 958.4,
+      "end": 962.0799999999999,
+      "text": "interesting. Then, there is a option"
+    },
+    {
+      "start": 960.48,
+      "end": 964.04,
+      "text": "called details. So, you have to click on"
+    },
+    {
+      "start": 962.08,
+      "end": 965.12,
+      "text": "details, okay? If you click on details,"
+    },
+    {
+      "start": 964.04,
+      "end": 967.0,
+      "text": "you'll be able to see all of the"
+    },
+    {
+      "start": 965.12,
+      "end": 969.96,
+      "text": "details. That means you have executed"
+    },
+    {
+      "start": 967.0,
+      "end": 971.52,
+      "text": "your LangGraph. And it has a chat node."
+    },
+    {
+      "start": 969.96,
+      "end": 974.6800000000001,
+      "text": "I think you remember uh we are using a"
+    },
+    {
+      "start": 971.52,
+      "end": 976.16,
+      "text": "chat node, if you can see uh our entire"
+    },
+    {
+      "start": 974.68,
+      "end": 978.92,
+      "text": "application workflow. So, this is the"
+    },
+    {
+      "start": 976.16,
+      "end": 979.52,
+      "text": "chat node. Inside chat node, we're using"
+    },
+    {
+      "start": 978.92,
+      "end": 981.3199999999999,
+      "text": "uh"
+    },
+    {
+      "start": 979.52,
+      "end": 983.4399999999999,
+      "text": "LLM, right? We're using a large language"
+    },
+    {
+      "start": 981.32,
+      "end": 986.24,
+      "text": "model, uh OpenAI model. And we are using"
+    },
+    {
+      "start": 983.44,
+      "end": 988.48,
+      "text": "GPT-3.5 Turbo model because I used a"
+    },
+    {
+      "start": 986.24,
+      "end": 990.6800000000001,
+      "text": "default model there, okay?"
+    },
+    {
+      "start": 988.48,
+      "end": 991.72,
+      "text": "And by default, GPT-3.5 Turbo would be"
+    },
+    {
+      "start": 990.68,
+      "end": 993.52,
+      "text": "available."
+    },
+    {
+      "start": 991.72,
+      "end": 995.36,
+      "text": "Now, everything you can see, which"
+    },
+    {
+      "start": 993.52,
+      "end": 997.1999999999999,
+      "text": "model, which node you are executing,"
+    },
+    {
+      "start": 995.36,
+      "end": 999.52,
+      "text": "okay? Each and everything is visible."
+    },
+    {
+      "start": 997.2,
+      "end": 1000.6800000000001,
+      "text": "Now, you can see the input and output"
+    },
+    {
+      "start": 999.52,
+      "end": 1002.8389999999999,
+      "text": "you got here."
+    },
+    {
+      "start": 1000.68,
+      "end": 1005.04,
+      "text": "You can even see the attribute, okay?"
+    },
+    {
+      "start": 1002.839,
+      "end": 1007.24,
+      "text": "All of the attribute metadata, version,"
+    },
+    {
+      "start": 1005.04,
+      "end": 1009.68,
+      "text": "everything is visible here. And if you"
+    },
+    {
+      "start": 1007.24,
+      "end": 1011.24,
+      "text": "hover on each and every, let's say, uh"
+    },
+    {
+      "start": 1009.68,
+      "end": 1013.9599999999999,
+      "text": "step here, you you you will be able to"
+    },
+    {
+      "start": 1011.24,
+      "end": 1016.72,
+      "text": "see the um uh let's say estimated uh"
+    },
+    {
+      "start": 1013.96,
+      "end": 1017.2800000000001,
+      "text": "token cost. You can see token cost and"
+    },
+    {
+      "start": 1016.72,
+      "end": 1019.0400000000001,
+      "text": "uh"
+    },
+    {
+      "start": 1017.28,
+      "end": 1020.1999999999999,
+      "text": "how many how much token actually it"
+    },
+    {
+      "start": 1019.04,
+      "end": 1021.88,
+      "text": "used, okay?"
+    },
+    {
+      "start": 1020.2,
+      "end": 1023.76,
+      "text": "How much token it used for input,"
+    },
+    {
+      "start": 1021.88,
+      "end": 1025.6,
+      "text": "output, total, okay? Each and everything"
+    },
+    {
+      "start": 1023.76,
+      "end": 1027.76,
+      "text": "you'd be able to see that. Okay, that's"
+    },
+    {
+      "start": 1025.6,
+      "end": 1029.56,
+      "text": "how you can see the"
+    },
+    {
+      "start": 1027.76,
+      "end": 1031.8,
+      "text": "each and every execution of your"
+    },
+    {
+      "start": 1029.56,
+      "end": 1033.12,
+      "text": "application. If you're using multiple"
+    },
+    {
+      "start": 1031.8,
+      "end": 1035.12,
+      "text": "LLM calls, you'll be able to see the"
+    },
+    {
+      "start": 1033.12,
+      "end": 1036.3999999999999,
+      "text": "multiple LLM. You can see the prompt,"
+    },
+    {
+      "start": 1035.12,
+      "end": 1038.8,
+      "text": "okay? Each and everything should be"
+    },
+    {
+      "start": 1036.4,
+      "end": 1041.16,
+      "text": "available here. Okay. now let's say if I"
+    },
+    {
+      "start": 1038.8,
+      "end": 1042.48,
+      "text": "do for the second time, what I will do"
+    },
+    {
+      "start": 1041.16,
+      "end": 1044.68,
+      "text": "let's say"
+    },
+    {
+      "start": 1042.48,
+      "end": 1048.839,
+      "text": "I will give another message."
+    },
+    {
+      "start": 1044.68,
+      "end": 1048.8390000000002,
+      "text": "Um, let's say how much"
+    },
+    {
+      "start": 1049.12,
+      "end": 1051.7199999999998,
+      "text": "time"
+    },
+    {
+      "start": 1050.36,
+      "end": 1054.24,
+      "text": "it will"
+    },
+    {
+      "start": 1051.72,
+      "end": 1054.24,
+      "text": "take."
+    },
+    {
+      "start": 1056.6,
+      "end": 1061.3999999999999,
+      "text": "Now I got a response. Now if I again go"
+    },
+    {
+      "start": 1058.84,
+      "end": 1063.6,
+      "text": "to my um dashboard, now see another"
+    },
+    {
+      "start": 1061.4,
+      "end": 1066.2,
+      "text": "trace has created, okay? Because this is"
+    },
+    {
+      "start": 1063.6,
+      "end": 1068.84,
+      "text": "my second run. Now if I go to this trace"
+    },
+    {
+      "start": 1066.2,
+      "end": 1071.04,
+      "text": "and you'll be able to again see the"
+    },
+    {
+      "start": 1068.84,
+      "end": 1073.6799999999998,
+      "text": "uh conversation, okay? So how much time"
+    },
+    {
+      "start": 1071.04,
+      "end": 1075.68,
+      "text": "it will take based on that you got the"
+    },
+    {
+      "start": 1073.68,
+      "end": 1078.48,
+      "text": "entire output. Then you'll be able to"
+    },
+    {
+      "start": 1075.68,
+      "end": 1080.6000000000001,
+      "text": "also see the uh token, okay? Like input"
+    },
+    {
+      "start": 1078.48,
+      "end": 1081.92,
+      "text": "token, output token, okay? Total token,"
+    },
+    {
+      "start": 1080.6,
+      "end": 1084.1599999999999,
+      "text": "each and everything would be available"
+    },
+    {
+      "start": 1081.92,
+      "end": 1086.24,
+      "text": "here. Now even you can also switch to"
+    },
+    {
+      "start": 1084.16,
+      "end": 1087.72,
+      "text": "your previous uh trans as well. So if I"
+    },
+    {
+      "start": 1086.24,
+      "end": 1089.8,
+      "text": "go to my previous trans, this is the"
+    },
+    {
+      "start": 1087.72,
+      "end": 1091.52,
+      "text": "first trans. This is the second trans,"
+    },
+    {
+      "start": 1089.8,
+      "end": 1093.36,
+      "text": "okay? Everything you can see. Even you"
+    },
+    {
+      "start": 1091.52,
+      "end": 1095.72,
+      "text": "can see the name. So this is trans one"
+    },
+    {
+      "start": 1093.36,
+      "end": 1097.84,
+      "text": "and this is trans two, okay? So that's"
+    },
+    {
+      "start": 1095.72,
+      "end": 1099.64,
+      "text": "how everything would be available. And"
+    },
+    {
+      "start": 1097.84,
+      "end": 1101.36,
+      "text": "even if you zoom out here, so you'll be"
+    },
+    {
+      "start": 1099.64,
+      "end": 1103.88,
+      "text": "able to see some other information right"
+    },
+    {
+      "start": 1101.36,
+      "end": 1106.04,
+      "text": "side like start time, latency, like how"
+    },
+    {
+      "start": 1103.88,
+      "end": 1107.4,
+      "text": "much time it took to execute, then"
+    },
+    {
+      "start": 1106.04,
+      "end": 1110.32,
+      "text": "whether you're using any data set or"
+    },
+    {
+      "start": 1107.4,
+      "end": 1112.3200000000002,
+      "text": "not, then tokens, cost, okay? Uh first"
+    },
+    {
+      "start": 1110.32,
+      "end": 1113.3999999999999,
+      "text": "tokens, then metadata, LangSmith"
+    },
+    {
+      "start": 1112.32,
+      "end": 1115.28,
+      "text": "endpoint, okay? Each and everything"
+    },
+    {
+      "start": 1113.4,
+      "end": 1117.76,
+      "text": "you'll be able to see. So yes, so that's"
+    },
+    {
+      "start": 1115.28,
+      "end": 1120.32,
+      "text": "how you can utilize this uh LangSmith"
+    },
+    {
+      "start": 1117.76,
+      "end": 1122.36,
+      "text": "platform. Uh only you just need to add"
+    },
+    {
+      "start": 1120.32,
+      "end": 1124.6799999999998,
+      "text": "those uh three to four things in the"
+    },
+    {
+      "start": 1122.36,
+      "end": 1125.4799999999998,
+      "text": "environment variable and tracing would"
+    },
+    {
+      "start": 1124.68,
+      "end": 1127.88,
+      "text": "be"
+    },
+    {
+      "start": 1125.48,
+      "end": 1129.76,
+      "text": "uh automatically uh happening, okay?"
+    },
+    {
+      "start": 1127.88,
+      "end": 1131.0,
+      "text": "Inside this particular dashboard. But"
+    },
+    {
+      "start": 1129.76,
+      "end": 1133.16,
+      "text": "one issue I think you have observed"
+    },
+    {
+      "start": 1131.0,
+      "end": 1134.92,
+      "text": "here, which is that let's say"
+    },
+    {
+      "start": 1133.16,
+      "end": 1137.0,
+      "text": "uh here let's say if I create a new"
+    },
+    {
+      "start": 1134.92,
+      "end": 1138.8000000000002,
+      "text": "trace, okay? Let's say I create a new"
+    },
+    {
+      "start": 1137.0,
+      "end": 1140.92,
+      "text": "trace and if I do the conversation,"
+    },
+    {
+      "start": 1138.8,
+      "end": 1142.44,
+      "text": "let's say I'll give hi."
+    },
+    {
+      "start": 1140.92,
+      "end": 1144.64,
+      "text": "I am"
+    },
+    {
+      "start": 1142.44,
+      "end": 1145.88,
+      "text": "Buppy. Let's say this is completely new"
+    },
+    {
+      "start": 1144.64,
+      "end": 1149.48,
+      "text": "trace."
+    },
+    {
+      "start": 1145.88,
+      "end": 1151.4,
+      "text": "Okay? But if I go to my um dashboard,"
+    },
+    {
+      "start": 1149.48,
+      "end": 1153.0,
+      "text": "that is LangSmith dashboard. So as you"
+    },
+    {
+      "start": 1151.4,
+      "end": 1154.4,
+      "text": "can see,"
+    },
+    {
+      "start": 1153.0,
+      "end": 1157.56,
+      "text": "in the same"
+    },
+    {
+      "start": 1154.4,
+      "end": 1159.6000000000001,
+      "text": "um I mean trace only it has created my"
+    },
+    {
+      "start": 1157.56,
+      "end": 1161.8799999999999,
+      "text": "uh my current execution. That means the"
+    },
+    {
+      "start": 1159.6,
+      "end": 1164.84,
+      "text": "current trace, the execution we have"
+    },
+    {
+      "start": 1161.88,
+      "end": 1166.64,
+      "text": "done right now. So, see here I given I"
+    },
+    {
+      "start": 1164.84,
+      "end": 1168.76,
+      "text": "my name is Bapi and hello, I can assist"
+    },
+    {
+      "start": 1166.64,
+      "end": 1170.6000000000001,
+      "text": "you today. Okay? So, that's how actually"
+    },
+    {
+      "start": 1168.76,
+      "end": 1172.92,
+      "text": "it is uh"
+    },
+    {
+      "start": 1170.6,
+      "end": 1174.4399999999998,
+      "text": "as it is not separating my threads."
+    },
+    {
+      "start": 1172.92,
+      "end": 1177.1200000000001,
+      "text": "Instead of that, it is saving everything"
+    },
+    {
+      "start": 1174.44,
+      "end": 1179.3600000000001,
+      "text": "inside a single trace only. So, here if"
+    },
+    {
+      "start": 1177.12,
+      "end": 1182.2399999999998,
+      "text": "you want to separate your threads, guys,"
+    },
+    {
+      "start": 1179.36,
+      "end": 1185.04,
+      "text": "it is also possible because LangSmith"
+    },
+    {
+      "start": 1182.24,
+      "end": 1187.6,
+      "text": "by default has these trading uh features"
+    },
+    {
+      "start": 1185.04,
+      "end": 1189.24,
+      "text": "here. So, if you want to separate out"
+    },
+    {
+      "start": 1187.6,
+      "end": 1191.3999999999999,
+      "text": "each and every threads, okay? The"
+    },
+    {
+      "start": 1189.24,
+      "end": 1193.52,
+      "text": "threads you are maintaining here. So, it"
+    },
+    {
+      "start": 1191.4,
+      "end": 1195.64,
+      "text": "is possible. For this inside the code,"
+    },
+    {
+      "start": 1193.52,
+      "end": 1198.12,
+      "text": "you have to only modify modify one"
+    },
+    {
+      "start": 1195.64,
+      "end": 1200.64,
+      "text": "particular line. Let me show you."
+    },
+    {
+      "start": 1198.12,
+      "end": 1201.8,
+      "text": "So, this code only just need to modify."
+    },
+    {
+      "start": 1200.64,
+      "end": 1203.88,
+      "text": "See, here"
+    },
+    {
+      "start": 1201.8,
+      "end": 1205.32,
+      "text": "I was writing the configuration and the"
+    },
+    {
+      "start": 1203.88,
+      "end": 1207.7600000000002,
+      "text": "configuration I was only giving the"
+    },
+    {
+      "start": 1205.32,
+      "end": 1209.04,
+      "text": "thread ID. Okay? Uh and we are passing"
+    },
+    {
+      "start": 1207.76,
+      "end": 1210.4,
+      "text": "this configuration whenever we're"
+    },
+    {
+      "start": 1209.04,
+      "end": 1211.8,
+      "text": "executing the"
+    },
+    {
+      "start": 1210.4,
+      "end": 1213.6000000000001,
+      "text": "uh chatbot. Whenever we're invoking the"
+    },
+    {
+      "start": 1211.8,
+      "end": 1215.3999999999999,
+      "text": "chatbot, okay? Now, instead of that, you"
+    },
+    {
+      "start": 1213.6,
+      "end": 1216.8799999999999,
+      "text": "have to write this configuration, okay?"
+    },
+    {
+      "start": 1215.4,
+      "end": 1218.5600000000002,
+      "text": "So, my other information you need to"
+    },
+    {
+      "start": 1216.88,
+      "end": 1220.72,
+      "text": "also pass this metadata and the run"
+    },
+    {
+      "start": 1218.56,
+      "end": 1222.6799999999998,
+      "text": "name, okay? So, run name see every time"
+    },
+    {
+      "start": 1220.72,
+      "end": 1224.4,
+      "text": "this run name is coming as a LangGraph"
+    },
+    {
+      "start": 1222.68,
+      "end": 1226.04,
+      "text": "uh by default name, but you can change"
+    },
+    {
+      "start": 1224.4,
+      "end": 1227.4,
+      "text": "this run name if you want. You can give"
+    },
+    {
+      "start": 1226.04,
+      "end": 1228.44,
+      "text": "any kinds of run name. Let's say I give"
+    },
+    {
+      "start": 1227.4,
+      "end": 1229.76,
+      "text": "I'll give"
+    },
+    {
+      "start": 1228.44,
+      "end": 1231.88,
+      "text": "chat trace, okay? You can also give any"
+    },
+    {
+      "start": 1229.76,
+      "end": 1235.32,
+      "text": "other name. And if you pass this"
+    },
+    {
+      "start": 1231.88,
+      "end": 1236.8000000000002,
+      "text": "configuration, guys, right now this uh"
+    },
+    {
+      "start": 1235.32,
+      "end": 1238.4399999999998,
+      "text": "uh trading would be"
+    },
+    {
+      "start": 1236.8,
+      "end": 1240.0,
+      "text": "uh trading would be applied. That means"
+    },
+    {
+      "start": 1238.44,
+      "end": 1241.72,
+      "text": "all of the threads individual threads"
+    },
+    {
+      "start": 1240.0,
+      "end": 1243.44,
+      "text": "would be saved in the threads, okay? Let"
+    },
+    {
+      "start": 1241.72,
+      "end": 1244.84,
+      "text": "me show you. So, I'll remove this"
+    },
+    {
+      "start": 1243.44,
+      "end": 1247.56,
+      "text": "configuration right now. This is not"
+    },
+    {
+      "start": 1244.84,
+      "end": 1249.28,
+      "text": "required. I'll use my new one, okay? New"
+    },
+    {
+      "start": 1247.56,
+      "end": 1250.8799999999999,
+      "text": "configuration."
+    },
+    {
+      "start": 1249.28,
+      "end": 1254.16,
+      "text": "Yeah. So, let me show you the fresh"
+    },
+    {
+      "start": 1250.88,
+      "end": 1257.0400000000002,
+      "text": "execution. So, for this I'll remove my"
+    },
+    {
+      "start": 1254.16,
+      "end": 1259.0,
+      "text": "uh I'll remove my, let's say, project."
+    },
+    {
+      "start": 1257.04,
+      "end": 1260.72,
+      "text": "So, here just go to the tracing and"
+    },
+    {
+      "start": 1259.0,
+      "end": 1263.72,
+      "text": "select your project and just try to"
+    },
+    {
+      "start": 1260.72,
+      "end": 1263.72,
+      "text": "delete the project."
+    },
+    {
+      "start": 1264.88,
+      "end": 1270.0,
+      "text": "Okay, done. Now, I will re-execute my"
+    },
+    {
+      "start": 1267.56,
+      "end": 1270.0,
+      "text": "code."
+    },
+    {
+      "start": 1275.84,
+      "end": 1279.6799999999998,
+      "text": "So, let's say here I'll give a message,"
+    },
+    {
+      "start": 1277.96,
+      "end": 1281.72,
+      "text": "\"Hi,"
+    },
+    {
+      "start": 1279.68,
+      "end": 1285.3200000000002,
+      "text": "my"
+    },
+    {
+      "start": 1281.72,
+      "end": 1285.32,
+      "text": "name is Bapi.\""
+    },
+    {
+      "start": 1286.8,
+      "end": 1291.48,
+      "text": "Okay, done. So, this is"
+    },
+    {
+      "start": 1289.2,
+      "end": 1294.32,
+      "text": "this is the trade, guys. I just start"
+    },
+    {
+      "start": 1291.48,
+      "end": 1295.84,
+      "text": "the conversation. Now, if I come here,"
+    },
+    {
+      "start": 1294.32,
+      "end": 1298.32,
+      "text": "see my project has created. If I go"
+    },
+    {
+      "start": 1295.84,
+      "end": 1300.32,
+      "text": "inside that, so first trace has created"
+    },
+    {
+      "start": 1298.32,
+      "end": 1302.32,
+      "text": "that the name of the trace is chat trace"
+    },
+    {
+      "start": 1300.32,
+      "end": 1304.48,
+      "text": "because we change the name. And this is"
+    },
+    {
+      "start": 1302.32,
+      "end": 1305.6,
+      "text": "the conversation we have done. Okay."
+    },
+    {
+      "start": 1304.48,
+      "end": 1308.76,
+      "text": "Now, let's say I will give another"
+    },
+    {
+      "start": 1305.6,
+      "end": 1310.1599999999999,
+      "text": "message. I'll create a new trace here."
+    },
+    {
+      "start": 1308.76,
+      "end": 1311.68,
+      "text": "And I'll perform another message. Let's"
+    },
+    {
+      "start": 1310.16,
+      "end": 1313.16,
+      "text": "say,"
+    },
+    {
+      "start": 1311.68,
+      "end": 1315.76,
+      "text": "\"I am"
+    },
+    {
+      "start": 1313.16,
+      "end": 1315.76,
+      "text": "Alex.\""
+    },
+    {
+      "start": 1318.52,
+      "end": 1321.44,
+      "text": "Now, if I come here,"
+    },
+    {
+      "start": 1321.48,
+      "end": 1325.56,
+      "text": "now if I go to the trace,"
+    },
+    {
+      "start": 1323.8,
+      "end": 1326.6399999999999,
+      "text": "now guys, you can see trace has created."
+    },
+    {
+      "start": 1325.56,
+      "end": 1328.6399999999999,
+      "text": "Okay."
+    },
+    {
+      "start": 1326.64,
+      "end": 1329.96,
+      "text": "Now, this is the trace. This was my"
+    },
+    {
+      "start": 1328.64,
+      "end": 1331.48,
+      "text": "first trace."
+    },
+    {
+      "start": 1329.96,
+      "end": 1334.04,
+      "text": "Uh there I perform, \"Hello, my name is"
+    },
+    {
+      "start": 1331.48,
+      "end": 1335.1200000000001,
+      "text": "Bapi. Okay, how I can assist you today?\""
+    },
+    {
+      "start": 1334.04,
+      "end": 1337.6399999999999,
+      "text": "Now, let's see if I give another"
+    },
+    {
+      "start": 1335.12,
+      "end": 1340.4399999999998,
+      "text": "message. Uh"
+    },
+    {
+      "start": 1337.64,
+      "end": 1344.3200000000002,
+      "text": "\"I need"
+    },
+    {
+      "start": 1340.44,
+      "end": 1345.68,
+      "text": "um I need a plan"
+    },
+    {
+      "start": 1344.32,
+      "end": 1348.32,
+      "text": "to learn"
+    },
+    {
+      "start": 1345.68,
+      "end": 1348.3200000000002,
+      "text": "Python.\""
+    },
+    {
+      "start": 1352.48,
+      "end": 1357.88,
+      "text": "Now, if I go to my trace, so see inside"
+    },
+    {
+      "start": 1355.28,
+      "end": 1360.08,
+      "text": "the same trace uh inside the same trace"
+    },
+    {
+      "start": 1357.88,
+      "end": 1362.88,
+      "text": "there is two trans right now."
+    },
+    {
+      "start": 1360.08,
+      "end": 1364.84,
+      "text": "Um now, if I go to this uh"
+    },
+    {
+      "start": 1362.88,
+      "end": 1367.72,
+      "text": "trace, as you can see, the first I"
+    },
+    {
+      "start": 1364.84,
+      "end": 1369.3999999999999,
+      "text": "given, \"Hi, my name is Bapi. Uh how and"
+    },
+    {
+      "start": 1367.72,
+      "end": 1370.88,
+      "text": "it it has given me, 'Hello, Bapi. How I"
+    },
+    {
+      "start": 1369.4,
+      "end": 1373.88,
+      "text": "can assist you today?'\""
+    },
+    {
+      "start": 1370.88,
+      "end": 1375.44,
+      "text": "Now, in the second trace,"
+    },
+    {
+      "start": 1373.88,
+      "end": 1378.0800000000002,
+      "text": "uh you can see I given, \"I need a plan"
+    },
+    {
+      "start": 1375.44,
+      "end": 1380.16,
+      "text": "to learn Python.\" And uh it has given"
+    },
+    {
+      "start": 1378.08,
+      "end": 1382.4399999999998,
+      "text": "you the plan. Okay. That means in a"
+    },
+    {
+      "start": 1380.16,
+      "end": 1384.44,
+      "text": "single trade now it is storing multiple"
+    },
+    {
+      "start": 1382.44,
+      "end": 1386.28,
+      "text": "trans, that means multiple conversation."
+    },
+    {
+      "start": 1384.44,
+      "end": 1388.24,
+      "text": "Uh previously I also did for Alex. See,"
+    },
+    {
+      "start": 1386.28,
+      "end": 1390.68,
+      "text": "Alex is also available here."
+    },
+    {
+      "start": 1388.24,
+      "end": 1392.44,
+      "text": "Uh yeah, you can see the Alex. Uh but it"
+    },
+    {
+      "start": 1390.68,
+      "end": 1395.64,
+      "text": "takes some time, guys. I think it takes"
+    },
+    {
+      "start": 1392.44,
+      "end": 1397.3200000000002,
+      "text": "uh 10 to 20 seconds to update in the"
+    },
+    {
+      "start": 1395.64,
+      "end": 1398.96,
+      "text": "trades, okay? That's why initially"
+    },
+    {
+      "start": 1397.32,
+      "end": 1400.8,
+      "text": "whenever I showed you, uh this"
+    },
+    {
+      "start": 1398.96,
+      "end": 1402.72,
+      "text": "information was not updated. Now, see,"
+    },
+    {
+      "start": 1400.8,
+      "end": 1404.1599999999999,
+      "text": "here also whenever I did, let's say,"
+    },
+    {
+      "start": 1402.72,
+      "end": 1407.92,
+      "text": "Alex, right?"
+    },
+    {
+      "start": 1404.16,
+      "end": 1409.2,
+      "text": "Uh this is the Alex Alex conversation."
+    },
+    {
+      "start": 1407.92,
+      "end": 1412.04,
+      "text": "Uh this is the Alex conversation. I'm"
+    },
+    {
+      "start": 1409.2,
+      "end": 1413.1200000000001,
+      "text": "Alex. I need uh a plan to learn Python,"
+    },
+    {
+      "start": 1412.04,
+      "end": 1416.28,
+      "text": "as you can see."
+    },
+    {
+      "start": 1413.12,
+      "end": 1418.04,
+      "text": "I'm Alex, and here I given you I need a"
+    },
+    {
+      "start": 1416.28,
+      "end": 1420.68,
+      "text": "plan to learn Python, okay? So, that's"
+    },
+    {
+      "start": 1418.04,
+      "end": 1421.96,
+      "text": "how, guys, every uh trades you will be"
+    },
+    {
+      "start": 1420.68,
+      "end": 1423.96,
+      "text": "creating, all of the trades would be"
+    },
+    {
+      "start": 1421.96,
+      "end": 1425.68,
+      "text": "available. Inside the trades, whatever"
+    },
+    {
+      "start": 1423.96,
+      "end": 1427.6000000000001,
+      "text": "conversation you'll be doing, it would"
+    },
+    {
+      "start": 1425.68,
+      "end": 1429.1200000000001,
+      "text": "be saving as a tran. Now, let me show"
+    },
+    {
+      "start": 1427.6,
+      "end": 1431.32,
+      "text": "you another, let's execution. Let's say,"
+    },
+    {
+      "start": 1429.12,
+      "end": 1434.36,
+      "text": "in the Alex only I'll tell"
+    },
+    {
+      "start": 1431.32,
+      "end": 1434.36,
+      "text": "how much"
+    },
+    {
+      "start": 1435.16,
+      "end": 1437.8400000000001,
+      "text": "time"
+    },
+    {
+      "start": 1436.4,
+      "end": 1439.5600000000002,
+      "text": "it will"
+    },
+    {
+      "start": 1437.84,
+      "end": 1442.8799999999999,
+      "text": "take."
+    },
+    {
+      "start": 1439.56,
+      "end": 1445.48,
+      "text": "Now, this is my third tran, okay?"
+    },
+    {
+      "start": 1442.88,
+      "end": 1448.0800000000002,
+      "text": "Now, if I come here,"
+    },
+    {
+      "start": 1445.48,
+      "end": 1451.56,
+      "text": "so you have to wait for some time,"
+    },
+    {
+      "start": 1448.08,
+      "end": 1451.56,
+      "text": "then this tran would be updated here."
+    },
+    {
+      "start": 1453.12,
+      "end": 1456.7199999999998,
+      "text": "Now, see, it got updated. Tran three."
+    },
+    {
+      "start": 1455.2,
+      "end": 1458.88,
+      "text": "Now, if I click here,"
+    },
+    {
+      "start": 1456.72,
+      "end": 1460.64,
+      "text": "now this is the tran three, guys."
+    },
+    {
+      "start": 1458.88,
+      "end": 1461.8400000000001,
+      "text": "And here I asked how much time it will"
+    },
+    {
+      "start": 1460.64,
+      "end": 1463.2800000000002,
+      "text": "take, and this is the answer I got,"
+    },
+    {
+      "start": 1461.84,
+      "end": 1465.6,
+      "text": "okay? So, that's how, guys, you can"
+    },
+    {
+      "start": 1463.28,
+      "end": 1467.68,
+      "text": "separate out the trades uh by adding"
+    },
+    {
+      "start": 1465.6,
+      "end": 1469.12,
+      "text": "this line of code only. You just need to"
+    },
+    {
+      "start": 1467.68,
+      "end": 1470.76,
+      "text": "update your configuration, and"
+    },
+    {
+      "start": 1469.12,
+      "end": 1471.6799999999998,
+      "text": "everything will remain same, okay? So,"
+    },
+    {
+      "start": 1470.76,
+      "end": 1473.48,
+      "text": "that's how, guys, with the help of"
+    },
+    {
+      "start": 1471.68,
+      "end": 1474.92,
+      "text": "LangSmith, we can continuously monitor"
+    },
+    {
+      "start": 1473.48,
+      "end": 1477.2,
+      "text": "our application, we can continuously"
+    },
+    {
+      "start": 1474.92,
+      "end": 1478.4,
+      "text": "trace our application. Lots of thing we"
+    },
+    {
+      "start": 1477.2,
+      "end": 1480.72,
+      "text": "can perform with the help of this"
+    },
+    {
+      "start": 1478.4,
+      "end": 1483.2800000000002,
+      "text": "LangSmith. Going forward also, I'll be"
+    },
+    {
+      "start": 1480.72,
+      "end": 1484.96,
+      "text": "using this uh tool, okay, in my project"
+    },
+    {
+      "start": 1483.28,
+      "end": 1487.92,
+      "text": "development, and I will also show you"
+    },
+    {
+      "start": 1484.96,
+      "end": 1490.2,
+      "text": "some other advantage we can utilize from"
+    },
+    {
+      "start": 1487.92,
+      "end": 1492.52,
+      "text": "this Lang LangSmith itself, okay? So,"
+    },
+    {
+      "start": 1490.2,
+      "end": 1494.72,
+      "text": "all the code I'm going to uh upload in"
+    },
+    {
+      "start": 1492.52,
+      "end": 1496.44,
+      "text": "my uh GitHub, and give the link in the"
+    },
+    {
+      "start": 1494.72,
+      "end": 1498.48,
+      "text": "description. From there you can get, and"
+    },
+    {
+      "start": 1496.44,
+      "end": 1499.56,
+      "text": "please try to practice in your system"
+    },
+    {
+      "start": 1498.48,
+      "end": 1501.88,
+      "text": "and do let me know if you have any"
+    },
+    {
+      "start": 1499.56,
+      "end": 1503.6799999999998,
+      "text": "question. So yes guys this is all about"
+    },
+    {
+      "start": 1501.88,
+      "end": 1505.16,
+      "text": "it and if you found my content useful"
+    },
+    {
+      "start": 1503.68,
+      "end": 1507.1200000000001,
+      "text": "please try to subscribe to my channel"
+    },
+    {
+      "start": 1505.16,
+      "end": 1508.76,
+      "text": "and hit the like and please try to share"
+    },
+    {
+      "start": 1507.12,
+      "end": 1511.1599999999999,
+      "text": "this playlist with your friends and"
+    },
+    {
+      "start": 1508.76,
+      "end": 1513.12,
+      "text": "family guys so that they can also get"
+    },
+    {
+      "start": 1511.16,
+      "end": 1515.5600000000002,
+      "text": "the opportunity to learn this kind of"
+    },
+    {
+      "start": 1513.12,
+      "end": 1516.4799999999998,
+      "text": "concept. So yes guys this is all about"
+    },
+    {
+      "start": 1515.56,
+      "end": 1517.96,
+      "text": "it"
+    },
+    {
+      "start": 1516.48,
+      "end": 1521.08,
+      "text": "bye everyone and I will see you in the"
+    },
+    {
+      "start": 1517.96,
+      "end": 1521.08,
+      "text": "next video guys thank you."
+    }
+  ],
+  "video_id": "-ua10fOAdFQ",
+  "title": "18. Monitor Your Agentic Chatbot with LangSmith & LangGraph | Part 6 | Agentic AI",
+  "position": 20,
+  "url": "https://www.youtube.com/watch?v=-ua10fOAdFQ"
+}

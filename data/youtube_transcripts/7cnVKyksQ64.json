@@ -1,0 +1,5082 @@
+{
+  "source": "youtube_captions",
+  "language": "en",
+  "is_generated": true,
+  "text": "Hi guys. My name is Bapi and you are welcome to my YouTube channel. So guys, I will continue my Agentic Chatbot implementation. And in our previous video, we have already seen how we can add the chat trading features inside our Agentic Chatbot. So we have already interrogated this chat trading. Now we are able to continue the conversation with our previous chat as well. That means right now I can separate out my chat trades. I can create a new conversation. I can continue with my old conversation like ChatGPT. So let me show you the example I created in my previous video. If you haven't checked that video guys, this is already available inside my playlist. Please try to check this video how I have developed this thing. So if you complete all of these videos guys, then you will be able to continue with this Agentic Chatbot implementation. Otherwise, you might get difficulties for sure. So yeah, we have already added these trading features. So what will happen right now? Let's say if I continue any kinds of conversation. Let's say here I will give \"Hi, my name is Bapi.\" Okay? So as you can see, it is giving you a response. \"Nice to meet you, Bapi. How I can assist you today?\" Now let's say I want to create a new chat like ChatGPT. So what I will do? I'll just click on new chat. And you can see one new trade has created. Okay? New conversation has created. Now here I will tell \"Hi, my name is Alex.\" See? \"Hello Alex, how I can assist you today?\" Now I can go to my previous conversation where I told my name is Bapi. Even I can continue with my the current conversation I did, right? So that's how you can create as much as session you can. Okay. But I think you have observed one thing, which is if I refresh the application, okay, let's say if I refresh the application, so see, my previous conversation is getting erased. Okay, previous conversation is getting removed. Why it is happening? So, I think you know that whenever I discuss this persistence concept, there I told you whenever we try to add the persistence memory inside the agentic chatbot, we have two ways. Uh the first way is we can use the memory saver, in memory saver. Uh in memory saver means you are storing these kinds of conversation inside your RAM. So, whenever you are refreshing, okay, whenever you are refreshing, that means your RAM is getting cleared, okay, and all of the conversation is getting erased. And if you close your application as well, let's say if I disconnect from my terminal, so what will happen? From the RAM itself, it will be removed. And again, you will be able to see the new chat here. You won't be able to see the older conversation. This is the problem. Then I told you about another uh another actually persistence memory saver, which is database. You can also integrate any kinds of database for the permanent persistence memory. So, if you add the database, so what will happen? You are storing all of the conversation inside the database. You are storing all of the checkpoint inside the database, okay? And if you storing if you are storing in the database, if you are refreshing your application or uh if you are, let's say, uh closing your terminal, it doesn't matter. Your conversation will remain the same because it is storing in the database. Then I told you in future video, I will also show you how we can add the database, okay, to make our persistence memory uh permanent. So, yeah, uh today in this particular video, guys, we'll try to understand how we can add the database features inside the agentic chatbot uh so that whenever you are refreshing, right, your agentic chatbot, uh you will be able to see the old conversation. Right now, this is the problem. So, right now, if you perform conversation with your chatbot and if you're creating different different let's say chat trades. So, if you refresh your application or if you close your application, it will be removed from the RAM, right? So, these kinds of things we have to fix. So, that's how guys we'll try to add new features inside this Agentic chatbot and we'll try to make this Agentic chatbot more advanced and we'll be learning this particular project, okay? So, if you found my content useful guys, please try to subscribe to my channel and please share it with your friends and family. And please support me guys. If you support me, so definitely I will be uh bringing these kinds of content more, okay, on my channel. So, instead of talking too much guys, let's start with the implementation. And here in this video guys, I'm going to show you how we can integrate database functionality in the persistence memory. So guys, I have already shared the source code with you. It is already available in the video description. So, if you open up my previous code guys, I have already written this code as you remember. So, there I tried to integrate these trading features inside our Agentic chatbot and this is the code we have written, right? So, this is the entire code. And the change we have done in the front end because you can see this is the front end uh uh front end file and we had another file which is the back end, okay? In the back end itself, I had my like so let's say Agentic chatbot back end. So, here I created the chat node, then the uh graph and edges, okay? Each and everything I initialize it here and I was returning as a checkpoint sorry, chatbot graph object. So, here if you see in this particular back end file, here I was using this memory saver, okay, from the uh checkpoint checkpoint uh LangGraph checkpoint. So, I was importing LangGraph dot checkpoint dot memory import in memory saver. So, if you're using this memory saver, that means what is happening, you're are all of the conversation in the RAM and whenever you are refreshing or closing your terminal, it is getting erased, okay? Because RAM is a temporary memory. Now, we have to make it as permanent, okay? For this, we have to use some kinds of database. Now, if you visit this LangGraph documentation, LangGraph documentation, um uh you will be you will be finding like uh uh some database they are suggesting whenever you are creating these kinds of persistence memory. So, uh if you take the LangGraph documentation, there you will be getting some kinds of database like SQLite database they are suggesting. So, SQLite database when you can use whenever you are creating the prototype, right? As of now, uh we are learning, uh we are trying to implement this agentic chatbot. So, we are in the learning phase. Maybe we can utilize the SQLite database because this is completely free to use. And SQLite database actually basically it will create the instance inside your local storage, okay? But, uh you can also utilize any production uh grade database like Postgres is there, then um some other database are also there, okay? You can also utilize that. So, going forward, uh whenever we'll try to create production grade actually agentic chatbot, uh that time I'll try to use these other database, but right now we are in the learning phase, so we'll try to use some kinds of prototype based database, okay? I can utilize SQLite database because this is this will be lightweight for me and I don't need to take any kinds of subscription plan for that, right? So, that's why I'll continue with the SQLite database. If you go to the SQLite documentation, SQLite documentation, um So, this is the SQLite documentation, guys. So, this is uh basically a database. Uh this is a database actually you can utilize uh with the help of Python. And uh if you're using this LangGraph guys, uh LangGraph also has the connection with SQLite, okay? For this, you have to install one library. This library uh LangGraph checkpoint SQLite. Okay. So, you have to install this particular library. If you install this library, you will be able to use this SQLite with your LangGraph. You can also separately install this SQLite if you are only using Python programming. That time separately you can utilize. But here we want to utilize with the help of this LangGraph. Okay, that's why LangGraph connection is also there. LangGraph SDK is also there. Someone I think has created this and published on the PyPI and we are able to use this package inside our development. Okay. If you check the LangGraph documentation guys, here in the memory section as you can see at short-term memory. That means this is the persistence memory. As you can see short-term memory trade level persistence. Okay. So, here as of now we use this memory saver database. Sorry, memory saver actually stories. Basically, this stores your conversation in the RAM. And you can see they're also suggesting for the production. So, for production use either you can use Postgres. Postgres it is also production grade database and you can create a Postgres server. Either you can create a local server local host server. Either you can create a cloud-based servers. Okay. So, any kinds of cloud you can set up this Postgres. Either you can use like render. Either you can use AWS GCP. Anywhere you can set up this uh Postgres server and you can connect with your LangGraph. Okay, this is possible. So, that's how you can also use MongoDB. You can also connect with MongoDB. You can also connect with Redis. You can also connect with Oracle. Okay, that's how it is having different different database connection. But whenever we are creating prototype, I think this SQLite is fine for us because we can set up inside our um local storage only. Okay, I don't need to take any kinds of separate server for that. Okay, that's why I'm using this SQLite. So, database doesn't matter. You can use any kinds of database. Anything will work. But only you just need to know the um like connection, okay? Integration. How we can integrate the database, okay? Right now I'm integrating the SQLite. Maybe you can also integrate any other database. Only you just need to get this connection string, okay? Let's say if you're uh setting up this uh database in a server, you just need to get this connection string, okay? If you get this connection string, you can check the documentation and you can copy this code and you can change it anytime, okay? It's up to you. So, here the main change, guys, I have to do in the back-end because in the back-end file I'm using this memory saver. Instead of memory saver, I have to use my uh this one. Uh I have to use my um um database, okay? So, for this uh I have to first of all install this library. Uh where is that? Uh yeah, to install this library. So, I'll copy this command. Or I can copy the um name. And I will add inside my requirements. Now, let's install it here. pip install hyphen r requirement.txt. So, for me it is already satisfied because I installed it previously, but for you it may take some time. So, once the installation is complete, guys, uh I'll open up my back-end file. And in the back-end itself, I'll try to change that change that. So, here what I'm going to do um I'm going to um should I change in the same file or should I create a new file? Uh if I change in the same file, then you will be able to uh you won't be able to get the older code. So, what I can do, maybe I can't um I can create another file, okay? So, I'll create a same file. I will just rename it. Agentic chatbot. Um back end. Here I'll just try to add DB back end. Okay, DB back end means it has the database integration. Okay. Uh that's how you will be able to see the previous code as well. Okay. Yeah, I think this is fine. Now here instead of this memory saver we have to import this uh SQLite saver. So, from LangGraph checkpoint, here you have a uh class called SQLite. Okay. And instead of memory saver, we have to import SQLite. SQLite saver. Okay. SQLite saver. So, you have to import that. So, once it is done, now I'll just go below and here you can see I created a checkpoint object and I used this uh memory saver. Instead of memory saver, I will use my my SQLite saver. SQLite saver. Okay. This class. Now this SQLite saver takes a connection object. Now you have to initialize the connection object, database connection object. Basically, you will be connecting with this SQLite uh database. So, for this uh you have to import this SQLite library. Import SQLite 3. Okay. SQLite 3. So, this is already available inside Python. Then after that, here I will create a connection object. So, to create a connection object, guys, you just need to initialize this SQLite 3. Then there is a function you have to call, call connect. Okay. Connect and inside that you have to give a first parameter, which is database. You have to initialize the database. Okay. So, here basically this SQLite creates the database object inside your local storage only. That means inside your project folder only it will create a database, okay? It will create a DB file. So, you have to give the DB file name. So, here I'm going to name this file as chatbot.db, okay? And uh here you have to give another uh parameter which is check same trade is equal to false, okay? Why? We have to give this particular parameter because I think you remember we are using the trading concept, right? Trade uh chat uh trading concept. So, every time uh user uh is creating separate trades and they're doing the conversation. And uh by default actually SQLite doesn't support uh actually multi-trading. That means you can't uh apply the trading. Uh you can't create a different trades in the SQLite. Once you have created one particular session, you have to continue uh the uh the same execution in that particular session only. Okay, by default this parameter basically it's true, right? But if you make it as false, then SQLite will try to give you the access for the trading concept. That means you can uh do the multiple trading chat. Okay, that means you can store uh your checkpoint in a multiple trades, okay? This will uh basically allow that particular option. That's why we have given uh check uh same trades is equal to false. Okay, I hope you clear. So, this is basically here you will be getting a connection object. So, I'm going to store inside a variable. Let's say this is connection object. Now, this connection object you have to pass inside this SQLite server. Okay, you have to pass inside this SQLite server. So, once you have done that, uh now you will be getting the checkpoint. Okay, now this checkpoint is not a simple checkpoint. It will not store your conversation. It will not store your checkpoint inside the RAM. Okay, instead of that it will save the conversation or checkpoint inside a storage service inside a database storage which is chatbot.db. Although this uh storage service will create inside your uh computer storage only, but this is not storing inside a RAM. Okay, it will store as a file. And we know that unless and until we are not uh deleting the file, this file will be available inside my computer. If I turn off my computer as well, this file will remain same. Okay, this is the main benefit here. So, once we have done that, guys, uh the same code you have to write here. Uh no need to change anything. Now, let me show you whether it's working or not. So, here uh maybe I can test this file. So, for this, let's do the invoke operation. Uh so, here uh what I'm going to do, guys, I'm going to just uh do the invoke operation. So, response is equal to Yeah, so I have uh written like that. So, I just created a config because you know that we're using persistence memory, and we have to pass the config whenever we're doing the invoke operation. So, here uh by default, I have taken this default thread. I have just done hardcoding operation. And we're invoking, and we're giving the message, \"Mhm, hello, how are you?\" Or let's say I'll just give uh \"My name is Bapi.\" Okay? And we're passing the configuration, and this will give you the response. We'll try to print that as well. Okay? Now, see, if I execute, what will happen? Uh you'll be able to see one chatbot.db file would be created here. So, Python uh agentic_chatbot db_backend, right? db_backend.py. If I execute, see, chatbot.db has created. And we are getting the response. As you can see, I given \"My name is Bapi.\" And my AI message, that means my uh agent has replied, \"Hi, hello, Bapi. How I can assist you today?\" And some other, let's say, metadata information so we are getting. Okay? Now, you can see one uh chatbot uh db has created. You can also visualize that. Okay, it is also possible. For this, you have to install one extension called SQLite viewer. SQLite viewer. Okay, I have already installed this uh extension inside my VS Code. Uh if you don't have, just try to uh install that, and you can see this is the um this is the publisher, Florian uh Klam Klamfer. Uh make sure you install the same version, okay? Once you have done that, uh you just need to double click on this uh chatbot DB, and you will be able to see this uh checkpoint. It has saved in the memory, as you can see. Uh sorry, not memory, in the database, as you can see, okay? Now, you can see it has uh stored my tre uh checkpoint, and this is the trade ID. Okay, we have given default trade, as you remember. We have given uh what's that? Chatbot back end. Okay, not this one, yeah, this one. We have given the default trade, okay? Now, you can see default trade. Now, you can ask me why this uh three three time it is coming? Because as per our workflow, guys, the workflow we have created, it has three checkpoint. Uh uh one checkpoint at the start uh start position, uh second checkpoint in the uh chat node position, and other one is the end position, okay? I think I already told you about this, right? Uh in my uh this video, uh persistence video, I already told you about that, right? So, please go through the persistence video if you don't understand the checkpointer concept, like how many checkpointer uh would be available, uh in which node it would be available, each and everything I have discussed here. So, here we are having uh three layer, okay? Three layer inside uh this uh uh sorry, three three node inside our uh Agentic Chatbot, that's why three time this uh um checkpoint is getting created. And all of the checkpoint ID, as well as the checkpoint uh some meta information is also available, okay? And if you want to see the checkpoint, guys, directly you can click here. So, if I click here, you'll be able to see the data. Now, this data uh it stores basically in a binary format, it's not readable properly, but I think some of the message you can still able to understand, like my name is Bobby, okay? I have given. Uh now, let me show you whether it is able to uh store my checkpoint inside my database or not. So, let's say if I re-execute my um backend uh whether I'll be able to see my old uh old conversation or not. Let's say I give in my name is Bobby, okay? So, this uh this checkpoint would be available or not, okay? So, for this maybe I can just give a separate name here. Let's say Alex I will give. And uh what you can do you can also change the trade ID if you want. Let's say I will give default trade one, okay? Now, if I re-execute my backend Okay. Now, if I open my database, um I have to refresh this. Okay, now see. Another trade got created and still my previous trade is available here, okay? Previous trade is available and in the response also you can see uh my name is Alex and this is a separate trade it is coming, okay? So, that's how guys uh um we have seen it is able to store my checkpoint. Still it is able to store my conversation inside my database, okay? Amazing. Now, uh this is ready. Now, we have to add uh we have to integrate this thing inside our front end app uh because right now we tested inside the backend file only, but I have to add inside my front end. So, what I'm going to do guys, I will open up my front end. So, this is the front end uh app trade. Uh maybe I can create another same file. I'll just try to copy and paste. And I'll just rename it. app uh DB Okay. So, with the help of that you can understand um like this is uh this is actually database. This is trading. This is simple app, okay? You can understand. So, DB means this this has the uh database actually update. Now, see, here you don't need to change uh uh I mean um uh in in all the code, only just change you have to do uh here in the chat uh chat trades, okay? So, whenever I was uh actually creating this uh session state in the uh Streamlit, right? There I was uh using simple list only, okay? And whenever you were using simple list, that time what is happening? If I am refreshing my application, and it is uh re-executing from the beginning, and this particular uh list is getting created again, and all of the data we had inside the list, it was getting erased, okay? This is this was the problem. So, instead of uh taking this uh simple list here, so here I have to uh connect my database. Connect my database means in the back end, I am already storing my checkpoint inside my database, inside my SQLite database. So, what I'm going to do? Uh instead of uh instead of actually uh um instead of actually giving a simple list here, I'll try to load my all of the trades, okay? From my database only. And I will just try to provide a list here, okay? So, for this uh in my back end code, I'll just try to do a simple uh simple modification. I'll remove this code. It's not required. So, here I'll just do a simple modification. Uh let me show you the modification. Yeah. So, here I'll just try to write a function here. Um I'm going to name it as um get uh all trades. Okay, get all trades. So, here uh I'll just try to um first of all show you this one. Uh see. Uh first of all, I will write a script, then I'll just try to convert to a function. Otherwise, I think you might get some difficulties. So, here first of all, I'll write my checkpoint. Mhm, checkpoint. Now, see, checkpoint object is nothing but it's a database object right now. We're using SQLite saver. So, it has a function. The function name is list, okay? List. So, if you give give this function, call this function list, and if you execute, so what will happen? Basically, it will return you how many trades right now you are having inside the database. But, inside this list list function, you have to provide a parameter. Either you can tell, okay, I need I need, let's say, information about my default trades one. So, you have to give this name here. Okay, you have to give this name here. Where is that? Uh here. You have to give this name here. You can give the trade name here. But, I don't want to give the trade name any specific trade name. I want to get all of the trade, right? For this, you have to provide none here. So, basically, you are telling, I don't need any specific trade, I need all of the trade informations, okay? Now, see, this will return you uh this will return you the trades. Trades, okay? Uh I'll give a equal sign. Now, if I print that, okay, print that, print all of my trades. Now, let's execute this file again. Okay. So, this is giving you a generator object, and you know that if you're getting a generator object, so what you can do, you can run a for loop on top of that. So, for uh checkpoint in checkpoint or let's say trade. Or let's say I'll just try to write trade in trades, okay? Uh once you have done that or you can directly write write like that. Let's say instead of writing two line, I can directly run a for loop. for for checkpoint in checkpointer I think this is also checkpointer, right? Yeah. Checkpoint in checkpointer.list, okay? Then after that um uh what I'm going to do, I'm going to just uh print my checkpoint. Both name is same, okay? So, what I can do, I can maybe write like that. ck pt, okay? That means checkpoint. Now, if I re-execute Now see, guys, here we are getting all of the trade right now. It is available inside my uh inside my uh database, as you can see. And here we are getting lots of trades because if I open my chatbot, we are getting uh six trades right now. And why six six trades? Because every time if you execute the um execute the graph, it will generate three three checkpoint. Why? I told you. Because our uh our actually workflow having three checkpoints. So, in every conversation, every execution, three checkpoint would be available, okay? Three checkpoint would be available. So, this was the first trade and this was the second trade. We executed two times, that's why six six times is available, okay? So, all of these six trades you are getting here, okay? But uh here I uh whenever I will extract that, so this would be a kinds of duplicates to us. I I only I will only track the unique trades here, okay? Let's say here I how many unique trades I'm having? Default trade one and default trade, only two uniques, okay? Otherwise, everything is repetitive one. So, I'll also try to handle this part as well. So, once we are getting all of these these these actually checkpoints, now from the checkpoint only, I only need this um config. config Now, if I re-execute my terminal Now, I'm getting the config only, okay? Now, from the config, I I need this trade ID only. First of all, I need to go to the configurable. So, this is a this is actually dictionary, right? A dictionary, so I'll give the key. configurable Now, again we're getting another dictionary, and here we have the trade ID. So, I only need to extract the trade ID. Now, see, I'm getting all of the trade, but I'm getting repetitive trades, okay? Same same actually name again and again, but I only need the unique one. So, for this I think you will know set, right? Set inside Python. So, what what set does? Set's basically um will give you the unique unique actually name. So, here I'll take a set. I'll just try to create empty sets, and I'm going to name it as all trades. Okay? And whenever I'm getting my trades, I'll just try to add inside my trades. Sorry, uh I'm going to add inside my um set. So, there's a add function we can use for this. Hm. Then, uh I'll just try to print my all trades right now. Now if I execute, now see, I'm only getting trade one and my trades, okay? Uh that means the unique one. Now I have to provide as a list. Okay? I have to uh give as a list here because here um uh the session state we created, it it it takes a list, right? But here I'm getting a dictionary. As you can see here I'm getting a dictionary. I'm uh returning as a dictionary. So what I can do, I can convert it to the list. So instead of uh printing um this, I'll just try to do the type type conversion operation. I'll just try to convert to the list. Now if I execute, now see, it is a list right now, okay? Now simply I'll just uh I'll just try to write inside a function. So I'm going to uh name this function as def get all trades. Okay? And all of the code I'm going to write inside that. Okay? Instead of printing, I'll just uh do the return operation. Hm? So everything is fine. Now this function basically will return you uh all the trades, okay? Uh from the database itself. So now uh here uh in the app DB, hm whenever you are importing this chatbot, right? Uh so right now we have to import from the agentic chatbot DB backend, okay? Instead of the simple uh agentic chatbot backend because we are using DB DB backend right now. We have to import chatbot as well as the get all trades, okay? This function we have to import. Now simply you just need to call this function here whenever you are uh initializing this uh chat threads. Instead of giving the simple uh list empty list, you will give this function name, okay? So, what this function will do, it will get all of the threads and it will store in line inside my chat threads, okay? So, this particular uh code is uh sorry, this particular uh data is coming from my backend, from my database, okay? That's how So, if you restart your application as well, it will not uh effect on my app because every time this function is getting executed from my backend and it has the connection with my checkpoint. And checkpoint is connected with my database, right? chatbot.db. So, every time it will open the chatbot.db and it will get how many threads you are having, only this part will return here, okay? This part will return here and after that we're just passing it here. That means, if I'm refreshing my page, if I'm closing the application, it doesn't matter. Every time I'm extracting my threads, I'm getting my threads, I'm facing my threads from my database only. But previously, I was doing inside my memory because I was using simple list and simple list only creates the instance inside the RAM, okay? And if you refresh, your RAM would be getting cleared. I hope you got the concept, guys, okay? Now, let's try to execute and see whether it's working or not. So, here I'll open up my terminal. Clear. Then, I'll just try to run my app so Streamlit run app db.py. Now, see, guys. Uh you you can already see uh I already created some threads, right? Here. Uh manually, I created some threads and this thread is also getting uh loaded here. You can see I did some conversation like Alex, then my name is Bapi, and this is the current thread right now. So, what I can do, maybe I can delete my database and do uh start a new conversation. Let's try to delete it. Okay, it will not getting delete because it is running in the app, right? Now I can try. Delete. Some temporary file also came. I'll just try to delete, okay? Now I'll freshly execute my app. Mhm. Now let's do the conversation. Hi, my name is Bapi. I am a teacher. Okay? Great. Now I'll create a new chat. I'll tell, \"Hi, my name is Alex. I am a learner.\" Okay? Done. Now if I click my previous conversation, now you can see this is my previous conversation and this is my current conversation. Now the best part is that if I refresh my app, right? See, still this conversation remains same, okay? Now if you also close your app, let's say I'll close my app from my terminal. See, it's closed, okay? And I closed my application. Okay, I closed my application. Now if I restart my application, see if I restart my application, now still it will be able to load my previous conversation and anytime I can continue the conversation. Let's say, here I'll just try to continue the conversation. Who am I? See, it is giving you, \"You are Alex, a learner who is seeking knowledge and growth, blah blah blah.\" Okay? Now I can also do the conversation here only. Who am I? See, you are Bapi, you're a teacher, you are in you enjoy helping students learn and grow in their knowledge and skills, okay? So yes guys, that's how actually we can add the permanent persistence memory right now inside our agentic chatbot. And now this is like more powerful. Actually, it will not erase your conversation, it will not erase your checkpoint if you restart your application. Like ChatGPT, like if I open my ChatGPT right anytime and I can anytime I can see my previous chat, previous trades as well, okay? If I close the app also, if I turn off my computer also, if I disconnect my internet connection also, it's still these are the things would be common. These are the things would be available because they're using permanent persistence memory, okay? They're using some kinds of database. Whether they're using Postgres, whether they're using MongoDB, doesn't matter, but they're using some kinds of database because of that this thing is permanent like our application, okay? I hope you are getting this guys, okay? So yes guys, that's how we can slowly slowly make this particular the chatbot more advanced and uh in my next video I'm going to show you some more advanced features guys we will be adding inside this agentic chatbot and we'll try to make it more powerful, okay? And for this guys, please try to complete all of this video if you want to implement these kinds of project because going forward I have lots of plan, I will be bringing lots of project here, okay? So for this definitely you have to understand all of this concept, okay? So yes guys, this is all about from this video. I hope you liked it and you have understood the entire implementation. If you found my content useful, please try to subscribe to my channel, hit the like and please share it with your friends and family. And all of the code I will share in my description, from there you can download. So thank you guys for watching this video and I will see you next time.",
+  "segments": [
+    {
+      "start": 0.32,
+      "end": 3.56,
+      "text": "Hi guys."
+    },
+    {
+      "start": 1.64,
+      "end": 5.6,
+      "text": "My name is Bapi and you are welcome to"
+    },
+    {
+      "start": 3.56,
+      "end": 8.64,
+      "text": "my YouTube channel."
+    },
+    {
+      "start": 5.6,
+      "end": 10.64,
+      "text": "So guys, I will continue my Agentic"
+    },
+    {
+      "start": 8.64,
+      "end": 12.8,
+      "text": "Chatbot implementation."
+    },
+    {
+      "start": 10.64,
+      "end": 15.52,
+      "text": "And in our previous video, we have"
+    },
+    {
+      "start": 12.8,
+      "end": 17.36,
+      "text": "already seen how we can add the chat"
+    },
+    {
+      "start": 15.52,
+      "end": 18.759999999999998,
+      "text": "trading features inside our Agentic"
+    },
+    {
+      "start": 17.36,
+      "end": 20.96,
+      "text": "Chatbot."
+    },
+    {
+      "start": 18.76,
+      "end": 24.12,
+      "text": "So we have already interrogated this"
+    },
+    {
+      "start": 20.96,
+      "end": 27.12,
+      "text": "chat trading. Now we are able to"
+    },
+    {
+      "start": 24.12,
+      "end": 29.64,
+      "text": "continue the conversation with our"
+    },
+    {
+      "start": 27.12,
+      "end": 32.04,
+      "text": "previous chat as well. That means right"
+    },
+    {
+      "start": 29.64,
+      "end": 34.0,
+      "text": "now I can separate out my"
+    },
+    {
+      "start": 32.04,
+      "end": 36.36,
+      "text": "chat trades. I can create a new"
+    },
+    {
+      "start": 34.0,
+      "end": 39.08,
+      "text": "conversation. I can continue with my old"
+    },
+    {
+      "start": 36.36,
+      "end": 40.36,
+      "text": "conversation like ChatGPT."
+    },
+    {
+      "start": 39.08,
+      "end": 42.68,
+      "text": "So let me"
+    },
+    {
+      "start": 40.36,
+      "end": 44.519999999999996,
+      "text": "show you the example I created in my"
+    },
+    {
+      "start": 42.68,
+      "end": 45.92,
+      "text": "previous video. If you haven't checked"
+    },
+    {
+      "start": 44.52,
+      "end": 47.760000000000005,
+      "text": "that video guys, this is already"
+    },
+    {
+      "start": 45.92,
+      "end": 50.36,
+      "text": "available inside my playlist. Please try"
+    },
+    {
+      "start": 47.76,
+      "end": 52.16,
+      "text": "to check this video how I have developed"
+    },
+    {
+      "start": 50.36,
+      "end": 53.12,
+      "text": "this thing. So if you complete all of"
+    },
+    {
+      "start": 52.16,
+      "end": 54.959999999999994,
+      "text": "these"
+    },
+    {
+      "start": 53.12,
+      "end": 56.599999999999994,
+      "text": "videos guys, then you will be able to"
+    },
+    {
+      "start": 54.96,
+      "end": 59.32,
+      "text": "continue with this Agentic Chatbot"
+    },
+    {
+      "start": 56.6,
+      "end": 60.760000000000005,
+      "text": "implementation. Otherwise,"
+    },
+    {
+      "start": 59.32,
+      "end": 62.36,
+      "text": "you might get"
+    },
+    {
+      "start": 60.76,
+      "end": 64.92,
+      "text": "difficulties for sure."
+    },
+    {
+      "start": 62.36,
+      "end": 66.96,
+      "text": "So yeah, we have already added these"
+    },
+    {
+      "start": 64.92,
+      "end": 68.96000000000001,
+      "text": "trading features. So what will happen"
+    },
+    {
+      "start": 66.96,
+      "end": 70.52,
+      "text": "right now? Let's say if I continue any"
+    },
+    {
+      "start": 68.96,
+      "end": 74.47999999999999,
+      "text": "kinds of conversation. Let's say here I"
+    },
+    {
+      "start": 70.52,
+      "end": 77.44,
+      "text": "will give \"Hi, my name is"
+    },
+    {
+      "start": 74.48,
+      "end": 78.56,
+      "text": "Bapi.\" Okay?"
+    },
+    {
+      "start": 77.44,
+      "end": 80.64,
+      "text": "So as you can see, it is giving you a"
+    },
+    {
+      "start": 78.56,
+      "end": 82.48,
+      "text": "response. \"Nice to meet you, Bapi. How I"
+    },
+    {
+      "start": 80.64,
+      "end": 85.0,
+      "text": "can assist you today?\" Now let's say I"
+    },
+    {
+      "start": 82.48,
+      "end": 86.56,
+      "text": "want to create a new chat like ChatGPT."
+    },
+    {
+      "start": 85.0,
+      "end": 89.48,
+      "text": "So what I will do? I'll just click on"
+    },
+    {
+      "start": 86.56,
+      "end": 91.72,
+      "text": "new chat. And you can see one new trade"
+    },
+    {
+      "start": 89.48,
+      "end": 93.56,
+      "text": "has created. Okay? New"
+    },
+    {
+      "start": 91.72,
+      "end": 97.32,
+      "text": "conversation has created. Now here I"
+    },
+    {
+      "start": 93.56,
+      "end": 99.88,
+      "text": "will tell \"Hi, my name is"
+    },
+    {
+      "start": 97.32,
+      "end": 99.88,
+      "text": "Alex.\""
+    },
+    {
+      "start": 101.16,
+      "end": 105.44,
+      "text": "See? \"Hello Alex, how I can assist you"
+    },
+    {
+      "start": 103.0,
+      "end": 107.8,
+      "text": "today?\" Now I can go to my previous"
+    },
+    {
+      "start": 105.44,
+      "end": 111.28,
+      "text": "conversation where I told my name is"
+    },
+    {
+      "start": 107.8,
+      "end": 113.32,
+      "text": "Bapi. Even I can continue with my"
+    },
+    {
+      "start": 111.28,
+      "end": 115.44,
+      "text": "the current conversation I did, right?"
+    },
+    {
+      "start": 113.32,
+      "end": 117.52,
+      "text": "So that's how you can create as much as"
+    },
+    {
+      "start": 115.44,
+      "end": 119.96,
+      "text": "session you can."
+    },
+    {
+      "start": 117.52,
+      "end": 122.56,
+      "text": "Okay. But I think you have observed one"
+    },
+    {
+      "start": 119.96,
+      "end": 124.19999999999999,
+      "text": "thing, which is if I refresh the"
+    },
+    {
+      "start": 122.56,
+      "end": 126.0,
+      "text": "application, okay, let's say if I"
+    },
+    {
+      "start": 124.2,
+      "end": 128.08,
+      "text": "refresh the application,"
+    },
+    {
+      "start": 126.0,
+      "end": 129.64,
+      "text": "so see, my previous conversation is"
+    },
+    {
+      "start": 128.08,
+      "end": 131.88000000000002,
+      "text": "getting erased. Okay, previous"
+    },
+    {
+      "start": 129.64,
+      "end": 134.39999999999998,
+      "text": "conversation is getting removed. Why it"
+    },
+    {
+      "start": 131.88,
+      "end": 136.64,
+      "text": "is happening? So, I think you know that"
+    },
+    {
+      "start": 134.4,
+      "end": 138.48000000000002,
+      "text": "whenever I discuss this persistence"
+    },
+    {
+      "start": 136.64,
+      "end": 140.6,
+      "text": "concept, there I told you"
+    },
+    {
+      "start": 138.48,
+      "end": 142.56,
+      "text": "whenever we try to add the persistence"
+    },
+    {
+      "start": 140.6,
+      "end": 144.0,
+      "text": "memory inside the agentic chatbot, we"
+    },
+    {
+      "start": 142.56,
+      "end": 144.76,
+      "text": "have two ways."
+    },
+    {
+      "start": 144.0,
+      "end": 146.56,
+      "text": "Uh"
+    },
+    {
+      "start": 144.76,
+      "end": 149.2,
+      "text": "the first way is we can use the memory"
+    },
+    {
+      "start": 146.56,
+      "end": 150.76,
+      "text": "saver, in memory saver. Uh"
+    },
+    {
+      "start": 149.2,
+      "end": 152.44,
+      "text": "in memory saver means you are storing"
+    },
+    {
+      "start": 150.76,
+      "end": 154.6,
+      "text": "these kinds of conversation inside your"
+    },
+    {
+      "start": 152.44,
+      "end": 156.6,
+      "text": "RAM. So, whenever you are refreshing,"
+    },
+    {
+      "start": 154.6,
+      "end": 158.44,
+      "text": "okay, whenever you are refreshing, that"
+    },
+    {
+      "start": 156.6,
+      "end": 160.28,
+      "text": "means your RAM is getting cleared, okay,"
+    },
+    {
+      "start": 158.44,
+      "end": 162.12,
+      "text": "and all of the conversation is getting"
+    },
+    {
+      "start": 160.28,
+      "end": 163.72,
+      "text": "erased. And if you close your"
+    },
+    {
+      "start": 162.12,
+      "end": 165.56,
+      "text": "application as well, let's say if I"
+    },
+    {
+      "start": 163.72,
+      "end": 167.68,
+      "text": "disconnect from my terminal, so what"
+    },
+    {
+      "start": 165.56,
+      "end": 169.64000000000001,
+      "text": "will happen? From the RAM itself, it"
+    },
+    {
+      "start": 167.68,
+      "end": 171.64000000000001,
+      "text": "will be removed. And again, you will be"
+    },
+    {
+      "start": 169.64,
+      "end": 172.95899999999997,
+      "text": "able to see the new chat here."
+    },
+    {
+      "start": 171.64,
+      "end": 175.04,
+      "text": "You won't be able to see the older"
+    },
+    {
+      "start": 172.959,
+      "end": 177.64000000000001,
+      "text": "conversation. This is the problem. Then"
+    },
+    {
+      "start": 175.04,
+      "end": 179.6,
+      "text": "I told you about another uh"
+    },
+    {
+      "start": 177.64,
+      "end": 181.95899999999997,
+      "text": "another actually persistence memory"
+    },
+    {
+      "start": 179.6,
+      "end": 183.68,
+      "text": "saver, which is database. You can also"
+    },
+    {
+      "start": 181.959,
+      "end": 186.4,
+      "text": "integrate any kinds of database for the"
+    },
+    {
+      "start": 183.68,
+      "end": 188.04000000000002,
+      "text": "permanent persistence memory. So, if you"
+    },
+    {
+      "start": 186.4,
+      "end": 189.8,
+      "text": "add the database, so what will happen?"
+    },
+    {
+      "start": 188.04,
+      "end": 191.88,
+      "text": "You are storing all of the conversation"
+    },
+    {
+      "start": 189.8,
+      "end": 193.64000000000001,
+      "text": "inside the database. You are storing all"
+    },
+    {
+      "start": 191.88,
+      "end": 195.6,
+      "text": "of the checkpoint inside the database,"
+    },
+    {
+      "start": 193.64,
+      "end": 196.72,
+      "text": "okay? And if you storing if you are"
+    },
+    {
+      "start": 195.6,
+      "end": 199.28,
+      "text": "storing in the database, if you are"
+    },
+    {
+      "start": 196.72,
+      "end": 201.56,
+      "text": "refreshing your application or"
+    },
+    {
+      "start": 199.28,
+      "end": 203.04,
+      "text": "uh if you are, let's say, uh"
+    },
+    {
+      "start": 201.56,
+      "end": 205.0,
+      "text": "closing your terminal, it doesn't"
+    },
+    {
+      "start": 203.04,
+      "end": 206.16,
+      "text": "matter. Your conversation will remain"
+    },
+    {
+      "start": 205.0,
+      "end": 208.28,
+      "text": "the same because it is storing in the"
+    },
+    {
+      "start": 206.16,
+      "end": 209.79999999999998,
+      "text": "database. Then I told you in future"
+    },
+    {
+      "start": 208.28,
+      "end": 212.56,
+      "text": "video, I will also show you how we can"
+    },
+    {
+      "start": 209.8,
+      "end": 214.12,
+      "text": "add the database, okay, to make our"
+    },
+    {
+      "start": 212.56,
+      "end": 216.519,
+      "text": "persistence memory"
+    },
+    {
+      "start": 214.12,
+      "end": 217.84,
+      "text": "uh permanent. So, yeah, uh today in this"
+    },
+    {
+      "start": 216.519,
+      "end": 219.84,
+      "text": "particular video, guys, we'll try to"
+    },
+    {
+      "start": 217.84,
+      "end": 222.12,
+      "text": "understand how we can add the database"
+    },
+    {
+      "start": 219.84,
+      "end": 223.959,
+      "text": "features inside the agentic chatbot"
+    },
+    {
+      "start": 222.12,
+      "end": 226.36,
+      "text": "uh so that whenever you are refreshing,"
+    },
+    {
+      "start": 223.959,
+      "end": 228.0,
+      "text": "right, your agentic chatbot, uh you will"
+    },
+    {
+      "start": 226.36,
+      "end": 229.60000000000002,
+      "text": "be able to see the old conversation."
+    },
+    {
+      "start": 228.0,
+      "end": 231.959,
+      "text": "Right now, this is the problem. So,"
+    },
+    {
+      "start": 229.6,
+      "end": 234.84,
+      "text": "right now, if you perform conversation"
+    },
+    {
+      "start": 231.959,
+      "end": 236.92000000000002,
+      "text": "with your chatbot and if you're creating"
+    },
+    {
+      "start": 234.84,
+      "end": 238.4,
+      "text": "different different let's say chat"
+    },
+    {
+      "start": 236.92,
+      "end": 239.72,
+      "text": "trades. So, if you refresh your"
+    },
+    {
+      "start": 238.4,
+      "end": 241.76000000000002,
+      "text": "application or if you close your"
+    },
+    {
+      "start": 239.72,
+      "end": 243.52,
+      "text": "application, it will be removed from the"
+    },
+    {
+      "start": 241.76,
+      "end": 245.44,
+      "text": "RAM, right? So, these kinds of things we"
+    },
+    {
+      "start": 243.52,
+      "end": 247.12,
+      "text": "have to fix. So, that's how guys we'll"
+    },
+    {
+      "start": 245.44,
+      "end": 249.28,
+      "text": "try to add"
+    },
+    {
+      "start": 247.12,
+      "end": 250.84,
+      "text": "new features inside this Agentic chatbot"
+    },
+    {
+      "start": 249.28,
+      "end": 253.2,
+      "text": "and we'll try to make this Agentic"
+    },
+    {
+      "start": 250.84,
+      "end": 255.44,
+      "text": "chatbot more advanced and we'll be"
+    },
+    {
+      "start": 253.2,
+      "end": 257.47999999999996,
+      "text": "learning this particular project, okay?"
+    },
+    {
+      "start": 255.44,
+      "end": 259.12,
+      "text": "So, if you found my content useful guys,"
+    },
+    {
+      "start": 257.48,
+      "end": 260.44,
+      "text": "please try to subscribe to my channel"
+    },
+    {
+      "start": 259.12,
+      "end": 261.6,
+      "text": "and please share it with your friends"
+    },
+    {
+      "start": 260.44,
+      "end": 263.2,
+      "text": "and family."
+    },
+    {
+      "start": 261.6,
+      "end": 265.56,
+      "text": "And please support me guys. If you"
+    },
+    {
+      "start": 263.2,
+      "end": 267.44,
+      "text": "support me, so definitely I will be uh"
+    },
+    {
+      "start": 265.56,
+      "end": 268.919,
+      "text": "bringing these kinds of content more,"
+    },
+    {
+      "start": 267.44,
+      "end": 270.68,
+      "text": "okay, on my channel."
+    },
+    {
+      "start": 268.919,
+      "end": 273.35999999999996,
+      "text": "So, instead of talking too much guys,"
+    },
+    {
+      "start": 270.68,
+      "end": 275.16,
+      "text": "let's start with the implementation. And"
+    },
+    {
+      "start": 273.36,
+      "end": 277.64,
+      "text": "here in this video guys, I'm going to"
+    },
+    {
+      "start": 275.16,
+      "end": 280.56,
+      "text": "show you how we can integrate database"
+    },
+    {
+      "start": 277.64,
+      "end": 282.2,
+      "text": "functionality in the persistence memory."
+    },
+    {
+      "start": 280.56,
+      "end": 283.84,
+      "text": "So guys, I have already shared the"
+    },
+    {
+      "start": 282.2,
+      "end": 286.0,
+      "text": "source code with you. It is already"
+    },
+    {
+      "start": 283.84,
+      "end": 288.32,
+      "text": "available in the video description. So,"
+    },
+    {
+      "start": 286.0,
+      "end": 290.08,
+      "text": "if you open up my previous code guys, I"
+    },
+    {
+      "start": 288.32,
+      "end": 293.56,
+      "text": "have already written this code as you"
+    },
+    {
+      "start": 290.08,
+      "end": 295.35999999999996,
+      "text": "remember. So, there I tried to"
+    },
+    {
+      "start": 293.56,
+      "end": 297.56,
+      "text": "integrate these trading features inside"
+    },
+    {
+      "start": 295.36,
+      "end": 299.48,
+      "text": "our Agentic chatbot and this is the code"
+    },
+    {
+      "start": 297.56,
+      "end": 302.76,
+      "text": "we have written, right? So, this is the"
+    },
+    {
+      "start": 299.48,
+      "end": 304.52000000000004,
+      "text": "entire code. And the change we have done"
+    },
+    {
+      "start": 302.76,
+      "end": 306.52,
+      "text": "in the front end because you can see"
+    },
+    {
+      "start": 304.52,
+      "end": 308.76,
+      "text": "this is the front end uh"
+    },
+    {
+      "start": 306.52,
+      "end": 310.2,
+      "text": "uh front end file and we had another"
+    },
+    {
+      "start": 308.76,
+      "end": 312.84,
+      "text": "file which is the back end, okay? In the"
+    },
+    {
+      "start": 310.2,
+      "end": 315.0,
+      "text": "back end itself, I had my"
+    },
+    {
+      "start": 312.84,
+      "end": 317.56,
+      "text": "like so let's say Agentic chatbot back"
+    },
+    {
+      "start": 315.0,
+      "end": 319.32,
+      "text": "end. So, here I created the chat node,"
+    },
+    {
+      "start": 317.56,
+      "end": 320.48,
+      "text": "then the uh"
+    },
+    {
+      "start": 319.32,
+      "end": 322.71999999999997,
+      "text": "graph and edges, okay? Each and"
+    },
+    {
+      "start": 320.48,
+      "end": 324.56,
+      "text": "everything I initialize it here and I"
+    },
+    {
+      "start": 322.72,
+      "end": 327.04,
+      "text": "was returning as a checkpoint sorry,"
+    },
+    {
+      "start": 324.56,
+      "end": 329.16,
+      "text": "chatbot graph object."
+    },
+    {
+      "start": 327.04,
+      "end": 331.68,
+      "text": "So, here if you see in this particular"
+    },
+    {
+      "start": 329.16,
+      "end": 334.28000000000003,
+      "text": "back end file, here I was using this"
+    },
+    {
+      "start": 331.68,
+      "end": 336.48,
+      "text": "memory saver, okay, from the"
+    },
+    {
+      "start": 334.28,
+      "end": 338.0,
+      "text": "uh checkpoint checkpoint uh"
+    },
+    {
+      "start": 336.48,
+      "end": 340.44,
+      "text": "LangGraph checkpoint. So, I was"
+    },
+    {
+      "start": 338.0,
+      "end": 342.8,
+      "text": "importing LangGraph dot checkpoint dot"
+    },
+    {
+      "start": 340.44,
+      "end": 345.0,
+      "text": "memory import in memory saver. So, if"
+    },
+    {
+      "start": 342.8,
+      "end": 347.2,
+      "text": "you're using this memory saver, that"
+    },
+    {
+      "start": 345.0,
+      "end": 349.16,
+      "text": "means what is happening, you're are all"
+    },
+    {
+      "start": 347.2,
+      "end": 351.2,
+      "text": "of the conversation in the RAM and"
+    },
+    {
+      "start": 349.16,
+      "end": 352.88000000000005,
+      "text": "whenever you are refreshing or closing"
+    },
+    {
+      "start": 351.2,
+      "end": 354.92,
+      "text": "your terminal, it is getting erased,"
+    },
+    {
+      "start": 352.88,
+      "end": 356.48,
+      "text": "okay? Because RAM is a temporary memory."
+    },
+    {
+      "start": 354.92,
+      "end": 357.76,
+      "text": "Now, we have to make it as permanent,"
+    },
+    {
+      "start": 356.48,
+      "end": 360.16,
+      "text": "okay? For this, we have to use some"
+    },
+    {
+      "start": 357.76,
+      "end": 362.44,
+      "text": "kinds of database. Now, if you visit"
+    },
+    {
+      "start": 360.16,
+      "end": 364.16,
+      "text": "this LangGraph documentation, LangGraph"
+    },
+    {
+      "start": 362.44,
+      "end": 366.88,
+      "text": "documentation, um"
+    },
+    {
+      "start": 364.16,
+      "end": 367.84000000000003,
+      "text": "uh you will be you will be finding like"
+    },
+    {
+      "start": 366.88,
+      "end": 369.56,
+      "text": "uh"
+    },
+    {
+      "start": 367.84,
+      "end": 372.0,
+      "text": "uh some database they are suggesting"
+    },
+    {
+      "start": 369.56,
+      "end": 375.12,
+      "text": "whenever you are creating these kinds of"
+    },
+    {
+      "start": 372.0,
+      "end": 376.56,
+      "text": "persistence memory. So, uh if you take"
+    },
+    {
+      "start": 375.12,
+      "end": 377.88,
+      "text": "the LangGraph documentation, there you"
+    },
+    {
+      "start": 376.56,
+      "end": 379.32,
+      "text": "will be getting some kinds of database"
+    },
+    {
+      "start": 377.88,
+      "end": 381.4,
+      "text": "like SQLite database they are"
+    },
+    {
+      "start": 379.32,
+      "end": 382.76,
+      "text": "suggesting. So, SQLite database when you"
+    },
+    {
+      "start": 381.4,
+      "end": 385.35999999999996,
+      "text": "can use whenever you are creating the"
+    },
+    {
+      "start": 382.76,
+      "end": 387.76,
+      "text": "prototype, right? As of now, uh we are"
+    },
+    {
+      "start": 385.36,
+      "end": 389.76,
+      "text": "learning, uh we are trying to implement"
+    },
+    {
+      "start": 387.76,
+      "end": 391.56,
+      "text": "this agentic chatbot. So, we are in the"
+    },
+    {
+      "start": 389.76,
+      "end": 393.12,
+      "text": "learning phase. Maybe we can utilize the"
+    },
+    {
+      "start": 391.56,
+      "end": 395.72,
+      "text": "SQLite database because this is"
+    },
+    {
+      "start": 393.12,
+      "end": 397.48,
+      "text": "completely free to use. And SQLite"
+    },
+    {
+      "start": 395.72,
+      "end": 400.12,
+      "text": "database actually basically it will"
+    },
+    {
+      "start": 397.48,
+      "end": 402.40000000000003,
+      "text": "create the instance inside your local"
+    },
+    {
+      "start": 400.12,
+      "end": 404.72,
+      "text": "storage, okay? But, uh you can also"
+    },
+    {
+      "start": 402.4,
+      "end": 407.919,
+      "text": "utilize any production uh grade database"
+    },
+    {
+      "start": 404.72,
+      "end": 409.6,
+      "text": "like Postgres is there, then um"
+    },
+    {
+      "start": 407.919,
+      "end": 411.56,
+      "text": "some other database are also there,"
+    },
+    {
+      "start": 409.6,
+      "end": 413.08000000000004,
+      "text": "okay? You can also utilize that. So,"
+    },
+    {
+      "start": 411.56,
+      "end": 415.36,
+      "text": "going forward, uh whenever we'll try to"
+    },
+    {
+      "start": 413.08,
+      "end": 417.56,
+      "text": "create production grade actually agentic"
+    },
+    {
+      "start": 415.36,
+      "end": 419.52000000000004,
+      "text": "chatbot, uh that time I'll try to use"
+    },
+    {
+      "start": 417.56,
+      "end": 421.0,
+      "text": "these other database, but right now we"
+    },
+    {
+      "start": 419.52,
+      "end": 423.44,
+      "text": "are in the learning phase, so we'll try"
+    },
+    {
+      "start": 421.0,
+      "end": 425.84,
+      "text": "to use some kinds of prototype based"
+    },
+    {
+      "start": 423.44,
+      "end": 427.52,
+      "text": "database, okay? I can utilize SQLite"
+    },
+    {
+      "start": 425.84,
+      "end": 429.56,
+      "text": "database because this is this will be"
+    },
+    {
+      "start": 427.52,
+      "end": 431.56,
+      "text": "lightweight for me and I don't need to"
+    },
+    {
+      "start": 429.56,
+      "end": 432.88,
+      "text": "take any kinds of subscription plan for"
+    },
+    {
+      "start": 431.56,
+      "end": 435.12,
+      "text": "that, right? So, that's why I'll"
+    },
+    {
+      "start": 432.88,
+      "end": 437.44,
+      "text": "continue with the SQLite database. If"
+    },
+    {
+      "start": 435.12,
+      "end": 441.28000000000003,
+      "text": "you go to the SQLite documentation,"
+    },
+    {
+      "start": 437.44,
+      "end": 443.44,
+      "text": "SQLite documentation,"
+    },
+    {
+      "start": 441.28,
+      "end": 445.11999999999995,
+      "text": "um"
+    },
+    {
+      "start": 443.44,
+      "end": 446.16,
+      "text": "So, this is the SQLite documentation,"
+    },
+    {
+      "start": 445.12,
+      "end": 448.76,
+      "text": "guys."
+    },
+    {
+      "start": 446.16,
+      "end": 450.48,
+      "text": "So, this is uh basically a database. Uh"
+    },
+    {
+      "start": 448.76,
+      "end": 453.71999999999997,
+      "text": "this is a database actually you can"
+    },
+    {
+      "start": 450.48,
+      "end": 455.96000000000004,
+      "text": "utilize uh with the help of Python. And"
+    },
+    {
+      "start": 453.72,
+      "end": 458.04,
+      "text": "uh if you're using this LangGraph guys,"
+    },
+    {
+      "start": 455.96,
+      "end": 460.4,
+      "text": "uh LangGraph also has the connection"
+    },
+    {
+      "start": 458.04,
+      "end": 463.16,
+      "text": "with SQLite, okay? For this, you have to"
+    },
+    {
+      "start": 460.4,
+      "end": 466.52,
+      "text": "install one library. This library uh"
+    },
+    {
+      "start": 463.16,
+      "end": 467.52000000000004,
+      "text": "LangGraph checkpoint SQLite. Okay. So,"
+    },
+    {
+      "start": 466.52,
+      "end": 469.0,
+      "text": "you have to install this particular"
+    },
+    {
+      "start": 467.52,
+      "end": 471.79999999999995,
+      "text": "library. If you install this library,"
+    },
+    {
+      "start": 469.0,
+      "end": 473.08,
+      "text": "you will be able to use this SQLite with"
+    },
+    {
+      "start": 471.8,
+      "end": 474.64,
+      "text": "your LangGraph."
+    },
+    {
+      "start": 473.08,
+      "end": 476.88,
+      "text": "You can also separately install this"
+    },
+    {
+      "start": 474.64,
+      "end": 478.32,
+      "text": "SQLite if you are only using Python"
+    },
+    {
+      "start": 476.88,
+      "end": 480.64,
+      "text": "programming. That time separately you"
+    },
+    {
+      "start": 478.32,
+      "end": 482.0,
+      "text": "can utilize. But here we want to utilize"
+    },
+    {
+      "start": 480.64,
+      "end": 483.88,
+      "text": "with the help of this LangGraph. Okay,"
+    },
+    {
+      "start": 482.0,
+      "end": 485.96,
+      "text": "that's why LangGraph connection is also"
+    },
+    {
+      "start": 483.88,
+      "end": 487.96,
+      "text": "there. LangGraph SDK is also there."
+    },
+    {
+      "start": 485.96,
+      "end": 490.56,
+      "text": "Someone I think has created this and"
+    },
+    {
+      "start": 487.96,
+      "end": 491.64,
+      "text": "published on the PyPI and we are able to"
+    },
+    {
+      "start": 490.56,
+      "end": 494.16,
+      "text": "use this"
+    },
+    {
+      "start": 491.64,
+      "end": 496.4,
+      "text": "package inside our development. Okay."
+    },
+    {
+      "start": 494.16,
+      "end": 498.48,
+      "text": "If you check the LangGraph documentation"
+    },
+    {
+      "start": 496.4,
+      "end": 500.32,
+      "text": "guys, here in the memory section as you"
+    },
+    {
+      "start": 498.48,
+      "end": 501.88,
+      "text": "can see at short-term memory. That means"
+    },
+    {
+      "start": 500.32,
+      "end": 503.919,
+      "text": "this is the persistence memory. As you"
+    },
+    {
+      "start": 501.88,
+      "end": 506.48,
+      "text": "can see short-term memory trade level"
+    },
+    {
+      "start": 503.919,
+      "end": 509.2,
+      "text": "persistence. Okay. So, here as of now we"
+    },
+    {
+      "start": 506.48,
+      "end": 511.6,
+      "text": "use this memory saver database."
+    },
+    {
+      "start": 509.2,
+      "end": 514.08,
+      "text": "Sorry, memory saver actually stories."
+    },
+    {
+      "start": 511.6,
+      "end": 515.36,
+      "text": "Basically, this stores your conversation"
+    },
+    {
+      "start": 514.08,
+      "end": 517.96,
+      "text": "in the RAM."
+    },
+    {
+      "start": 515.36,
+      "end": 520.0,
+      "text": "And you can see they're also suggesting"
+    },
+    {
+      "start": 517.96,
+      "end": 522.719,
+      "text": "for the production. So, for production"
+    },
+    {
+      "start": 520.0,
+      "end": 524.8,
+      "text": "use either you can use Postgres."
+    },
+    {
+      "start": 522.719,
+      "end": 527.48,
+      "text": "Postgres it is also production grade"
+    },
+    {
+      "start": 524.8,
+      "end": 529.9599999999999,
+      "text": "database and you can create a Postgres"
+    },
+    {
+      "start": 527.48,
+      "end": 531.6800000000001,
+      "text": "server. Either you can create a local"
+    },
+    {
+      "start": 529.96,
+      "end": 534.52,
+      "text": "server local host server. Either you can"
+    },
+    {
+      "start": 531.68,
+      "end": 536.16,
+      "text": "create a cloud-based servers. Okay. So,"
+    },
+    {
+      "start": 534.52,
+      "end": 538.3199999999999,
+      "text": "any kinds of cloud you can set up this"
+    },
+    {
+      "start": 536.16,
+      "end": 541.76,
+      "text": "Postgres. Either you can use"
+    },
+    {
+      "start": 538.32,
+      "end": 544.08,
+      "text": "like render. Either you can use AWS GCP."
+    },
+    {
+      "start": 541.76,
+      "end": 545.8389999999999,
+      "text": "Anywhere you can set up this uh"
+    },
+    {
+      "start": 544.08,
+      "end": 548.32,
+      "text": "Postgres server and you can connect with"
+    },
+    {
+      "start": 545.839,
+      "end": 550.96,
+      "text": "your LangGraph. Okay, this is possible."
+    },
+    {
+      "start": 548.32,
+      "end": 552.44,
+      "text": "So, that's how you can also use MongoDB."
+    },
+    {
+      "start": 550.96,
+      "end": 553.839,
+      "text": "You can also connect with MongoDB. You"
+    },
+    {
+      "start": 552.44,
+      "end": 555.6400000000001,
+      "text": "can also connect with Redis. You can"
+    },
+    {
+      "start": 553.839,
+      "end": 556.72,
+      "text": "also connect with Oracle. Okay, that's"
+    },
+    {
+      "start": 555.64,
+      "end": 558.72,
+      "text": "how it is having different different"
+    },
+    {
+      "start": 556.72,
+      "end": 561.08,
+      "text": "database connection. But whenever we are"
+    },
+    {
+      "start": 558.72,
+      "end": 563.28,
+      "text": "creating prototype, I think this SQLite"
+    },
+    {
+      "start": 561.08,
+      "end": 565.6800000000001,
+      "text": "is fine for us because we can set up"
+    },
+    {
+      "start": 563.28,
+      "end": 567.16,
+      "text": "inside our um"
+    },
+    {
+      "start": 565.68,
+      "end": 569.4399999999999,
+      "text": "local storage only. Okay, I don't need"
+    },
+    {
+      "start": 567.16,
+      "end": 571.36,
+      "text": "to take any kinds of separate server for"
+    },
+    {
+      "start": 569.44,
+      "end": 572.72,
+      "text": "that. Okay, that's why I'm using this"
+    },
+    {
+      "start": 571.36,
+      "end": 575.0,
+      "text": "SQLite."
+    },
+    {
+      "start": 572.72,
+      "end": 576.96,
+      "text": "So, database doesn't matter. You can use"
+    },
+    {
+      "start": 575.0,
+      "end": 579.4,
+      "text": "any kinds of database. Anything will"
+    },
+    {
+      "start": 576.96,
+      "end": 581.0,
+      "text": "work. But only you just need to know the"
+    },
+    {
+      "start": 579.4,
+      "end": 582.9599999999999,
+      "text": "um like connection, okay? Integration."
+    },
+    {
+      "start": 581.0,
+      "end": 585.24,
+      "text": "How we can integrate the database, okay?"
+    },
+    {
+      "start": 582.96,
+      "end": 587.0400000000001,
+      "text": "Right now I'm integrating the SQLite."
+    },
+    {
+      "start": 585.24,
+      "end": 589.32,
+      "text": "Maybe you can also integrate any other"
+    },
+    {
+      "start": 587.04,
+      "end": 590.8399999999999,
+      "text": "database. Only you just need to get this"
+    },
+    {
+      "start": 589.32,
+      "end": 593.32,
+      "text": "connection string, okay? Let's say if"
+    },
+    {
+      "start": 590.84,
+      "end": 594.84,
+      "text": "you're uh setting up this uh database in"
+    },
+    {
+      "start": 593.32,
+      "end": 596.12,
+      "text": "a server, you just need to get this"
+    },
+    {
+      "start": 594.84,
+      "end": 597.6800000000001,
+      "text": "connection string, okay? If you get this"
+    },
+    {
+      "start": 596.12,
+      "end": 599.36,
+      "text": "connection string, you can check the"
+    },
+    {
+      "start": 597.68,
+      "end": 601.3199999999999,
+      "text": "documentation and you can copy this code"
+    },
+    {
+      "start": 599.36,
+      "end": 602.6800000000001,
+      "text": "and you can change it anytime, okay?"
+    },
+    {
+      "start": 601.32,
+      "end": 604.88,
+      "text": "It's up to you."
+    },
+    {
+      "start": 602.68,
+      "end": 607.0,
+      "text": "So, here the main change, guys, I have"
+    },
+    {
+      "start": 604.88,
+      "end": 609.0,
+      "text": "to do in the back-end because in the"
+    },
+    {
+      "start": 607.0,
+      "end": 610.76,
+      "text": "back-end file I'm using this memory"
+    },
+    {
+      "start": 609.0,
+      "end": 611.96,
+      "text": "saver. Instead of memory saver, I have"
+    },
+    {
+      "start": 610.76,
+      "end": 613.56,
+      "text": "to use my"
+    },
+    {
+      "start": 611.96,
+      "end": 616.1600000000001,
+      "text": "uh this one."
+    },
+    {
+      "start": 613.56,
+      "end": 617.4399999999999,
+      "text": "Uh I have to use my um um"
+    },
+    {
+      "start": 616.16,
+      "end": 619.12,
+      "text": "database, okay?"
+    },
+    {
+      "start": 617.44,
+      "end": 622.7600000000001,
+      "text": "So, for this uh I have to first of all"
+    },
+    {
+      "start": 619.12,
+      "end": 624.24,
+      "text": "install this library. Uh where is that?"
+    },
+    {
+      "start": 622.76,
+      "end": 626.0,
+      "text": "Uh yeah, to install this library. So,"
+    },
+    {
+      "start": 624.24,
+      "end": 628.44,
+      "text": "I'll copy this command."
+    },
+    {
+      "start": 626.0,
+      "end": 631.0,
+      "text": "Or I can copy the"
+    },
+    {
+      "start": 628.44,
+      "end": 634.8000000000001,
+      "text": "um name."
+    },
+    {
+      "start": 631.0,
+      "end": 634.8,
+      "text": "And I will add inside my requirements."
+    },
+    {
+      "start": 635.64,
+      "end": 638.8,
+      "text": "Now, let's install it here."
+    },
+    {
+      "start": 640.96,
+      "end": 644.72,
+      "text": "pip install"
+    },
+    {
+      "start": 643.0,
+      "end": 646.28,
+      "text": "hyphen r"
+    },
+    {
+      "start": 644.72,
+      "end": 647.6800000000001,
+      "text": "requirement.txt."
+    },
+    {
+      "start": 646.28,
+      "end": 649.6,
+      "text": "So, for me it is already satisfied"
+    },
+    {
+      "start": 647.68,
+      "end": 651.88,
+      "text": "because I installed it previously, but"
+    },
+    {
+      "start": 649.6,
+      "end": 653.12,
+      "text": "for you it may take some time."
+    },
+    {
+      "start": 651.88,
+      "end": 655.16,
+      "text": "So, once the installation is complete,"
+    },
+    {
+      "start": 653.12,
+      "end": 658.28,
+      "text": "guys,"
+    },
+    {
+      "start": 655.16,
+      "end": 660.16,
+      "text": "uh I'll open up my"
+    },
+    {
+      "start": 658.28,
+      "end": 662.12,
+      "text": "back-end file."
+    },
+    {
+      "start": 660.16,
+      "end": 663.92,
+      "text": "And in the back-end itself, I'll try to"
+    },
+    {
+      "start": 662.12,
+      "end": 666.04,
+      "text": "change that change that."
+    },
+    {
+      "start": 663.92,
+      "end": 668.24,
+      "text": "So, here what I'm going to do"
+    },
+    {
+      "start": 666.04,
+      "end": 668.24,
+      "text": "um"
+    },
+    {
+      "start": 669.56,
+      "end": 672.1999999999999,
+      "text": "I'm going to"
+    },
+    {
+      "start": 672.6,
+      "end": 677.16,
+      "text": "um should I change in the same file or"
+    },
+    {
+      "start": 675.04,
+      "end": 678.5999999999999,
+      "text": "should I create a new file?"
+    },
+    {
+      "start": 677.16,
+      "end": 680.28,
+      "text": "Uh if I change in the same file, then"
+    },
+    {
+      "start": 678.6,
+      "end": 681.8000000000001,
+      "text": "you will be able to"
+    },
+    {
+      "start": 680.28,
+      "end": 684.52,
+      "text": "uh you won't be able to get the older"
+    },
+    {
+      "start": 681.8,
+      "end": 686.4799999999999,
+      "text": "code. So, what I can do, maybe I can't"
+    },
+    {
+      "start": 684.52,
+      "end": 688.1999999999999,
+      "text": "um"
+    },
+    {
+      "start": 686.48,
+      "end": 691.24,
+      "text": "I can"
+    },
+    {
+      "start": 688.2,
+      "end": 693.5600000000001,
+      "text": "create another file, okay?"
+    },
+    {
+      "start": 691.24,
+      "end": 694.8,
+      "text": "So, I'll create a same file. I will just"
+    },
+    {
+      "start": 693.56,
+      "end": 698.0,
+      "text": "rename it."
+    },
+    {
+      "start": 694.8,
+      "end": 699.4799999999999,
+      "text": "Agentic chatbot."
+    },
+    {
+      "start": 698.0,
+      "end": 702.04,
+      "text": "Um"
+    },
+    {
+      "start": 699.48,
+      "end": 702.04,
+      "text": "back end."
+    },
+    {
+      "start": 703.0,
+      "end": 708.36,
+      "text": "Here I'll just try to add"
+    },
+    {
+      "start": 705.6,
+      "end": 710.16,
+      "text": "DB back end."
+    },
+    {
+      "start": 708.36,
+      "end": 712.32,
+      "text": "Okay, DB back end means it has the"
+    },
+    {
+      "start": 710.16,
+      "end": 713.8399999999999,
+      "text": "database integration. Okay."
+    },
+    {
+      "start": 712.32,
+      "end": 715.8000000000001,
+      "text": "Uh that's how you will be able to see"
+    },
+    {
+      "start": 713.84,
+      "end": 718.8000000000001,
+      "text": "the previous code as well. Okay. Yeah, I"
+    },
+    {
+      "start": 715.8,
+      "end": 721.88,
+      "text": "think this is fine. Now here instead of"
+    },
+    {
+      "start": 718.8,
+      "end": 725.1999999999999,
+      "text": "this memory saver we have to import this"
+    },
+    {
+      "start": 721.88,
+      "end": 727.8,
+      "text": "uh SQLite saver. So, from LangGraph"
+    },
+    {
+      "start": 725.2,
+      "end": 730.36,
+      "text": "checkpoint, here you have a"
+    },
+    {
+      "start": 727.8,
+      "end": 731.28,
+      "text": "uh class called SQLite."
+    },
+    {
+      "start": 730.36,
+      "end": 732.88,
+      "text": "Okay."
+    },
+    {
+      "start": 731.28,
+      "end": 735.72,
+      "text": "And instead of memory saver, we have to"
+    },
+    {
+      "start": 732.88,
+      "end": 738.68,
+      "text": "import SQLite."
+    },
+    {
+      "start": 735.72,
+      "end": 738.6800000000001,
+      "text": "SQLite saver."
+    },
+    {
+      "start": 740.36,
+      "end": 744.96,
+      "text": "Okay. SQLite saver. So, you have to"
+    },
+    {
+      "start": 742.36,
+      "end": 747.44,
+      "text": "import that. So, once it is done, now"
+    },
+    {
+      "start": 744.96,
+      "end": 749.52,
+      "text": "I'll just go below and here you can see"
+    },
+    {
+      "start": 747.44,
+      "end": 751.6800000000001,
+      "text": "I created a checkpoint object and I used"
+    },
+    {
+      "start": 749.52,
+      "end": 753.76,
+      "text": "this uh memory saver. Instead of memory"
+    },
+    {
+      "start": 751.68,
+      "end": 755.5999999999999,
+      "text": "saver, I will use my"
+    },
+    {
+      "start": 753.76,
+      "end": 758.6,
+      "text": "my SQLite saver."
+    },
+    {
+      "start": 755.6,
+      "end": 760.6800000000001,
+      "text": "SQLite saver. Okay. This class."
+    },
+    {
+      "start": 758.6,
+      "end": 762.4,
+      "text": "Now this SQLite saver takes a connection"
+    },
+    {
+      "start": 760.68,
+      "end": 763.76,
+      "text": "object. Now you have to initialize the"
+    },
+    {
+      "start": 762.4,
+      "end": 764.8389999999999,
+      "text": "connection object, database connection"
+    },
+    {
+      "start": 763.76,
+      "end": 767.8389999999999,
+      "text": "object. Basically, you will be"
+    },
+    {
+      "start": 764.839,
+      "end": 770.1600000000001,
+      "text": "connecting with this SQLite uh database."
+    },
+    {
+      "start": 767.839,
+      "end": 772.08,
+      "text": "So, for this uh you have to import this"
+    },
+    {
+      "start": 770.16,
+      "end": 774.4,
+      "text": "SQLite library."
+    },
+    {
+      "start": 772.08,
+      "end": 776.4000000000001,
+      "text": "Import"
+    },
+    {
+      "start": 774.4,
+      "end": 778.88,
+      "text": "SQLite 3."
+    },
+    {
+      "start": 776.4,
+      "end": 781.04,
+      "text": "Okay. SQLite 3. So, this is already"
+    },
+    {
+      "start": 778.88,
+      "end": 783.36,
+      "text": "available inside Python."
+    },
+    {
+      "start": 781.04,
+      "end": 785.4,
+      "text": "Then after that, here I will create a"
+    },
+    {
+      "start": 783.36,
+      "end": 787.48,
+      "text": "connection object. So, to create a"
+    },
+    {
+      "start": 785.4,
+      "end": 788.52,
+      "text": "connection object, guys, you just need"
+    },
+    {
+      "start": 787.48,
+      "end": 791.28,
+      "text": "to"
+    },
+    {
+      "start": 788.52,
+      "end": 793.56,
+      "text": "initialize this SQLite 3. Then there is"
+    },
+    {
+      "start": 791.28,
+      "end": 794.8389999999999,
+      "text": "a function you have to call, call"
+    },
+    {
+      "start": 793.56,
+      "end": 795.7199999999999,
+      "text": "connect."
+    },
+    {
+      "start": 794.839,
+      "end": 797.8800000000001,
+      "text": "Okay."
+    },
+    {
+      "start": 795.72,
+      "end": 799.08,
+      "text": "Connect and inside that you have to give"
+    },
+    {
+      "start": 797.88,
+      "end": 801.16,
+      "text": "a first"
+    },
+    {
+      "start": 799.08,
+      "end": 802.64,
+      "text": "parameter, which is database."
+    },
+    {
+      "start": 801.16,
+      "end": 805.28,
+      "text": "You have to initialize the database."
+    },
+    {
+      "start": 802.64,
+      "end": 807.72,
+      "text": "Okay. So, here basically this SQLite"
+    },
+    {
+      "start": 805.28,
+      "end": 809.8,
+      "text": "creates the database object inside your"
+    },
+    {
+      "start": 807.72,
+      "end": 811.1600000000001,
+      "text": "local storage only. That means inside"
+    },
+    {
+      "start": 809.8,
+      "end": 813.28,
+      "text": "your project folder only it will create"
+    },
+    {
+      "start": 811.16,
+      "end": 815.24,
+      "text": "a database, okay? It will create a DB"
+    },
+    {
+      "start": 813.28,
+      "end": 816.88,
+      "text": "file. So, you have to give the DB file"
+    },
+    {
+      "start": 815.24,
+      "end": 819.96,
+      "text": "name. So, here I'm going to name this"
+    },
+    {
+      "start": 816.88,
+      "end": 822.16,
+      "text": "file as chatbot.db, okay?"
+    },
+    {
+      "start": 819.96,
+      "end": 823.96,
+      "text": "And uh here you have to give another uh"
+    },
+    {
+      "start": 822.16,
+      "end": 825.8,
+      "text": "parameter which is check same trade is"
+    },
+    {
+      "start": 823.96,
+      "end": 827.8000000000001,
+      "text": "equal to false, okay? Why? We have to"
+    },
+    {
+      "start": 825.8,
+      "end": 829.1999999999999,
+      "text": "give this particular parameter because I"
+    },
+    {
+      "start": 827.8,
+      "end": 831.56,
+      "text": "think you remember we are using the"
+    },
+    {
+      "start": 829.2,
+      "end": 834.84,
+      "text": "trading concept, right? Trade uh chat uh"
+    },
+    {
+      "start": 831.56,
+      "end": 836.8399999999999,
+      "text": "trading concept. So, every time uh user"
+    },
+    {
+      "start": 834.84,
+      "end": 838.64,
+      "text": "uh is creating separate trades and"
+    },
+    {
+      "start": 836.84,
+      "end": 840.72,
+      "text": "they're doing the conversation."
+    },
+    {
+      "start": 838.64,
+      "end": 842.4,
+      "text": "And uh by default actually SQLite"
+    },
+    {
+      "start": 840.72,
+      "end": 845.1600000000001,
+      "text": "doesn't support uh actually"
+    },
+    {
+      "start": 842.4,
+      "end": 847.24,
+      "text": "multi-trading. That means you can't uh"
+    },
+    {
+      "start": 845.16,
+      "end": 849.4,
+      "text": "apply the trading. Uh you can't create a"
+    },
+    {
+      "start": 847.24,
+      "end": 850.84,
+      "text": "different trades in the SQLite. Once you"
+    },
+    {
+      "start": 849.4,
+      "end": 853.56,
+      "text": "have created one particular session, you"
+    },
+    {
+      "start": 850.84,
+      "end": 855.0,
+      "text": "have to continue uh the uh the same"
+    },
+    {
+      "start": 853.56,
+      "end": 856.8399999999999,
+      "text": "execution in that particular session"
+    },
+    {
+      "start": 855.0,
+      "end": 858.64,
+      "text": "only. Okay, by default this parameter"
+    },
+    {
+      "start": 856.84,
+      "end": 860.48,
+      "text": "basically it's true, right? But if you"
+    },
+    {
+      "start": 858.64,
+      "end": 862.8,
+      "text": "make it as false, then SQLite will try"
+    },
+    {
+      "start": 860.48,
+      "end": 864.9200000000001,
+      "text": "to give you the access for the trading"
+    },
+    {
+      "start": 862.8,
+      "end": 866.8,
+      "text": "concept. That means you can"
+    },
+    {
+      "start": 864.92,
+      "end": 868.8399999999999,
+      "text": "uh do the multiple trading chat. Okay,"
+    },
+    {
+      "start": 866.8,
+      "end": 870.68,
+      "text": "that means you can store uh your"
+    },
+    {
+      "start": 868.84,
+      "end": 872.24,
+      "text": "checkpoint in a multiple trades, okay?"
+    },
+    {
+      "start": 870.68,
+      "end": 873.68,
+      "text": "This will uh basically allow that"
+    },
+    {
+      "start": 872.24,
+      "end": 876.52,
+      "text": "particular option. That's why we have"
+    },
+    {
+      "start": 873.68,
+      "end": 878.8389999999999,
+      "text": "given uh check uh same trades is equal"
+    },
+    {
+      "start": 876.52,
+      "end": 880.04,
+      "text": "to false. Okay, I hope you clear. So,"
+    },
+    {
+      "start": 878.839,
+      "end": 881.2800000000001,
+      "text": "this is basically here you will be"
+    },
+    {
+      "start": 880.04,
+      "end": 882.8,
+      "text": "getting a connection object. So, I'm"
+    },
+    {
+      "start": 881.28,
+      "end": 884.68,
+      "text": "going to store inside a variable. Let's"
+    },
+    {
+      "start": 882.8,
+      "end": 886.16,
+      "text": "say this is connection object. Now, this"
+    },
+    {
+      "start": 884.68,
+      "end": 888.4,
+      "text": "connection object you have to pass"
+    },
+    {
+      "start": 886.16,
+      "end": 890.4,
+      "text": "inside this SQLite server. Okay, you"
+    },
+    {
+      "start": 888.4,
+      "end": 892.1999999999999,
+      "text": "have to pass inside this SQLite server."
+    },
+    {
+      "start": 890.4,
+      "end": 893.72,
+      "text": "So, once you have done that, uh now you"
+    },
+    {
+      "start": 892.2,
+      "end": 895.36,
+      "text": "will be getting the checkpoint. Okay,"
+    },
+    {
+      "start": 893.72,
+      "end": 897.44,
+      "text": "now this checkpoint is not a simple"
+    },
+    {
+      "start": 895.36,
+      "end": 899.12,
+      "text": "checkpoint. It will not store your"
+    },
+    {
+      "start": 897.44,
+      "end": 901.5600000000001,
+      "text": "conversation. It will not store your"
+    },
+    {
+      "start": 899.12,
+      "end": 903.76,
+      "text": "checkpoint inside the RAM. Okay, instead"
+    },
+    {
+      "start": 901.56,
+      "end": 906.0799999999999,
+      "text": "of that it will save the conversation or"
+    },
+    {
+      "start": 903.76,
+      "end": 908.16,
+      "text": "checkpoint inside a storage service"
+    },
+    {
+      "start": 906.08,
+      "end": 909.72,
+      "text": "inside a database storage which is"
+    },
+    {
+      "start": 908.16,
+      "end": 911.16,
+      "text": "chatbot.db."
+    },
+    {
+      "start": 909.72,
+      "end": 912.6800000000001,
+      "text": "Although this uh storage service will"
+    },
+    {
+      "start": 911.16,
+      "end": 915.16,
+      "text": "create inside your"
+    },
+    {
+      "start": 912.68,
+      "end": 917.0799999999999,
+      "text": "uh computer storage only, but this is"
+    },
+    {
+      "start": 915.16,
+      "end": 919.0799999999999,
+      "text": "not storing inside a RAM. Okay, it will"
+    },
+    {
+      "start": 917.08,
+      "end": 921.08,
+      "text": "store as a file. And we know that unless"
+    },
+    {
+      "start": 919.08,
+      "end": 922.96,
+      "text": "and until we are not uh deleting the"
+    },
+    {
+      "start": 921.08,
+      "end": 925.2,
+      "text": "file, this file will be available inside"
+    },
+    {
+      "start": 922.96,
+      "end": 927.0,
+      "text": "my computer. If I turn off my computer"
+    },
+    {
+      "start": 925.2,
+      "end": 929.12,
+      "text": "as well, this file will remain same."
+    },
+    {
+      "start": 927.0,
+      "end": 930.72,
+      "text": "Okay, this is the main benefit here. So,"
+    },
+    {
+      "start": 929.12,
+      "end": 932.68,
+      "text": "once we have done that, guys, uh the"
+    },
+    {
+      "start": 930.72,
+      "end": 934.32,
+      "text": "same code you have to write here. Uh no"
+    },
+    {
+      "start": 932.68,
+      "end": 937.0,
+      "text": "need to change anything. Now, let me"
+    },
+    {
+      "start": 934.32,
+      "end": 940.08,
+      "text": "show you whether it's working or not."
+    },
+    {
+      "start": 937.0,
+      "end": 941.36,
+      "text": "So, here uh maybe I can test this file."
+    },
+    {
+      "start": 940.08,
+      "end": 942.84,
+      "text": "So, for this, let's do the invoke"
+    },
+    {
+      "start": 941.36,
+      "end": 944.84,
+      "text": "operation."
+    },
+    {
+      "start": 942.84,
+      "end": 947.84,
+      "text": "Uh so, here uh what I'm going to do,"
+    },
+    {
+      "start": 944.84,
+      "end": 949.88,
+      "text": "guys, I'm going to just uh"
+    },
+    {
+      "start": 947.84,
+      "end": 951.1600000000001,
+      "text": "do the invoke operation. So, response is"
+    },
+    {
+      "start": 949.88,
+      "end": 953.0,
+      "text": "equal to"
+    },
+    {
+      "start": 951.16,
+      "end": 955.56,
+      "text": "Yeah, so I have uh written like that."
+    },
+    {
+      "start": 953.0,
+      "end": 956.92,
+      "text": "So, I just created a config because you"
+    },
+    {
+      "start": 955.56,
+      "end": 958.4,
+      "text": "know that we're using persistence"
+    },
+    {
+      "start": 956.92,
+      "end": 959.4799999999999,
+      "text": "memory, and we have to pass the config"
+    },
+    {
+      "start": 958.4,
+      "end": 961.88,
+      "text": "whenever we're doing the invoke"
+    },
+    {
+      "start": 959.48,
+      "end": 964.0,
+      "text": "operation. So, here uh by default, I"
+    },
+    {
+      "start": 961.88,
+      "end": 966.24,
+      "text": "have taken this default thread. I have"
+    },
+    {
+      "start": 964.0,
+      "end": 968.0,
+      "text": "just done hardcoding operation."
+    },
+    {
+      "start": 966.24,
+      "end": 970.0,
+      "text": "And we're invoking, and we're giving the"
+    },
+    {
+      "start": 968.0,
+      "end": 973.16,
+      "text": "message, \"Mhm, hello, how are you?\" Or"
+    },
+    {
+      "start": 970.0,
+      "end": 976.16,
+      "text": "let's say I'll just give uh"
+    },
+    {
+      "start": 973.16,
+      "end": 976.16,
+      "text": "\"My name is Bapi.\""
+    },
+    {
+      "start": 977.52,
+      "end": 980.52,
+      "text": "Okay? And we're passing the"
+    },
+    {
+      "start": 979.2,
+      "end": 982.0400000000001,
+      "text": "configuration, and this will give you"
+    },
+    {
+      "start": 980.52,
+      "end": 984.52,
+      "text": "the response. We'll try to print that as"
+    },
+    {
+      "start": 982.04,
+      "end": 985.68,
+      "text": "well. Okay? Now, see, if I execute, what"
+    },
+    {
+      "start": 984.52,
+      "end": 987.72,
+      "text": "will happen?"
+    },
+    {
+      "start": 985.68,
+      "end": 990.8389999999999,
+      "text": "Uh you'll be able to see one chatbot.db"
+    },
+    {
+      "start": 987.72,
+      "end": 993.6800000000001,
+      "text": "file would be created here. So, Python"
+    },
+    {
+      "start": 990.839,
+      "end": 996.32,
+      "text": "uh agentic_chatbot"
+    },
+    {
+      "start": 993.68,
+      "end": 998.8389999999999,
+      "text": "db_backend, right? db_backend.py. If I"
+    },
+    {
+      "start": 996.32,
+      "end": 1001.6,
+      "text": "execute,"
+    },
+    {
+      "start": 998.839,
+      "end": 1003.8000000000001,
+      "text": "see, chatbot.db has created."
+    },
+    {
+      "start": 1001.6,
+      "end": 1006.6,
+      "text": "And we are getting the response. As you"
+    },
+    {
+      "start": 1003.8,
+      "end": 1009.28,
+      "text": "can see, I given \"My name is Bapi.\""
+    },
+    {
+      "start": 1006.6,
+      "end": 1011.08,
+      "text": "And my AI message, that means my uh"
+    },
+    {
+      "start": 1009.28,
+      "end": 1012.64,
+      "text": "agent has replied, \"Hi, hello, Bapi. How"
+    },
+    {
+      "start": 1011.08,
+      "end": 1014.24,
+      "text": "I can assist you today?\""
+    },
+    {
+      "start": 1012.64,
+      "end": 1016.4399999999999,
+      "text": "And some other, let's say, metadata"
+    },
+    {
+      "start": 1014.24,
+      "end": 1019.36,
+      "text": "information so we are getting. Okay?"
+    },
+    {
+      "start": 1016.44,
+      "end": 1021.6400000000001,
+      "text": "Now, you can see one uh chatbot uh"
+    },
+    {
+      "start": 1019.36,
+      "end": 1023.12,
+      "text": "db has created. You can also visualize"
+    },
+    {
+      "start": 1021.64,
+      "end": 1024.72,
+      "text": "that. Okay, it is also possible. For"
+    },
+    {
+      "start": 1023.12,
+      "end": 1028.079,
+      "text": "this, you have to install one extension"
+    },
+    {
+      "start": 1024.72,
+      "end": 1030.28,
+      "text": "called SQLite"
+    },
+    {
+      "start": 1028.079,
+      "end": 1031.9199999999998,
+      "text": "viewer."
+    },
+    {
+      "start": 1030.28,
+      "end": 1034.079,
+      "text": "SQLite viewer. Okay, I have already"
+    },
+    {
+      "start": 1031.92,
+      "end": 1036.4,
+      "text": "installed this uh extension inside my VS"
+    },
+    {
+      "start": 1034.079,
+      "end": 1037.9199999999998,
+      "text": "Code. Uh if you don't have, just try to"
+    },
+    {
+      "start": 1036.4,
+      "end": 1041.48,
+      "text": "uh install that, and you can see this is"
+    },
+    {
+      "start": 1037.92,
+      "end": 1044.24,
+      "text": "the um this is the publisher, Florian uh"
+    },
+    {
+      "start": 1041.48,
+      "end": 1046.48,
+      "text": "Klam Klamfer. Uh make sure you install"
+    },
+    {
+      "start": 1044.24,
+      "end": 1048.56,
+      "text": "the same version, okay? Once you have"
+    },
+    {
+      "start": 1046.48,
+      "end": 1051.16,
+      "text": "done that, uh you just need to double"
+    },
+    {
+      "start": 1048.56,
+      "end": 1053.72,
+      "text": "click on this uh chatbot DB, and you"
+    },
+    {
+      "start": 1051.16,
+      "end": 1055.3200000000002,
+      "text": "will be able to see this"
+    },
+    {
+      "start": 1053.72,
+      "end": 1056.96,
+      "text": "uh checkpoint. It has saved in the"
+    },
+    {
+      "start": 1055.32,
+      "end": 1058.6799999999998,
+      "text": "memory, as you can see."
+    },
+    {
+      "start": 1056.96,
+      "end": 1060.6000000000001,
+      "text": "Uh sorry, not memory, in the database,"
+    },
+    {
+      "start": 1058.68,
+      "end": 1064.04,
+      "text": "as you can see, okay? Now, you can see"
+    },
+    {
+      "start": 1060.6,
+      "end": 1065.6,
+      "text": "it has uh stored my tre uh checkpoint,"
+    },
+    {
+      "start": 1064.04,
+      "end": 1067.6399999999999,
+      "text": "and this is the trade ID. Okay, we have"
+    },
+    {
+      "start": 1065.6,
+      "end": 1069.84,
+      "text": "given default trade, as you remember. We"
+    },
+    {
+      "start": 1067.64,
+      "end": 1071.8400000000001,
+      "text": "have given uh what's that?"
+    },
+    {
+      "start": 1069.84,
+      "end": 1073.1999999999998,
+      "text": "Chatbot back end. Okay, not this one,"
+    },
+    {
+      "start": 1071.84,
+      "end": 1074.56,
+      "text": "yeah, this one. We have given the"
+    },
+    {
+      "start": 1073.2,
+      "end": 1076.28,
+      "text": "default trade, okay? Now, you can see"
+    },
+    {
+      "start": 1074.56,
+      "end": 1078.72,
+      "text": "default trade. Now, you can ask me why"
+    },
+    {
+      "start": 1076.28,
+      "end": 1080.76,
+      "text": "this uh three three time it is coming?"
+    },
+    {
+      "start": 1078.72,
+      "end": 1082.88,
+      "text": "Because as per our workflow, guys, the"
+    },
+    {
+      "start": 1080.76,
+      "end": 1084.36,
+      "text": "workflow we have created, it has three"
+    },
+    {
+      "start": 1082.88,
+      "end": 1086.6000000000001,
+      "text": "checkpoint. Uh"
+    },
+    {
+      "start": 1084.36,
+      "end": 1089.36,
+      "text": "uh one checkpoint at the start uh start"
+    },
+    {
+      "start": 1086.6,
+      "end": 1092.12,
+      "text": "position, uh second checkpoint in the uh"
+    },
+    {
+      "start": 1089.36,
+      "end": 1093.52,
+      "text": "chat node position, and other one is the"
+    },
+    {
+      "start": 1092.12,
+      "end": 1095.8799999999999,
+      "text": "end position, okay? I think I already"
+    },
+    {
+      "start": 1093.52,
+      "end": 1097.8799999999999,
+      "text": "told you about this, right? Uh in my uh"
+    },
+    {
+      "start": 1095.88,
+      "end": 1099.64,
+      "text": "this video, uh persistence video, I"
+    },
+    {
+      "start": 1097.88,
+      "end": 1101.0800000000002,
+      "text": "already told you about that, right? So,"
+    },
+    {
+      "start": 1099.64,
+      "end": 1103.0800000000002,
+      "text": "please go through the persistence video"
+    },
+    {
+      "start": 1101.08,
+      "end": 1105.52,
+      "text": "if you don't understand the checkpointer"
+    },
+    {
+      "start": 1103.08,
+      "end": 1107.52,
+      "text": "concept, like how many checkpointer uh"
+    },
+    {
+      "start": 1105.52,
+      "end": 1108.68,
+      "text": "would be available, uh in which node it"
+    },
+    {
+      "start": 1107.52,
+      "end": 1110.12,
+      "text": "would be available, each and everything"
+    },
+    {
+      "start": 1108.68,
+      "end": 1113.0,
+      "text": "I have discussed here."
+    },
+    {
+      "start": 1110.12,
+      "end": 1115.7199999999998,
+      "text": "So, here we are having uh three"
+    },
+    {
+      "start": 1113.0,
+      "end": 1116.44,
+      "text": "layer, okay? Three layer inside uh this"
+    },
+    {
+      "start": 1115.72,
+      "end": 1118.92,
+      "text": "uh"
+    },
+    {
+      "start": 1116.44,
+      "end": 1121.04,
+      "text": "uh sorry, three three node inside our uh"
+    },
+    {
+      "start": 1118.92,
+      "end": 1123.28,
+      "text": "Agentic Chatbot, that's why three time"
+    },
+    {
+      "start": 1121.04,
+      "end": 1126.24,
+      "text": "this uh um checkpoint is getting"
+    },
+    {
+      "start": 1123.28,
+      "end": 1127.6,
+      "text": "created. And all of the checkpoint ID,"
+    },
+    {
+      "start": 1126.24,
+      "end": 1129.48,
+      "text": "as well as the"
+    },
+    {
+      "start": 1127.6,
+      "end": 1131.6799999999998,
+      "text": "checkpoint uh some meta information is"
+    },
+    {
+      "start": 1129.48,
+      "end": 1133.04,
+      "text": "also available, okay? And if you want to"
+    },
+    {
+      "start": 1131.68,
+      "end": 1135.1200000000001,
+      "text": "see the checkpoint, guys, directly you"
+    },
+    {
+      "start": 1133.04,
+      "end": 1137.3999999999999,
+      "text": "can click here. So, if I click here,"
+    },
+    {
+      "start": 1135.12,
+      "end": 1139.4799999999998,
+      "text": "you'll be able to see the data. Now,"
+    },
+    {
+      "start": 1137.4,
+      "end": 1141.2,
+      "text": "this data uh it stores basically in a"
+    },
+    {
+      "start": 1139.48,
+      "end": 1143.48,
+      "text": "binary format, it's not readable"
+    },
+    {
+      "start": 1141.2,
+      "end": 1145.04,
+      "text": "properly, but I think some of the"
+    },
+    {
+      "start": 1143.48,
+      "end": 1147.2,
+      "text": "message you can still able to"
+    },
+    {
+      "start": 1145.04,
+      "end": 1148.6399999999999,
+      "text": "understand, like my name is Bobby, okay?"
+    },
+    {
+      "start": 1147.2,
+      "end": 1150.16,
+      "text": "I have given."
+    },
+    {
+      "start": 1148.64,
+      "end": 1153.3200000000002,
+      "text": "Uh now, let me show you whether it is"
+    },
+    {
+      "start": 1150.16,
+      "end": 1155.92,
+      "text": "able to uh store my checkpoint inside my"
+    },
+    {
+      "start": 1153.32,
+      "end": 1158.32,
+      "text": "database or not. So, let's say if I"
+    },
+    {
+      "start": 1155.92,
+      "end": 1160.8000000000002,
+      "text": "re-execute my um"
+    },
+    {
+      "start": 1158.32,
+      "end": 1163.3999999999999,
+      "text": "backend uh whether I'll be able to see"
+    },
+    {
+      "start": 1160.8,
+      "end": 1165.48,
+      "text": "my old uh old conversation or not. Let's"
+    },
+    {
+      "start": 1163.4,
+      "end": 1166.76,
+      "text": "say I give in my name is Bobby, okay?"
+    },
+    {
+      "start": 1165.48,
+      "end": 1168.3600000000001,
+      "text": "So, this uh"
+    },
+    {
+      "start": 1166.76,
+      "end": 1171.24,
+      "text": "this checkpoint would be available or"
+    },
+    {
+      "start": 1168.36,
+      "end": 1173.24,
+      "text": "not, okay? So, for this maybe I can just"
+    },
+    {
+      "start": 1171.24,
+      "end": 1174.84,
+      "text": "give a separate name here. Let's say"
+    },
+    {
+      "start": 1173.24,
+      "end": 1176.6,
+      "text": "Alex I will give."
+    },
+    {
+      "start": 1174.84,
+      "end": 1178.1999999999998,
+      "text": "And uh what you can do you can also"
+    },
+    {
+      "start": 1176.6,
+      "end": 1179.36,
+      "text": "change the trade ID if you want. Let's"
+    },
+    {
+      "start": 1178.2,
+      "end": 1181.44,
+      "text": "say I will give"
+    },
+    {
+      "start": 1179.36,
+      "end": 1185.08,
+      "text": "default trade one, okay?"
+    },
+    {
+      "start": 1181.44,
+      "end": 1187.72,
+      "text": "Now, if I re-execute my"
+    },
+    {
+      "start": 1185.08,
+      "end": 1187.72,
+      "text": "backend"
+    },
+    {
+      "start": 1188.56,
+      "end": 1193.56,
+      "text": "Okay. Now, if I open my database,"
+    },
+    {
+      "start": 1191.16,
+      "end": 1195.24,
+      "text": "um I have to refresh"
+    },
+    {
+      "start": 1193.56,
+      "end": 1197.6,
+      "text": "this."
+    },
+    {
+      "start": 1195.24,
+      "end": 1199.76,
+      "text": "Okay, now see. Another trade got created"
+    },
+    {
+      "start": 1197.6,
+      "end": 1202.1999999999998,
+      "text": "and still my previous trade is available"
+    },
+    {
+      "start": 1199.76,
+      "end": 1204.8799999999999,
+      "text": "here, okay? Previous trade is available"
+    },
+    {
+      "start": 1202.2,
+      "end": 1206.64,
+      "text": "and in the response also you can see"
+    },
+    {
+      "start": 1204.88,
+      "end": 1208.8000000000002,
+      "text": "uh my name is Alex and this is a"
+    },
+    {
+      "start": 1206.64,
+      "end": 1210.5600000000002,
+      "text": "separate trade it is coming, okay? So,"
+    },
+    {
+      "start": 1208.8,
+      "end": 1213.36,
+      "text": "that's how guys uh um"
+    },
+    {
+      "start": 1210.56,
+      "end": 1215.8,
+      "text": "we have seen it is able to store my"
+    },
+    {
+      "start": 1213.36,
+      "end": 1219.12,
+      "text": "checkpoint. Still it is able to store my"
+    },
+    {
+      "start": 1215.8,
+      "end": 1221.8,
+      "text": "conversation inside my database, okay?"
+    },
+    {
+      "start": 1219.12,
+      "end": 1224.3999999999999,
+      "text": "Amazing. Now, uh this is ready. Now, we"
+    },
+    {
+      "start": 1221.8,
+      "end": 1226.72,
+      "text": "have to add uh we have to integrate this"
+    },
+    {
+      "start": 1224.4,
+      "end": 1228.2800000000002,
+      "text": "thing inside our front end app uh"
+    },
+    {
+      "start": 1226.72,
+      "end": 1230.04,
+      "text": "because right now we tested inside the"
+    },
+    {
+      "start": 1228.28,
+      "end": 1231.96,
+      "text": "backend file only, but I have to add"
+    },
+    {
+      "start": 1230.04,
+      "end": 1233.8799999999999,
+      "text": "inside my front end. So, what I'm going"
+    },
+    {
+      "start": 1231.96,
+      "end": 1237.04,
+      "text": "to do guys, I will open up my front end."
+    },
+    {
+      "start": 1233.88,
+      "end": 1240.1200000000001,
+      "text": "So, this is the front end uh app trade."
+    },
+    {
+      "start": 1237.04,
+      "end": 1243.92,
+      "text": "Uh maybe I can create another same file."
+    },
+    {
+      "start": 1240.12,
+      "end": 1246.1599999999999,
+      "text": "I'll just try to copy and paste."
+    },
+    {
+      "start": 1243.92,
+      "end": 1248.3200000000002,
+      "text": "And I'll just rename it."
+    },
+    {
+      "start": 1246.16,
+      "end": 1250.96,
+      "text": "app"
+    },
+    {
+      "start": 1248.32,
+      "end": 1250.96,
+      "text": "uh"
+    },
+    {
+      "start": 1251.28,
+      "end": 1253.76,
+      "text": "DB"
+    },
+    {
+      "start": 1255.6,
+      "end": 1257.28,
+      "text": "Okay."
+    },
+    {
+      "start": 1256.32,
+      "end": 1258.48,
+      "text": "So, with the help of that you can"
+    },
+    {
+      "start": 1257.28,
+      "end": 1260.04,
+      "text": "understand"
+    },
+    {
+      "start": 1258.48,
+      "end": 1261.48,
+      "text": "um like this is uh"
+    },
+    {
+      "start": 1260.04,
+      "end": 1262.8799999999999,
+      "text": "this is actually database. This is"
+    },
+    {
+      "start": 1261.48,
+      "end": 1264.8,
+      "text": "trading. This is simple app, okay? You"
+    },
+    {
+      "start": 1262.88,
+      "end": 1265.88,
+      "text": "can understand. So, DB means this this"
+    },
+    {
+      "start": 1264.8,
+      "end": 1268.24,
+      "text": "has the"
+    },
+    {
+      "start": 1265.88,
+      "end": 1270.3600000000001,
+      "text": "uh database actually update. Now, see,"
+    },
+    {
+      "start": 1268.24,
+      "end": 1271.36,
+      "text": "here you don't need to change uh uh I"
+    },
+    {
+      "start": 1270.36,
+      "end": 1272.08,
+      "text": "mean"
+    },
+    {
+      "start": 1271.36,
+      "end": 1274.4399999999998,
+      "text": "um"
+    },
+    {
+      "start": 1272.08,
+      "end": 1275.6799999999998,
+      "text": "uh in in all the code, only just change"
+    },
+    {
+      "start": 1274.44,
+      "end": 1278.3600000000001,
+      "text": "you have to do"
+    },
+    {
+      "start": 1275.68,
+      "end": 1280.76,
+      "text": "uh here in the chat uh chat trades,"
+    },
+    {
+      "start": 1278.36,
+      "end": 1282.36,
+      "text": "okay? So, whenever I was uh actually"
+    },
+    {
+      "start": 1280.76,
+      "end": 1284.48,
+      "text": "creating this uh"
+    },
+    {
+      "start": 1282.36,
+      "end": 1288.08,
+      "text": "session state in the uh Streamlit,"
+    },
+    {
+      "start": 1284.48,
+      "end": 1289.8,
+      "text": "right? There I was uh using simple list"
+    },
+    {
+      "start": 1288.08,
+      "end": 1291.6399999999999,
+      "text": "only, okay? And whenever you were using"
+    },
+    {
+      "start": 1289.8,
+      "end": 1293.28,
+      "text": "simple list, that time what is"
+    },
+    {
+      "start": 1291.64,
+      "end": 1295.88,
+      "text": "happening? If I am refreshing my"
+    },
+    {
+      "start": 1293.28,
+      "end": 1298.24,
+      "text": "application, and it is uh re-executing"
+    },
+    {
+      "start": 1295.88,
+      "end": 1298.88,
+      "text": "from the beginning, and this particular"
+    },
+    {
+      "start": 1298.24,
+      "end": 1301.1200000000001,
+      "text": "uh"
+    },
+    {
+      "start": 1298.88,
+      "end": 1303.48,
+      "text": "list is getting created again, and all"
+    },
+    {
+      "start": 1301.12,
+      "end": 1305.04,
+      "text": "of the data we had inside the list, it"
+    },
+    {
+      "start": 1303.48,
+      "end": 1307.2,
+      "text": "was getting erased, okay? This is this"
+    },
+    {
+      "start": 1305.04,
+      "end": 1310.08,
+      "text": "was the problem. So, instead of uh"
+    },
+    {
+      "start": 1307.2,
+      "end": 1311.96,
+      "text": "taking this uh simple list here,"
+    },
+    {
+      "start": 1310.08,
+      "end": 1313.9199999999998,
+      "text": "so here I have to"
+    },
+    {
+      "start": 1311.96,
+      "end": 1316.76,
+      "text": "uh connect my database. Connect my"
+    },
+    {
+      "start": 1313.92,
+      "end": 1319.2,
+      "text": "database means in the back end, I am"
+    },
+    {
+      "start": 1316.76,
+      "end": 1322.0,
+      "text": "already storing my checkpoint inside my"
+    },
+    {
+      "start": 1319.2,
+      "end": 1324.44,
+      "text": "database, inside my SQLite database."
+    },
+    {
+      "start": 1322.0,
+      "end": 1326.6,
+      "text": "So, what I'm going to do? Uh instead of"
+    },
+    {
+      "start": 1324.44,
+      "end": 1327.96,
+      "text": "uh instead of actually uh"
+    },
+    {
+      "start": 1326.6,
+      "end": 1329.04,
+      "text": "um instead of actually giving a simple"
+    },
+    {
+      "start": 1327.96,
+      "end": 1332.2,
+      "text": "list here,"
+    },
+    {
+      "start": 1329.04,
+      "end": 1334.92,
+      "text": "I'll try to load my all of the trades,"
+    },
+    {
+      "start": 1332.2,
+      "end": 1337.1200000000001,
+      "text": "okay? From my database only. And I will"
+    },
+    {
+      "start": 1334.92,
+      "end": 1339.24,
+      "text": "just try to provide a list here, okay?"
+    },
+    {
+      "start": 1337.12,
+      "end": 1342.0,
+      "text": "So, for this uh in my back end code,"
+    },
+    {
+      "start": 1339.24,
+      "end": 1344.08,
+      "text": "I'll just try to do a simple"
+    },
+    {
+      "start": 1342.0,
+      "end": 1345.52,
+      "text": "uh simple modification."
+    },
+    {
+      "start": 1344.08,
+      "end": 1347.84,
+      "text": "I'll remove this code. It's not"
+    },
+    {
+      "start": 1345.52,
+      "end": 1350.16,
+      "text": "required. So, here I'll just do a simple"
+    },
+    {
+      "start": 1347.84,
+      "end": 1352.84,
+      "text": "modification."
+    },
+    {
+      "start": 1350.16,
+      "end": 1354.96,
+      "text": "Uh let me show you the modification."
+    },
+    {
+      "start": 1352.84,
+      "end": 1357.6799999999998,
+      "text": "Yeah. So, here I'll just try to write a"
+    },
+    {
+      "start": 1354.96,
+      "end": 1357.68,
+      "text": "function here."
+    },
+    {
+      "start": 1357.8,
+      "end": 1362.8,
+      "text": "Um I'm going to name it as um"
+    },
+    {
+      "start": 1360.64,
+      "end": 1363.5200000000002,
+      "text": "get"
+    },
+    {
+      "start": 1362.8,
+      "end": 1366.44,
+      "text": "uh"
+    },
+    {
+      "start": 1363.52,
+      "end": 1366.44,
+      "text": "all trades."
+    },
+    {
+      "start": 1368.68,
+      "end": 1371.72,
+      "text": "Okay, get all trades."
+    },
+    {
+      "start": 1373.04,
+      "end": 1378.56,
+      "text": "So, here uh I'll just try to um first of"
+    },
+    {
+      "start": 1375.88,
+      "end": 1381.64,
+      "text": "all show you this one."
+    },
+    {
+      "start": 1378.56,
+      "end": 1383.08,
+      "text": "Uh see. Uh first of all, I will write a"
+    },
+    {
+      "start": 1381.64,
+      "end": 1384.68,
+      "text": "script, then I'll just try to convert to"
+    },
+    {
+      "start": 1383.08,
+      "end": 1386.28,
+      "text": "a function. Otherwise, I think you might"
+    },
+    {
+      "start": 1384.68,
+      "end": 1388.96,
+      "text": "get some difficulties."
+    },
+    {
+      "start": 1386.28,
+      "end": 1392.16,
+      "text": "So, here first of all, I'll"
+    },
+    {
+      "start": 1388.96,
+      "end": 1392.16,
+      "text": "write my checkpoint."
+    },
+    {
+      "start": 1393.6,
+      "end": 1397.8799999999999,
+      "text": "Mhm, checkpoint. Now, see, checkpoint"
+    },
+    {
+      "start": 1396.2,
+      "end": 1399.64,
+      "text": "object is nothing but it's a database"
+    },
+    {
+      "start": 1397.88,
+      "end": 1401.7600000000002,
+      "text": "object right now. We're using SQLite"
+    },
+    {
+      "start": 1399.64,
+      "end": 1404.2800000000002,
+      "text": "saver. So, it has a function. The"
+    },
+    {
+      "start": 1401.76,
+      "end": 1405.96,
+      "text": "function name is list, okay? List. So,"
+    },
+    {
+      "start": 1404.28,
+      "end": 1408.6,
+      "text": "if you give give this function, call"
+    },
+    {
+      "start": 1405.96,
+      "end": 1410.04,
+      "text": "this function list, and if you execute,"
+    },
+    {
+      "start": 1408.6,
+      "end": 1412.52,
+      "text": "so what will happen?"
+    },
+    {
+      "start": 1410.04,
+      "end": 1414.56,
+      "text": "Basically, it will return you how many"
+    },
+    {
+      "start": 1412.52,
+      "end": 1415.92,
+      "text": "trades right now you are having inside"
+    },
+    {
+      "start": 1414.56,
+      "end": 1418.28,
+      "text": "the database."
+    },
+    {
+      "start": 1415.92,
+      "end": 1419.68,
+      "text": "But, inside this list"
+    },
+    {
+      "start": 1418.28,
+      "end": 1421.72,
+      "text": "list function, you have to provide a"
+    },
+    {
+      "start": 1419.68,
+      "end": 1422.64,
+      "text": "parameter. Either you can tell, okay, I"
+    },
+    {
+      "start": 1421.72,
+      "end": 1424.48,
+      "text": "need"
+    },
+    {
+      "start": 1422.64,
+      "end": 1426.0800000000002,
+      "text": "I need, let's say, information about my"
+    },
+    {
+      "start": 1424.48,
+      "end": 1427.84,
+      "text": "default trades one. So, you have to give"
+    },
+    {
+      "start": 1426.08,
+      "end": 1429.48,
+      "text": "this name here. Okay, you have to give"
+    },
+    {
+      "start": 1427.84,
+      "end": 1430.8,
+      "text": "this name here."
+    },
+    {
+      "start": 1429.48,
+      "end": 1432.32,
+      "text": "Where is that?"
+    },
+    {
+      "start": 1430.8,
+      "end": 1434.72,
+      "text": "Uh here. You have to give this name"
+    },
+    {
+      "start": 1432.32,
+      "end": 1436.12,
+      "text": "here. You can give the trade name here."
+    },
+    {
+      "start": 1434.72,
+      "end": 1438.08,
+      "text": "But, I don't want to give the trade name"
+    },
+    {
+      "start": 1436.12,
+      "end": 1439.84,
+      "text": "any specific trade name. I want to get"
+    },
+    {
+      "start": 1438.08,
+      "end": 1441.32,
+      "text": "all of the trade, right? For this, you"
+    },
+    {
+      "start": 1439.84,
+      "end": 1443.04,
+      "text": "have to provide none here. So,"
+    },
+    {
+      "start": 1441.32,
+      "end": 1444.8,
+      "text": "basically, you are telling, I don't need"
+    },
+    {
+      "start": 1443.04,
+      "end": 1447.08,
+      "text": "any specific trade, I need all of the"
+    },
+    {
+      "start": 1444.8,
+      "end": 1448.3999999999999,
+      "text": "trade informations, okay? Now, see, this"
+    },
+    {
+      "start": 1447.08,
+      "end": 1452.12,
+      "text": "will return you"
+    },
+    {
+      "start": 1448.4,
+      "end": 1452.1200000000001,
+      "text": "uh this will return you the trades."
+    },
+    {
+      "start": 1453.56,
+      "end": 1456.12,
+      "text": "Trades, okay?"
+    },
+    {
+      "start": 1456.16,
+      "end": 1461.24,
+      "text": "Uh I'll give a equal sign."
+    },
+    {
+      "start": 1458.24,
+      "end": 1461.24,
+      "text": "Now, if I print that,"
+    },
+    {
+      "start": 1464.2,
+      "end": 1467.92,
+      "text": "okay, print that,"
+    },
+    {
+      "start": 1465.6,
+      "end": 1471.56,
+      "text": "print all of my trades."
+    },
+    {
+      "start": 1467.92,
+      "end": 1471.5600000000002,
+      "text": "Now, let's execute this file again."
+    },
+    {
+      "start": 1473.44,
+      "end": 1477.0800000000002,
+      "text": "Okay. So, this is giving you a generator"
+    },
+    {
+      "start": 1475.72,
+      "end": 1478.52,
+      "text": "object, and you know that if you're"
+    },
+    {
+      "start": 1477.08,
+      "end": 1480.24,
+      "text": "getting a generator object, so what you"
+    },
+    {
+      "start": 1478.52,
+      "end": 1482.24,
+      "text": "can do, you can run a for loop on top of"
+    },
+    {
+      "start": 1480.24,
+      "end": 1485.28,
+      "text": "that. So, for"
+    },
+    {
+      "start": 1482.24,
+      "end": 1485.28,
+      "text": "uh checkpoint"
+    },
+    {
+      "start": 1487.0,
+      "end": 1490.36,
+      "text": "in"
+    },
+    {
+      "start": 1488.08,
+      "end": 1493.32,
+      "text": "checkpoint"
+    },
+    {
+      "start": 1490.36,
+      "end": 1493.32,
+      "text": "or let's say trade."
+    },
+    {
+      "start": 1497.0,
+      "end": 1501.64,
+      "text": "Or let's say I'll just try to write"
+    },
+    {
+      "start": 1499.56,
+      "end": 1503.8799999999999,
+      "text": "trade"
+    },
+    {
+      "start": 1501.64,
+      "end": 1505.64,
+      "text": "in trades, okay?"
+    },
+    {
+      "start": 1503.88,
+      "end": 1507.96,
+      "text": "Uh once you have done that"
+    },
+    {
+      "start": 1505.64,
+      "end": 1510.0800000000002,
+      "text": "or you can directly write"
+    },
+    {
+      "start": 1507.96,
+      "end": 1512.3600000000001,
+      "text": "write like that. Let's say instead of"
+    },
+    {
+      "start": 1510.08,
+      "end": 1513.6799999999998,
+      "text": "writing two line, I can directly run a"
+    },
+    {
+      "start": 1512.36,
+      "end": 1515.9599999999998,
+      "text": "for loop."
+    },
+    {
+      "start": 1513.68,
+      "end": 1515.96,
+      "text": "for"
+    },
+    {
+      "start": 1518.12,
+      "end": 1522.76,
+      "text": "for checkpoint in checkpointer"
+    },
+    {
+      "start": 1521.6,
+      "end": 1525.12,
+      "text": "I think this is also checkpointer,"
+    },
+    {
+      "start": 1522.76,
+      "end": 1525.12,
+      "text": "right?"
+    },
+    {
+      "start": 1525.72,
+      "end": 1528.56,
+      "text": "Yeah."
+    },
+    {
+      "start": 1526.44,
+      "end": 1529.52,
+      "text": "Checkpoint in checkpointer.list,"
+    },
+    {
+      "start": 1528.56,
+      "end": 1531.9199999999998,
+      "text": "okay?"
+    },
+    {
+      "start": 1529.52,
+      "end": 1533.2,
+      "text": "Then after that um"
+    },
+    {
+      "start": 1531.92,
+      "end": 1534.8000000000002,
+      "text": "uh what I'm going to do, I'm going to"
+    },
+    {
+      "start": 1533.2,
+      "end": 1538.64,
+      "text": "just uh"
+    },
+    {
+      "start": 1534.8,
+      "end": 1538.6399999999999,
+      "text": "print my checkpoint."
+    },
+    {
+      "start": 1545.72,
+      "end": 1550.32,
+      "text": "Both name is same, okay? So, what I can"
+    },
+    {
+      "start": 1547.4,
+      "end": 1552.4,
+      "text": "do, I can maybe"
+    },
+    {
+      "start": 1550.32,
+      "end": 1555.04,
+      "text": "write like that. ck pt, okay? That means"
+    },
+    {
+      "start": 1552.4,
+      "end": 1555.0400000000002,
+      "text": "checkpoint."
+    },
+    {
+      "start": 1555.68,
+      "end": 1560.16,
+      "text": "Now, if I"
+    },
+    {
+      "start": 1558.16,
+      "end": 1562.0400000000002,
+      "text": "re-execute"
+    },
+    {
+      "start": 1560.16,
+      "end": 1563.64,
+      "text": "Now see, guys, here we are getting all"
+    },
+    {
+      "start": 1562.04,
+      "end": 1564.96,
+      "text": "of the trade right now. It is available"
+    },
+    {
+      "start": 1563.64,
+      "end": 1567.44,
+      "text": "inside my"
+    },
+    {
+      "start": 1564.96,
+      "end": 1569.16,
+      "text": "uh inside my"
+    },
+    {
+      "start": 1567.44,
+      "end": 1571.04,
+      "text": "uh database, as you can see."
+    },
+    {
+      "start": 1569.16,
+      "end": 1572.6000000000001,
+      "text": "And here we are getting lots of trades"
+    },
+    {
+      "start": 1571.04,
+      "end": 1575.2,
+      "text": "because if I open my chatbot, we are"
+    },
+    {
+      "start": 1572.6,
+      "end": 1576.9599999999998,
+      "text": "getting uh six trades right now."
+    },
+    {
+      "start": 1575.2,
+      "end": 1578.76,
+      "text": "And why six six trades? Because every"
+    },
+    {
+      "start": 1576.96,
+      "end": 1580.72,
+      "text": "time if you execute the"
+    },
+    {
+      "start": 1578.76,
+      "end": 1583.16,
+      "text": "um execute the graph, it will generate"
+    },
+    {
+      "start": 1580.72,
+      "end": 1584.2,
+      "text": "three three checkpoint. Why? I told you."
+    },
+    {
+      "start": 1583.16,
+      "end": 1586.8400000000001,
+      "text": "Because"
+    },
+    {
+      "start": 1584.2,
+      "end": 1588.24,
+      "text": "our uh our actually workflow having"
+    },
+    {
+      "start": 1586.84,
+      "end": 1589.9599999999998,
+      "text": "three checkpoints. So, in every"
+    },
+    {
+      "start": 1588.24,
+      "end": 1591.96,
+      "text": "conversation, every execution, three"
+    },
+    {
+      "start": 1589.96,
+      "end": 1593.6000000000001,
+      "text": "checkpoint would be available, okay?"
+    },
+    {
+      "start": 1591.96,
+      "end": 1595.0,
+      "text": "Three checkpoint would be available. So,"
+    },
+    {
+      "start": 1593.6,
+      "end": 1596.6,
+      "text": "this was the first trade and this was"
+    },
+    {
+      "start": 1595.0,
+      "end": 1598.44,
+      "text": "the second trade. We executed two times,"
+    },
+    {
+      "start": 1596.6,
+      "end": 1599.9599999999998,
+      "text": "that's why six six times is available,"
+    },
+    {
+      "start": 1598.44,
+      "end": 1601.88,
+      "text": "okay? So, all of these six trades you"
+    },
+    {
+      "start": 1599.96,
+      "end": 1604.28,
+      "text": "are getting here, okay?"
+    },
+    {
+      "start": 1601.88,
+      "end": 1606.3600000000001,
+      "text": "But uh here I uh whenever I will extract"
+    },
+    {
+      "start": 1604.28,
+      "end": 1609.8,
+      "text": "that, so this would be a kinds of"
+    },
+    {
+      "start": 1606.36,
+      "end": 1611.4799999999998,
+      "text": "duplicates to us. I I only I will only"
+    },
+    {
+      "start": 1609.8,
+      "end": 1613.32,
+      "text": "track the unique trades here, okay?"
+    },
+    {
+      "start": 1611.48,
+      "end": 1614.72,
+      "text": "Let's say here I how many unique trades"
+    },
+    {
+      "start": 1613.32,
+      "end": 1616.2,
+      "text": "I'm having?"
+    },
+    {
+      "start": 1614.72,
+      "end": 1617.44,
+      "text": "Default trade one and default trade,"
+    },
+    {
+      "start": 1616.2,
+      "end": 1619.1200000000001,
+      "text": "only two uniques, okay? Otherwise,"
+    },
+    {
+      "start": 1617.44,
+      "end": 1621.24,
+      "text": "everything is repetitive one. So, I'll"
+    },
+    {
+      "start": 1619.12,
+      "end": 1623.2399999999998,
+      "text": "also try to handle this part as well."
+    },
+    {
+      "start": 1621.24,
+      "end": 1626.0,
+      "text": "So, once we are getting all of these"
+    },
+    {
+      "start": 1623.24,
+      "end": 1627.88,
+      "text": "these these actually checkpoints, now"
+    },
+    {
+      "start": 1626.0,
+      "end": 1630.0,
+      "text": "from the checkpoint only, I only need"
+    },
+    {
+      "start": 1627.88,
+      "end": 1632.5600000000002,
+      "text": "this um"
+    },
+    {
+      "start": 1630.0,
+      "end": 1632.56,
+      "text": "config."
+    },
+    {
+      "start": 1633.0,
+      "end": 1635.56,
+      "text": "config"
+    },
+    {
+      "start": 1636.08,
+      "end": 1641.1999999999998,
+      "text": "Now, if I re-execute my"
+    },
+    {
+      "start": 1638.84,
+      "end": 1643.3999999999999,
+      "text": "terminal"
+    },
+    {
+      "start": 1641.2,
+      "end": 1645.0800000000002,
+      "text": "Now, I'm getting the config only, okay?"
+    },
+    {
+      "start": 1643.4,
+      "end": 1646.72,
+      "text": "Now, from the config, I I need this"
+    },
+    {
+      "start": 1645.08,
+      "end": 1649.24,
+      "text": "trade ID only. First of all, I need to"
+    },
+    {
+      "start": 1646.72,
+      "end": 1650.8,
+      "text": "go to the configurable."
+    },
+    {
+      "start": 1649.24,
+      "end": 1652.64,
+      "text": "So, this is a"
+    },
+    {
+      "start": 1650.8,
+      "end": 1656.08,
+      "text": "this is actually dictionary, right? A"
+    },
+    {
+      "start": 1652.64,
+      "end": 1656.0800000000002,
+      "text": "dictionary, so I'll give the key."
+    },
+    {
+      "start": 1656.84,
+      "end": 1659.6,
+      "text": "configurable"
+    },
+    {
+      "start": 1661.28,
+      "end": 1663.84,
+      "text": "Now, again we're getting another"
+    },
+    {
+      "start": 1662.4,
+      "end": 1665.4,
+      "text": "dictionary, and here we have the trade"
+    },
+    {
+      "start": 1663.84,
+      "end": 1667.72,
+      "text": "ID. So, I only need to extract the trade"
+    },
+    {
+      "start": 1665.4,
+      "end": 1667.72,
+      "text": "ID."
+    },
+    {
+      "start": 1673.72,
+      "end": 1676.28,
+      "text": "Now, see, I'm getting all of the trade,"
+    },
+    {
+      "start": 1675.2,
+      "end": 1677.8400000000001,
+      "text": "but"
+    },
+    {
+      "start": 1676.28,
+      "end": 1680.36,
+      "text": "I'm getting repetitive trades, okay?"
+    },
+    {
+      "start": 1677.84,
+      "end": 1682.04,
+      "text": "Same same actually name again and again,"
+    },
+    {
+      "start": 1680.36,
+      "end": 1684.76,
+      "text": "but I only need the unique one. So, for"
+    },
+    {
+      "start": 1682.04,
+      "end": 1687.08,
+      "text": "this I think you will know"
+    },
+    {
+      "start": 1684.76,
+      "end": 1690.64,
+      "text": "set, right? Set inside Python. So, what"
+    },
+    {
+      "start": 1687.08,
+      "end": 1693.32,
+      "text": "what set does? Set's basically um"
+    },
+    {
+      "start": 1690.64,
+      "end": 1696.48,
+      "text": "will give you the unique unique actually"
+    },
+    {
+      "start": 1693.32,
+      "end": 1697.8799999999999,
+      "text": "name. So, here I'll take a set."
+    },
+    {
+      "start": 1696.48,
+      "end": 1699.88,
+      "text": "I'll just try to create empty sets, and"
+    },
+    {
+      "start": 1697.88,
+      "end": 1702.5600000000002,
+      "text": "I'm going to name it as"
+    },
+    {
+      "start": 1699.88,
+      "end": 1705.4,
+      "text": "all trades."
+    },
+    {
+      "start": 1702.56,
+      "end": 1707.24,
+      "text": "Okay? And whenever I'm getting my"
+    },
+    {
+      "start": 1705.4,
+      "end": 1709.72,
+      "text": "trades, I'll just try to add inside my"
+    },
+    {
+      "start": 1707.24,
+      "end": 1709.72,
+      "text": "trades."
+    },
+    {
+      "start": 1710.28,
+      "end": 1714.56,
+      "text": "Sorry, uh"
+    },
+    {
+      "start": 1711.88,
+      "end": 1715.5600000000002,
+      "text": "I'm going to add inside my"
+    },
+    {
+      "start": 1714.56,
+      "end": 1718.0,
+      "text": "um"
+    },
+    {
+      "start": 1715.56,
+      "end": 1718.0,
+      "text": "set."
+    },
+    {
+      "start": 1718.24,
+      "end": 1721.4,
+      "text": "So, there's a add function we can use"
+    },
+    {
+      "start": 1719.68,
+      "end": 1723.1200000000001,
+      "text": "for this."
+    },
+    {
+      "start": 1721.4,
+      "end": 1727.0,
+      "text": "Hm."
+    },
+    {
+      "start": 1723.12,
+      "end": 1729.9599999999998,
+      "text": "Then, uh I'll just try to print my"
+    },
+    {
+      "start": 1727.0,
+      "end": 1729.96,
+      "text": "all trades right now."
+    },
+    {
+      "start": 1732.44,
+      "end": 1735.56,
+      "text": "Now if I execute,"
+    },
+    {
+      "start": 1736.36,
+      "end": 1740.76,
+      "text": "now see, I'm only getting trade one and"
+    },
+    {
+      "start": 1739.36,
+      "end": 1743.0,
+      "text": "my trades, okay?"
+    },
+    {
+      "start": 1740.76,
+      "end": 1745.24,
+      "text": "Uh that means the unique one. Now I have"
+    },
+    {
+      "start": 1743.0,
+      "end": 1747.68,
+      "text": "to provide as a list."
+    },
+    {
+      "start": 1745.24,
+      "end": 1749.16,
+      "text": "Okay? I have to uh give as a list here"
+    },
+    {
+      "start": 1747.68,
+      "end": 1751.1200000000001,
+      "text": "because here um"
+    },
+    {
+      "start": 1749.16,
+      "end": 1753.16,
+      "text": "uh the session state we created, it it"
+    },
+    {
+      "start": 1751.12,
+      "end": 1754.6399999999999,
+      "text": "it takes a list, right? But here I'm"
+    },
+    {
+      "start": 1753.16,
+      "end": 1756.68,
+      "text": "getting a dictionary. As you can see"
+    },
+    {
+      "start": 1754.64,
+      "end": 1757.92,
+      "text": "here I'm getting a dictionary. I'm uh"
+    },
+    {
+      "start": 1756.68,
+      "end": 1759.64,
+      "text": "returning as a dictionary. So what I can"
+    },
+    {
+      "start": 1757.92,
+      "end": 1761.92,
+      "text": "do, I can convert it to the"
+    },
+    {
+      "start": 1759.64,
+      "end": 1764.6000000000001,
+      "text": "list. So instead of"
+    },
+    {
+      "start": 1761.92,
+      "end": 1766.0800000000002,
+      "text": "uh printing um"
+    },
+    {
+      "start": 1764.6,
+      "end": 1769.08,
+      "text": "this, I'll just try to do the type type"
+    },
+    {
+      "start": 1766.08,
+      "end": 1769.08,
+      "text": "conversion operation."
+    },
+    {
+      "start": 1769.48,
+      "end": 1774.84,
+      "text": "I'll just try to convert to the list."
+    },
+    {
+      "start": 1771.64,
+      "end": 1777.2,
+      "text": "Now if I execute,"
+    },
+    {
+      "start": 1774.84,
+      "end": 1779.56,
+      "text": "now see, it is a list right now, okay?"
+    },
+    {
+      "start": 1777.2,
+      "end": 1781.8400000000001,
+      "text": "Now simply I'll just uh I'll just try to"
+    },
+    {
+      "start": 1779.56,
+      "end": 1783.6,
+      "text": "write inside a function. So I'm going to"
+    },
+    {
+      "start": 1781.84,
+      "end": 1784.56,
+      "text": "uh name this function as"
+    },
+    {
+      "start": 1783.6,
+      "end": 1786.9599999999998,
+      "text": "def"
+    },
+    {
+      "start": 1784.56,
+      "end": 1786.96,
+      "text": "get"
+    },
+    {
+      "start": 1787.08,
+      "end": 1791.12,
+      "text": "all trades."
+    },
+    {
+      "start": 1789.56,
+      "end": 1794.04,
+      "text": "Okay? And all of the code I'm going to"
+    },
+    {
+      "start": 1791.12,
+      "end": 1794.04,
+      "text": "write inside that."
+    },
+    {
+      "start": 1796.92,
+      "end": 1802.04,
+      "text": "Okay? Instead of printing, I'll just uh"
+    },
+    {
+      "start": 1798.96,
+      "end": 1802.04,
+      "text": "do the return operation."
+    },
+    {
+      "start": 1805.0,
+      "end": 1808.8,
+      "text": "Hm? So everything is fine."
+    },
+    {
+      "start": 1806.88,
+      "end": 1809.5600000000002,
+      "text": "Now this function basically will return"
+    },
+    {
+      "start": 1808.8,
+      "end": 1811.52,
+      "text": "you"
+    },
+    {
+      "start": 1809.56,
+      "end": 1813.08,
+      "text": "uh all the trades, okay? Uh from the"
+    },
+    {
+      "start": 1811.52,
+      "end": 1817.72,
+      "text": "database itself."
+    },
+    {
+      "start": 1813.08,
+      "end": 1819.08,
+      "text": "So now uh here uh in the app DB,"
+    },
+    {
+      "start": 1817.72,
+      "end": 1820.6000000000001,
+      "text": "hm whenever you are importing this"
+    },
+    {
+      "start": 1819.08,
+      "end": 1822.36,
+      "text": "chatbot, right?"
+    },
+    {
+      "start": 1820.6,
+      "end": 1825.48,
+      "text": "Uh so right now we have to import from"
+    },
+    {
+      "start": 1822.36,
+      "end": 1826.9199999999998,
+      "text": "the agentic chatbot DB backend, okay?"
+    },
+    {
+      "start": 1825.48,
+      "end": 1829.08,
+      "text": "Instead of"
+    },
+    {
+      "start": 1826.92,
+      "end": 1831.0,
+      "text": "the simple uh agentic chatbot backend"
+    },
+    {
+      "start": 1829.08,
+      "end": 1833.28,
+      "text": "because we are using DB DB backend right"
+    },
+    {
+      "start": 1831.0,
+      "end": 1834.48,
+      "text": "now. We have to import chatbot"
+    },
+    {
+      "start": 1833.28,
+      "end": 1837.12,
+      "text": "as well as the"
+    },
+    {
+      "start": 1834.48,
+      "end": 1838.32,
+      "text": "get all trades, okay? This function we"
+    },
+    {
+      "start": 1837.12,
+      "end": 1840.6799999999998,
+      "text": "have to import."
+    },
+    {
+      "start": 1838.32,
+      "end": 1843.56,
+      "text": "Now simply you just need to"
+    },
+    {
+      "start": 1840.68,
+      "end": 1846.24,
+      "text": "call this function here whenever you are"
+    },
+    {
+      "start": 1843.56,
+      "end": 1848.3999999999999,
+      "text": "uh initializing this uh chat threads."
+    },
+    {
+      "start": 1846.24,
+      "end": 1850.0,
+      "text": "Instead of giving the simple uh list"
+    },
+    {
+      "start": 1848.4,
+      "end": 1852.1200000000001,
+      "text": "empty list, you will give"
+    },
+    {
+      "start": 1850.0,
+      "end": 1853.64,
+      "text": "this function name, okay? So, what this"
+    },
+    {
+      "start": 1852.12,
+      "end": 1856.04,
+      "text": "function will do, it will get all of the"
+    },
+    {
+      "start": 1853.64,
+      "end": 1858.3600000000001,
+      "text": "threads and it will store in line inside"
+    },
+    {
+      "start": 1856.04,
+      "end": 1860.72,
+      "text": "my chat threads, okay? So, this"
+    },
+    {
+      "start": 1858.36,
+      "end": 1862.3999999999999,
+      "text": "particular uh code is uh sorry, this"
+    },
+    {
+      "start": 1860.72,
+      "end": 1864.84,
+      "text": "particular uh data is coming from my"
+    },
+    {
+      "start": 1862.4,
+      "end": 1867.1200000000001,
+      "text": "backend, from my database, okay? That's"
+    },
+    {
+      "start": 1864.84,
+      "end": 1870.12,
+      "text": "how So, if you restart your application"
+    },
+    {
+      "start": 1867.12,
+      "end": 1872.56,
+      "text": "as well, it will not uh effect on my app"
+    },
+    {
+      "start": 1870.12,
+      "end": 1875.0,
+      "text": "because every time this function is"
+    },
+    {
+      "start": 1872.56,
+      "end": 1877.04,
+      "text": "getting executed from my backend and it"
+    },
+    {
+      "start": 1875.0,
+      "end": 1878.68,
+      "text": "has the connection with my checkpoint."
+    },
+    {
+      "start": 1877.04,
+      "end": 1880.92,
+      "text": "And checkpoint is connected with my"
+    },
+    {
+      "start": 1878.68,
+      "end": 1883.1200000000001,
+      "text": "database, right? chatbot.db. So, every"
+    },
+    {
+      "start": 1880.92,
+      "end": 1884.4,
+      "text": "time it will open the chatbot.db and it"
+    },
+    {
+      "start": 1883.12,
+      "end": 1886.8,
+      "text": "will get how many threads you are"
+    },
+    {
+      "start": 1884.4,
+      "end": 1888.88,
+      "text": "having, only this part will return here,"
+    },
+    {
+      "start": 1886.8,
+      "end": 1890.3999999999999,
+      "text": "okay? This part will return here and"
+    },
+    {
+      "start": 1888.88,
+      "end": 1892.6000000000001,
+      "text": "after that we're just passing it here."
+    },
+    {
+      "start": 1890.4,
+      "end": 1893.92,
+      "text": "That means, if I'm refreshing my page,"
+    },
+    {
+      "start": 1892.6,
+      "end": 1895.48,
+      "text": "if I'm closing the application, it"
+    },
+    {
+      "start": 1893.92,
+      "end": 1897.1200000000001,
+      "text": "doesn't matter. Every time I'm"
+    },
+    {
+      "start": 1895.48,
+      "end": 1898.68,
+      "text": "extracting my threads, I'm getting my"
+    },
+    {
+      "start": 1897.12,
+      "end": 1900.6799999999998,
+      "text": "threads, I'm facing my threads from my"
+    },
+    {
+      "start": 1898.68,
+      "end": 1902.5600000000002,
+      "text": "database only. But previously, I was"
+    },
+    {
+      "start": 1900.68,
+      "end": 1904.88,
+      "text": "doing inside my memory because I was"
+    },
+    {
+      "start": 1902.56,
+      "end": 1907.52,
+      "text": "using simple list and simple list only"
+    },
+    {
+      "start": 1904.88,
+      "end": 1909.3200000000002,
+      "text": "creates the instance inside the RAM,"
+    },
+    {
+      "start": 1907.52,
+      "end": 1910.8,
+      "text": "okay? And if you refresh, your RAM would"
+    },
+    {
+      "start": 1909.32,
+      "end": 1912.56,
+      "text": "be getting cleared."
+    },
+    {
+      "start": 1910.8,
+      "end": 1914.0,
+      "text": "I hope you got the concept, guys, okay?"
+    },
+    {
+      "start": 1912.56,
+      "end": 1915.8799999999999,
+      "text": "Now, let's try to execute and see"
+    },
+    {
+      "start": 1914.0,
+      "end": 1918.52,
+      "text": "whether it's working or not. So, here"
+    },
+    {
+      "start": 1915.88,
+      "end": 1919.4,
+      "text": "I'll open up my terminal."
+    },
+    {
+      "start": 1918.52,
+      "end": 1921.4,
+      "text": "Clear."
+    },
+    {
+      "start": 1919.4,
+      "end": 1923.76,
+      "text": "Then, I'll just try to run my app so"
+    },
+    {
+      "start": 1921.4,
+      "end": 1925.48,
+      "text": "Streamlit"
+    },
+    {
+      "start": 1923.76,
+      "end": 1927.6,
+      "text": "run"
+    },
+    {
+      "start": 1925.48,
+      "end": 1930.6,
+      "text": "app"
+    },
+    {
+      "start": 1927.6,
+      "end": 1930.6,
+      "text": "db.py."
+    },
+    {
+      "start": 1932.28,
+      "end": 1936.6399999999999,
+      "text": "Now, see, guys."
+    },
+    {
+      "start": 1933.48,
+      "end": 1939.1200000000001,
+      "text": "Uh you you can already see uh I already"
+    },
+    {
+      "start": 1936.64,
+      "end": 1940.96,
+      "text": "created some threads, right? Here."
+    },
+    {
+      "start": 1939.12,
+      "end": 1943.32,
+      "text": "Uh manually, I created some threads and"
+    },
+    {
+      "start": 1940.96,
+      "end": 1944.64,
+      "text": "this thread is also getting uh loaded"
+    },
+    {
+      "start": 1943.32,
+      "end": 1946.6399999999999,
+      "text": "here. You can see I did some"
+    },
+    {
+      "start": 1944.64,
+      "end": 1948.5600000000002,
+      "text": "conversation like Alex, then my name is"
+    },
+    {
+      "start": 1946.64,
+      "end": 1949.8400000000001,
+      "text": "Bapi, and this is the current thread"
+    },
+    {
+      "start": 1948.56,
+      "end": 1952.36,
+      "text": "right now. So, what I can do, maybe I"
+    },
+    {
+      "start": 1949.84,
+      "end": 1953.8799999999999,
+      "text": "can delete my database and do uh start a"
+    },
+    {
+      "start": 1952.36,
+      "end": 1956.9599999999998,
+      "text": "new conversation."
+    },
+    {
+      "start": 1953.88,
+      "end": 1956.96,
+      "text": "Let's try to delete it."
+    },
+    {
+      "start": 1957.4,
+      "end": 1961.0400000000002,
+      "text": "Okay, it will not getting delete because"
+    },
+    {
+      "start": 1959.12,
+      "end": 1963.8799999999999,
+      "text": "it is running in the app, right?"
+    },
+    {
+      "start": 1961.04,
+      "end": 1963.8799999999999,
+      "text": "Now I can try."
+    },
+    {
+      "start": 1966.76,
+      "end": 1969.32,
+      "text": "Delete."
+    },
+    {
+      "start": 1969.84,
+      "end": 1974.32,
+      "text": "Some temporary file also came. I'll just"
+    },
+    {
+      "start": 1972.2,
+      "end": 1977.24,
+      "text": "try to delete, okay? Now I'll freshly"
+    },
+    {
+      "start": 1974.32,
+      "end": 1977.24,
+      "text": "execute my app."
+    },
+    {
+      "start": 1979.12,
+      "end": 1982.08,
+      "text": "Mhm."
+    },
+    {
+      "start": 1979.8,
+      "end": 1986.84,
+      "text": "Now let's do the conversation."
+    },
+    {
+      "start": 1982.08,
+      "end": 1986.84,
+      "text": "Hi, my name is Bapi."
+    },
+    {
+      "start": 1987.36,
+      "end": 1990.08,
+      "text": "I"
+    },
+    {
+      "start": 1988.4,
+      "end": 1991.76,
+      "text": "am"
+    },
+    {
+      "start": 1990.08,
+      "end": 1994.1999999999998,
+      "text": "a"
+    },
+    {
+      "start": 1991.76,
+      "end": 1994.2,
+      "text": "teacher."
+    },
+    {
+      "start": 1996.32,
+      "end": 2000.08,
+      "text": "Okay?"
+    },
+    {
+      "start": 1997.6,
+      "end": 2004.1999999999998,
+      "text": "Great. Now I'll create a new chat."
+    },
+    {
+      "start": 2000.08,
+      "end": 2006.32,
+      "text": "I'll tell, \"Hi, my name is"
+    },
+    {
+      "start": 2004.2,
+      "end": 2010.56,
+      "text": "Alex."
+    },
+    {
+      "start": 2006.32,
+      "end": 2010.56,
+      "text": "I am a learner.\""
+    },
+    {
+      "start": 2014.84,
+      "end": 2019.52,
+      "text": "Okay? Done. Now if I click my previous"
+    },
+    {
+      "start": 2018.12,
+      "end": 2020.9599999999998,
+      "text": "conversation, now you can see this is my"
+    },
+    {
+      "start": 2019.52,
+      "end": 2023.12,
+      "text": "previous conversation and this is my"
+    },
+    {
+      "start": 2020.96,
+      "end": 2025.16,
+      "text": "current conversation. Now the best part"
+    },
+    {
+      "start": 2023.12,
+      "end": 2027.4399999999998,
+      "text": "is that if I refresh my app, right? See,"
+    },
+    {
+      "start": 2025.16,
+      "end": 2029.52,
+      "text": "still this conversation remains same,"
+    },
+    {
+      "start": 2027.44,
+      "end": 2030.88,
+      "text": "okay? Now if you also close your app,"
+    },
+    {
+      "start": 2029.52,
+      "end": 2033.32,
+      "text": "let's say I'll close my app from my"
+    },
+    {
+      "start": 2030.88,
+      "end": 2035.68,
+      "text": "terminal. See, it's closed, okay? And I"
+    },
+    {
+      "start": 2033.32,
+      "end": 2037.36,
+      "text": "closed my application. Okay, I closed my"
+    },
+    {
+      "start": 2035.68,
+      "end": 2039.2,
+      "text": "application. Now if I restart my"
+    },
+    {
+      "start": 2037.36,
+      "end": 2040.4799999999998,
+      "text": "application, see if I restart my"
+    },
+    {
+      "start": 2039.2,
+      "end": 2042.56,
+      "text": "application,"
+    },
+    {
+      "start": 2040.48,
+      "end": 2045.48,
+      "text": "now still it will be able to load my"
+    },
+    {
+      "start": 2042.56,
+      "end": 2047.04,
+      "text": "previous conversation and anytime I can"
+    },
+    {
+      "start": 2045.48,
+      "end": 2048.399,
+      "text": "continue the conversation. Let's say,"
+    },
+    {
+      "start": 2047.04,
+      "end": 2052.2799999999997,
+      "text": "here I'll just try to continue the"
+    },
+    {
+      "start": 2048.399,
+      "end": 2052.2799999999997,
+      "text": "conversation. Who am I?"
+    },
+    {
+      "start": 2054.8,
+      "end": 2059.28,
+      "text": "See, it is giving you, \"You are Alex, a"
+    },
+    {
+      "start": 2057.76,
+      "end": 2061.5200000000004,
+      "text": "learner who is seeking knowledge and"
+    },
+    {
+      "start": 2059.28,
+      "end": 2064.28,
+      "text": "growth, blah blah blah.\" Okay? Now I can"
+    },
+    {
+      "start": 2061.52,
+      "end": 2066.159,
+      "text": "also do the conversation here only."
+    },
+    {
+      "start": 2064.28,
+      "end": 2068.8790000000004,
+      "text": "Who"
+    },
+    {
+      "start": 2066.159,
+      "end": 2068.879,
+      "text": "am I?"
+    },
+    {
+      "start": 2069.2,
+      "end": 2073.48,
+      "text": "See, you are Bapi, you're a teacher, you"
+    },
+    {
+      "start": 2070.84,
+      "end": 2075.32,
+      "text": "are in you enjoy helping students learn"
+    },
+    {
+      "start": 2073.48,
+      "end": 2076.159,
+      "text": "and grow in their knowledge and skills,"
+    },
+    {
+      "start": 2075.32,
+      "end": 2078.639,
+      "text": "okay?"
+    },
+    {
+      "start": 2076.159,
+      "end": 2081.56,
+      "text": "So yes guys, that's how actually we can"
+    },
+    {
+      "start": 2078.639,
+      "end": 2083.76,
+      "text": "add the permanent persistence memory"
+    },
+    {
+      "start": 2081.56,
+      "end": 2086.08,
+      "text": "right now inside our agentic chatbot."
+    },
+    {
+      "start": 2083.76,
+      "end": 2088.1200000000003,
+      "text": "And now this is like more powerful."
+    },
+    {
+      "start": 2086.08,
+      "end": 2089.48,
+      "text": "Actually, it will not erase your"
+    },
+    {
+      "start": 2088.12,
+      "end": 2091.3599999999997,
+      "text": "conversation, it will not erase your"
+    },
+    {
+      "start": 2089.48,
+      "end": 2093.48,
+      "text": "checkpoint if you restart your"
+    },
+    {
+      "start": 2091.36,
+      "end": 2096.08,
+      "text": "application. Like ChatGPT, like if I"
+    },
+    {
+      "start": 2093.48,
+      "end": 2098.16,
+      "text": "open my ChatGPT right anytime and I can"
+    },
+    {
+      "start": 2096.08,
+      "end": 2100.52,
+      "text": "anytime I can see my previous chat,"
+    },
+    {
+      "start": 2098.16,
+      "end": 2102.24,
+      "text": "previous trades as well, okay? If I"
+    },
+    {
+      "start": 2100.52,
+      "end": 2103.64,
+      "text": "close the app also, if I turn off my"
+    },
+    {
+      "start": 2102.24,
+      "end": 2105.3999999999996,
+      "text": "computer also, if I disconnect my"
+    },
+    {
+      "start": 2103.64,
+      "end": 2107.8399999999997,
+      "text": "internet connection also, it's still"
+    },
+    {
+      "start": 2105.4,
+      "end": 2108.96,
+      "text": "these are the things would be common."
+    },
+    {
+      "start": 2107.84,
+      "end": 2110.6400000000003,
+      "text": "These are the things would be available"
+    },
+    {
+      "start": 2108.96,
+      "end": 2112.88,
+      "text": "because they're using permanent"
+    },
+    {
+      "start": 2110.64,
+      "end": 2114.52,
+      "text": "persistence memory, okay? They're using"
+    },
+    {
+      "start": 2112.88,
+      "end": 2116.1600000000003,
+      "text": "some kinds of database."
+    },
+    {
+      "start": 2114.52,
+      "end": 2118.12,
+      "text": "Whether they're using Postgres, whether"
+    },
+    {
+      "start": 2116.16,
+      "end": 2119.68,
+      "text": "they're using MongoDB, doesn't matter,"
+    },
+    {
+      "start": 2118.12,
+      "end": 2122.04,
+      "text": "but they're using some kinds of database"
+    },
+    {
+      "start": 2119.68,
+      "end": 2124.48,
+      "text": "because of that this thing is permanent"
+    },
+    {
+      "start": 2122.04,
+      "end": 2126.4,
+      "text": "like our application, okay? I hope you"
+    },
+    {
+      "start": 2124.48,
+      "end": 2129.2,
+      "text": "are getting this guys, okay? So yes"
+    },
+    {
+      "start": 2126.4,
+      "end": 2130.84,
+      "text": "guys, that's how we can slowly slowly"
+    },
+    {
+      "start": 2129.2,
+      "end": 2133.12,
+      "text": "make this particular the chatbot more"
+    },
+    {
+      "start": 2130.84,
+      "end": 2135.6000000000004,
+      "text": "advanced and uh"
+    },
+    {
+      "start": 2133.12,
+      "end": 2138.7999999999997,
+      "text": "in my next video I'm going to show you"
+    },
+    {
+      "start": 2135.6,
+      "end": 2140.88,
+      "text": "some more advanced features guys we will"
+    },
+    {
+      "start": 2138.8,
+      "end": 2142.6400000000003,
+      "text": "be adding inside this agentic chatbot"
+    },
+    {
+      "start": 2140.88,
+      "end": 2143.52,
+      "text": "and we'll try to make it more powerful,"
+    },
+    {
+      "start": 2142.64,
+      "end": 2145.2799999999997,
+      "text": "okay?"
+    },
+    {
+      "start": 2143.52,
+      "end": 2147.52,
+      "text": "And for this guys, please try to"
+    },
+    {
+      "start": 2145.28,
+      "end": 2148.36,
+      "text": "complete all of this video if you want"
+    },
+    {
+      "start": 2147.52,
+      "end": 2150.56,
+      "text": "to"
+    },
+    {
+      "start": 2148.36,
+      "end": 2152.2400000000002,
+      "text": "implement these kinds of project because"
+    },
+    {
+      "start": 2150.56,
+      "end": 2154.08,
+      "text": "going forward I have lots of plan, I"
+    },
+    {
+      "start": 2152.24,
+      "end": 2156.0,
+      "text": "will be bringing lots of project here,"
+    },
+    {
+      "start": 2154.08,
+      "end": 2158.72,
+      "text": "okay? So for this definitely you have to"
+    },
+    {
+      "start": 2156.0,
+      "end": 2160.12,
+      "text": "understand all of this concept, okay? So"
+    },
+    {
+      "start": 2158.72,
+      "end": 2161.8399999999997,
+      "text": "yes guys, this is all about from this"
+    },
+    {
+      "start": 2160.12,
+      "end": 2164.04,
+      "text": "video. I hope you liked it and you have"
+    },
+    {
+      "start": 2161.84,
+      "end": 2165.8,
+      "text": "understood the entire implementation. If"
+    },
+    {
+      "start": 2164.04,
+      "end": 2168.16,
+      "text": "you found my content useful, please try"
+    },
+    {
+      "start": 2165.8,
+      "end": 2169.28,
+      "text": "to subscribe to my channel, hit the like"
+    },
+    {
+      "start": 2168.16,
+      "end": 2170.7599999999998,
+      "text": "and please share it with your friends"
+    },
+    {
+      "start": 2169.28,
+      "end": 2172.0800000000004,
+      "text": "and family. And all of the code I will"
+    },
+    {
+      "start": 2170.76,
+      "end": 2174.1600000000003,
+      "text": "share in my description, from there you"
+    },
+    {
+      "start": 2172.08,
+      "end": 2175.96,
+      "text": "can download. So thank you guys for"
+    },
+    {
+      "start": 2174.16,
+      "end": 2178.64,
+      "text": "watching this video and I will see you"
+    },
+    {
+      "start": 2175.96,
+      "end": 2178.64,
+      "text": "next time."
+    }
+  ],
+  "video_id": "7cnVKyksQ64",
+  "title": "17. Build Permanent Chat Persistence Memory with LangGraph and Database | Part 5 | Agentic Chatbot",
+  "position": 19,
+  "url": "https://www.youtube.com/watch?v=7cnVKyksQ64"
+}

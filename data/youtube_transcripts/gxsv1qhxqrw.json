@@ -1,0 +1,4197 @@
+{
+  "source": "youtube_captions",
+  "language": "en",
+  "is_generated": true,
+  "text": "Hi guys. My name is Bapi Ahmed and you are welcome to my YouTube channel. So guys, in this video I'll be discussing about the last workflows inside LangGraph, which is iterative workflows. So far I have discussed about sequential workflows, parallel workflows, conditional workflows, okay? Each and every thing I have already covered. If you haven't checked those videos, it is already available inside my playlist. I have given the link in the description. From there you can check it out. So this is going to be very important and interesting workflows guys inside LangGraph because with the help of iterative workflows you can perform the looping operation. So let's say whenever you are performing any task and if you feel like uh this task needs some more improvement, you can continuously actually perform the looping operation with the help of this iterative workflows. So we'll try to understand this one. So if you found my content useful guys and if you are really learning, okay, from this particular playlist, I would like to request you please try to subscribe to my channel and hit the like. And please try to share this with your friends and family. So if you are supporting me guys, if you are supporting my channel, I'll be getting more motivation to bring these kinds of content. So if you see guys, here is the iterative workflows we'll be discussing about. So previously I already discussed about all the workflows um I told you about inside LangGraph. Like sequential workflows you have understood the LLM non-LLM based, okay? Then I have discussed about the parallel workflows. Then I discussed about the conditional workflows, okay? Now we'll try to understand this iterative workflows. So you can see this is the iterative workflows graph. I already created this particular graph. So guys, to make you understand this iterative workflows, I'm going to take one amazing example. I'm going to take Facebook post generation example. So, what happens? Let's say I want to post anything on my Facebook. Let's say I want to post any kinds of tech-related content on my Facebook. So, nowadays actually what will happen? I'll be definitely using ChatGPT or any other large language model, let's say provider, and I'll try to generate that content, okay? And what I will do, I will copy that and I will post on my Facebook, okay? But it's not like that at the very first time you will be getting the perfect post, right? Let's say you have given a prompt and it has generated something for the first time, right? It's not like that that should be 100% perfect and optimized for for you, for your needs. So, maybe you just need to do some little bit, let's say, change or you need some improvement, you need some optimization. So, again, what you will do? You will You will send it to the LLM and you will try to tell, \"Okay, try to optimize it more, okay?\" So, once you have, let's say, optimized another one, again you'll try to review that, evaluate that. If it is perfect for you, then you will try to approve and you will post it over the Facebook, okay? Otherwise, you will again do the optimization, okay? So, that's how, let's say, we usually generate any kinds of content from the LLM, right? So, why not we can create a automatic workflow? So, this workflow will automatically generate, let's say, Facebook content based on the topic you have provided. Then after that, it will automatically evaluate that whether this content is perfect or not, okay? Let's say, after doing the evaluation, it found, \"Okay, this is useful, this is fine.\" Then it will approve. Then you can post over the Facebook. Otherwise, it will send it to send it to the another, let's say, nodes and that nodes will try to do the optimization, okay? Optimization it will optimize like it will do some improvement. Then after that again it will try to send it to the evaluator, okay? Evaluator will again evaluate that. If found let's say this content is fine then it will approve otherwise again it will try to send it to the optima optimizer. Then optimizer again it will optimize the content and it will again send it for the evaluation, okay? So that's how this kind of this particular loop will continuously run unless and until this content is approved, okay? So this is called actually iterative workflows. So to make iterative workflows guys we are using conditional workflows as well as you can see because here is the condition. If this content is completely fine after doing the evaluation it will approved, okay? Otherwise it will send it to the optimizer and optimizer will like do the improvement and it will again send it to evaluator, okay? So here is the looping concept and this looping concept we call it as a iterative workflows inside LangGraph. Now we'll try to implement this particular workflows, okay? Inside LangGraph. And for this whatever state I need guys I already prepared the state as you can see this is the state. I named it as post state and I inherited with the type dict. So first of all I have taken a variable called topic. So user will pass a topic, okay? For post generation, let's say I have given a topic related let's say agentic AI. So it will generate some kind of post related AI, okay? So let's say I'll send it to the generate LLM, right? Here we'll be using a LLM. Then this this LLM or let's say this node will generate the post, okay? Let's say this post I'm going to save inside this post variable and this is also going to be string type data. Then after that we'll try to send it to the evaluator. Evaluator will also use a LLM, right? Large language model and it will evaluate that particular result and it will send two things. One is the approved, another is the needs improvement. Okay, if it is sending returning approved, that that means this post is completely fine. We can directly approve that. And if it is sending needs improvement, okay, that time we'll try to send it to the optimizer. Okay? And it will also give you some kinds of feedback. Okay, let's say what should be the improvement. It will also send it to the optimizer. This feedback will try to save inside this particular variable. Then we'll also try to see the iteration. Iteration means let's say it has given this content to the evaluator. Evaluator tells, okay, this needs the improvement. Again, it will send it to the optimizer. Optimizer will try to again generate a new or let's say optimize that particular post. And it will again send it to the evaluator. That means one iteration is done. Then again, evaluator will try to check that. Again, let's say it will tell it needs the improvement. Again, it will try to send it to the optimizer. Optimizer again it will improve that again it will send it to the evaluator. That that means iteration goes two. That means how many loop it is performing will try to log that particular information in this iteration variable. Okay? And here we'll also set a maximum iteration. Let's say if you don't set this maximum iteration, what what is the possibility? Let's say if you're using any very poor language model, that time let's say every time whatever content it will generate, maybe your evaluator will not evaluate that or let's say approve that. That time this particular loop will continuously running. Okay, we'll not get any final result. That's why we'll set a maximum iteration. Let's say four to five. So after four or five let's say iteration, this particular loop will break and whatever content we got after four or five iteration, that I will try to make it as final post. Okay, that's why this maximum iteration we'll also set. Then whatever let's say post we are generating, whatever feedback we are getting, okay, from this evaluator, we'll also try to save inside this particular variable as a history. That's why you made it as post history and feedback history. That means it will continuously add. Okay, it will not replace. It will continuously add. So, that's why we'll be using reducer concept. I think you know what is reducer inside LangGraph. You can see we're using annotated. We are we have taken a list type data structure. And we're using operation.add. That means every time it will add the post history and feedback history instead of replacing. But here we are we haven't taken any kinds of reducer. It will continuously replace here. Okay, I hope you got it. Then let's say once this improvement is done, evaluator will let's say found this is useful or this is completely fine. That time this would be approved and this loop would be break. Okay, so this is what actually iterative workflows. Now we'll try to we'll try to code inside LangGraph. Then we'll try to understand the whole concept. Okay, now for this what I'm going to do guys, I'm going to simply open up this iterative workflows.ipynb file and let's select our kernel. So, first of all, we have to import the necessary library. So, let's import. So, I'll import all of the necessary library. So, you can see I'm I'm importing the state graph start and then from typing I'm importing type dict, literal and annotated. Then I'm using chat open AI. That means I'll be using open AI large language model. You can use any kinds of large language model. For this I have one.ipynb file and I set my open AI key here already. Then I'm importing the system message and human message. Okay, where we're importing the system message and human message because I want to give the prompt for each and every LLM. So, you can see here we'll be using the LLM. Here also we'll be using the LLM. For optimization also we'll be using the LLM. Okay, and every LLM I'll try to set a different different prompt. Let's say for generation one I will set a generation related prompt. For evaluator I'll set evaluation related prompt. For optimization, I'll set optimization related prompt, okay? So, you can directly give the prompt as well, but it is recommended to use this system message and human message function whenever you're giving the prompt, okay? This should be more optimized one. Then operator I need because I want to perform the reducer, I have to do the adding operation, then .env. So, let's import all of them. So, as you can see, execution is complete now. We'll load our environment variable. Now, uh we'll define all the large language model. So, here you can see um yeah. So, I need uh three large language model. One is for generation, one is for evaluator, one is for optimization, okay? So, what I'm going to do, I'm going to make three object for three large language model. Uh see, I'm going to use the same model only, but I'm going to create uh three object, okay? Because here I told you we'll be using three no three nodes, okay? Differently. So, whenever you're creating these kinds of project uh let's say uh in real time, actual real project, that time you have to select this large language model in a such a way, so let's say whatever model is very good for generation, that time you can use that particular model. Let's say some model is very much uh good for evaluation, that time you can take that particular model. Let's say some model is uh very much good for optimization, you can take that particular model, okay? So, that's how we have to select in real time, but right now we're only understanding the example, that's why I've taken the same model, but I created three object, okay? One is for generator, evaluator, and optimizer. Generator, evaluator, and optimizer. Done? Now, next uh I'm going to uh I'm going to define the state, but before defining the state, I already told you uh here see, this evaluator this evaluator nodes will return you two things, okay? One is the evaluation, okay? Evaluation, uh that means it should be approved or needs improvement, okay? These two things. And another one is the feedback, okay? What should be the feedback for the optimization, right? So, it will generate two things. I don't need anything anything else apart from these two two things. One is the evaluation and another one is the feedback. So, if I want to get this kind of structured output, what I have to do, I have to use the Pydantic. I already told you. Previously, also uh I have also taken the same example. So, what I'm going to do, guys, I'm going to just create a um Pydantic class. As you can see, I have created a Pydantic class. So, here uh I have named it as post evaluation. I'm inheriting with the Pydantic base model. And two things I have taken, evaluation and feedback. So, in evaluation, you can see this is the literal type. It should be approved or need needs approved, okay? Needs improvement. And another one is the feedback, that means it will generate some kinds of feedback for Facebook post. That means if I now pass this thing to the uh model, that means if I add this line, uh evaluator LLM with structured output, and if I pass this class, this model will try to generate the structured output now. So, it will only give you evaluation and feedback, not anything else, okay? Now, let me show you. So, let's say I have defined this one. Now, here I'm going to just generate a Facebook post from my ChatGPT. Facebook post about agentic AI. Okay, I'll copy this. And let's say here I can take a variable post. Now I say that I'm going to paste this post. Okay. Now I'm going to send it to the Mhm. The structured evaluation LM. Done. Now if I show you the result, See, this is giving you two things. One is the evaluation. You can also extract evaluation. Approved and the feedback. See, this is the feedback for this particular post, okay? So that's how every time we'll be getting the structured output from this uh large language model, okay? The evaluator large language model because we have used Pydantic uh um uh data evaluation for that. Now, what I'm going to do, guys? Next, I'm going to define the state. I'm going to define the same state I have taken here. Um This is my state. As you can see, topic, post, evaluation, feedback, iteration, max iteration, post history, and feedback history. So here I have added the reducer concept. So every time I'll try to add this two information of instead of replacing. And these are the things I think you already got it, right? Yeah. Mhm. Mhm. And why I've taken literal here? Because evaluation will only return two things, approved or need needs approvement, okay? These two category, that's why I've taken literal type instead of string. So now I will um I will um add my nodes. Let's define the graph and add the nodes. Yeah, so I have already defined the graph. You can see straight graph. I have given this post state here. Now I'll add the note. Add node. So how many nodes we're having? One, two, three. Okay? Three nodes we're having. We'll add these three nodes all together. Yeah, so these are three nodes, generate post, evaluate post, and optimize post. Okay? Generate, evaluate, and optimize. Now we'll write this function one by one. So first of all, we'll just try to write this generate post function note. So this is the function, guys. I've already written, as you can see. Uh generate post, it will take the state, and here is the prompt I have prepared. It's a detail prompt. I created with the help of ChatGPT. And here we're using the system message and human message function, whatever I have imported okay? So as you can see, this is the prompt. So system message I'm giving, you are a funny and clever Facebook in influencer. And human message, write a short, original, and hilarious Facebook post on the topic, whatever topic user will give. And here I have assigned some rules, do not use a question answer format, max maximum 500 characters, okay? And blah blah blah. These are the things I have added. Now after that, I'm just uh invoking my generator LLM, and whatever content I'm getting, I'm just updating the response inside the post, and post history I'm also updating because simultaneously update two things. One is the post, and this is the post history. Both I'll update, right? So, here it will replace every time. Here it will add every time because here we're using reducer concept. And we're returning this particular state. Okay, instead of returning whole state, we're only returning the state we're changing. So, this is all uh generate post uh nodes we have created. That means this node is complete. Now, let's try to add the evaluator one. Mm, generate is done. Now, we'll try to create the evaluator one. So, this is the evaluator one, guys. Again, um I named it as evaluate post and sending the state. And here is the prompt, guys, I have prepared. Again, I've given a system prompt. So, this is the system prompt I have given. Okay? Now, this is the human prompt. Evaluate the following Facebook post. Uh we have given the post from the state. And here are some criteria I have given. Based on that, it will try to evaluate, and it will return two things. One is the evaluation approved or need improvements. Another one is the feedback. Then we're uh invoking our structured evaluator LLM. That means this one. Okay? This one we're invoking. This one. Instead of uh this one because here we have added the Pydantic class for the structured output. See? And whatever evaluation result we're getting, we're sending uh saving to the evaluator state evaluation state. And feedback also uh I'm saving inside feedback. And I'm also saving the feedback history because feedback history should be also updated. Okay? Yeah. So, once it is done, uh we are also returning the state. Now, let's execute. Done. Now, we'll try to create the last one, which is optimized post. So, this is for the optimized post. Again, I'm passing the state. And here is the prompt. You are a punch a Facebook post or virality and humor based on the given feedback. Then here's the human prompt I have given. Improve the Facebook post based on this feedback. We are giving the feedback. We are giving the topic as well as the original post it uh my model has generated. Okay? So, based on the original post, based on the feedback, based on the topic, it will optimize that post, okay? And it will rewrite that particular post, and it will give it to you. For this, I'm hitting this optimizer LLM and getting the response. And we are updating the iteration here. See, here here we are updating the iteration like how many iteration it has to perform to give the final, or let's say, optimized version of the post. Okay, every time this loop will execute. And once, let's say, it found, okay, now this post is completely fine. That time it will approve. Otherwise, if this loop would be continuously running. And how many times it will run? For this, we are just logging this iteration. We are just adding one, okay? So, this iteration value I'll give initially one, okay? Whenever I'll create the initial state. And every time it will add the one, how many time it will execute, okay? After that, we are just returning the response. Okay, that means the final post. Then the iteration, okay? Then we are also saving this inside the post history. And we are returning the state. Done, guys, okay? Now, all of the nodes we have created successfully. Now, we have to define the edge connection. Now, let's do that. So, here I'll just try to comment. Add edges. So, first of all, here we have to add the edges for this um start to generate. Let's define. Start to generate. Then we have to define generate to evaluate. Generate to evaluate, okay? Now, here conditional edges will come because evaluate either it will send it to the approved, okay? It will uh directly uh to the approved, otherwise it will send it to the optimizer, right? Optimization. So, here we'll be using using the conditional edges. So, let's use the conditional edges here. So, here we're using conditional edges. So, it will start from evaluate and evaluate will decide where to send, uh whether it will approved or send it to the optimized. For this we have to write a conditional function. I think you remember for conditional statement we write a condition conditional function separately. So, this is the conditional function. So, it will take the state and here we are checking the condition if my evaluation, okay? That means I already saved this evaluation inside my state, right? You remember, right? Evaluation. And what is the evaluation? Approved or needs improvement, okay? So, here we are checking if the state is equal to state evaluation is equal to is equal to approved or state iteration is greater than equal state max iteration. That means if let's say it has performed maximum iteration. Let's say we have given a maximum iteration is equal to four. Let's say fourth time it has done the iteration and uh uh whenever it is running for the fifth time that time I think our condition is matching, right? Because my highest uh highest iteration is maximum iteration is four, but whenever it is going for five, that means this particular loop will break, right? So, that's how we are checking another condition if this iteration is equal to uh it is greater greater than equal to maximum iteration, that time just return approved, okay? Otherwise, return needs improvement. So, this will basically redirect this particular route, whether it will send it to the optimizer or for the approver. Now, we'll try to define this uh method here. Route evaluation. Route evaluation will write it here. Route evaluation, okay? Now, here we'll be adding the iteration, okay? This That means the iterative workflows right now. Now, what will happen? See, let's say this evaluator returns approved, that means this particular workflow will exit here because I got my final post. But, if it doesn't got the approve, let's say it it sends needs improvement, that time what will happen? It will send it to the optimizer, okay? It will send it to the optimizer node, and optimizer will optimize, then again it will send it to the evaluation. So, these kinds of things if you want to write, you have to give the statement. Inside conditional workflow only you have to write this. You have to write this additional line, see? Mhm, okay. Double comma I have given. Yeah. Now, I think you can get, see? Once this route evaluation returns approved, okay? That means it will end that particular workflow. But, if it return needs improvement, that time it will execute the optimize node. This optimize node. Okay, optimize node, see? It is redirecting from here. If it needs improvement, it will hit the optimize node. Otherwise, it will hit the end node. See, that is That is what we are doing. And this is called actually your iterative workflows. So, we Here we are adding the iteration. Okay, this is called actually iteration. I hope you got it, guys. You don't need to take any kinds of separate function for this inside conditional edges only you have to only write this statement. Okay? That means this route evaluation, if it is returned the approved, it will go to the end. Otherwise, if it returns needs improvement, it will um execute my optimize node. And how many time it will perform? Unless and until you are not getting approved, okay? Approved from my evaluator or this maximum iteration ends. Okay? I hope you got it. Now, our edge connection is also done. Now, simply what I'm going to do, I'm going to Um see, this connection is done. This connection and this connection is done. Uh optimize to uh evaluate. Huh. So, this connection is done. Now, we'll try to make this connection optimize to evaluate. So, let's say once it is in the optimize, so optimize will try to connect to the evaluator. That means optimize will send this optimization result to the evaluator. So, this connection will try to add. So, this is the connection. This is the connection, okay? Optimize to evaluator. Now, we'll try to compile. Okay? Now, we'll try we'll show you the workflow. So, see, this is the workflow. Now, this workflow and this workflow is exactly same. You can check it here, okay? Now, we'll try to execute this workflow. For this, let's uh define uh state. Let's say I have given the topic agentic AI. Let's say this is our topic and iteration initially I have set it I have set it to the one because after that it will every time update uh it will every time update one, okay? So, whenever it needs any kinds of improvement, optimization, it will add one, okay? That means the up iteration update. And this is our maximum iteration. I want to uh perform this iteration maximum five time, okay? If it is not found in five time, that means this loop will execute. Then, we are giving this uh initial state to my workflow and we are getting the result. Now, let me execute. Done. Now, if I show you my result. So, see, this is the result we're getting. Uh as you can see uh this is the topic and this is the post it has generated. Evaluation is uh okay, evaluation returned approved. See, at the first iteration it it got approved, okay? Then feedback. This is the feedback. And uh you can see iteration is one, that means it didn't update it any iteration, that means at the first time only it has approved. This is our maximum iteration and this is the post history and this is the feedback history. Okay? Now, maybe you can change to another topic. Let's say I'll give uh LLM. See, here we're using OpenAI LLM, right? That's why this LLM is very powerful. Uh at the very first time it is generating good post, okay? That's why it is getting approved, okay? In the first iteration only. Now, let me give any other topic or random topic and see the output. So, maybe okay. I'll give any random topic and let's see. Still uh at the first time only it is uh approving. Okay, it's completely fine. You can maybe try with different different topic, okay? And you will able to see that whenever it needs any kinds of improvement, okay? Um it will run this iteration and it will update, okay? And again it will send it to the optimizer. The reason uh it is giving you one shot uh approval because we're using this OpenAI uh GPT-4 or mini and this is uh like good model. Maybe you can use any weaker model, okay? Like more weaker model, more poor model. That time I think this loop will run, okay? Iteration will run. Because we're using good model, that's why we're getting the result at the very first time. Okay? I hope you got it. Now, if you want to see the post history separately, you can also just write a loop and from the result you can extract the post history and you can see all of the post history we are getting, okay? You can also see the feedback history. This is also possible. Okay, anything you can extract because you are getting all the object here, okay? So, yes, guys, that's how we can write this iterative workflows inside LangGraph and this is super useful. Trust me, whenever you will be implementing actual AI agents, so this concept you need. Okay? Without that you can't perform this continuous uh looping operation and you need to create a workflow. I need these kinds of looping. I need these kinds of conditional statement, parallel statement, okay? Each and everything is required. Now, we have understood the last of workflows inside LangGraph. Now, in the next video onward, guys, we'll try to start working on the project, okay? First of all, I'm going to show you how we can create a simple chatbot. Then we'll also try to learn some other concept like uh uh streaming memory, okay? How to connect the database with the uh LangGraph, okay? So, these are the things we'll try to learn because this is also required. So, after learning this, we'll try to create the actual uh agent AI application completely end to end. So, yes, guys, this is all about from this content and if you found it useful, please try to subscribe to my channel and hit the like. Uh I have given the entire playlist link in my description. From there you can check it out, guys. So, thanks for watching.",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.44,
+      "text": "Hi guys. My name is Bapi Ahmed and you"
+    },
+    {
+      "start": 3.04,
+      "end": 7.2,
+      "text": "are welcome to my YouTube channel."
+    },
+    {
+      "start": 5.44,
+      "end": 10.16,
+      "text": "So guys, in this video I'll be"
+    },
+    {
+      "start": 7.2,
+      "end": 12.32,
+      "text": "discussing about the last workflows"
+    },
+    {
+      "start": 10.16,
+      "end": 13.52,
+      "text": "inside LangGraph, which is iterative"
+    },
+    {
+      "start": 12.32,
+      "end": 16.240000000000002,
+      "text": "workflows."
+    },
+    {
+      "start": 13.52,
+      "end": 18.68,
+      "text": "So far I have discussed about sequential"
+    },
+    {
+      "start": 16.24,
+      "end": 20.88,
+      "text": "workflows, parallel workflows,"
+    },
+    {
+      "start": 18.68,
+      "end": 22.96,
+      "text": "conditional workflows, okay? Each and"
+    },
+    {
+      "start": 20.88,
+      "end": 24.799999999999997,
+      "text": "every thing I have already covered. If"
+    },
+    {
+      "start": 22.96,
+      "end": 27.240000000000002,
+      "text": "you haven't checked those videos, it is"
+    },
+    {
+      "start": 24.8,
+      "end": 29.6,
+      "text": "already available inside my playlist. I"
+    },
+    {
+      "start": 27.24,
+      "end": 31.56,
+      "text": "have given the link in the description."
+    },
+    {
+      "start": 29.6,
+      "end": 34.32,
+      "text": "From there you can check it out."
+    },
+    {
+      "start": 31.56,
+      "end": 36.16,
+      "text": "So this is going to be very important"
+    },
+    {
+      "start": 34.32,
+      "end": 37.84,
+      "text": "and interesting workflows guys inside"
+    },
+    {
+      "start": 36.16,
+      "end": 40.279999999999994,
+      "text": "LangGraph because with the help of"
+    },
+    {
+      "start": 37.84,
+      "end": 42.440000000000005,
+      "text": "iterative workflows you can perform the"
+    },
+    {
+      "start": 40.28,
+      "end": 44.64,
+      "text": "looping operation. So let's say whenever"
+    },
+    {
+      "start": 42.44,
+      "end": 47.879999999999995,
+      "text": "you are performing any task and if you"
+    },
+    {
+      "start": 44.64,
+      "end": 50.72,
+      "text": "feel like uh this task needs some more"
+    },
+    {
+      "start": 47.88,
+      "end": 52.64,
+      "text": "improvement, you can continuously"
+    },
+    {
+      "start": 50.72,
+      "end": 53.879999999999995,
+      "text": "actually perform the looping operation"
+    },
+    {
+      "start": 52.64,
+      "end": 56.04,
+      "text": "with the help of this iterative"
+    },
+    {
+      "start": 53.88,
+      "end": 59.2,
+      "text": "workflows. So we'll try to understand"
+    },
+    {
+      "start": 56.04,
+      "end": 61.56,
+      "text": "this one. So if you found my content"
+    },
+    {
+      "start": 59.2,
+      "end": 63.2,
+      "text": "useful guys and if you are really"
+    },
+    {
+      "start": 61.56,
+      "end": 65.60000000000001,
+      "text": "learning, okay, from this particular"
+    },
+    {
+      "start": 63.2,
+      "end": 67.36,
+      "text": "playlist, I would like to request you"
+    },
+    {
+      "start": 65.6,
+      "end": 69.67999999999999,
+      "text": "please try to subscribe to my channel"
+    },
+    {
+      "start": 67.36,
+      "end": 71.52,
+      "text": "and hit the like. And please try to"
+    },
+    {
+      "start": 69.68,
+      "end": 73.28,
+      "text": "share this with your friends and family."
+    },
+    {
+      "start": 71.52,
+      "end": 75.39999999999999,
+      "text": "So if you are supporting me guys, if you"
+    },
+    {
+      "start": 73.28,
+      "end": 77.16,
+      "text": "are supporting my channel, I'll be"
+    },
+    {
+      "start": 75.4,
+      "end": 80.28,
+      "text": "getting more motivation to bring these"
+    },
+    {
+      "start": 77.16,
+      "end": 81.56,
+      "text": "kinds of content. So if you"
+    },
+    {
+      "start": 80.28,
+      "end": 83.8,
+      "text": "see guys,"
+    },
+    {
+      "start": 81.56,
+      "end": 86.08,
+      "text": "here is the iterative workflows we'll be"
+    },
+    {
+      "start": 83.8,
+      "end": 87.92,
+      "text": "discussing about. So previously I"
+    },
+    {
+      "start": 86.08,
+      "end": 89.8,
+      "text": "already discussed about all the"
+    },
+    {
+      "start": 87.92,
+      "end": 93.2,
+      "text": "workflows um"
+    },
+    {
+      "start": 89.8,
+      "end": 95.0,
+      "text": "I told you about inside LangGraph. Like"
+    },
+    {
+      "start": 93.2,
+      "end": 98.48,
+      "text": "sequential workflows you have understood"
+    },
+    {
+      "start": 95.0,
+      "end": 100.88,
+      "text": "the LLM non-LLM based, okay? Then I have"
+    },
+    {
+      "start": 98.48,
+      "end": 102.64,
+      "text": "discussed about the parallel workflows."
+    },
+    {
+      "start": 100.88,
+      "end": 104.47999999999999,
+      "text": "Then I discussed about the conditional"
+    },
+    {
+      "start": 102.64,
+      "end": 106.88,
+      "text": "workflows, okay? Now we'll try to"
+    },
+    {
+      "start": 104.48,
+      "end": 109.92,
+      "text": "understand this iterative workflows."
+    },
+    {
+      "start": 106.88,
+      "end": 112.28,
+      "text": "So you can see this is the iterative"
+    },
+    {
+      "start": 109.92,
+      "end": 114.36,
+      "text": "workflows graph. I already created this"
+    },
+    {
+      "start": 112.28,
+      "end": 116.24,
+      "text": "particular graph. So guys, to make you"
+    },
+    {
+      "start": 114.36,
+      "end": 118.84,
+      "text": "understand this iterative workflows, I'm"
+    },
+    {
+      "start": 116.24,
+      "end": 121.36,
+      "text": "going to take one amazing example. I'm"
+    },
+    {
+      "start": 118.84,
+      "end": 122.52000000000001,
+      "text": "going to take Facebook post generation"
+    },
+    {
+      "start": 121.36,
+      "end": 124.88,
+      "text": "example."
+    },
+    {
+      "start": 122.52,
+      "end": 127.39999999999999,
+      "text": "So, what happens? Let's say I want to"
+    },
+    {
+      "start": 124.88,
+      "end": 128.96,
+      "text": "post anything on my Facebook. Let's say"
+    },
+    {
+      "start": 127.4,
+      "end": 131.72,
+      "text": "I want to post"
+    },
+    {
+      "start": 128.96,
+      "end": 134.28,
+      "text": "any kinds of tech-related content on my"
+    },
+    {
+      "start": 131.72,
+      "end": 136.35999999999999,
+      "text": "Facebook. So, nowadays actually what"
+    },
+    {
+      "start": 134.28,
+      "end": 139.28,
+      "text": "will happen? I'll be definitely using"
+    },
+    {
+      "start": 136.36,
+      "end": 141.88000000000002,
+      "text": "ChatGPT or any other large language"
+    },
+    {
+      "start": 139.28,
+      "end": 145.68,
+      "text": "model, let's say provider, and I'll try"
+    },
+    {
+      "start": 141.88,
+      "end": 148.04,
+      "text": "to generate that content, okay? And"
+    },
+    {
+      "start": 145.68,
+      "end": 149.959,
+      "text": "what I will do, I will"
+    },
+    {
+      "start": 148.04,
+      "end": 151.56,
+      "text": "copy that and I will post on my"
+    },
+    {
+      "start": 149.959,
+      "end": 153.88,
+      "text": "Facebook, okay?"
+    },
+    {
+      "start": 151.56,
+      "end": 155.6,
+      "text": "But it's not like that at the very first"
+    },
+    {
+      "start": 153.88,
+      "end": 157.6,
+      "text": "time you will be getting the perfect"
+    },
+    {
+      "start": 155.6,
+      "end": 160.51999999999998,
+      "text": "post, right? Let's say you have given a"
+    },
+    {
+      "start": 157.6,
+      "end": 163.0,
+      "text": "prompt and it has generated something"
+    },
+    {
+      "start": 160.52,
+      "end": 165.60000000000002,
+      "text": "for the first time, right? It's not like"
+    },
+    {
+      "start": 163.0,
+      "end": 168.84,
+      "text": "that that should be 100% perfect and"
+    },
+    {
+      "start": 165.6,
+      "end": 170.56,
+      "text": "optimized for for you, for your needs."
+    },
+    {
+      "start": 168.84,
+      "end": 171.68,
+      "text": "So, maybe you just need to do some"
+    },
+    {
+      "start": 170.56,
+      "end": 174.68,
+      "text": "little bit,"
+    },
+    {
+      "start": 171.68,
+      "end": 177.04000000000002,
+      "text": "let's say, change or you need some"
+    },
+    {
+      "start": 174.68,
+      "end": 178.64000000000001,
+      "text": "improvement, you need some optimization."
+    },
+    {
+      "start": 177.04,
+      "end": 180.64,
+      "text": "So, again, what you will do? You will"
+    },
+    {
+      "start": 178.64,
+      "end": 183.2,
+      "text": "You will send it to the LLM and you will"
+    },
+    {
+      "start": 180.64,
+      "end": 185.55999999999997,
+      "text": "try to tell, \"Okay, try to optimize it"
+    },
+    {
+      "start": 183.2,
+      "end": 187.04,
+      "text": "more, okay?\" So, once you have, let's"
+    },
+    {
+      "start": 185.56,
+      "end": 188.959,
+      "text": "say, optimized another one, again you'll"
+    },
+    {
+      "start": 187.04,
+      "end": 191.04,
+      "text": "try to review that, evaluate that. If it"
+    },
+    {
+      "start": 188.959,
+      "end": 192.959,
+      "text": "is perfect for you, then you will try to"
+    },
+    {
+      "start": 191.04,
+      "end": 194.72,
+      "text": "approve and you will post it over the"
+    },
+    {
+      "start": 192.959,
+      "end": 195.88,
+      "text": "Facebook, okay? Otherwise, you will"
+    },
+    {
+      "start": 194.72,
+      "end": 197.6,
+      "text": "again"
+    },
+    {
+      "start": 195.88,
+      "end": 200.07999999999998,
+      "text": "do the optimization, okay? So, that's"
+    },
+    {
+      "start": 197.6,
+      "end": 201.64,
+      "text": "how, let's say, we usually"
+    },
+    {
+      "start": 200.08,
+      "end": 204.28,
+      "text": "generate any kinds of content from the"
+    },
+    {
+      "start": 201.64,
+      "end": 206.55999999999997,
+      "text": "LLM, right? So, why not we can create a"
+    },
+    {
+      "start": 204.28,
+      "end": 209.6,
+      "text": "automatic workflow? So, this workflow"
+    },
+    {
+      "start": 206.56,
+      "end": 211.44,
+      "text": "will automatically generate, let's say,"
+    },
+    {
+      "start": 209.6,
+      "end": 213.76,
+      "text": "Facebook content"
+    },
+    {
+      "start": 211.44,
+      "end": 215.35999999999999,
+      "text": "based on the topic you have provided."
+    },
+    {
+      "start": 213.76,
+      "end": 217.32,
+      "text": "Then after that, it will automatically"
+    },
+    {
+      "start": 215.36,
+      "end": 219.8,
+      "text": "evaluate that whether this content is"
+    },
+    {
+      "start": 217.32,
+      "end": 221.519,
+      "text": "perfect or not, okay? Let's say, after"
+    },
+    {
+      "start": 219.8,
+      "end": 223.8,
+      "text": "doing the evaluation, it found, \"Okay,"
+    },
+    {
+      "start": 221.519,
+      "end": 226.16,
+      "text": "this is useful, this is fine.\" Then it"
+    },
+    {
+      "start": 223.8,
+      "end": 228.4,
+      "text": "will approve. Then you can post over the"
+    },
+    {
+      "start": 226.16,
+      "end": 230.84,
+      "text": "Facebook. Otherwise, it will send it to"
+    },
+    {
+      "start": 228.4,
+      "end": 232.84,
+      "text": "send it to the another, let's say, nodes"
+    },
+    {
+      "start": 230.84,
+      "end": 235.44,
+      "text": "and that nodes will try to"
+    },
+    {
+      "start": 232.84,
+      "end": 237.36,
+      "text": "do the optimization, okay? Optimization"
+    },
+    {
+      "start": 235.44,
+      "end": 239.0,
+      "text": "it will optimize"
+    },
+    {
+      "start": 237.36,
+      "end": 241.24,
+      "text": "like"
+    },
+    {
+      "start": 239.0,
+      "end": 242.32,
+      "text": "it will do some improvement. Then after"
+    },
+    {
+      "start": 241.24,
+      "end": 243.64000000000001,
+      "text": "that"
+    },
+    {
+      "start": 242.32,
+      "end": 245.48,
+      "text": "again it will try to send it to the"
+    },
+    {
+      "start": 243.64,
+      "end": 248.44,
+      "text": "evaluator, okay? Evaluator will again"
+    },
+    {
+      "start": 245.48,
+      "end": 249.92,
+      "text": "evaluate that. If found let's say this"
+    },
+    {
+      "start": 248.44,
+      "end": 251.56,
+      "text": "content is fine then it will approve"
+    },
+    {
+      "start": 249.92,
+      "end": 253.48,
+      "text": "otherwise again it will try to send it"
+    },
+    {
+      "start": 251.56,
+      "end": 255.959,
+      "text": "to the optima optimizer."
+    },
+    {
+      "start": 253.48,
+      "end": 257.64,
+      "text": "Then optimizer again it will optimize"
+    },
+    {
+      "start": 255.959,
+      "end": 258.72,
+      "text": "the content and it will again send it"
+    },
+    {
+      "start": 257.64,
+      "end": 260.88,
+      "text": "for the"
+    },
+    {
+      "start": 258.72,
+      "end": 262.32000000000005,
+      "text": "evaluation, okay? So that's how this"
+    },
+    {
+      "start": 260.88,
+      "end": 264.71999999999997,
+      "text": "kind of this particular loop will"
+    },
+    {
+      "start": 262.32,
+      "end": 266.52,
+      "text": "continuously run unless and until this"
+    },
+    {
+      "start": 264.72,
+      "end": 268.76000000000005,
+      "text": "content is approved, okay? So this is"
+    },
+    {
+      "start": 266.52,
+      "end": 271.08,
+      "text": "called actually iterative workflows."
+    },
+    {
+      "start": 268.76,
+      "end": 272.52,
+      "text": "So to make iterative workflows guys we"
+    },
+    {
+      "start": 271.08,
+      "end": 274.35999999999996,
+      "text": "are using"
+    },
+    {
+      "start": 272.52,
+      "end": 277.28,
+      "text": "conditional workflows as well as you can"
+    },
+    {
+      "start": 274.36,
+      "end": 279.32,
+      "text": "see because here is the condition. If"
+    },
+    {
+      "start": 277.28,
+      "end": 281.08,
+      "text": "this content is completely fine after"
+    },
+    {
+      "start": 279.32,
+      "end": 283.12,
+      "text": "doing the evaluation it will approved,"
+    },
+    {
+      "start": 281.08,
+      "end": 285.32,
+      "text": "okay? Otherwise it will send it to the"
+    },
+    {
+      "start": 283.12,
+      "end": 287.52,
+      "text": "optimizer and optimizer will"
+    },
+    {
+      "start": 285.32,
+      "end": 289.68,
+      "text": "like do the improvement and it will"
+    },
+    {
+      "start": 287.52,
+      "end": 291.919,
+      "text": "again send it to evaluator, okay? So"
+    },
+    {
+      "start": 289.68,
+      "end": 293.2,
+      "text": "here is the looping concept and this"
+    },
+    {
+      "start": 291.919,
+      "end": 295.24,
+      "text": "looping concept we call it as a"
+    },
+    {
+      "start": 293.2,
+      "end": 296.64,
+      "text": "iterative workflows inside LangGraph."
+    },
+    {
+      "start": 295.24,
+      "end": 298.08,
+      "text": "Now we'll try to implement this"
+    },
+    {
+      "start": 296.64,
+      "end": 300.88,
+      "text": "particular workflows, okay? Inside"
+    },
+    {
+      "start": 298.08,
+      "end": 302.8,
+      "text": "LangGraph. And for this whatever"
+    },
+    {
+      "start": 300.88,
+      "end": 304.76,
+      "text": "state I need guys I already prepared the"
+    },
+    {
+      "start": 302.8,
+      "end": 306.96000000000004,
+      "text": "state as you can see this is the state."
+    },
+    {
+      "start": 304.76,
+      "end": 308.76,
+      "text": "I named it as post state and I inherited"
+    },
+    {
+      "start": 306.96,
+      "end": 310.23999999999995,
+      "text": "with the type dict."
+    },
+    {
+      "start": 308.76,
+      "end": 312.76,
+      "text": "So first of all I have taken a variable"
+    },
+    {
+      "start": 310.24,
+      "end": 315.36,
+      "text": "called topic. So user will pass a topic,"
+    },
+    {
+      "start": 312.76,
+      "end": 317.44,
+      "text": "okay? For post generation, let's say I"
+    },
+    {
+      "start": 315.36,
+      "end": 319.72,
+      "text": "have given a topic related let's say"
+    },
+    {
+      "start": 317.44,
+      "end": 323.08,
+      "text": "agentic AI. So it will generate some"
+    },
+    {
+      "start": 319.72,
+      "end": 325.28000000000003,
+      "text": "kind of post related AI, okay? So"
+    },
+    {
+      "start": 323.08,
+      "end": 327.76,
+      "text": "let's say I'll send it to the generate"
+    },
+    {
+      "start": 325.28,
+      "end": 329.71999999999997,
+      "text": "LLM, right? Here we'll be using a LLM."
+    },
+    {
+      "start": 327.76,
+      "end": 331.88,
+      "text": "Then this"
+    },
+    {
+      "start": 329.72,
+      "end": 334.08000000000004,
+      "text": "this LLM or let's say this node will"
+    },
+    {
+      "start": 331.88,
+      "end": 335.64,
+      "text": "generate the post, okay? Let's say this"
+    },
+    {
+      "start": 334.08,
+      "end": 336.96,
+      "text": "post I'm going to save inside this post"
+    },
+    {
+      "start": 335.64,
+      "end": 338.68,
+      "text": "variable and this is also going to be"
+    },
+    {
+      "start": 336.96,
+      "end": 340.03999999999996,
+      "text": "string type data."
+    },
+    {
+      "start": 338.68,
+      "end": 342.12,
+      "text": "Then after that we'll try to send it to"
+    },
+    {
+      "start": 340.04,
+      "end": 344.16,
+      "text": "the evaluator. Evaluator will also use a"
+    },
+    {
+      "start": 342.12,
+      "end": 346.52,
+      "text": "LLM, right? Large language model and it"
+    },
+    {
+      "start": 344.16,
+      "end": 348.56,
+      "text": "will evaluate that particular result and"
+    },
+    {
+      "start": 346.52,
+      "end": 350.59999999999997,
+      "text": "it will send two things. One is the"
+    },
+    {
+      "start": 348.56,
+      "end": 352.84,
+      "text": "approved, another is the needs"
+    },
+    {
+      "start": 350.6,
+      "end": 355.20000000000005,
+      "text": "improvement. Okay, if it is sending"
+    },
+    {
+      "start": 352.84,
+      "end": 357.08,
+      "text": "returning approved, that that means this"
+    },
+    {
+      "start": 355.2,
+      "end": 359.2,
+      "text": "post is completely fine. We can directly"
+    },
+    {
+      "start": 357.08,
+      "end": 360.76,
+      "text": "approve that. And if it is sending needs"
+    },
+    {
+      "start": 359.2,
+      "end": 363.56,
+      "text": "improvement, okay, that time we'll try"
+    },
+    {
+      "start": 360.76,
+      "end": 364.88,
+      "text": "to send it to the optimizer. Okay? And"
+    },
+    {
+      "start": 363.56,
+      "end": 366.8,
+      "text": "it will also give you some kinds of"
+    },
+    {
+      "start": 364.88,
+      "end": 368.68,
+      "text": "feedback. Okay, let's say what should be"
+    },
+    {
+      "start": 366.8,
+      "end": 370.36,
+      "text": "the improvement. It will also send it to"
+    },
+    {
+      "start": 368.68,
+      "end": 372.16,
+      "text": "the optimizer. This feedback will try to"
+    },
+    {
+      "start": 370.36,
+      "end": 373.24,
+      "text": "save inside this particular"
+    },
+    {
+      "start": 372.16,
+      "end": 374.68,
+      "text": "variable."
+    },
+    {
+      "start": 373.24,
+      "end": 377.28000000000003,
+      "text": "Then"
+    },
+    {
+      "start": 374.68,
+      "end": 379.40000000000003,
+      "text": "we'll also try to see the iteration."
+    },
+    {
+      "start": 377.28,
+      "end": 382.47999999999996,
+      "text": "Iteration means let's say it has given"
+    },
+    {
+      "start": 379.4,
+      "end": 383.76,
+      "text": "this content to the evaluator. Evaluator"
+    },
+    {
+      "start": 382.48,
+      "end": 385.36,
+      "text": "tells, okay,"
+    },
+    {
+      "start": 383.76,
+      "end": 387.52,
+      "text": "this needs the improvement. Again, it"
+    },
+    {
+      "start": 385.36,
+      "end": 390.40000000000003,
+      "text": "will send it to the optimizer. Optimizer"
+    },
+    {
+      "start": 387.52,
+      "end": 392.35999999999996,
+      "text": "will try to again generate a new"
+    },
+    {
+      "start": 390.4,
+      "end": 393.88,
+      "text": "or let's say optimize that particular"
+    },
+    {
+      "start": 392.36,
+      "end": 395.91900000000004,
+      "text": "post. And it will again send it to the"
+    },
+    {
+      "start": 393.88,
+      "end": 398.24,
+      "text": "evaluator. That means one iteration is"
+    },
+    {
+      "start": 395.919,
+      "end": 399.88,
+      "text": "done. Then again, evaluator will try to"
+    },
+    {
+      "start": 398.24,
+      "end": 402.12,
+      "text": "check that. Again, let's say it will"
+    },
+    {
+      "start": 399.88,
+      "end": 404.0,
+      "text": "tell it needs the improvement. Again, it"
+    },
+    {
+      "start": 402.12,
+      "end": 405.52,
+      "text": "will try to send it to the optimizer."
+    },
+    {
+      "start": 404.0,
+      "end": 407.0,
+      "text": "Optimizer again it will improve that"
+    },
+    {
+      "start": 405.52,
+      "end": 409.08,
+      "text": "again it will send it to the evaluator."
+    },
+    {
+      "start": 407.0,
+      "end": 411.28,
+      "text": "That that means iteration goes two. That"
+    },
+    {
+      "start": 409.08,
+      "end": 412.52,
+      "text": "means how many loop it is performing"
+    },
+    {
+      "start": 411.28,
+      "end": 414.52,
+      "text": "will try to log that particular"
+    },
+    {
+      "start": 412.52,
+      "end": 417.0,
+      "text": "information in this iteration variable."
+    },
+    {
+      "start": 414.52,
+      "end": 419.24,
+      "text": "Okay? And here we'll also set a maximum"
+    },
+    {
+      "start": 417.0,
+      "end": 421.04,
+      "text": "iteration. Let's say"
+    },
+    {
+      "start": 419.24,
+      "end": 422.8,
+      "text": "if you don't set this maximum iteration,"
+    },
+    {
+      "start": 421.04,
+      "end": 425.52000000000004,
+      "text": "what what is the possibility? Let's say"
+    },
+    {
+      "start": 422.8,
+      "end": 427.6,
+      "text": "if you're using any very poor language"
+    },
+    {
+      "start": 425.52,
+      "end": 429.76,
+      "text": "model, that time let's say every time"
+    },
+    {
+      "start": 427.6,
+      "end": 432.36,
+      "text": "whatever content it will generate, maybe"
+    },
+    {
+      "start": 429.76,
+      "end": 434.64,
+      "text": "your evaluator will not evaluate that or"
+    },
+    {
+      "start": 432.36,
+      "end": 435.91900000000004,
+      "text": "let's say approve that. That time this"
+    },
+    {
+      "start": 434.64,
+      "end": 437.88,
+      "text": "particular loop will continuously"
+    },
+    {
+      "start": 435.919,
+      "end": 440.0,
+      "text": "running. Okay, we'll not get any final"
+    },
+    {
+      "start": 437.88,
+      "end": 442.12,
+      "text": "result. That's why we'll set a maximum"
+    },
+    {
+      "start": 440.0,
+      "end": 444.88,
+      "text": "iteration. Let's say four to five. So"
+    },
+    {
+      "start": 442.12,
+      "end": 446.64,
+      "text": "after four or five let's say iteration,"
+    },
+    {
+      "start": 444.88,
+      "end": 448.71999999999997,
+      "text": "this particular loop will break and"
+    },
+    {
+      "start": 446.64,
+      "end": 450.59999999999997,
+      "text": "whatever content we got after four or"
+    },
+    {
+      "start": 448.72,
+      "end": 452.36,
+      "text": "five iteration, that I will try to make"
+    },
+    {
+      "start": 450.6,
+      "end": 454.91900000000004,
+      "text": "it as final post. Okay, that's why this"
+    },
+    {
+      "start": 452.36,
+      "end": 456.68,
+      "text": "maximum iteration we'll also set. Then"
+    },
+    {
+      "start": 454.919,
+      "end": 458.71999999999997,
+      "text": "whatever let's say post we are"
+    },
+    {
+      "start": 456.68,
+      "end": 460.52,
+      "text": "generating, whatever"
+    },
+    {
+      "start": 458.72,
+      "end": 463.0,
+      "text": "feedback we are getting, okay, from this"
+    },
+    {
+      "start": 460.52,
+      "end": 464.71999999999997,
+      "text": "evaluator, we'll also try to save inside"
+    },
+    {
+      "start": 463.0,
+      "end": 466.96,
+      "text": "this particular variable as a history."
+    },
+    {
+      "start": 464.72,
+      "end": 468.68,
+      "text": "That's why you made it as post history"
+    },
+    {
+      "start": 466.96,
+      "end": 470.91999999999996,
+      "text": "and feedback history. That means it will"
+    },
+    {
+      "start": 468.68,
+      "end": 472.68,
+      "text": "continuously add. Okay, it will not"
+    },
+    {
+      "start": 470.92,
+      "end": 474.44,
+      "text": "replace. It will continuously add. So,"
+    },
+    {
+      "start": 472.68,
+      "end": 475.92,
+      "text": "that's why we'll be using reducer"
+    },
+    {
+      "start": 474.44,
+      "end": 477.48,
+      "text": "concept. I think you know what is"
+    },
+    {
+      "start": 475.92,
+      "end": 479.56,
+      "text": "reducer inside LangGraph. You can see"
+    },
+    {
+      "start": 477.48,
+      "end": 482.48,
+      "text": "we're using annotated. We are we have"
+    },
+    {
+      "start": 479.56,
+      "end": 484.08,
+      "text": "taken a list type data structure."
+    },
+    {
+      "start": 482.48,
+      "end": 486.6,
+      "text": "And we're using operation.add. That"
+    },
+    {
+      "start": 484.08,
+      "end": 488.76,
+      "text": "means every time it will add the post"
+    },
+    {
+      "start": 486.6,
+      "end": 490.64000000000004,
+      "text": "history and feedback history instead of"
+    },
+    {
+      "start": 488.76,
+      "end": 492.08,
+      "text": "replacing. But here we are we haven't"
+    },
+    {
+      "start": 490.64,
+      "end": 494.08,
+      "text": "taken any kinds of reducer. It will"
+    },
+    {
+      "start": 492.08,
+      "end": 497.71999999999997,
+      "text": "continuously replace here. Okay, I hope"
+    },
+    {
+      "start": 494.08,
+      "end": 499.96,
+      "text": "you got it. Then let's say once this"
+    },
+    {
+      "start": 497.72,
+      "end": 502.24,
+      "text": "improvement is done, evaluator will"
+    },
+    {
+      "start": 499.96,
+      "end": 503.88,
+      "text": "let's say found this is useful or this"
+    },
+    {
+      "start": 502.24,
+      "end": 505.64,
+      "text": "is completely fine. That time this would"
+    },
+    {
+      "start": 503.88,
+      "end": 507.6,
+      "text": "be approved and this loop would be"
+    },
+    {
+      "start": 505.64,
+      "end": 509.71999999999997,
+      "text": "break. Okay, so this is what actually"
+    },
+    {
+      "start": 507.6,
+      "end": 511.84000000000003,
+      "text": "iterative workflows. Now we'll try to"
+    },
+    {
+      "start": 509.72,
+      "end": 513.44,
+      "text": "we'll try to code inside LangGraph. Then"
+    },
+    {
+      "start": 511.84,
+      "end": 515.76,
+      "text": "we'll try to understand the whole"
+    },
+    {
+      "start": 513.44,
+      "end": 517.9190000000001,
+      "text": "concept. Okay, now for this what I'm"
+    },
+    {
+      "start": 515.76,
+      "end": 521.0,
+      "text": "going to do guys, I'm going to simply"
+    },
+    {
+      "start": 517.919,
+      "end": 523.4789999999999,
+      "text": "open up this iterative workflows.ipynb"
+    },
+    {
+      "start": 521.0,
+      "end": 525.64,
+      "text": "file and let's select our kernel."
+    },
+    {
+      "start": 523.479,
+      "end": 527.12,
+      "text": "So, first of all, we have to import the"
+    },
+    {
+      "start": 525.64,
+      "end": 530.04,
+      "text": "necessary library."
+    },
+    {
+      "start": 527.12,
+      "end": 530.04,
+      "text": "So, let's import."
+    },
+    {
+      "start": 531.16,
+      "end": 534.6,
+      "text": "So, I'll import all of the necessary"
+    },
+    {
+      "start": 533.04,
+      "end": 537.52,
+      "text": "library. So, you can see I'm I'm"
+    },
+    {
+      "start": 534.6,
+      "end": 539.5600000000001,
+      "text": "importing the state graph start and then"
+    },
+    {
+      "start": 537.52,
+      "end": 542.64,
+      "text": "from typing I'm importing"
+    },
+    {
+      "start": 539.56,
+      "end": 544.8389999999999,
+      "text": "type dict, literal and annotated. Then"
+    },
+    {
+      "start": 542.64,
+      "end": 546.56,
+      "text": "I'm using chat open AI. That means I'll"
+    },
+    {
+      "start": 544.839,
+      "end": 547.839,
+      "text": "be using open AI large language model."
+    },
+    {
+      "start": 546.56,
+      "end": 550.3199999999999,
+      "text": "You can use any kinds of large language"
+    },
+    {
+      "start": 547.839,
+      "end": 553.0400000000001,
+      "text": "model. For this I have one.ipynb file"
+    },
+    {
+      "start": 550.32,
+      "end": 555.2,
+      "text": "and I set my open AI key here already."
+    },
+    {
+      "start": 553.04,
+      "end": 557.12,
+      "text": "Then I'm importing the system message"
+    },
+    {
+      "start": 555.2,
+      "end": 558.5600000000001,
+      "text": "and human message. Okay, where we're"
+    },
+    {
+      "start": 557.12,
+      "end": 559.839,
+      "text": "importing the system message and human"
+    },
+    {
+      "start": 558.56,
+      "end": 562.4,
+      "text": "message because I want to give the"
+    },
+    {
+      "start": 559.839,
+      "end": 564.6400000000001,
+      "text": "prompt for each and every LLM. So, you"
+    },
+    {
+      "start": 562.4,
+      "end": 566.48,
+      "text": "can see here we'll be using the LLM."
+    },
+    {
+      "start": 564.64,
+      "end": 567.92,
+      "text": "Here also we'll be using the LLM. For"
+    },
+    {
+      "start": 566.48,
+      "end": 570.52,
+      "text": "optimization also we'll be using the"
+    },
+    {
+      "start": 567.92,
+      "end": 571.76,
+      "text": "LLM. Okay, and every LLM I'll try to set"
+    },
+    {
+      "start": 570.52,
+      "end": 574.0799999999999,
+      "text": "a different different prompt. Let's say"
+    },
+    {
+      "start": 571.76,
+      "end": 575.8389999999999,
+      "text": "for generation one I will set"
+    },
+    {
+      "start": 574.08,
+      "end": 577.72,
+      "text": "a generation related prompt. For"
+    },
+    {
+      "start": 575.839,
+      "end": 579.48,
+      "text": "evaluator I'll set evaluation related"
+    },
+    {
+      "start": 577.72,
+      "end": 581.36,
+      "text": "prompt. For optimization, I'll set"
+    },
+    {
+      "start": 579.48,
+      "end": 582.9200000000001,
+      "text": "optimization related prompt, okay? So,"
+    },
+    {
+      "start": 581.36,
+      "end": 585.04,
+      "text": "you can directly give the prompt as"
+    },
+    {
+      "start": 582.92,
+      "end": 586.8,
+      "text": "well, but it is recommended to use this"
+    },
+    {
+      "start": 585.04,
+      "end": 588.16,
+      "text": "system message and human message"
+    },
+    {
+      "start": 586.8,
+      "end": 589.3599999999999,
+      "text": "function whenever you're giving the"
+    },
+    {
+      "start": 588.16,
+      "end": 591.4,
+      "text": "prompt, okay? This should be more"
+    },
+    {
+      "start": 589.36,
+      "end": 593.24,
+      "text": "optimized one. Then operator I need"
+    },
+    {
+      "start": 591.4,
+      "end": 595.0,
+      "text": "because I want to perform the reducer, I"
+    },
+    {
+      "start": 593.24,
+      "end": 599.2,
+      "text": "have to do the adding operation, then"
+    },
+    {
+      "start": 595.0,
+      "end": 599.2,
+      "text": ".env. So, let's import all of them."
+    },
+    {
+      "start": 602.32,
+      "end": 605.1600000000001,
+      "text": "So, as you can see, execution is"
+    },
+    {
+      "start": 603.68,
+      "end": 606.7199999999999,
+      "text": "complete now."
+    },
+    {
+      "start": 605.16,
+      "end": 609.68,
+      "text": "We'll load our"
+    },
+    {
+      "start": 606.72,
+      "end": 612.12,
+      "text": "environment variable."
+    },
+    {
+      "start": 609.68,
+      "end": 616.5999999999999,
+      "text": "Now, uh we'll define all the large"
+    },
+    {
+      "start": 612.12,
+      "end": 616.6,
+      "text": "language model. So, here you can see"
+    },
+    {
+      "start": 617.36,
+      "end": 622.36,
+      "text": "um yeah. So, I need uh three large"
+    },
+    {
+      "start": 620.72,
+      "end": 624.2,
+      "text": "language model. One is for generation,"
+    },
+    {
+      "start": 622.36,
+      "end": 626.28,
+      "text": "one is for evaluator, one is for"
+    },
+    {
+      "start": 624.2,
+      "end": 629.72,
+      "text": "optimization, okay? So, what I'm going"
+    },
+    {
+      "start": 626.28,
+      "end": 632.28,
+      "text": "to do, I'm going to make three object"
+    },
+    {
+      "start": 629.72,
+      "end": 633.88,
+      "text": "for three large language model."
+    },
+    {
+      "start": 632.28,
+      "end": 635.8399999999999,
+      "text": "Uh see, I'm going to use the same model"
+    },
+    {
+      "start": 633.88,
+      "end": 637.8,
+      "text": "only, but I'm going to create uh three"
+    },
+    {
+      "start": 635.84,
+      "end": 639.6800000000001,
+      "text": "object, okay? Because here I told you"
+    },
+    {
+      "start": 637.8,
+      "end": 641.7199999999999,
+      "text": "we'll be using three no three nodes,"
+    },
+    {
+      "start": 639.68,
+      "end": 643.7199999999999,
+      "text": "okay? Differently. So, whenever you're"
+    },
+    {
+      "start": 641.72,
+      "end": 646.2,
+      "text": "creating these kinds of project uh let's"
+    },
+    {
+      "start": 643.72,
+      "end": 648.24,
+      "text": "say uh in real time, actual real"
+    },
+    {
+      "start": 646.2,
+      "end": 649.6800000000001,
+      "text": "project, that time you have to select"
+    },
+    {
+      "start": 648.24,
+      "end": 652.6800000000001,
+      "text": "this large language model in a such a"
+    },
+    {
+      "start": 649.68,
+      "end": 654.8389999999999,
+      "text": "way, so let's say whatever model is very"
+    },
+    {
+      "start": 652.68,
+      "end": 656.5999999999999,
+      "text": "good for generation, that time you can"
+    },
+    {
+      "start": 654.839,
+      "end": 658.4000000000001,
+      "text": "use that particular model. Let's say"
+    },
+    {
+      "start": 656.6,
+      "end": 660.48,
+      "text": "some model is very much uh good for"
+    },
+    {
+      "start": 658.4,
+      "end": 661.92,
+      "text": "evaluation, that time you can take that"
+    },
+    {
+      "start": 660.48,
+      "end": 664.44,
+      "text": "particular model. Let's say some model"
+    },
+    {
+      "start": 661.92,
+      "end": 665.68,
+      "text": "is uh very much good for optimization,"
+    },
+    {
+      "start": 664.44,
+      "end": 667.1600000000001,
+      "text": "you can take that particular model,"
+    },
+    {
+      "start": 665.68,
+      "end": 669.8,
+      "text": "okay? So, that's how we have to select"
+    },
+    {
+      "start": 667.16,
+      "end": 671.48,
+      "text": "in real time, but right now we're only"
+    },
+    {
+      "start": 669.8,
+      "end": 673.0,
+      "text": "understanding the example, that's why"
+    },
+    {
+      "start": 671.48,
+      "end": 674.88,
+      "text": "I've taken the same model, but I created"
+    },
+    {
+      "start": 673.0,
+      "end": 676.72,
+      "text": "three object, okay? One is for"
+    },
+    {
+      "start": 674.88,
+      "end": 678.88,
+      "text": "generator, evaluator, and optimizer."
+    },
+    {
+      "start": 676.72,
+      "end": 683.0400000000001,
+      "text": "Generator, evaluator, and optimizer."
+    },
+    {
+      "start": 678.88,
+      "end": 684.64,
+      "text": "Done? Now, next uh I'm going to"
+    },
+    {
+      "start": 683.04,
+      "end": 686.0799999999999,
+      "text": "uh I'm going to"
+    },
+    {
+      "start": 684.64,
+      "end": 688.04,
+      "text": "define the state, but before defining"
+    },
+    {
+      "start": 686.08,
+      "end": 689.2,
+      "text": "the state, I already told you"
+    },
+    {
+      "start": 688.04,
+      "end": 692.36,
+      "text": "uh here"
+    },
+    {
+      "start": 689.2,
+      "end": 694.12,
+      "text": "see, this evaluator this evaluator nodes"
+    },
+    {
+      "start": 692.36,
+      "end": 695.6,
+      "text": "will return you"
+    },
+    {
+      "start": 694.12,
+      "end": 696.72,
+      "text": "two things, okay?"
+    },
+    {
+      "start": 695.6,
+      "end": 699.48,
+      "text": "One is the"
+    },
+    {
+      "start": 696.72,
+      "end": 702.2,
+      "text": "evaluation, okay? Evaluation, uh that"
+    },
+    {
+      "start": 699.48,
+      "end": 703.88,
+      "text": "means it should be approved or"
+    },
+    {
+      "start": 702.2,
+      "end": 704.88,
+      "text": "needs improvement, okay? These two"
+    },
+    {
+      "start": 703.88,
+      "end": 707.28,
+      "text": "things."
+    },
+    {
+      "start": 704.88,
+      "end": 708.56,
+      "text": "And another one is the feedback, okay?"
+    },
+    {
+      "start": 707.28,
+      "end": 710.1999999999999,
+      "text": "What should be the feedback for the"
+    },
+    {
+      "start": 708.56,
+      "end": 711.92,
+      "text": "optimization, right? So, it will"
+    },
+    {
+      "start": 710.2,
+      "end": 714.32,
+      "text": "generate two things."
+    },
+    {
+      "start": 711.92,
+      "end": 715.9599999999999,
+      "text": "I don't need anything anything else"
+    },
+    {
+      "start": 714.32,
+      "end": 717.88,
+      "text": "apart from these two two things. One is"
+    },
+    {
+      "start": 715.96,
+      "end": 719.8000000000001,
+      "text": "the evaluation and another one is the"
+    },
+    {
+      "start": 717.88,
+      "end": 721.4,
+      "text": "feedback. So, if I want to get this kind"
+    },
+    {
+      "start": 719.8,
+      "end": 722.8,
+      "text": "of structured output, what I have to do,"
+    },
+    {
+      "start": 721.4,
+      "end": 724.84,
+      "text": "I have to use the Pydantic. I already"
+    },
+    {
+      "start": 722.8,
+      "end": 727.4,
+      "text": "told you. Previously, also uh"
+    },
+    {
+      "start": 724.84,
+      "end": 728.76,
+      "text": "I have also taken the same example. So,"
+    },
+    {
+      "start": 727.4,
+      "end": 731.0799999999999,
+      "text": "what I'm going to do, guys, I'm going to"
+    },
+    {
+      "start": 728.76,
+      "end": 733.3199999999999,
+      "text": "just create a"
+    },
+    {
+      "start": 731.08,
+      "end": 735.1600000000001,
+      "text": "um Pydantic class. As you can see, I"
+    },
+    {
+      "start": 733.32,
+      "end": 737.36,
+      "text": "have created a Pydantic class."
+    },
+    {
+      "start": 735.16,
+      "end": 738.7199999999999,
+      "text": "So, here uh I have named it as post"
+    },
+    {
+      "start": 737.36,
+      "end": 741.4,
+      "text": "evaluation. I'm inheriting with the"
+    },
+    {
+      "start": 738.72,
+      "end": 743.32,
+      "text": "Pydantic base model. And two things I"
+    },
+    {
+      "start": 741.4,
+      "end": 745.12,
+      "text": "have taken, evaluation and feedback. So,"
+    },
+    {
+      "start": 743.32,
+      "end": 747.1600000000001,
+      "text": "in evaluation, you can see this is the"
+    },
+    {
+      "start": 745.12,
+      "end": 749.4,
+      "text": "literal type. It should be approved or"
+    },
+    {
+      "start": 747.16,
+      "end": 751.24,
+      "text": "need needs approved, okay? Needs"
+    },
+    {
+      "start": 749.4,
+      "end": 752.72,
+      "text": "improvement. And another one is the"
+    },
+    {
+      "start": 751.24,
+      "end": 754.32,
+      "text": "feedback, that means it will generate"
+    },
+    {
+      "start": 752.72,
+      "end": 756.8000000000001,
+      "text": "some kinds of feedback for Facebook"
+    },
+    {
+      "start": 754.32,
+      "end": 760.4000000000001,
+      "text": "post. That means if I now pass this"
+    },
+    {
+      "start": 756.8,
+      "end": 763.4799999999999,
+      "text": "thing to the uh model, that means if I"
+    },
+    {
+      "start": 760.4,
+      "end": 765.56,
+      "text": "add this line, uh evaluator LLM with"
+    },
+    {
+      "start": 763.48,
+      "end": 767.72,
+      "text": "structured output, and if I pass this"
+    },
+    {
+      "start": 765.56,
+      "end": 769.5999999999999,
+      "text": "class, this model will try to generate"
+    },
+    {
+      "start": 767.72,
+      "end": 771.48,
+      "text": "the structured output now. So, it will"
+    },
+    {
+      "start": 769.6,
+      "end": 772.88,
+      "text": "only give you evaluation and feedback,"
+    },
+    {
+      "start": 771.48,
+      "end": 774.64,
+      "text": "not anything else, okay? Now, let me"
+    },
+    {
+      "start": 772.88,
+      "end": 777.64,
+      "text": "show you."
+    },
+    {
+      "start": 774.64,
+      "end": 779.56,
+      "text": "So, let's say I have defined this one."
+    },
+    {
+      "start": 777.64,
+      "end": 781.24,
+      "text": "Now, here"
+    },
+    {
+      "start": 779.56,
+      "end": 784.76,
+      "text": "I'm going to just generate a Facebook"
+    },
+    {
+      "start": 781.24,
+      "end": 784.76,
+      "text": "post from my ChatGPT."
+    },
+    {
+      "start": 795.0,
+      "end": 798.0,
+      "text": "Facebook post"
+    },
+    {
+      "start": 799.92,
+      "end": 802.64,
+      "text": "about"
+    },
+    {
+      "start": 806.88,
+      "end": 809.92,
+      "text": "agentic AI."
+    },
+    {
+      "start": 814.56,
+      "end": 817.88,
+      "text": "Okay, I'll copy this."
+    },
+    {
+      "start": 816.68,
+      "end": 820.8399999999999,
+      "text": "And"
+    },
+    {
+      "start": 817.88,
+      "end": 824.6,
+      "text": "let's say here"
+    },
+    {
+      "start": 820.84,
+      "end": 824.6,
+      "text": "I can take a variable post."
+    },
+    {
+      "start": 835.84,
+      "end": 840.44,
+      "text": "Now I say that I'm going to paste this"
+    },
+    {
+      "start": 837.84,
+      "end": 840.44,
+      "text": "post."
+    },
+    {
+      "start": 842.04,
+      "end": 846.0799999999999,
+      "text": "Okay."
+    },
+    {
+      "start": 843.0,
+      "end": 847.56,
+      "text": "Now I'm going to send it to the"
+    },
+    {
+      "start": 846.08,
+      "end": 851.32,
+      "text": "Mhm."
+    },
+    {
+      "start": 847.56,
+      "end": 851.3199999999999,
+      "text": "The structured evaluation LM."
+    },
+    {
+      "start": 867.36,
+      "end": 871.8000000000001,
+      "text": "Done. Now if I show you the result,"
+    },
+    {
+      "start": 870.32,
+      "end": 873.44,
+      "text": "See, this is giving you two things. One"
+    },
+    {
+      "start": 871.8,
+      "end": 876.92,
+      "text": "is the evaluation."
+    },
+    {
+      "start": 873.44,
+      "end": 881.0,
+      "text": "You can also extract evaluation."
+    },
+    {
+      "start": 876.92,
+      "end": 881.0,
+      "text": "Approved and the feedback."
+    },
+    {
+      "start": 882.96,
+      "end": 886.0,
+      "text": "See, this is the feedback for this"
+    },
+    {
+      "start": 884.2,
+      "end": 887.2,
+      "text": "particular post, okay? So that's how"
+    },
+    {
+      "start": 886.0,
+      "end": 889.64,
+      "text": "every time we'll be getting the"
+    },
+    {
+      "start": 887.2,
+      "end": 891.8000000000001,
+      "text": "structured output from this"
+    },
+    {
+      "start": 889.64,
+      "end": 893.12,
+      "text": "uh large language model, okay? The"
+    },
+    {
+      "start": 891.8,
+      "end": 894.76,
+      "text": "evaluator large language model because"
+    },
+    {
+      "start": 893.12,
+      "end": 895.64,
+      "text": "we have used Pydantic"
+    },
+    {
+      "start": 894.76,
+      "end": 896.56,
+      "text": "uh"
+    },
+    {
+      "start": 895.64,
+      "end": 898.56,
+      "text": "um"
+    },
+    {
+      "start": 896.56,
+      "end": 900.8389999999999,
+      "text": "uh data evaluation for that."
+    },
+    {
+      "start": 898.56,
+      "end": 902.52,
+      "text": "Now, what I'm going to do, guys? Next,"
+    },
+    {
+      "start": 900.839,
+      "end": 903.96,
+      "text": "I'm going to define the state. I'm going"
+    },
+    {
+      "start": 902.52,
+      "end": 905.24,
+      "text": "to define the same state I have taken"
+    },
+    {
+      "start": 903.96,
+      "end": 907.0,
+      "text": "here."
+    },
+    {
+      "start": 905.24,
+      "end": 909.2,
+      "text": "Um"
+    },
+    {
+      "start": 907.0,
+      "end": 911.96,
+      "text": "This is my state. As you can see, topic,"
+    },
+    {
+      "start": 909.2,
+      "end": 913.48,
+      "text": "post, evaluation, feedback, iteration,"
+    },
+    {
+      "start": 911.96,
+      "end": 915.8000000000001,
+      "text": "max iteration, post history, and"
+    },
+    {
+      "start": 913.48,
+      "end": 918.08,
+      "text": "feedback history. So here I have"
+    },
+    {
+      "start": 915.8,
+      "end": 920.56,
+      "text": "added the reducer concept. So every time"
+    },
+    {
+      "start": 918.08,
+      "end": 922.36,
+      "text": "I'll try to add this two information of"
+    },
+    {
+      "start": 920.56,
+      "end": 923.4799999999999,
+      "text": "instead of replacing. And these are the"
+    },
+    {
+      "start": 922.36,
+      "end": 925.44,
+      "text": "things I think you already got it,"
+    },
+    {
+      "start": 923.48,
+      "end": 927.28,
+      "text": "right? Yeah."
+    },
+    {
+      "start": 925.44,
+      "end": 929.12,
+      "text": "Mhm."
+    },
+    {
+      "start": 927.28,
+      "end": 930.76,
+      "text": "Mhm. And why I've taken literal here?"
+    },
+    {
+      "start": 929.12,
+      "end": 932.2,
+      "text": "Because evaluation will only return two"
+    },
+    {
+      "start": 930.76,
+      "end": 933.96,
+      "text": "things, approved or need needs"
+    },
+    {
+      "start": 932.2,
+      "end": 935.4000000000001,
+      "text": "approvement, okay? These two category,"
+    },
+    {
+      "start": 933.96,
+      "end": 938.08,
+      "text": "that's why I've taken literal type"
+    },
+    {
+      "start": 935.4,
+      "end": 940.8,
+      "text": "instead of string."
+    },
+    {
+      "start": 938.08,
+      "end": 943.6,
+      "text": "So now I will um"
+    },
+    {
+      "start": 940.8,
+      "end": 945.1999999999999,
+      "text": "I will um add my nodes."
+    },
+    {
+      "start": 943.6,
+      "end": 947.64,
+      "text": "Let's define the graph and add the"
+    },
+    {
+      "start": 945.2,
+      "end": 947.6400000000001,
+      "text": "nodes."
+    },
+    {
+      "start": 949.2,
+      "end": 953.0400000000001,
+      "text": "Yeah, so I have already defined the"
+    },
+    {
+      "start": 951.2,
+      "end": 955.08,
+      "text": "graph. You can see straight graph. I"
+    },
+    {
+      "start": 953.04,
+      "end": 958.56,
+      "text": "have given this post state here."
+    },
+    {
+      "start": 955.08,
+      "end": 958.5600000000001,
+      "text": "Now I'll add the note."
+    },
+    {
+      "start": 958.8,
+      "end": 962.64,
+      "text": "Add"
+    },
+    {
+      "start": 960.72,
+      "end": 964.52,
+      "text": "node."
+    },
+    {
+      "start": 962.64,
+      "end": 966.08,
+      "text": "So how many nodes we're having?"
+    },
+    {
+      "start": 964.52,
+      "end": 967.24,
+      "text": "One, two,"
+    },
+    {
+      "start": 966.08,
+      "end": 969.5200000000001,
+      "text": "three."
+    },
+    {
+      "start": 967.24,
+      "end": 970.88,
+      "text": "Okay? Three nodes we're having."
+    },
+    {
+      "start": 969.52,
+      "end": 973.36,
+      "text": "We'll add these three nodes all"
+    },
+    {
+      "start": 970.88,
+      "end": 973.36,
+      "text": "together."
+    },
+    {
+      "start": 973.96,
+      "end": 977.5600000000001,
+      "text": "Yeah, so these are three nodes, generate"
+    },
+    {
+      "start": 976.6,
+      "end": 980.36,
+      "text": "post,"
+    },
+    {
+      "start": 977.56,
+      "end": 982.9599999999999,
+      "text": "evaluate post, and optimize post."
+    },
+    {
+      "start": 980.36,
+      "end": 984.88,
+      "text": "Okay? Generate, evaluate, and optimize."
+    },
+    {
+      "start": 982.96,
+      "end": 985.9200000000001,
+      "text": "Now we'll write this function one by"
+    },
+    {
+      "start": 984.88,
+      "end": 987.8389999999999,
+      "text": "one."
+    },
+    {
+      "start": 985.92,
+      "end": 991.76,
+      "text": "So first of all, we'll just try to write"
+    },
+    {
+      "start": 987.839,
+      "end": 991.7600000000001,
+      "text": "this generate post function note."
+    },
+    {
+      "start": 995.68,
+      "end": 999.12,
+      "text": "So this is the function, guys. I've"
+    },
+    {
+      "start": 997.16,
+      "end": 1000.7199999999999,
+      "text": "already written, as you can see."
+    },
+    {
+      "start": 999.12,
+      "end": 1002.68,
+      "text": "Uh generate post, it will take the"
+    },
+    {
+      "start": 1000.72,
+      "end": 1004.9200000000001,
+      "text": "state, and here is the prompt I have"
+    },
+    {
+      "start": 1002.68,
+      "end": 1007.04,
+      "text": "prepared. It's a detail prompt. I"
+    },
+    {
+      "start": 1004.92,
+      "end": 1008.56,
+      "text": "created with the help of ChatGPT. And"
+    },
+    {
+      "start": 1007.04,
+      "end": 1010.4,
+      "text": "here we're using the system message and"
+    },
+    {
+      "start": 1008.56,
+      "end": 1013.1199999999999,
+      "text": "human message function, whatever I have"
+    },
+    {
+      "start": 1010.4,
+      "end": 1014.48,
+      "text": "imported okay? So as you can see, this"
+    },
+    {
+      "start": 1013.12,
+      "end": 1016.16,
+      "text": "is the prompt."
+    },
+    {
+      "start": 1014.48,
+      "end": 1019.72,
+      "text": "So system message I'm giving, you are a"
+    },
+    {
+      "start": 1016.16,
+      "end": 1021.9599999999999,
+      "text": "funny and clever Facebook in influencer."
+    },
+    {
+      "start": 1019.72,
+      "end": 1024.199,
+      "text": "And human message, write a short,"
+    },
+    {
+      "start": 1021.96,
+      "end": 1026.199,
+      "text": "original, and hilarious Facebook post on"
+    },
+    {
+      "start": 1024.199,
+      "end": 1028.64,
+      "text": "the topic, whatever topic user will"
+    },
+    {
+      "start": 1026.199,
+      "end": 1030.3600000000001,
+      "text": "give. And here I have assigned some"
+    },
+    {
+      "start": 1028.64,
+      "end": 1033.439,
+      "text": "rules, do not use a question answer"
+    },
+    {
+      "start": 1030.36,
+      "end": 1035.04,
+      "text": "format, max maximum 500 characters,"
+    },
+    {
+      "start": 1033.439,
+      "end": 1036.959,
+      "text": "okay? And blah blah blah. These are the"
+    },
+    {
+      "start": 1035.04,
+      "end": 1039.4389999999999,
+      "text": "things I have added. Now after that, I'm"
+    },
+    {
+      "start": 1036.959,
+      "end": 1041.68,
+      "text": "just uh invoking my generator LLM, and"
+    },
+    {
+      "start": 1039.439,
+      "end": 1044.16,
+      "text": "whatever content I'm getting, I'm just"
+    },
+    {
+      "start": 1041.68,
+      "end": 1046.24,
+      "text": "updating the response inside the post,"
+    },
+    {
+      "start": 1044.16,
+      "end": 1048.24,
+      "text": "and post history I'm also updating"
+    },
+    {
+      "start": 1046.24,
+      "end": 1049.72,
+      "text": "because simultaneously update two"
+    },
+    {
+      "start": 1048.24,
+      "end": 1051.6,
+      "text": "things. One is the post, and this is the"
+    },
+    {
+      "start": 1049.72,
+      "end": 1053.32,
+      "text": "post history. Both I'll update, right?"
+    },
+    {
+      "start": 1051.6,
+      "end": 1054.9199999999998,
+      "text": "So, here it will replace every time."
+    },
+    {
+      "start": 1053.32,
+      "end": 1057.0,
+      "text": "Here it will add every time because here"
+    },
+    {
+      "start": 1054.92,
+      "end": 1058.44,
+      "text": "we're using reducer concept. And we're"
+    },
+    {
+      "start": 1057.0,
+      "end": 1059.84,
+      "text": "returning this particular state. Okay,"
+    },
+    {
+      "start": 1058.44,
+      "end": 1062.24,
+      "text": "instead of returning whole state, we're"
+    },
+    {
+      "start": 1059.84,
+      "end": 1063.6,
+      "text": "only returning the state we're changing."
+    },
+    {
+      "start": 1062.24,
+      "end": 1066.04,
+      "text": "So, this is all"
+    },
+    {
+      "start": 1063.6,
+      "end": 1067.24,
+      "text": "uh generate post uh nodes we have"
+    },
+    {
+      "start": 1066.04,
+      "end": 1068.92,
+      "text": "created. That means this node is"
+    },
+    {
+      "start": 1067.24,
+      "end": 1071.0,
+      "text": "complete. Now, let's try to add the"
+    },
+    {
+      "start": 1068.92,
+      "end": 1072.8000000000002,
+      "text": "evaluator one."
+    },
+    {
+      "start": 1071.0,
+      "end": 1075.88,
+      "text": "Mm, generate is done. Now, we'll try to"
+    },
+    {
+      "start": 1072.8,
+      "end": 1075.8799999999999,
+      "text": "create the evaluator one."
+    },
+    {
+      "start": 1076.08,
+      "end": 1078.6,
+      "text": "So, this is the evaluator one, guys."
+    },
+    {
+      "start": 1077.6,
+      "end": 1081.1999999999998,
+      "text": "Again,"
+    },
+    {
+      "start": 1078.6,
+      "end": 1082.8,
+      "text": "um I named it as evaluate post and"
+    },
+    {
+      "start": 1081.2,
+      "end": 1084.64,
+      "text": "sending the state. And here is the"
+    },
+    {
+      "start": 1082.8,
+      "end": 1086.72,
+      "text": "prompt, guys, I have prepared. Again,"
+    },
+    {
+      "start": 1084.64,
+      "end": 1089.1200000000001,
+      "text": "I've given a system prompt. So, this is"
+    },
+    {
+      "start": 1086.72,
+      "end": 1091.04,
+      "text": "the system prompt I have given. Okay?"
+    },
+    {
+      "start": 1089.12,
+      "end": 1093.0,
+      "text": "Now, this is the human prompt. Evaluate"
+    },
+    {
+      "start": 1091.04,
+      "end": 1095.44,
+      "text": "the following Facebook post. Uh we have"
+    },
+    {
+      "start": 1093.0,
+      "end": 1097.6,
+      "text": "given the post from the state. And here"
+    },
+    {
+      "start": 1095.44,
+      "end": 1099.2,
+      "text": "are some criteria I have given. Based on"
+    },
+    {
+      "start": 1097.6,
+      "end": 1100.3999999999999,
+      "text": "that, it will try to evaluate, and it"
+    },
+    {
+      "start": 1099.2,
+      "end": 1101.8,
+      "text": "will return two things. One is the"
+    },
+    {
+      "start": 1100.4,
+      "end": 1103.48,
+      "text": "evaluation approved or need"
+    },
+    {
+      "start": 1101.8,
+      "end": 1106.1599999999999,
+      "text": "improvements. Another one is the"
+    },
+    {
+      "start": 1103.48,
+      "end": 1108.04,
+      "text": "feedback. Then we're uh invoking our"
+    },
+    {
+      "start": 1106.16,
+      "end": 1109.1200000000001,
+      "text": "structured evaluator LLM. That means"
+    },
+    {
+      "start": 1108.04,
+      "end": 1110.1599999999999,
+      "text": "this one."
+    },
+    {
+      "start": 1109.12,
+      "end": 1112.6399999999999,
+      "text": "Okay?"
+    },
+    {
+      "start": 1110.16,
+      "end": 1115.3200000000002,
+      "text": "This one we're invoking. This one."
+    },
+    {
+      "start": 1112.64,
+      "end": 1116.8000000000002,
+      "text": "Instead of uh this one because here we"
+    },
+    {
+      "start": 1115.32,
+      "end": 1119.72,
+      "text": "have added the Pydantic class for the"
+    },
+    {
+      "start": 1116.8,
+      "end": 1119.72,
+      "text": "structured output."
+    },
+    {
+      "start": 1120.0,
+      "end": 1123.44,
+      "text": "See? And whatever evaluation result"
+    },
+    {
+      "start": 1121.76,
+      "end": 1126.32,
+      "text": "we're getting, we're sending uh saving"
+    },
+    {
+      "start": 1123.44,
+      "end": 1129.1200000000001,
+      "text": "to the evaluator state evaluation state."
+    },
+    {
+      "start": 1126.32,
+      "end": 1130.8799999999999,
+      "text": "And feedback also uh I'm saving inside"
+    },
+    {
+      "start": 1129.12,
+      "end": 1132.6799999999998,
+      "text": "feedback. And I'm also saving the"
+    },
+    {
+      "start": 1130.88,
+      "end": 1135.44,
+      "text": "feedback history because feedback"
+    },
+    {
+      "start": 1132.68,
+      "end": 1138.24,
+      "text": "history should be also updated. Okay?"
+    },
+    {
+      "start": 1135.44,
+      "end": 1139.8,
+      "text": "Yeah. So, once it is done, uh we are"
+    },
+    {
+      "start": 1138.24,
+      "end": 1141.64,
+      "text": "also returning the state."
+    },
+    {
+      "start": 1139.8,
+      "end": 1143.68,
+      "text": "Now, let's"
+    },
+    {
+      "start": 1141.64,
+      "end": 1145.5600000000002,
+      "text": "execute."
+    },
+    {
+      "start": 1143.68,
+      "end": 1149.24,
+      "text": "Done. Now, we'll try to create the last"
+    },
+    {
+      "start": 1145.56,
+      "end": 1149.24,
+      "text": "one, which is optimized post."
+    },
+    {
+      "start": 1151.04,
+      "end": 1155.12,
+      "text": "So, this is for the optimized post."
+    },
+    {
+      "start": 1153.04,
+      "end": 1158.0,
+      "text": "Again, I'm passing the state."
+    },
+    {
+      "start": 1155.12,
+      "end": 1161.8799999999999,
+      "text": "And here is the prompt. You are a punch"
+    },
+    {
+      "start": 1158.0,
+      "end": 1164.24,
+      "text": "a Facebook post or virality and humor"
+    },
+    {
+      "start": 1161.88,
+      "end": 1166.4,
+      "text": "based on the given feedback. Then here's"
+    },
+    {
+      "start": 1164.24,
+      "end": 1167.96,
+      "text": "the human prompt I have given. Improve"
+    },
+    {
+      "start": 1166.4,
+      "end": 1169.96,
+      "text": "the Facebook post based on this"
+    },
+    {
+      "start": 1167.96,
+      "end": 1172.0,
+      "text": "feedback. We are giving the feedback. We"
+    },
+    {
+      "start": 1169.96,
+      "end": 1174.8400000000001,
+      "text": "are giving the topic as well as the"
+    },
+    {
+      "start": 1172.0,
+      "end": 1176.64,
+      "text": "original post it uh my model has"
+    },
+    {
+      "start": 1174.84,
+      "end": 1178.4399999999998,
+      "text": "generated. Okay? So, based on the"
+    },
+    {
+      "start": 1176.64,
+      "end": 1181.0800000000002,
+      "text": "original post, based on the feedback,"
+    },
+    {
+      "start": 1178.44,
+      "end": 1183.3600000000001,
+      "text": "based on the topic, it will optimize"
+    },
+    {
+      "start": 1181.08,
+      "end": 1184.84,
+      "text": "that post, okay? And it will rewrite"
+    },
+    {
+      "start": 1183.36,
+      "end": 1187.32,
+      "text": "that particular post, and it will give"
+    },
+    {
+      "start": 1184.84,
+      "end": 1190.24,
+      "text": "it to you. For this, I'm hitting this"
+    },
+    {
+      "start": 1187.32,
+      "end": 1192.36,
+      "text": "optimizer LLM and getting the response."
+    },
+    {
+      "start": 1190.24,
+      "end": 1193.96,
+      "text": "And we are updating the iteration here."
+    },
+    {
+      "start": 1192.36,
+      "end": 1196.12,
+      "text": "See, here here we are updating the"
+    },
+    {
+      "start": 1193.96,
+      "end": 1199.16,
+      "text": "iteration like how many iteration it has"
+    },
+    {
+      "start": 1196.12,
+      "end": 1199.9599999999998,
+      "text": "to perform to give the final, or let's"
+    },
+    {
+      "start": 1199.16,
+      "end": 1202.0,
+      "text": "say,"
+    },
+    {
+      "start": 1199.96,
+      "end": 1205.24,
+      "text": "optimized version of the post. Okay,"
+    },
+    {
+      "start": 1202.0,
+      "end": 1206.88,
+      "text": "every time this loop will execute. And"
+    },
+    {
+      "start": 1205.24,
+      "end": 1209.16,
+      "text": "once, let's say, it found, okay, now"
+    },
+    {
+      "start": 1206.88,
+      "end": 1211.0,
+      "text": "this post is completely fine. That time"
+    },
+    {
+      "start": 1209.16,
+      "end": 1212.44,
+      "text": "it will approve. Otherwise, if this loop"
+    },
+    {
+      "start": 1211.0,
+      "end": 1214.68,
+      "text": "would be continuously"
+    },
+    {
+      "start": 1212.44,
+      "end": 1216.28,
+      "text": "running. And how many times it will run?"
+    },
+    {
+      "start": 1214.68,
+      "end": 1219.1200000000001,
+      "text": "For this, we are just logging this"
+    },
+    {
+      "start": 1216.28,
+      "end": 1220.76,
+      "text": "iteration. We are just adding one, okay?"
+    },
+    {
+      "start": 1219.12,
+      "end": 1222.8,
+      "text": "So, this iteration value I'll give"
+    },
+    {
+      "start": 1220.76,
+      "end": 1224.96,
+      "text": "initially one, okay?"
+    },
+    {
+      "start": 1222.8,
+      "end": 1226.6,
+      "text": "Whenever I'll create the initial state."
+    },
+    {
+      "start": 1224.96,
+      "end": 1228.68,
+      "text": "And every time it will add the one, how"
+    },
+    {
+      "start": 1226.6,
+      "end": 1230.4399999999998,
+      "text": "many time it will execute, okay? After"
+    },
+    {
+      "start": 1228.68,
+      "end": 1231.72,
+      "text": "that, we are just returning the"
+    },
+    {
+      "start": 1230.44,
+      "end": 1234.44,
+      "text": "response."
+    },
+    {
+      "start": 1231.72,
+      "end": 1236.96,
+      "text": "Okay, that means the final post."
+    },
+    {
+      "start": 1234.44,
+      "end": 1238.72,
+      "text": "Then the iteration, okay?"
+    },
+    {
+      "start": 1236.96,
+      "end": 1241.08,
+      "text": "Then we are also"
+    },
+    {
+      "start": 1238.72,
+      "end": 1243.08,
+      "text": "saving this inside the post history. And"
+    },
+    {
+      "start": 1241.08,
+      "end": 1245.76,
+      "text": "we are returning the state."
+    },
+    {
+      "start": 1243.08,
+      "end": 1247.28,
+      "text": "Done, guys, okay? Now, all of the nodes"
+    },
+    {
+      "start": 1245.76,
+      "end": 1249.68,
+      "text": "we have created successfully. Now, we"
+    },
+    {
+      "start": 1247.28,
+      "end": 1250.8799999999999,
+      "text": "have to define the edge connection. Now,"
+    },
+    {
+      "start": 1249.68,
+      "end": 1253.28,
+      "text": "let's do that."
+    },
+    {
+      "start": 1250.88,
+      "end": 1255.64,
+      "text": "So, here I'll just try to comment."
+    },
+    {
+      "start": 1253.28,
+      "end": 1259.16,
+      "text": "Add edges. So, first of all, here we"
+    },
+    {
+      "start": 1255.64,
+      "end": 1261.5200000000002,
+      "text": "have to add the edges for"
+    },
+    {
+      "start": 1259.16,
+      "end": 1263.24,
+      "text": "this um"
+    },
+    {
+      "start": 1261.52,
+      "end": 1265.92,
+      "text": "start to generate."
+    },
+    {
+      "start": 1263.24,
+      "end": 1265.92,
+      "text": "Let's define."
+    },
+    {
+      "start": 1267.48,
+      "end": 1271.84,
+      "text": "Start to generate."
+    },
+    {
+      "start": 1269.56,
+      "end": 1274.44,
+      "text": "Then we have to define generate to"
+    },
+    {
+      "start": 1271.84,
+      "end": 1274.4399999999998,
+      "text": "evaluate."
+    },
+    {
+      "start": 1276.64,
+      "end": 1280.48,
+      "text": "Generate to evaluate, okay?"
+    },
+    {
+      "start": 1278.52,
+      "end": 1283.32,
+      "text": "Now, here conditional"
+    },
+    {
+      "start": 1280.48,
+      "end": 1285.68,
+      "text": "edges will come because evaluate either"
+    },
+    {
+      "start": 1283.32,
+      "end": 1288.0,
+      "text": "it will send it to the approved, okay?"
+    },
+    {
+      "start": 1285.68,
+      "end": 1289.76,
+      "text": "It will uh directly uh to the approved,"
+    },
+    {
+      "start": 1288.0,
+      "end": 1292.36,
+      "text": "otherwise it will send it to the"
+    },
+    {
+      "start": 1289.76,
+      "end": 1294.6,
+      "text": "optimizer, right? Optimization. So, here"
+    },
+    {
+      "start": 1292.36,
+      "end": 1296.04,
+      "text": "we'll be using using the conditional"
+    },
+    {
+      "start": 1294.6,
+      "end": 1297.36,
+      "text": "edges."
+    },
+    {
+      "start": 1296.04,
+      "end": 1299.28,
+      "text": "So, let's use the conditional edges"
+    },
+    {
+      "start": 1297.36,
+      "end": 1301.28,
+      "text": "here."
+    },
+    {
+      "start": 1299.28,
+      "end": 1303.32,
+      "text": "So, here we're using conditional edges."
+    },
+    {
+      "start": 1301.28,
+      "end": 1304.96,
+      "text": "So, it will start from evaluate and"
+    },
+    {
+      "start": 1303.32,
+      "end": 1306.4399999999998,
+      "text": "evaluate will decide"
+    },
+    {
+      "start": 1304.96,
+      "end": 1308.68,
+      "text": "where to send, uh whether it will"
+    },
+    {
+      "start": 1306.44,
+      "end": 1310.56,
+      "text": "approved or send it to the optimized."
+    },
+    {
+      "start": 1308.68,
+      "end": 1311.6000000000001,
+      "text": "For this we have to write a"
+    },
+    {
+      "start": 1310.56,
+      "end": 1313.52,
+      "text": "conditional function. I think you"
+    },
+    {
+      "start": 1311.6,
+      "end": 1315.28,
+      "text": "remember for conditional statement we"
+    },
+    {
+      "start": 1313.52,
+      "end": 1316.4,
+      "text": "write a condition conditional function"
+    },
+    {
+      "start": 1315.28,
+      "end": 1318.3999999999999,
+      "text": "separately."
+    },
+    {
+      "start": 1316.4,
+      "end": 1320.5600000000002,
+      "text": "So, this is the conditional function."
+    },
+    {
+      "start": 1318.4,
+      "end": 1322.0400000000002,
+      "text": "So, it will take the state and here we"
+    },
+    {
+      "start": 1320.56,
+      "end": 1324.48,
+      "text": "are checking the condition if my"
+    },
+    {
+      "start": 1322.04,
+      "end": 1326.2,
+      "text": "evaluation, okay? That means I already"
+    },
+    {
+      "start": 1324.48,
+      "end": 1328.92,
+      "text": "saved this evaluation inside my state,"
+    },
+    {
+      "start": 1326.2,
+      "end": 1330.48,
+      "text": "right? You remember, right? Evaluation."
+    },
+    {
+      "start": 1328.92,
+      "end": 1332.0,
+      "text": "And what is the evaluation? Approved or"
+    },
+    {
+      "start": 1330.48,
+      "end": 1334.08,
+      "text": "needs improvement, okay?"
+    },
+    {
+      "start": 1332.0,
+      "end": 1335.92,
+      "text": "So, here we are checking if the state is"
+    },
+    {
+      "start": 1334.08,
+      "end": 1338.84,
+      "text": "equal to state evaluation is equal to is"
+    },
+    {
+      "start": 1335.92,
+      "end": 1340.4,
+      "text": "equal to approved or state iteration"
+    },
+    {
+      "start": 1338.84,
+      "end": 1342.12,
+      "text": "is greater than equal state max"
+    },
+    {
+      "start": 1340.4,
+      "end": 1344.0400000000002,
+      "text": "iteration. That means if let's say it"
+    },
+    {
+      "start": 1342.12,
+      "end": 1345.56,
+      "text": "has performed maximum iteration. Let's"
+    },
+    {
+      "start": 1344.04,
+      "end": 1347.8,
+      "text": "say we have given a maximum iteration is"
+    },
+    {
+      "start": 1345.56,
+      "end": 1350.52,
+      "text": "equal to four. Let's say fourth time it"
+    },
+    {
+      "start": 1347.8,
+      "end": 1352.32,
+      "text": "has done the iteration and uh"
+    },
+    {
+      "start": 1350.52,
+      "end": 1353.76,
+      "text": "uh whenever it is running for the fifth"
+    },
+    {
+      "start": 1352.32,
+      "end": 1355.84,
+      "text": "time"
+    },
+    {
+      "start": 1353.76,
+      "end": 1358.4,
+      "text": "that time I think our condition is"
+    },
+    {
+      "start": 1355.84,
+      "end": 1360.0,
+      "text": "matching, right? Because my highest uh"
+    },
+    {
+      "start": 1358.4,
+      "end": 1362.0400000000002,
+      "text": "highest iteration is maximum iteration"
+    },
+    {
+      "start": 1360.0,
+      "end": 1363.4,
+      "text": "is four, but whenever it is going for"
+    },
+    {
+      "start": 1362.04,
+      "end": 1365.44,
+      "text": "five, that means this particular loop"
+    },
+    {
+      "start": 1363.4,
+      "end": 1366.64,
+      "text": "will break, right? So, that's how we are"
+    },
+    {
+      "start": 1365.44,
+      "end": 1368.92,
+      "text": "checking another condition if this"
+    },
+    {
+      "start": 1366.64,
+      "end": 1370.96,
+      "text": "iteration is equal to uh it is greater"
+    },
+    {
+      "start": 1368.92,
+      "end": 1373.0800000000002,
+      "text": "greater than equal to maximum iteration,"
+    },
+    {
+      "start": 1370.96,
+      "end": 1375.48,
+      "text": "that time just return approved, okay?"
+    },
+    {
+      "start": 1373.08,
+      "end": 1377.24,
+      "text": "Otherwise, return needs improvement."
+    },
+    {
+      "start": 1375.48,
+      "end": 1378.64,
+      "text": "So, this will basically"
+    },
+    {
+      "start": 1377.24,
+      "end": 1381.1200000000001,
+      "text": "redirect this particular route, whether"
+    },
+    {
+      "start": 1378.64,
+      "end": 1382.96,
+      "text": "it will send it to the optimizer or"
+    },
+    {
+      "start": 1381.12,
+      "end": 1384.9199999999998,
+      "text": "for the approver."
+    },
+    {
+      "start": 1382.96,
+      "end": 1386.8400000000001,
+      "text": "Now, we'll try to define this uh method"
+    },
+    {
+      "start": 1384.92,
+      "end": 1388.8000000000002,
+      "text": "here."
+    },
+    {
+      "start": 1386.84,
+      "end": 1391.28,
+      "text": "Route evaluation."
+    },
+    {
+      "start": 1388.8,
+      "end": 1395.24,
+      "text": "Route evaluation will"
+    },
+    {
+      "start": 1391.28,
+      "end": 1395.24,
+      "text": "write it here. Route evaluation, okay?"
+    },
+    {
+      "start": 1395.68,
+      "end": 1398.96,
+      "text": "Now,"
+    },
+    {
+      "start": 1397.08,
+      "end": 1400.32,
+      "text": "here we'll be adding the iteration,"
+    },
+    {
+      "start": 1398.96,
+      "end": 1401.92,
+      "text": "okay? This That means the iterative"
+    },
+    {
+      "start": 1400.32,
+      "end": 1403.2,
+      "text": "workflows right now. Now, what will"
+    },
+    {
+      "start": 1401.92,
+      "end": 1405.6000000000001,
+      "text": "happen? See,"
+    },
+    {
+      "start": 1403.2,
+      "end": 1407.6000000000001,
+      "text": "let's say this evaluator"
+    },
+    {
+      "start": 1405.6,
+      "end": 1409.9599999999998,
+      "text": "returns approved, that means this"
+    },
+    {
+      "start": 1407.6,
+      "end": 1412.56,
+      "text": "particular workflow will exit here"
+    },
+    {
+      "start": 1409.96,
+      "end": 1415.1200000000001,
+      "text": "because I got my final post. But, if"
+    },
+    {
+      "start": 1412.56,
+      "end": 1417.56,
+      "text": "it doesn't got the approve, let's say it"
+    },
+    {
+      "start": 1415.12,
+      "end": 1420.36,
+      "text": "it sends needs improvement, that time"
+    },
+    {
+      "start": 1417.56,
+      "end": 1422.08,
+      "text": "what will happen? It will send it to the"
+    },
+    {
+      "start": 1420.36,
+      "end": 1423.6799999999998,
+      "text": "optimizer, okay? It will send it to the"
+    },
+    {
+      "start": 1422.08,
+      "end": 1425.12,
+      "text": "optimizer node, and optimizer will"
+    },
+    {
+      "start": 1423.68,
+      "end": 1426.8,
+      "text": "optimize, then again it will send it to"
+    },
+    {
+      "start": 1425.12,
+      "end": 1428.56,
+      "text": "the evaluation. So, these kinds of"
+    },
+    {
+      "start": 1426.8,
+      "end": 1430.12,
+      "text": "things if you want to write, you have to"
+    },
+    {
+      "start": 1428.56,
+      "end": 1431.6,
+      "text": "give the statement."
+    },
+    {
+      "start": 1430.12,
+      "end": 1433.12,
+      "text": "Inside conditional workflow only you"
+    },
+    {
+      "start": 1431.6,
+      "end": 1434.6,
+      "text": "have to write this."
+    },
+    {
+      "start": 1433.12,
+      "end": 1435.8799999999999,
+      "text": "You have to write this additional line,"
+    },
+    {
+      "start": 1434.6,
+      "end": 1438.48,
+      "text": "see?"
+    },
+    {
+      "start": 1435.88,
+      "end": 1441.48,
+      "text": "Mhm, okay. Double comma I have given."
+    },
+    {
+      "start": 1438.48,
+      "end": 1444.1200000000001,
+      "text": "Yeah. Now, I think you can get, see?"
+    },
+    {
+      "start": 1441.48,
+      "end": 1446.8,
+      "text": "Once this route evaluation returns"
+    },
+    {
+      "start": 1444.12,
+      "end": 1449.1599999999999,
+      "text": "approved, okay? That means it will end"
+    },
+    {
+      "start": 1446.8,
+      "end": 1451.0,
+      "text": "that particular workflow. But, if it"
+    },
+    {
+      "start": 1449.16,
+      "end": 1454.52,
+      "text": "return needs improvement, that time it"
+    },
+    {
+      "start": 1451.0,
+      "end": 1456.84,
+      "text": "will execute the optimize node."
+    },
+    {
+      "start": 1454.52,
+      "end": 1458.76,
+      "text": "This optimize node."
+    },
+    {
+      "start": 1456.84,
+      "end": 1460.8799999999999,
+      "text": "Okay, optimize node, see?"
+    },
+    {
+      "start": 1458.76,
+      "end": 1462.44,
+      "text": "It is redirecting from here. If it needs"
+    },
+    {
+      "start": 1460.88,
+      "end": 1464.2,
+      "text": "improvement, it will hit the optimize"
+    },
+    {
+      "start": 1462.44,
+      "end": 1465.76,
+      "text": "node. Otherwise, it will hit the end"
+    },
+    {
+      "start": 1464.2,
+      "end": 1467.4,
+      "text": "node. See, that is That is what we are"
+    },
+    {
+      "start": 1465.76,
+      "end": 1469.56,
+      "text": "doing. And this is called actually your"
+    },
+    {
+      "start": 1467.4,
+      "end": 1471.16,
+      "text": "iterative workflows. So, we Here we are"
+    },
+    {
+      "start": 1469.56,
+      "end": 1473.04,
+      "text": "adding the iteration. Okay, this is"
+    },
+    {
+      "start": 1471.16,
+      "end": 1474.8400000000001,
+      "text": "called actually iteration."
+    },
+    {
+      "start": 1473.04,
+      "end": 1476.56,
+      "text": "I hope you got it, guys. You don't need"
+    },
+    {
+      "start": 1474.84,
+      "end": 1478.1999999999998,
+      "text": "to take any kinds of separate function"
+    },
+    {
+      "start": 1476.56,
+      "end": 1480.2,
+      "text": "for this inside conditional edges only"
+    },
+    {
+      "start": 1478.2,
+      "end": 1482.28,
+      "text": "you have to only write this statement."
+    },
+    {
+      "start": 1480.2,
+      "end": 1484.2,
+      "text": "Okay? That means this route evaluation,"
+    },
+    {
+      "start": 1482.28,
+      "end": 1486.8799999999999,
+      "text": "if it is returned the approved, it will"
+    },
+    {
+      "start": 1484.2,
+      "end": 1489.8,
+      "text": "go to the end. Otherwise, if it returns"
+    },
+    {
+      "start": 1486.88,
+      "end": 1492.48,
+      "text": "needs improvement, it will um execute my"
+    },
+    {
+      "start": 1489.8,
+      "end": 1493.84,
+      "text": "optimize node. And how many time it will"
+    },
+    {
+      "start": 1492.48,
+      "end": 1495.2,
+      "text": "perform?"
+    },
+    {
+      "start": 1493.84,
+      "end": 1497.9599999999998,
+      "text": "Unless and until you are not getting"
+    },
+    {
+      "start": 1495.2,
+      "end": 1500.0,
+      "text": "approved, okay? Approved from my"
+    },
+    {
+      "start": 1497.96,
+      "end": 1503.0,
+      "text": "evaluator or this maximum iteration"
+    },
+    {
+      "start": 1500.0,
+      "end": 1504.88,
+      "text": "ends. Okay? I hope you got it. Now, our"
+    },
+    {
+      "start": 1503.0,
+      "end": 1506.2,
+      "text": "edge connection is also done."
+    },
+    {
+      "start": 1504.88,
+      "end": 1507.8000000000002,
+      "text": "Now, simply what I'm going to do, I'm"
+    },
+    {
+      "start": 1506.2,
+      "end": 1510.32,
+      "text": "going to"
+    },
+    {
+      "start": 1507.8,
+      "end": 1512.8799999999999,
+      "text": "Um see, this connection is done."
+    },
+    {
+      "start": 1510.32,
+      "end": 1514.04,
+      "text": "This connection and this connection is"
+    },
+    {
+      "start": 1512.88,
+      "end": 1517.0800000000002,
+      "text": "done."
+    },
+    {
+      "start": 1514.04,
+      "end": 1519.8799999999999,
+      "text": "Uh optimize to"
+    },
+    {
+      "start": 1517.08,
+      "end": 1521.9199999999998,
+      "text": "uh evaluate. Huh. So, this connection is"
+    },
+    {
+      "start": 1519.88,
+      "end": 1524.0,
+      "text": "done. Now, we'll try to make this"
+    },
+    {
+      "start": 1521.92,
+      "end": 1526.92,
+      "text": "connection optimize to evaluate. So,"
+    },
+    {
+      "start": 1524.0,
+      "end": 1528.52,
+      "text": "let's say once it is in the optimize,"
+    },
+    {
+      "start": 1526.92,
+      "end": 1531.04,
+      "text": "so optimize will try to connect to the"
+    },
+    {
+      "start": 1528.52,
+      "end": 1532.28,
+      "text": "evaluator. That means optimize will send"
+    },
+    {
+      "start": 1531.04,
+      "end": 1533.72,
+      "text": "this optimization result to the"
+    },
+    {
+      "start": 1532.28,
+      "end": 1534.8799999999999,
+      "text": "evaluator. So, this connection will try"
+    },
+    {
+      "start": 1533.72,
+      "end": 1538.04,
+      "text": "to add."
+    },
+    {
+      "start": 1534.88,
+      "end": 1538.0400000000002,
+      "text": "So, this is the connection."
+    },
+    {
+      "start": 1540.52,
+      "end": 1543.84,
+      "text": "This is the connection, okay? Optimize"
+    },
+    {
+      "start": 1542.12,
+      "end": 1547.0,
+      "text": "to evaluator."
+    },
+    {
+      "start": 1543.84,
+      "end": 1547.0,
+      "text": "Now, we'll try to compile."
+    },
+    {
+      "start": 1549.16,
+      "end": 1553.8000000000002,
+      "text": "Okay? Now, we'll try we'll show you the"
+    },
+    {
+      "start": 1551.28,
+      "end": 1553.8,
+      "text": "workflow."
+    },
+    {
+      "start": 1553.96,
+      "end": 1557.8400000000001,
+      "text": "So, see, this is the workflow. Now, this"
+    },
+    {
+      "start": 1555.68,
+      "end": 1560.1200000000001,
+      "text": "workflow and this workflow is exactly"
+    },
+    {
+      "start": 1557.84,
+      "end": 1562.28,
+      "text": "same. You can check it here, okay? Now,"
+    },
+    {
+      "start": 1560.12,
+      "end": 1564.4399999999998,
+      "text": "we'll try to execute this workflow. For"
+    },
+    {
+      "start": 1562.28,
+      "end": 1567.68,
+      "text": "this, let's uh"
+    },
+    {
+      "start": 1564.44,
+      "end": 1567.68,
+      "text": "define uh"
+    },
+    {
+      "start": 1567.96,
+      "end": 1570.64,
+      "text": "state."
+    },
+    {
+      "start": 1573.72,
+      "end": 1578.0,
+      "text": "Let's say I have given the topic"
+    },
+    {
+      "start": 1576.56,
+      "end": 1580.6,
+      "text": "agentic"
+    },
+    {
+      "start": 1578.0,
+      "end": 1582.52,
+      "text": "AI. Let's say this is our topic and"
+    },
+    {
+      "start": 1580.6,
+      "end": 1585.0,
+      "text": "iteration initially I have set it I have"
+    },
+    {
+      "start": 1582.52,
+      "end": 1587.6,
+      "text": "set it to the one because after that it"
+    },
+    {
+      "start": 1585.0,
+      "end": 1590.84,
+      "text": "will every time update uh"
+    },
+    {
+      "start": 1587.6,
+      "end": 1592.32,
+      "text": "it will every time update one, okay? So,"
+    },
+    {
+      "start": 1590.84,
+      "end": 1593.9599999999998,
+      "text": "whenever it needs any kinds of"
+    },
+    {
+      "start": 1592.32,
+      "end": 1595.76,
+      "text": "improvement, optimization, it will add"
+    },
+    {
+      "start": 1593.96,
+      "end": 1597.8400000000001,
+      "text": "one, okay? That means the"
+    },
+    {
+      "start": 1595.76,
+      "end": 1600.04,
+      "text": "up iteration update. And this is our"
+    },
+    {
+      "start": 1597.84,
+      "end": 1602.6799999999998,
+      "text": "maximum iteration. I want to"
+    },
+    {
+      "start": 1600.04,
+      "end": 1606.04,
+      "text": "uh perform this iteration maximum five"
+    },
+    {
+      "start": 1602.68,
+      "end": 1608.16,
+      "text": "time, okay? If it is not found in five"
+    },
+    {
+      "start": 1606.04,
+      "end": 1610.12,
+      "text": "time, that means this loop will execute."
+    },
+    {
+      "start": 1608.16,
+      "end": 1612.44,
+      "text": "Then, we are giving this uh initial"
+    },
+    {
+      "start": 1610.12,
+      "end": 1616.76,
+      "text": "state to my workflow and we are getting"
+    },
+    {
+      "start": 1612.44,
+      "end": 1616.76,
+      "text": "the result. Now, let me execute."
+    },
+    {
+      "start": 1623.56,
+      "end": 1627.3999999999999,
+      "text": "Done."
+    },
+    {
+      "start": 1624.44,
+      "end": 1628.72,
+      "text": "Now, if I show you my result."
+    },
+    {
+      "start": 1627.4,
+      "end": 1629.88,
+      "text": "So, see, this is the result we're"
+    },
+    {
+      "start": 1628.72,
+      "end": 1632.32,
+      "text": "getting."
+    },
+    {
+      "start": 1629.88,
+      "end": 1634.24,
+      "text": "Uh as you can see"
+    },
+    {
+      "start": 1632.32,
+      "end": 1636.12,
+      "text": "uh this is the topic and this is the"
+    },
+    {
+      "start": 1634.24,
+      "end": 1638.56,
+      "text": "post it has generated."
+    },
+    {
+      "start": 1636.12,
+      "end": 1640.4799999999998,
+      "text": "Evaluation is uh okay, evaluation"
+    },
+    {
+      "start": 1638.56,
+      "end": 1642.0,
+      "text": "returned approved. See,"
+    },
+    {
+      "start": 1640.48,
+      "end": 1644.3600000000001,
+      "text": "at the first iteration it it got"
+    },
+    {
+      "start": 1642.0,
+      "end": 1646.12,
+      "text": "approved, okay? Then feedback."
+    },
+    {
+      "start": 1644.36,
+      "end": 1647.4399999999998,
+      "text": "This is the feedback."
+    },
+    {
+      "start": 1646.12,
+      "end": 1648.8799999999999,
+      "text": "And uh"
+    },
+    {
+      "start": 1647.44,
+      "end": 1650.92,
+      "text": "you can see iteration is one, that means"
+    },
+    {
+      "start": 1648.88,
+      "end": 1652.8000000000002,
+      "text": "it didn't update it any iteration, that"
+    },
+    {
+      "start": 1650.92,
+      "end": 1655.3200000000002,
+      "text": "means at the first time only it has"
+    },
+    {
+      "start": 1652.8,
+      "end": 1656.9199999999998,
+      "text": "approved. This is our maximum iteration"
+    },
+    {
+      "start": 1655.32,
+      "end": 1659.84,
+      "text": "and this is the post history and this is"
+    },
+    {
+      "start": 1656.92,
+      "end": 1661.6000000000001,
+      "text": "the feedback history. Okay? Now, maybe"
+    },
+    {
+      "start": 1659.84,
+      "end": 1663.1999999999998,
+      "text": "you can change to another topic. Let's"
+    },
+    {
+      "start": 1661.6,
+      "end": 1664.8799999999999,
+      "text": "say I'll give uh"
+    },
+    {
+      "start": 1663.2,
+      "end": 1666.68,
+      "text": "LLM."
+    },
+    {
+      "start": 1664.88,
+      "end": 1668.96,
+      "text": "See, here we're using OpenAI LLM, right?"
+    },
+    {
+      "start": 1666.68,
+      "end": 1670.4,
+      "text": "That's why this LLM is very powerful."
+    },
+    {
+      "start": 1668.96,
+      "end": 1671.88,
+      "text": "Uh at the very first time it is"
+    },
+    {
+      "start": 1670.4,
+      "end": 1673.1200000000001,
+      "text": "generating good post, okay? That's why"
+    },
+    {
+      "start": 1671.88,
+      "end": 1674.8400000000001,
+      "text": "it is getting approved, okay? In the"
+    },
+    {
+      "start": 1673.12,
+      "end": 1677.36,
+      "text": "first iteration only."
+    },
+    {
+      "start": 1674.84,
+      "end": 1680.28,
+      "text": "Now, let me give any other topic"
+    },
+    {
+      "start": 1677.36,
+      "end": 1683.7199999999998,
+      "text": "or random topic and see the output."
+    },
+    {
+      "start": 1680.28,
+      "end": 1683.72,
+      "text": "So, maybe okay."
+    },
+    {
+      "start": 1689.8,
+      "end": 1693.3999999999999,
+      "text": "I'll give any random topic and let's"
+    },
+    {
+      "start": 1691.16,
+      "end": 1693.4,
+      "text": "see."
+    },
+    {
+      "start": 1698.88,
+      "end": 1703.5200000000002,
+      "text": "Still uh at the first time only it is uh"
+    },
+    {
+      "start": 1701.88,
+      "end": 1705.3600000000001,
+      "text": "approving. Okay, it's completely fine."
+    },
+    {
+      "start": 1703.52,
+      "end": 1707.32,
+      "text": "You can maybe try with different"
+    },
+    {
+      "start": 1705.36,
+      "end": 1709.52,
+      "text": "different topic, okay? And you will able"
+    },
+    {
+      "start": 1707.32,
+      "end": 1711.24,
+      "text": "to see that whenever it needs any kinds"
+    },
+    {
+      "start": 1709.52,
+      "end": 1713.8,
+      "text": "of improvement, okay?"
+    },
+    {
+      "start": 1711.24,
+      "end": 1715.6,
+      "text": "Um it will run this iteration and it"
+    },
+    {
+      "start": 1713.8,
+      "end": 1717.6399999999999,
+      "text": "will update, okay? And again it will"
+    },
+    {
+      "start": 1715.6,
+      "end": 1720.12,
+      "text": "send it to the optimizer."
+    },
+    {
+      "start": 1717.64,
+      "end": 1722.2800000000002,
+      "text": "The reason uh it is giving you one shot"
+    },
+    {
+      "start": 1720.12,
+      "end": 1723.8799999999999,
+      "text": "uh approval because we're using this"
+    },
+    {
+      "start": 1722.28,
+      "end": 1726.28,
+      "text": "OpenAI"
+    },
+    {
+      "start": 1723.88,
+      "end": 1728.44,
+      "text": "uh GPT-4 or mini and this is uh like"
+    },
+    {
+      "start": 1726.28,
+      "end": 1730.24,
+      "text": "good model. Maybe you can use any weaker"
+    },
+    {
+      "start": 1728.44,
+      "end": 1732.8,
+      "text": "model, okay? Like more weaker model,"
+    },
+    {
+      "start": 1730.24,
+      "end": 1735.56,
+      "text": "more poor model. That time I think this"
+    },
+    {
+      "start": 1732.8,
+      "end": 1737.12,
+      "text": "loop will run, okay? Iteration will run."
+    },
+    {
+      "start": 1735.56,
+      "end": 1738.56,
+      "text": "Because we're using good model, that's"
+    },
+    {
+      "start": 1737.12,
+      "end": 1740.56,
+      "text": "why we're getting the result at the very"
+    },
+    {
+      "start": 1738.56,
+      "end": 1741.84,
+      "text": "first time. Okay? I hope you got it."
+    },
+    {
+      "start": 1740.56,
+      "end": 1743.6799999999998,
+      "text": "Now, if you want to see the post history"
+    },
+    {
+      "start": 1741.84,
+      "end": 1747.12,
+      "text": "separately, you can also"
+    },
+    {
+      "start": 1743.68,
+      "end": 1749.04,
+      "text": "just write a loop and from the result"
+    },
+    {
+      "start": 1747.12,
+      "end": 1750.52,
+      "text": "you can extract the post history and you"
+    },
+    {
+      "start": 1749.04,
+      "end": 1752.76,
+      "text": "can see all of the post history we are"
+    },
+    {
+      "start": 1750.52,
+      "end": 1755.12,
+      "text": "getting, okay? You can also see the"
+    },
+    {
+      "start": 1752.76,
+      "end": 1756.44,
+      "text": "feedback history. This is also possible."
+    },
+    {
+      "start": 1755.12,
+      "end": 1757.28,
+      "text": "Okay, anything you can extract because"
+    },
+    {
+      "start": 1756.44,
+      "end": 1759.4,
+      "text": "you are"
+    },
+    {
+      "start": 1757.28,
+      "end": 1761.48,
+      "text": "getting all the object here, okay? So,"
+    },
+    {
+      "start": 1759.4,
+      "end": 1763.8000000000002,
+      "text": "yes, guys, that's how we can write this"
+    },
+    {
+      "start": 1761.48,
+      "end": 1766.0,
+      "text": "iterative workflows inside LangGraph and"
+    },
+    {
+      "start": 1763.8,
+      "end": 1768.04,
+      "text": "this is super useful. Trust me, whenever"
+    },
+    {
+      "start": 1766.0,
+      "end": 1770.48,
+      "text": "you will be implementing actual AI"
+    },
+    {
+      "start": 1768.04,
+      "end": 1772.36,
+      "text": "agents, so this concept you need. Okay?"
+    },
+    {
+      "start": 1770.48,
+      "end": 1774.32,
+      "text": "Without that you can't perform this"
+    },
+    {
+      "start": 1772.36,
+      "end": 1776.12,
+      "text": "continuous uh"
+    },
+    {
+      "start": 1774.32,
+      "end": 1777.6799999999998,
+      "text": "looping operation and you need"
+    },
+    {
+      "start": 1776.12,
+      "end": 1778.9199999999998,
+      "text": "to create a workflow. I need these kinds"
+    },
+    {
+      "start": 1777.68,
+      "end": 1780.52,
+      "text": "of looping. I need these kinds of"
+    },
+    {
+      "start": 1778.92,
+      "end": 1782.2,
+      "text": "conditional statement, parallel"
+    },
+    {
+      "start": 1780.52,
+      "end": 1784.52,
+      "text": "statement, okay? Each and everything is"
+    },
+    {
+      "start": 1782.2,
+      "end": 1787.2,
+      "text": "required. Now, we have understood the"
+    },
+    {
+      "start": 1784.52,
+      "end": 1788.48,
+      "text": "last of workflows inside LangGraph. Now,"
+    },
+    {
+      "start": 1787.2,
+      "end": 1791.0,
+      "text": "in the next video onward, guys, we'll"
+    },
+    {
+      "start": 1788.48,
+      "end": 1792.8,
+      "text": "try to start working on the project,"
+    },
+    {
+      "start": 1791.0,
+      "end": 1795.2,
+      "text": "okay? First of all, I'm going to show"
+    },
+    {
+      "start": 1792.8,
+      "end": 1796.8799999999999,
+      "text": "you how we can create a simple chatbot."
+    },
+    {
+      "start": 1795.2,
+      "end": 1799.0800000000002,
+      "text": "Then we'll also try to learn some other"
+    },
+    {
+      "start": 1796.88,
+      "end": 1802.0,
+      "text": "concept like uh"
+    },
+    {
+      "start": 1799.08,
+      "end": 1804.12,
+      "text": "uh streaming memory, okay? How to"
+    },
+    {
+      "start": 1802.0,
+      "end": 1805.92,
+      "text": "connect the database"
+    },
+    {
+      "start": 1804.12,
+      "end": 1807.4399999999998,
+      "text": "with the uh"
+    },
+    {
+      "start": 1805.92,
+      "end": 1808.8400000000001,
+      "text": "LangGraph, okay? So, these are the"
+    },
+    {
+      "start": 1807.44,
+      "end": 1810.76,
+      "text": "things we'll try to learn because this"
+    },
+    {
+      "start": 1808.84,
+      "end": 1813.72,
+      "text": "is also required. So, after learning"
+    },
+    {
+      "start": 1810.76,
+      "end": 1815.76,
+      "text": "this, we'll try to create the actual uh"
+    },
+    {
+      "start": 1813.72,
+      "end": 1817.4,
+      "text": "agent AI application completely end to"
+    },
+    {
+      "start": 1815.76,
+      "end": 1819.08,
+      "text": "end. So, yes, guys, this is all about"
+    },
+    {
+      "start": 1817.4,
+      "end": 1820.88,
+      "text": "from this content and if you found it"
+    },
+    {
+      "start": 1819.08,
+      "end": 1823.0,
+      "text": "useful, please try to subscribe to my"
+    },
+    {
+      "start": 1820.88,
+      "end": 1824.92,
+      "text": "channel and hit the like. Uh I have"
+    },
+    {
+      "start": 1823.0,
+      "end": 1826.36,
+      "text": "given the entire playlist link in my"
+    },
+    {
+      "start": 1824.92,
+      "end": 1829.92,
+      "text": "description. From there you can check it"
+    },
+    {
+      "start": 1826.36,
+      "end": 1829.9199999999998,
+      "text": "out, guys. So, thanks for watching."
+    }
+  ],
+  "video_id": "gxsv1qhxqrw",
+  "title": "12. LangGraph Iterative Workflows Explained | Agentic AI Course",
+  "position": 14,
+  "url": "https://www.youtube.com/watch?v=gxsv1qhxqrw"
+}

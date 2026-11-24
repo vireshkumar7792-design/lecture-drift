@@ -1,0 +1,4757 @@
+{
+  "source": "youtube_captions",
+  "language": "en",
+  "is_generated": true,
+  "text": "Hi guys, my name is Buppy and you are welcome to my YouTube channel. So guys, in this video I'm going to discuss one interesting and very trending topic nowadays over the internet which is loop engineering inside agentic AI. I think you have probably heard of this particular loop engineering concept. Uh nowadays people are talking about that. Apart from loop engineering, there was another topic people were talking about like harness engineering. So if you are following my channel guys, I think you know that I have already discussed about harness engineering like what exactly this harness engineering is, how it works. Okay, each and everything I have uh discussed about if you haven't checked that uh video guys, I will uh give the link in the description from there you can check it out. So make sure you watch uh this video till the end because after watching this video I believe you won't be having any kinds of doubt about the loop engineering and you will be able to clarify all of your confusion that would be my promise and if you found my content uh useful guys please try to subscribe to my channel and please try to share this with your friends and family definitely uh with that I will get lots of motivation and uh uh you can also help me to grow my audience so that I can bring this kinds of content more in future. So instead of talking too much guys, let's start with this loop engineering concept. So if I uh show you see uh I think I discussed about the types of like uh AI application okay types of AI application like uh especially whenever I'm talking about the generative application development uh there are some types actually usually follow the first type is prompt engineering right prompting so inside prompting what we do let's say we take a large language model Let's say we take a large language model. This is our LLM. And here we try to provide the prompt. Okay, prompt. And here we get the response. Right? So this was the uh first technique actually used to follow whenever generative came in the market and uh we used to use uh these kinds of large length based model with the help of prompting. The more good prompt you will be giving to the large lang based model, the more better response it will try to generate for you. But what was the problem with this particular approach? Because it is only relying on the existing knowledge base which you are already having inside the model. Okay. So here we are using a large language model and I think you know every large language model has a knowledge cutoff date. So till that date actually it has trained that means if you're asking anything it will only able to generate the response from that particular knowledge cutff date. Okay. If you're asking beyond uh this particular knowledge cutoff definitely it will not able to give you any kinds of response. This was the main problem with this prompting approach. Then we introduce uh another technique which is nothing but context learning. Okay. Context based learning. Okay. We can also call it as a ragable augmented generation. Okay. Okay, I think you have already understood uh studied this concept before, right? Context based learning or uh weight tableable augmented generation rack technique. So in rack technique what we do let's say we are having our large lang based model this is completely fine and uh additionally we use a knowledge base here knowledge base and this knowledge base is nothing but it's a vector database vector database okay so here we collect the informations from different different documents different different sources and we create a knowledge base and we try to connect with this knowledge base with our large rankbased model so that if anyone is giving any kinds of prompt okay instead of relying on the existing knowledge cutoff right uh it will try to refer this knowledge base to generate that particular response right so this was the approach we used to use in the context based learning or retable augmented generation okay but again uh it has some problem if you are uh if you are trying uh trying to give a prompt uh Let's say it will only generate that particular response for you uh at once. But it can't actually uh do automatic task. Let's say you are giving a prompt just try to prepare a uh email and try to send send it over my client, right? It will not able to do that. Okay, because it doesn't have any kinds of tool or if you are telling just try to give me latest news for today. So it it doesn't have any kinds of tools so that it can fetch this latest informations from the internet and it will give it to you. Okay. So for this we use something called agentic agentic application AI agents. Okay. We call it as a AI agents. So in AI agents what we do let's say this is our large language model. This is completely fine. So it has the connection with definitely your knowledge base. Okay. knowledge base and it has also connected with different different tools. Okay, different different tools. So if anyone is giving any prompt so it can utilize the knowledge base as well as the tools. Okay, and it can give you the response or perform any kinds of tasks for you. Okay. So I think u if you have already watched my harness engineering session so that I told you u agents uses actually multiple tools not only actually search tool not only let's say any kinds of um I mean Google drive tools it can be anything it can be any kinds of API it can be any kinds of database okay database. It can be uh any kinds of let's say external services external services okay it can be anything. So we basically whatever services external services whatever tools and everything we integrate inside this large language model okay we call it as a harness engineering. This is nothing but our harness engineering technique. Okay. So what is harness engineering exactly? It is nothing but your AI agents only. So the way you implement any AI agents with the help of different different tools and technology. Okay. We are not only focusing on the knowledge but instead of that we use different different tools for the automation. We use different different tools for the let's say agentic workflow. So this is called hardness engineering. So if you don't know about hardness engineering guys please try to go with my video you will be able to understand. So yes guys uh these are some uh actually way we can use u to implement uh AI application okay especially gen application development we have the prompting we have the context based learning approach we have the AI agents okay that means the harness engineering now then what is loop engineering let's try to understand see if you see these three types of the implementation one thing will get the common which is nothing but the input every uh application is taking a input from the human right. Uh input is nothing but the prompt the input you are giving to the model right. So in prompting approach also you are sending a prompt context based learning also you are sending a prompt you are getting the response AI agents also you are sending a prompt and you are performing some kinds of task or you are getting a response right everywhere you are sending a prompt you are sending a input right so that means u this input is important okay all of the application will take the input definitely whether it is uh uh AI agents whether it is rag whether it is prompting it doesn't matter okay now let's see the uh loop engineering like uh approaches. Okay. Okay, see in loop engineering what we do let's say we have the um we have the agent okay we have the agent and this agent definitely will take an input right because I told you every application we give the input okay whether it's agent whether it's rag it doesn't matter right every application will take the input and uh this agent will have uh um some connection with different different tools. I already told you without tools actually we can't implement the agents right so different tools should be definitely there inside this particular agents okay so whatever input user is giving uh these agents will utilize uh like tools to perform that particular task but in loop engineering instead of getting the response or instead of just completing that particular task at once we perform a loop operation okay we perform a loop operation that means let's say you are you have given a input let's say you are giving uh let's say uh you are giving an input generate uh generate let's say uh three questions for my uh interview candidate okay three questions for my interview candidate u and this will have definitely uh agent questions let's say this is your prompt you are giving to the agents now agents will be using the tools let's say it is using internet search tool and it is searching over the internet and it is getting some agent care related in review questions for you. Now in loop engineering it's not like that. It will directly give you this particular uh uh question set. Okay. Instead of that this particular response will go to the another layer. We call it as a feedback layer. Okay. We call it as a feedback layer. Okay. Feedback layer. Now inside feedback we use some kinds of large language model. Okay. Here also we'll be using large language model. Here also we'll be using large language model. Okay, large language model. Now with this large language model, we'll try to evaluate we'll try to evaluate this particular uh question the question set we are giving for my uh interview candidate. Okay, we'll try to evaluate that whether this question set is best for this candidate or not. Let's say he has sent one resumeumé and in the résumé he is mostly focusing on the uh AI agents uh related let's say skill set right or AI agents related projects but if my agent is generating some questions related let's say deep learning or computer vision so definitely this is not uh appropriate for my interview candidate right so that's why this feedback layer this ev we we also call it as evaluation layer or evaluator this evaluator will try to evaluate this particular output and this will select this question sets if this is matches with our requirement. Okay. So definitely here also we'll try to provide the prompt. Okay. Prompt like what kinds of questions we need. Definitely inside this feedback layer also inside this LLM also will give the prompt. Let's say this kinds of question we need. So it will try to match the questions we are getting from our agents uh the questions we are expecting okay from the agents whether they are same or not. If they're same okay if uh it is matching with the candidate requirements it will basically accept that okay it will accept that and whenever it will accept so what will happen directly we'll get the output that means the questions okay but let's say in case this question set is not matching okay this is uh this is not matching with our requirements so this feedback layer will provide the feedback okay feedback to the agents again okay it will give the feedback back to the agents again it will tell this question actually doesn't match with the requirements. So you still need to improve this particular question sets. Okay. Now how many times this loop will be happening unless and until we are not getting the required uh unless and until we are not getting the actual question sets we're expecting here. Okay. So this is called actually our loop. Okay. This is here if you see this is our loop actually. So this loop will continuously uh run uh will be running unless and until we are not get getting our actual question set which we are expecting from the agents. Okay. So this is called actually loop engineering. That means we are implementing the same AI agents only but we are adding a additional layer here which is nothing but feedback layer or evaluator layer. So this evaluator layer will try to evaluate the output we are getting from the agents. Okay. And if it feel like okay this output is fine. Okay, then it will accept otherwise it will not accept that particular uh output. Instead of that, it will again send to the feedback to the agents. Agents will upgrade that particular question set and again it will send it to the feedback. Feedback will try to verify if verification is fine. If let's say it is matching with the requirements, user will be able to see the actual output or let's say actual question set. Okay, this is called actually loop engineering inside AI agents. I hope you got it. Very simple, very uh important. Okay. And uh uh AI agents we already know that guys we have already implemented so many AI agents inside our playlist. Okay. Uh only the new concept is that this uh loop engineering because nowadays every agents if especially if I'm talking about the coding agents. Okay. Uh so whatever coding coding agents you have let's say you you are using cursor ID you are using uh you are using uh cloud code right? So if I go to the uh cloud code documentation guys, this is the cloud code documentation as you can see and here you uh they have a one section called how cloud code works. So here you can see uh they have a section called the agent loop. Okay, so here they're using this agentic loop right here they're using this loop engineering concept. So as you can see whenever user is giving a prompt so it is gathering the context okay it is taking the actions it is verifying the results. Okay, see this is this is what your agents okay and whatever agents uh it is returning the output instead of directly giving that output to the user first of all it is verifying okay it is verifying whether this output is fine or not let's say mostly cloud code we use for the code generation right so definitely uh let's say whenever you will give give your first prompt it's not like that your large language model will give you the best code for you so definitely this code will have some kinds of bugs this code will have some kinds of error so instead of directly giving to the user I'll be using this evaluator or feedback layer and we'll try to verify this code. We'll try to run this code in a different environment. We'll try to see whether it is generating any kinds of error or not. If it is generating the error, if it is having any kinds of problem, we'll send the feedback to the um agents again. Okay. So, agents again it will gather the context. Again, it will gather all of the information. It will prepare the code. Again, it will try to send the uh send to the feedback layer or verify layer. Okay. Okay, verify again it will run and if it founds this code is completely fine, there is no error, then it will uh show it to the user. It will give to the user otherwise this loop will continuously run unless and until this code is able to run or this code is able to fix. Okay, but here you have to definitely give a uh interruption condition. Okay, definitely you will not uh let your agents run infinite loop otherwise what will happen? you will end up with lots of lots lots of cost because LLM um having cost right you are hitting a large lang based model model through a API request or anything so definitely you are ending up lots of uh you are ending up with lots of cost so that's that's that's why we are not going to let our agents to perform this loop infinite time so definitely there would be interrupt condition now this interrupt condition should be anything whether you can add hit that means human in the loop whether you can add add a maximum iteration. Let's say after a certain iteration this execution would be over and user will able to see that output. Okay. So that's how you can add your interruption condition here. Okay. So never try to uh let your agent uh to perform this particular loop in finite time otherwise there would be definitely some kinds of issue especially the cost issue you'll be ending up. Okay. So this is what actually cloud code suggesting and they're using this uh um loop engineering concept inside their development as well. Okay, I hope you get it guys. So yes, uh this is what actually our loop engineering or agentic loop whatever you say. Okay, this is what actually uh we usually use inside this agentic loop. Now you can ask me whether this is necessary to add inside all of our AI agents. The answer is no. Right? So so far the agents we have implemented inside our playlist. If you have already checked my YouTube channel guys, I have already created the content related uh AI agents. Okay, lots of project implementation I have done, right? And I have a dedicated playlist on the AI agents as well. Let me show you. So this is the dedicated playlist on the agentic AI. So if you are completely new to the agentic, please try to complete this agentic playlist. I think uh you will be able to complete everything. So see whatever agents we have implemented so far, this doesn't need this kinds of looping concept. Okay. So when we need this kinds of looping concept whenever you are implementing uh kinds of coding agent okay coding agents or kinds of agents you are implementing that needs actually this kinds of feedback or looping concept okay you need to verify the answer okay unless and until this is completely correct okay if you have this kinds of condition that time just try to add this looping layer okay this feedback layer inside your agents okay this is very simple you just need to write extra function For that that function will verify the agent output and definitely here you will try to provide the prompt what kinds of output you are expecting from the agent based on that it will uh select okay and otherwise it will give the feedback to the agents agent will be working on the feedback again and it will generate that particular response okay but definitely this loop should not be infinite there should be some kinds of interruption condition either you can add hit human in the loop you can ask for the human verification whether human still needs to run this loop or not or still let's say they are um or or let's say they want to stop this particular uh loop execution or you can um write a maximum iteration let's say after five to six uh iteration this particular loop will be terminated and user will be able to see the output okay so this is completely your designing pipeline uh the way you you want to design you can design okay this is completely up to you there is no fixed condition you have to follow okay but again I'm telling you guys this is not necessary this is completely I mean independent concept if you want to add inside your agents uh if you feel like okay this is important for my agents especially whenever you are creating coding agents okay that that will generate the code it will debug the code it will verify the code then it will give you the final response right if you're creating these kinds of agents that time just try to use this kinds of loop engineering concept otherwise it is not required okay it is not required for all the agents I hope you get it now guys I think I am able to um give you the highle overview of this um loop engineering Now uh let me uh discuss this loop engineering mode. I will show you some more example and don't worry I will also give you the code example. We'll see one code example for the loop engineering. We'll also see one code example for the non-loop engineering. Okay. So both example I'm going to show I think after seeing that example your understanding would be more clear. So guys now uh you can see on my screen I have uh written the definition for this loop engineering inside agentic AI. Loop engineering means designing an AI agent that repeatedly repeatedly uh works, checks it results, learn from feedback and tries uh tries again until the goal is achieved. Okay. So here instead of uh human um uh continuously telling the agents try again fix the problem check your answer improve the output we add the loop engineering concept and automatically that u feedback layer or the evaluator layer will try to give the feedback to the agents agents will fix that particular output and uh this will be happening unless and until we are generating the correct output okay so this is called actually loop engineering I hope you get it now here I have kept some examples Uh let me show you this example. So guys as you can see this is the example. So in our traditional uh not traditional actually in our simple agents what we do uh we give a input okay to the agents and agent generate an output and this stops the generation okay but inside uh loop engineering uh let's say whenever we add this loop engineering with the agents that uh that time what will happen if user gives any input to the agents so agents will generate some kinds of output and this output will try to send it to the evaluator Okay. Or let's say feedback layer. Feedback layer will try to check whether this particular response is fine or not. If it is not fine, again it will give the feedback to the agents. Agents will again try to generate that particular answer. Again it will come to the evaluator. Then uh if evaluator selects that it will user will be able to see the output. Okay. So this is the work of the loop engineering inside AI agents. So here you can see a normal AI call usually gives one response and stops. uh uh that is fine for simple question and answer but risky when the uh when um uh when the task has many requirement. Okay, that time actually this is super important to add this loop engineering. A loop engineering uh adds a checking st if the output fails feedback uh goes back to the agents and uh for another attempt. Okay. So what is the simple idea here? uh if I'm not using this uh agentic loop okay inside our agents that time um whatever answer we are getting uh answer once that should uh there is a possibility this answer should be risky especially for the coding agents that should be risky that's why we have to perform the check and improve operation so this is like more reliable especially the coding agents whatever we are using like claude a then google anti-gravity okay then cursor AI whatever um coding agents we are using uh in our day-to-day life especially for these kinds of agent this is super important guys okay but again I'm telling you this is not applicable for all the agents okay out there so whatever agents we have created inside our playlist uh it doesn't need any kinds of looping concept but in future definitely I'm going to create some more agents we'll be creating the coding agents as well we'll be creating some more uh let's say uh different kinds of use case that time I'll try to use this kinds of looping concept as well okay loop engineering concept inside our agent development now uh as you can see the simple Definition loop engineering is the design of the agent uh retry and improve the cycle. Loop engineering means designing an AI agents that can generate work evaluate the result and receive the feedback try again and stop when the goal is met. So it will uh generate it will first uh after that it will check then it will improve then it will repeat that particular work unless and until unless and until we don't get the final output. Okay. So for a real example guys you can consider the classroom analogy. So basically a student writes, the teacher checks, the student improves, then the final work is submitted. Okay, it's not like that at the first attempt you will be able to solve one mathematic mathematical problem or anything. So definitely you need to take the feedback from your teacher. Okay, teacher will give the feedback then again it will uh you will be working on top on top of that particular topic and you will be able to get the perfect results. Okay, so this is one real world analogy we can consider. Now here is the non-loop agents uh definition guys. As you can see the agent answer once and stops. Basically user will give a prompt. It will generate once. Okay. Then it will return the answer then agent will stop. Okay. Example write a customer support reply. Okay. So it will only write the customer support reply. Okay. After uh replying that it will stop. Okay. It will not see the customer let's say requirement or anything. Okay. So this is one example. Then this loop agent this agent checks its own work and improves before um returning the final result. So as you can see um the core cycle is generate an answer evaluate the answer. Okay if it fails checks the feedback try again with the uh feedback. Okay stop when the uh it passes or reaches the limit. Important a loop must have a stopping rule. I already told you uh it's it should not be infinite loop loop always. it definitely it will have a stopping rule otherwise the agents may keep spending tokens and the time without reaching a better result. Okay, that is why I told you definitely whenever you are adding this kinds of looping concept you should have a stop condition there. Okay. Yeah. Now as you can see this is the anatomy of a good loop system. First of all definitely it will have the goal. It will perform the actions. It will perform the observation. It will perform the evaluation. It will uh be able to give the feedback. then uh it will have definitely a stopping rule. Okay, without a stopping rule, don't create this kinds of uh looping system inside the agent. Okay, so simple formula is loop is equal to your goal plus action plus evaluation plus feedback plus stop conditions. Okay, so if you're following these are the steps, you can imple implement a better looping uh concept inside your AI agents. Now, as you can see, this is the difference between your non-loop and loop agents. So as you can see this is the non-loop agents it answer once fast and simple definitely uh whenever you are using non-loop agent the answer would be super fast because at the very first time you'll be get the answer right then lower cost no automatic self correction best low risk task okay but if you're using uh loop agents that time it can try multiple times checks output uses feedback to improve higher cost and best for multi-step task okay so at one line a non-loop agent uh answer once A loop agents work checks and improve and repeats. Okay. So this is what actually we can understand from our non-loop and loop agents. Now here I have taken an example as you can see the coding agent loop. Uh the agent writes codes run test reads the error fix the code and run the test again. Okay. Until this code is fixed. Typical coding loop issue generate code run test read errors fix code uh then uh retest final patch. So best uh stopping condition all test passes or the agent reaches the maximum number of prepared attempts. Okay. So these two condition you can add for the stopping condition to the agents. Okay. Now this is the example uh another example I have taken. Uh this is the travel planning loop. Let's say whenever user is giving a prompt, let's say user is giving create a 3-day trip plan that matches the user budget, dates, weather, preferences, hotel needs, and active styles. Okay. So here we will be checking this loop condition. Is the the it is within the budget or not? Are dates are valid or not? Is the travel time realistic or not? Are the hotels are available not? Okay. Does it follow the user constraint or not? If it uh not matching with this particular condition, we'll be continuously running this loop. Useful for multi- aents app. Once the agent proposes another checks, a supervisor decides what to retire. Okay, I think you got it. Then u for the stopping condition guys uh we'll be using some kinds of guardrails as I already told you a loop without limits can become expensive, unsafe or stuck. Okay. Minimal uh minimum productions control, maximum attempts, token and cost budget, quality evaluator, safety or policy checks, human approval for risk uh risky actions. Okay. Log for debugging. So key rule never design an open-ended agent loop. Every loop needs a stop condition and fallback path. Okay, that is what I told you whenever you are designing this definitely it will have a stop condition. Okay, for this you can use any kinds of guidels. Whether you can use human in the loop, whether you can use maximum attempts, okay, token and cost budget, quality evaluator, okay, safety or policy checks, anything you can use and you can add this kinds of stop condition inside your agents. So this is the final recap guys. Uh non-loop once um one answer and stop use for simple and lowrisk task. Loop work checks improve and repeat until the result passes. Evaluator the quality checks that decides passes or retry. guardrails uh limit human um approval logging and fall fallback behavior. Stop condition the rule that prevents uh the infinite loops and cost weights. Okay, so prompt engineering uh engineering designs the in instruction loop engineering designs what happens after each uh response. Okay, so this is the overall idea about the loop engineering. I hope you got it. Now let me show you one code example. Uh so there I will try to see one um non loop uh example then I will show you one loop example uh and you will be able to see which one is better here. Okay. So I will open up my Google collab and let me show you the code example there. So guys as you can see here I have already taken some example. I already added this code in my uh collab notebook and this code I will share in the description. From there you can check. So this is a simple agent I have created. So to run this agent first of all I need the gro API key. So here I'm using grock API key and to use grock first of all you have to install this uh gro library. So let's install and how to collect this API key just visit this uh uh console.grock.com and if you click on API key here you'll be able to see the API key just try try to create an API key for you. So I already created my API key and don't use my API key guys I'm going to review after this session. So this is my API key. Now guys this is the example uh this example basically uh it's a non-loop agent. This generates a customer uh support reply only once. Okay. So as you can see here I'm using this llama 3.37 billion versatile model and first of all I'm checking my API key. I'm initializing my client. Then this is the function I have written um called call lm. So basically here uh we are sending the prompt and it is generating the uh customer support reply for us. And this is the prompt we have given. So write a customer support reply for the following situation. A customer receives a damaged laptop order ID. This is the order ID and this is the requirements. Apologies to the customer. Mention the order ID. Offer a replacement. Keep the response under 60 words. Okay. And we are calling the function. Then we are uh printing the answer. Now if I execute this uh um code, as you can see, this is the final answer. We are getting sorry for the damaged laptop. This is the order ID. We'll replace it uh replace it promptly. Okay. Now let me show you the same example with the loop agents. Okay. Now what loop agents will try to do here? So this version checks the answer and ask the LLM to fix any problem. Okay. Now as you can see I'm doing the same thing. We are initializing the model and everything. And here to uh to make our loop uh stopped guys we are using the maximum iteration maximum iteration actually strategy. Okay. And this is the order ID. Now we're checking the API key. We are initializing the client and this is the same function we have written for the answer generation and this is the evaluator or the that u feedback layer we have added. So basically it will take the answer from the agents and it will check okay whether this particular um answer having this kinds of word or not. Sorry apologies. Okay apologies. Okay I told you right I have to give some kinds of uh prompt here some kinds of condition based on the condition it will decide whether it will take that input or not. Okay. So if these kinds of words are available, if uh it is having the replacement word, okay, that time this particular response should be selected. That time this particular response should be selected otherwise it will not select it. Okay. Now as you can see evaluator is checking these are the things. Okay. Simply you can go through this code to understand. Now this is the task I have given. Write a customer support reply for the following situation. A customer received a damaged laptop. This is the order ID and these are the requirement. Okay. So if this requirement is not available in the response it this loop will run continuously and this is the feedback no previous feedback initially we are adding this feedback like no previous feedback because initially the feedback would be empty okay now we are running the iteration so uh if this matches with the feedback right uh if this let's say this matches with the requirement that time automatically stop otherwise this will uh this will follow this max iteration okay let's say in case it is not able to U match my requirements then it will this agent will stop based on the max iteration. Okay. If max iteration is over then my agent will be stopped that time. Now this is the prompt we are giving. Okay. Now this is the LLM call and we are doing doing the evaluation uh evaluator checks. After that we are printing the result. Now let me show you the answer. Now see this is the first iteration. This is the generated response. Now in this generated response you can see sorry for the damaged laptop. We'll replace it promptly. But it doesn't have that uh replacement. Okay, it doesn't have the uh replacement uh like uh replacement word. Okay, now you can add any kinds of condition. It's up to you. So here I have added replacement word as I told you. So here this is the replacement word. Okay, it doesn't have this replacement word. It is not telling user that I will replace it. Okay. Uh that's why this evaluator is spelled. So clear uh clearly offered a replacement. Okay, it is required. This is the feedback we are getting from the evaluator. Now in the second iteration, this feedback will go and generated answer. As you can see, sorry for the damage laptop. This is the order ID and we'll provide a replacement laptop. Okay. Now this replacement is available. Now this particular evaluator is passed and this is the final response we are getting. Okay. So that's how guys this loop engineering works. This loop agentic loop works. Okay. And whenever you feel like that would be necessary for you for your AI agents, you can use that. Okay. But again I'm telling you you should not be use this particular concept for all the agents. Okay only whenever you are creating these kinds of coding agents or any kinds of agents which is needs this kinds of uh evaluator you can use that. So yes guys I hope you got it. Uh I'm able to make you understand about this loop engineering concept. This is nothing else only a uh like additional layer we usually add inside our agents only and mostly whenever you will be creating deep agents coding agents that time you'll be using this concept. Okay, don't worry. I will also create deep agents uh video on my channel. Definitely we'll try to understand and if you found my content useful guys, please try to subscribe to my channel and please try to share it with your friends and family. So yes guys, this is all about from this video. I hope you liked it. Thank you so much guys for watching this video and I will see you next time.",
+  "segments": [
+    {
+      "start": 1.52,
+      "end": 7.359,
+      "text": "Hi guys, my name is Buppy and you are"
+    },
+    {
+      "start": 4.48,
+      "end": 9.760000000000002,
+      "text": "welcome to my YouTube channel. So guys,"
+    },
+    {
+      "start": 7.359,
+      "end": 12.24,
+      "text": "in this video I'm going to discuss one"
+    },
+    {
+      "start": 9.76,
+      "end": 14.879999999999999,
+      "text": "interesting and very trending topic"
+    },
+    {
+      "start": 12.24,
+      "end": 18.08,
+      "text": "nowadays over the internet which is loop"
+    },
+    {
+      "start": 14.88,
+      "end": 19.68,
+      "text": "engineering inside agentic AI. I think"
+    },
+    {
+      "start": 18.08,
+      "end": 21.839999999999996,
+      "text": "you have probably heard of this"
+    },
+    {
+      "start": 19.68,
+      "end": 24.16,
+      "text": "particular loop engineering concept. Uh"
+    },
+    {
+      "start": 21.84,
+      "end": 26.0,
+      "text": "nowadays people are talking about that."
+    },
+    {
+      "start": 24.16,
+      "end": 28.0,
+      "text": "Apart from loop engineering, there was"
+    },
+    {
+      "start": 26.0,
+      "end": 30.4,
+      "text": "another topic people were talking about"
+    },
+    {
+      "start": 28.0,
+      "end": 31.92,
+      "text": "like harness engineering. So if you are"
+    },
+    {
+      "start": 30.4,
+      "end": 34.0,
+      "text": "following my channel guys, I think you"
+    },
+    {
+      "start": 31.92,
+      "end": 35.760000000000005,
+      "text": "know that I have already discussed about"
+    },
+    {
+      "start": 34.0,
+      "end": 38.079,
+      "text": "harness engineering like what exactly"
+    },
+    {
+      "start": 35.76,
+      "end": 39.76,
+      "text": "this harness engineering is, how it"
+    },
+    {
+      "start": 38.079,
+      "end": 42.0,
+      "text": "works. Okay, each and everything I have"
+    },
+    {
+      "start": 39.76,
+      "end": 44.0,
+      "text": "uh discussed about if you haven't"
+    },
+    {
+      "start": 42.0,
+      "end": 45.52,
+      "text": "checked that uh video guys, I will uh"
+    },
+    {
+      "start": 44.0,
+      "end": 48.8,
+      "text": "give the link in the description from"
+    },
+    {
+      "start": 45.52,
+      "end": 50.96,
+      "text": "there you can check it out. So make sure"
+    },
+    {
+      "start": 48.8,
+      "end": 53.519999999999996,
+      "text": "you watch uh this video till the end"
+    },
+    {
+      "start": 50.96,
+      "end": 55.199,
+      "text": "because after watching this video I"
+    },
+    {
+      "start": 53.52,
+      "end": 57.92,
+      "text": "believe you won't be having any kinds of"
+    },
+    {
+      "start": 55.199,
+      "end": 60.559,
+      "text": "doubt about the loop engineering and you"
+    },
+    {
+      "start": 57.92,
+      "end": 62.96,
+      "text": "will be able to clarify all of your"
+    },
+    {
+      "start": 60.559,
+      "end": 65.28,
+      "text": "confusion that would be my promise and"
+    },
+    {
+      "start": 62.96,
+      "end": 66.799,
+      "text": "if you found my content uh useful guys"
+    },
+    {
+      "start": 65.28,
+      "end": 68.32000000000001,
+      "text": "please try to subscribe to my channel"
+    },
+    {
+      "start": 66.799,
+      "end": 70.799,
+      "text": "and please try to share this with your"
+    },
+    {
+      "start": 68.32,
+      "end": 73.6,
+      "text": "friends and family definitely uh with"
+    },
+    {
+      "start": 70.799,
+      "end": 77.36000000000001,
+      "text": "that I will get lots of motivation and"
+    },
+    {
+      "start": 73.6,
+      "end": 79.759,
+      "text": "uh uh you can also help me to grow my"
+    },
+    {
+      "start": 77.36,
+      "end": 83.119,
+      "text": "audience so that I can bring this kinds"
+    },
+    {
+      "start": 79.759,
+      "end": 84.88,
+      "text": "of content more in future. So instead of"
+    },
+    {
+      "start": 83.119,
+      "end": 87.439,
+      "text": "talking too much guys, let's start with"
+    },
+    {
+      "start": 84.88,
+      "end": 90.56,
+      "text": "this loop engineering concept. So if I"
+    },
+    {
+      "start": 87.439,
+      "end": 94.72,
+      "text": "uh show you see uh I think I discussed"
+    },
+    {
+      "start": 90.56,
+      "end": 97.84,
+      "text": "about the types of like uh AI"
+    },
+    {
+      "start": 94.72,
+      "end": 99.759,
+      "text": "application okay types of AI application"
+    },
+    {
+      "start": 97.84,
+      "end": 101.36,
+      "text": "like uh especially whenever I'm talking"
+    },
+    {
+      "start": 99.759,
+      "end": 103.6,
+      "text": "about the generative application"
+    },
+    {
+      "start": 101.36,
+      "end": 105.28,
+      "text": "development uh there are some types"
+    },
+    {
+      "start": 103.6,
+      "end": 109.6,
+      "text": "actually usually follow the first type"
+    },
+    {
+      "start": 105.28,
+      "end": 111.759,
+      "text": "is prompt engineering right prompting so"
+    },
+    {
+      "start": 109.6,
+      "end": 115.52,
+      "text": "inside prompting what we do let's say we"
+    },
+    {
+      "start": 111.759,
+      "end": 115.52,
+      "text": "take a large language model"
+    },
+    {
+      "start": 116.88,
+      "end": 122.79899999999999,
+      "text": "Let's say we take a large language"
+    },
+    {
+      "start": 119.2,
+      "end": 125.60000000000001,
+      "text": "model. This is our LLM. And here we try"
+    },
+    {
+      "start": 122.799,
+      "end": 128.399,
+      "text": "to provide the prompt."
+    },
+    {
+      "start": 125.6,
+      "end": 130.56,
+      "text": "Okay, prompt. And here we get the"
+    },
+    {
+      "start": 128.399,
+      "end": 133.28,
+      "text": "response."
+    },
+    {
+      "start": 130.56,
+      "end": 135.12,
+      "text": "Right? So this was the uh first"
+    },
+    {
+      "start": 133.28,
+      "end": 137.52,
+      "text": "technique actually used to follow"
+    },
+    {
+      "start": 135.12,
+      "end": 140.4,
+      "text": "whenever generative came in the market"
+    },
+    {
+      "start": 137.52,
+      "end": 141.76000000000002,
+      "text": "and uh we used to use uh these kinds of"
+    },
+    {
+      "start": 140.4,
+      "end": 144.08,
+      "text": "large length based model with the help"
+    },
+    {
+      "start": 141.76,
+      "end": 145.44,
+      "text": "of prompting. The more good prompt you"
+    },
+    {
+      "start": 144.08,
+      "end": 147.59900000000002,
+      "text": "will be giving to the large lang based"
+    },
+    {
+      "start": 145.44,
+      "end": 149.92,
+      "text": "model, the more better response it will"
+    },
+    {
+      "start": 147.599,
+      "end": 151.2,
+      "text": "try to generate for you. But what was"
+    },
+    {
+      "start": 149.92,
+      "end": 154.07999999999998,
+      "text": "the problem with this particular"
+    },
+    {
+      "start": 151.2,
+      "end": 155.92,
+      "text": "approach? Because it is only relying on"
+    },
+    {
+      "start": 154.08,
+      "end": 158.16000000000003,
+      "text": "the existing knowledge base which you"
+    },
+    {
+      "start": 155.92,
+      "end": 159.599,
+      "text": "are already having inside the model."
+    },
+    {
+      "start": 158.16,
+      "end": 161.44,
+      "text": "Okay. So here we are using a large"
+    },
+    {
+      "start": 159.599,
+      "end": 162.879,
+      "text": "language model and I think you know"
+    },
+    {
+      "start": 161.44,
+      "end": 164.959,
+      "text": "every large language model has a"
+    },
+    {
+      "start": 162.879,
+      "end": 166.319,
+      "text": "knowledge cutoff date. So till that date"
+    },
+    {
+      "start": 164.959,
+      "end": 168.48,
+      "text": "actually it has trained that means if"
+    },
+    {
+      "start": 166.319,
+      "end": 170.319,
+      "text": "you're asking anything it will only able"
+    },
+    {
+      "start": 168.48,
+      "end": 172.16,
+      "text": "to generate the response from that"
+    },
+    {
+      "start": 170.319,
+      "end": 173.92,
+      "text": "particular knowledge cutff date. Okay."
+    },
+    {
+      "start": 172.16,
+      "end": 175.35999999999999,
+      "text": "If you're asking beyond uh this"
+    },
+    {
+      "start": 173.92,
+      "end": 176.95899999999997,
+      "text": "particular knowledge cutoff definitely"
+    },
+    {
+      "start": 175.36,
+      "end": 178.959,
+      "text": "it will not able to give you any kinds"
+    },
+    {
+      "start": 176.959,
+      "end": 181.12,
+      "text": "of response. This was the main problem"
+    },
+    {
+      "start": 178.959,
+      "end": 185.2,
+      "text": "with this prompting approach. Then we"
+    },
+    {
+      "start": 181.12,
+      "end": 189.76,
+      "text": "introduce uh another technique"
+    },
+    {
+      "start": 185.2,
+      "end": 192.879,
+      "text": "which is nothing but context learning."
+    },
+    {
+      "start": 189.76,
+      "end": 194.79999999999998,
+      "text": "Okay. Context"
+    },
+    {
+      "start": 192.879,
+      "end": 197.2,
+      "text": "based"
+    },
+    {
+      "start": 194.8,
+      "end": 199.59900000000002,
+      "text": "learning."
+    },
+    {
+      "start": 197.2,
+      "end": 201.2,
+      "text": "Okay. We can also call it as a ragable"
+    },
+    {
+      "start": 199.599,
+      "end": 203.67999999999998,
+      "text": "augmented generation. Okay. Okay, I"
+    },
+    {
+      "start": 201.2,
+      "end": 205.28,
+      "text": "think you have already understood uh"
+    },
+    {
+      "start": 203.68,
+      "end": 207.20000000000002,
+      "text": "studied this concept before, right?"
+    },
+    {
+      "start": 205.28,
+      "end": 208.48,
+      "text": "Context based learning or uh weight"
+    },
+    {
+      "start": 207.2,
+      "end": 210.56,
+      "text": "tableable augmented generation rack"
+    },
+    {
+      "start": 208.48,
+      "end": 212.56,
+      "text": "technique. So in rack technique what we"
+    },
+    {
+      "start": 210.56,
+      "end": 215.68,
+      "text": "do let's say we are having our large"
+    },
+    {
+      "start": 212.56,
+      "end": 218.08,
+      "text": "lang based model this is completely fine"
+    },
+    {
+      "start": 215.68,
+      "end": 221.4,
+      "text": "and uh additionally we use a knowledge"
+    },
+    {
+      "start": 218.08,
+      "end": 221.4,
+      "text": "base here"
+    },
+    {
+      "start": 223.2,
+      "end": 228.79899999999998,
+      "text": "knowledge base and this knowledge base"
+    },
+    {
+      "start": 224.72,
+      "end": 232.879,
+      "text": "is nothing but it's a vector database"
+    },
+    {
+      "start": 228.799,
+      "end": 234.239,
+      "text": "vector database okay so here we collect"
+    },
+    {
+      "start": 232.879,
+      "end": 236.07999999999998,
+      "text": "the informations from different"
+    },
+    {
+      "start": 234.239,
+      "end": 237.84,
+      "text": "different documents different different"
+    },
+    {
+      "start": 236.08,
+      "end": 239.519,
+      "text": "sources and we create a knowledge base"
+    },
+    {
+      "start": 237.84,
+      "end": 241.04,
+      "text": "and we try to connect with this"
+    },
+    {
+      "start": 239.519,
+      "end": 242.959,
+      "text": "knowledge base with our large rankbased"
+    },
+    {
+      "start": 241.04,
+      "end": 246.239,
+      "text": "model so that if anyone is giving any"
+    },
+    {
+      "start": 242.959,
+      "end": 249.12,
+      "text": "kinds of prompt okay instead of relying"
+    },
+    {
+      "start": 246.239,
+      "end": 250.959,
+      "text": "on the existing knowledge cutoff right"
+    },
+    {
+      "start": 249.12,
+      "end": 252.48000000000002,
+      "text": "uh it will try to refer this knowledge"
+    },
+    {
+      "start": 250.959,
+      "end": 256.32,
+      "text": "base to generate that particular"
+    },
+    {
+      "start": 252.48,
+      "end": 258.079,
+      "text": "response right so this was the"
+    },
+    {
+      "start": 256.32,
+      "end": 260.32,
+      "text": "approach we used to use in the context"
+    },
+    {
+      "start": 258.079,
+      "end": 263.12,
+      "text": "based learning or retable augmented"
+    },
+    {
+      "start": 260.32,
+      "end": 266.15999999999997,
+      "text": "generation okay but again uh it has some"
+    },
+    {
+      "start": 263.12,
+      "end": 268.56,
+      "text": "problem if you are uh if you are trying"
+    },
+    {
+      "start": 266.16,
+      "end": 270.16,
+      "text": "uh trying to give a prompt uh Let's say"
+    },
+    {
+      "start": 268.56,
+      "end": 272.8,
+      "text": "it will only generate that particular"
+    },
+    {
+      "start": 270.16,
+      "end": 275.91900000000004,
+      "text": "response for you uh at once. But it"
+    },
+    {
+      "start": 272.8,
+      "end": 277.919,
+      "text": "can't actually uh do automatic task."
+    },
+    {
+      "start": 275.919,
+      "end": 280.479,
+      "text": "Let's say you are giving a prompt just"
+    },
+    {
+      "start": 277.919,
+      "end": 282.639,
+      "text": "try to prepare a uh email and try to"
+    },
+    {
+      "start": 280.479,
+      "end": 285.36,
+      "text": "send send it over my client, right? It"
+    },
+    {
+      "start": 282.639,
+      "end": 287.759,
+      "text": "will not able to do that. Okay, because"
+    },
+    {
+      "start": 285.36,
+      "end": 290.24,
+      "text": "it doesn't have any kinds of tool or if"
+    },
+    {
+      "start": 287.759,
+      "end": 292.32,
+      "text": "you are telling just try to give me"
+    },
+    {
+      "start": 290.24,
+      "end": 293.84000000000003,
+      "text": "latest news for today. So it it doesn't"
+    },
+    {
+      "start": 292.32,
+      "end": 295.68,
+      "text": "have any kinds of tools so that it can"
+    },
+    {
+      "start": 293.84,
+      "end": 297.59999999999997,
+      "text": "fetch this latest informations from the"
+    },
+    {
+      "start": 295.68,
+      "end": 299.52,
+      "text": "internet and it will give it to you."
+    },
+    {
+      "start": 297.6,
+      "end": 301.52000000000004,
+      "text": "Okay. So for this we use something"
+    },
+    {
+      "start": 299.52,
+      "end": 303.75899999999996,
+      "text": "called"
+    },
+    {
+      "start": 301.52,
+      "end": 306.56,
+      "text": "agentic"
+    },
+    {
+      "start": 303.759,
+      "end": 309.91900000000004,
+      "text": "agentic application"
+    },
+    {
+      "start": 306.56,
+      "end": 314.4,
+      "text": "AI agents. Okay. We call it as a AI"
+    },
+    {
+      "start": 309.919,
+      "end": 316.639,
+      "text": "agents. So in AI agents what we do let's"
+    },
+    {
+      "start": 314.4,
+      "end": 319.52,
+      "text": "say this is our large language model."
+    },
+    {
+      "start": 316.639,
+      "end": 322.0,
+      "text": "This is completely fine. So it has the"
+    },
+    {
+      "start": 319.52,
+      "end": 324.08,
+      "text": "connection with definitely your"
+    },
+    {
+      "start": 322.0,
+      "end": 327.12,
+      "text": "knowledge base."
+    },
+    {
+      "start": 324.08,
+      "end": 329.35999999999996,
+      "text": "Okay. knowledge base"
+    },
+    {
+      "start": 327.12,
+      "end": 332.24,
+      "text": "and it has also connected with different"
+    },
+    {
+      "start": 329.36,
+      "end": 335.6,
+      "text": "different tools."
+    },
+    {
+      "start": 332.24,
+      "end": 338.8,
+      "text": "Okay, different different tools."
+    },
+    {
+      "start": 335.6,
+      "end": 340.32000000000005,
+      "text": "So if anyone is giving any prompt so it"
+    },
+    {
+      "start": 338.8,
+      "end": 342.88,
+      "text": "can utilize the knowledge base as well"
+    },
+    {
+      "start": 340.32,
+      "end": 346.12,
+      "text": "as the tools. Okay, and it can give you"
+    },
+    {
+      "start": 342.88,
+      "end": 346.12,
+      "text": "the response"
+    },
+    {
+      "start": 346.16,
+      "end": 351.91900000000004,
+      "text": "or perform any kinds of tasks for you."
+    },
+    {
+      "start": 348.88,
+      "end": 353.44,
+      "text": "Okay. So I think u if you have already"
+    },
+    {
+      "start": 351.919,
+      "end": 356.4,
+      "text": "watched my harness engineering session"
+    },
+    {
+      "start": 353.44,
+      "end": 358.56,
+      "text": "so that I told you u agents uses"
+    },
+    {
+      "start": 356.4,
+      "end": 361.28,
+      "text": "actually multiple tools not only"
+    },
+    {
+      "start": 358.56,
+      "end": 364.96,
+      "text": "actually search tool not only let's say"
+    },
+    {
+      "start": 361.28,
+      "end": 366.96,
+      "text": "any kinds of um I mean Google drive"
+    },
+    {
+      "start": 364.96,
+      "end": 370.479,
+      "text": "tools it can be anything it can be any"
+    },
+    {
+      "start": 366.96,
+      "end": 372.08,
+      "text": "kinds of API it can be any kinds of"
+    },
+    {
+      "start": 370.479,
+      "end": 375.12,
+      "text": "database"
+    },
+    {
+      "start": 372.08,
+      "end": 379.12,
+      "text": "okay database. It can be uh any kinds of"
+    },
+    {
+      "start": 375.12,
+      "end": 382.12,
+      "text": "let's say external services"
+    },
+    {
+      "start": 379.12,
+      "end": 382.12,
+      "text": "external"
+    },
+    {
+      "start": 382.319,
+      "end": 388.40000000000003,
+      "text": "services okay it can be anything. So we"
+    },
+    {
+      "start": 386.4,
+      "end": 390.31899999999996,
+      "text": "basically whatever services external"
+    },
+    {
+      "start": 388.4,
+      "end": 392.88,
+      "text": "services whatever tools and everything"
+    },
+    {
+      "start": 390.319,
+      "end": 396.40000000000003,
+      "text": "we integrate inside this large language"
+    },
+    {
+      "start": 392.88,
+      "end": 399.4,
+      "text": "model okay we call it as a harness"
+    },
+    {
+      "start": 396.4,
+      "end": 399.4,
+      "text": "engineering."
+    },
+    {
+      "start": 399.759,
+      "end": 406.16,
+      "text": "This is nothing but our harness"
+    },
+    {
+      "start": 403.759,
+      "end": 408.72,
+      "text": "engineering technique."
+    },
+    {
+      "start": 406.16,
+      "end": 411.03900000000004,
+      "text": "Okay. So what is harness engineering"
+    },
+    {
+      "start": 408.72,
+      "end": 413.03900000000004,
+      "text": "exactly? It is nothing but your AI"
+    },
+    {
+      "start": 411.039,
+      "end": 414.71999999999997,
+      "text": "agents only. So the way you implement"
+    },
+    {
+      "start": 413.039,
+      "end": 416.96,
+      "text": "any AI agents with the help of different"
+    },
+    {
+      "start": 414.72,
+      "end": 418.639,
+      "text": "different tools and technology. Okay. We"
+    },
+    {
+      "start": 416.96,
+      "end": 420.4,
+      "text": "are not only focusing on the knowledge"
+    },
+    {
+      "start": 418.639,
+      "end": 422.08,
+      "text": "but instead of that we use different"
+    },
+    {
+      "start": 420.4,
+      "end": 423.919,
+      "text": "different tools for the automation. We"
+    },
+    {
+      "start": 422.08,
+      "end": 426.4,
+      "text": "use different different tools for the"
+    },
+    {
+      "start": 423.919,
+      "end": 428.31899999999996,
+      "text": "let's say agentic workflow. So this is"
+    },
+    {
+      "start": 426.4,
+      "end": 429.919,
+      "text": "called hardness engineering. So if you"
+    },
+    {
+      "start": 428.319,
+      "end": 431.759,
+      "text": "don't know about hardness engineering"
+    },
+    {
+      "start": 429.919,
+      "end": 433.919,
+      "text": "guys please try to go with my video you"
+    },
+    {
+      "start": 431.759,
+      "end": 436.639,
+      "text": "will be able to understand. So yes guys"
+    },
+    {
+      "start": 433.919,
+      "end": 439.68,
+      "text": "uh these are some uh actually way we can"
+    },
+    {
+      "start": 436.639,
+      "end": 441.36,
+      "text": "use u to implement uh AI application"
+    },
+    {
+      "start": 439.68,
+      "end": 443.52,
+      "text": "okay especially gen application"
+    },
+    {
+      "start": 441.36,
+      "end": 445.759,
+      "text": "development we have the prompting we"
+    },
+    {
+      "start": 443.52,
+      "end": 447.35999999999996,
+      "text": "have the context based learning approach"
+    },
+    {
+      "start": 445.759,
+      "end": 450.72,
+      "text": "we have the AI agents okay that means"
+    },
+    {
+      "start": 447.36,
+      "end": 452.88,
+      "text": "the harness engineering now then what is"
+    },
+    {
+      "start": 450.72,
+      "end": 456.96000000000004,
+      "text": "loop engineering let's try to understand"
+    },
+    {
+      "start": 452.88,
+      "end": 459.52,
+      "text": "see if you see these three types of the"
+    },
+    {
+      "start": 456.96,
+      "end": 461.28,
+      "text": "implementation one thing will get the"
+    },
+    {
+      "start": 459.52,
+      "end": 464.71999999999997,
+      "text": "common which is nothing but the input"
+    },
+    {
+      "start": 461.28,
+      "end": 467.039,
+      "text": "every uh application is taking a input"
+    },
+    {
+      "start": 464.72,
+      "end": 468.96000000000004,
+      "text": "from the human right. Uh input is"
+    },
+    {
+      "start": 467.039,
+      "end": 470.88,
+      "text": "nothing but the prompt the input you are"
+    },
+    {
+      "start": 468.96,
+      "end": 473.039,
+      "text": "giving to the model right. So in"
+    },
+    {
+      "start": 470.88,
+      "end": 475.44,
+      "text": "prompting approach also you are sending"
+    },
+    {
+      "start": 473.039,
+      "end": 476.8,
+      "text": "a prompt context based learning also you"
+    },
+    {
+      "start": 475.44,
+      "end": 478.879,
+      "text": "are sending a prompt you are getting the"
+    },
+    {
+      "start": 476.8,
+      "end": 480.56,
+      "text": "response AI agents also you are sending"
+    },
+    {
+      "start": 478.879,
+      "end": 482.0,
+      "text": "a prompt and you are performing some"
+    },
+    {
+      "start": 480.56,
+      "end": 483.84,
+      "text": "kinds of task or you are getting a"
+    },
+    {
+      "start": 482.0,
+      "end": 486.24,
+      "text": "response right everywhere you are"
+    },
+    {
+      "start": 483.84,
+      "end": 488.96,
+      "text": "sending a prompt you are sending a input"
+    },
+    {
+      "start": 486.24,
+      "end": 491.039,
+      "text": "right so that means u this input is"
+    },
+    {
+      "start": 488.96,
+      "end": 492.96,
+      "text": "important okay all of the application"
+    },
+    {
+      "start": 491.039,
+      "end": 496.08,
+      "text": "will take the input definitely whether"
+    },
+    {
+      "start": 492.96,
+      "end": 497.52,
+      "text": "it is uh uh AI agents whether it is rag"
+    },
+    {
+      "start": 496.08,
+      "end": 501.84,
+      "text": "whether it is prompting it doesn't"
+    },
+    {
+      "start": 497.52,
+      "end": 504.15999999999997,
+      "text": "matter okay now let's see the uh loop"
+    },
+    {
+      "start": 501.84,
+      "end": 506.4,
+      "text": "engineering like uh approaches. Okay."
+    },
+    {
+      "start": 504.16,
+      "end": 509.12,
+      "text": "Okay, see in loop engineering what we do"
+    },
+    {
+      "start": 506.4,
+      "end": 513.639,
+      "text": "let's say we have the"
+    },
+    {
+      "start": 509.12,
+      "end": 513.639,
+      "text": "um we have the agent"
+    },
+    {
+      "start": 514.56,
+      "end": 520.0,
+      "text": "okay we have the agent and this agent"
+    },
+    {
+      "start": 517.2,
+      "end": 523.2,
+      "text": "definitely will take an input right"
+    },
+    {
+      "start": 520.0,
+      "end": 525.2,
+      "text": "because I told you every application we"
+    },
+    {
+      "start": 523.2,
+      "end": 527.44,
+      "text": "give the input okay whether it's agent"
+    },
+    {
+      "start": 525.2,
+      "end": 529.839,
+      "text": "whether it's rag it doesn't matter right"
+    },
+    {
+      "start": 527.44,
+      "end": 534.5600000000001,
+      "text": "every application will take the input"
+    },
+    {
+      "start": 529.839,
+      "end": 535.6800000000001,
+      "text": "and uh this agent will have uh um some"
+    },
+    {
+      "start": 534.56,
+      "end": 538.64,
+      "text": "connection with different different"
+    },
+    {
+      "start": 535.68,
+      "end": 540.64,
+      "text": "tools. I already told you without tools"
+    },
+    {
+      "start": 538.64,
+      "end": 542.72,
+      "text": "actually we can't implement the agents"
+    },
+    {
+      "start": 540.64,
+      "end": 544.24,
+      "text": "right so different tools should be"
+    },
+    {
+      "start": 542.72,
+      "end": 546.88,
+      "text": "definitely there inside this particular"
+    },
+    {
+      "start": 544.24,
+      "end": 549.36,
+      "text": "agents okay so whatever input user is"
+    },
+    {
+      "start": 546.88,
+      "end": 551.68,
+      "text": "giving uh these agents will utilize uh"
+    },
+    {
+      "start": 549.36,
+      "end": 554.72,
+      "text": "like tools to perform that particular"
+    },
+    {
+      "start": 551.68,
+      "end": 556.959,
+      "text": "task but in loop engineering instead of"
+    },
+    {
+      "start": 554.72,
+      "end": 559.44,
+      "text": "getting the response or instead of just"
+    },
+    {
+      "start": 556.959,
+      "end": 561.92,
+      "text": "completing that particular task at once"
+    },
+    {
+      "start": 559.44,
+      "end": 563.519,
+      "text": "we perform a loop operation okay we"
+    },
+    {
+      "start": 561.92,
+      "end": 565.68,
+      "text": "perform a loop operation that means"
+    },
+    {
+      "start": 563.519,
+      "end": 567.68,
+      "text": "let's say you are you have given a input"
+    },
+    {
+      "start": 565.68,
+      "end": 570.399,
+      "text": "let's say you are giving"
+    },
+    {
+      "start": 567.68,
+      "end": 571.92,
+      "text": "uh let's say uh you are giving an input"
+    },
+    {
+      "start": 570.399,
+      "end": 574.959,
+      "text": "generate"
+    },
+    {
+      "start": 571.92,
+      "end": 578.0,
+      "text": "uh generate let's say uh three questions"
+    },
+    {
+      "start": 574.959,
+      "end": 580.7199999999999,
+      "text": "for my uh interview candidate okay three"
+    },
+    {
+      "start": 578.0,
+      "end": 584.56,
+      "text": "questions for my interview candidate u"
+    },
+    {
+      "start": 580.72,
+      "end": 586.24,
+      "text": "and this will have definitely uh agent"
+    },
+    {
+      "start": 584.56,
+      "end": 587.92,
+      "text": "questions let's say this is your prompt"
+    },
+    {
+      "start": 586.24,
+      "end": 589.519,
+      "text": "you are giving to the agents now agents"
+    },
+    {
+      "start": 587.92,
+      "end": 592.0,
+      "text": "will be using the tools let's say it is"
+    },
+    {
+      "start": 589.519,
+      "end": 594.08,
+      "text": "using internet search tool and it is"
+    },
+    {
+      "start": 592.0,
+      "end": 596.0,
+      "text": "searching over the internet and it is"
+    },
+    {
+      "start": 594.08,
+      "end": 598.48,
+      "text": "getting some agent care related in"
+    },
+    {
+      "start": 596.0,
+      "end": 600.08,
+      "text": "review questions for you. Now in loop"
+    },
+    {
+      "start": 598.48,
+      "end": 602.64,
+      "text": "engineering it's not like that. It will"
+    },
+    {
+      "start": 600.08,
+      "end": 605.12,
+      "text": "directly give you this particular uh uh"
+    },
+    {
+      "start": 602.64,
+      "end": 607.12,
+      "text": "question set. Okay. Instead of that this"
+    },
+    {
+      "start": 605.12,
+      "end": 610.72,
+      "text": "particular response will go to the"
+    },
+    {
+      "start": 607.12,
+      "end": 612.399,
+      "text": "another layer. We call it as a feedback"
+    },
+    {
+      "start": 610.72,
+      "end": 615.6,
+      "text": "layer."
+    },
+    {
+      "start": 612.399,
+      "end": 618.959,
+      "text": "Okay. We call it as a feedback"
+    },
+    {
+      "start": 615.6,
+      "end": 621.519,
+      "text": "layer. Okay. Feedback layer. Now inside"
+    },
+    {
+      "start": 618.959,
+      "end": 623.4399999999999,
+      "text": "feedback we use some kinds of large"
+    },
+    {
+      "start": 621.519,
+      "end": 625.36,
+      "text": "language model. Okay. Here also we'll be"
+    },
+    {
+      "start": 623.44,
+      "end": 628.32,
+      "text": "using large language model. Here also"
+    },
+    {
+      "start": 625.36,
+      "end": 630.32,
+      "text": "we'll be using large language model."
+    },
+    {
+      "start": 628.32,
+      "end": 632.1600000000001,
+      "text": "Okay, large language model. Now with"
+    },
+    {
+      "start": 630.32,
+      "end": 634.1600000000001,
+      "text": "this large language model, we'll try to"
+    },
+    {
+      "start": 632.16,
+      "end": 636.8,
+      "text": "evaluate we'll try to evaluate this"
+    },
+    {
+      "start": 634.16,
+      "end": 638.7199999999999,
+      "text": "particular uh question the question set"
+    },
+    {
+      "start": 636.8,
+      "end": 640.399,
+      "text": "we are giving for my uh interview"
+    },
+    {
+      "start": 638.72,
+      "end": 643.279,
+      "text": "candidate. Okay, we'll try to evaluate"
+    },
+    {
+      "start": 640.399,
+      "end": 645.92,
+      "text": "that whether this question set is best"
+    },
+    {
+      "start": 643.279,
+      "end": 649.04,
+      "text": "for this candidate or not. Let's say he"
+    },
+    {
+      "start": 645.92,
+      "end": 652.3199999999999,
+      "text": "has sent one resumeumé and in the résumé"
+    },
+    {
+      "start": 649.04,
+      "end": 654.8,
+      "text": "he is mostly focusing on the uh AI"
+    },
+    {
+      "start": 652.32,
+      "end": 657.6,
+      "text": "agents uh related let's say skill set"
+    },
+    {
+      "start": 654.8,
+      "end": 660.56,
+      "text": "right or AI agents related projects but"
+    },
+    {
+      "start": 657.6,
+      "end": 662.8000000000001,
+      "text": "if my agent is generating some questions"
+    },
+    {
+      "start": 660.56,
+      "end": 664.64,
+      "text": "related let's say deep learning or"
+    },
+    {
+      "start": 662.8,
+      "end": 667.5999999999999,
+      "text": "computer vision so definitely this is"
+    },
+    {
+      "start": 664.64,
+      "end": 669.76,
+      "text": "not uh appropriate for my interview"
+    },
+    {
+      "start": 667.6,
+      "end": 671.76,
+      "text": "candidate right so that's why this"
+    },
+    {
+      "start": 669.76,
+      "end": 674.24,
+      "text": "feedback layer this ev we we also call"
+    },
+    {
+      "start": 671.76,
+      "end": 676.0,
+      "text": "it as evaluation layer or evaluator this"
+    },
+    {
+      "start": 674.24,
+      "end": 679.2,
+      "text": "evaluator will try to evaluate this"
+    },
+    {
+      "start": 676.0,
+      "end": 681.839,
+      "text": "particular output and this will select"
+    },
+    {
+      "start": 679.2,
+      "end": 683.279,
+      "text": "this question sets if this is matches"
+    },
+    {
+      "start": 681.839,
+      "end": 684.72,
+      "text": "with our requirement. Okay. So"
+    },
+    {
+      "start": 683.279,
+      "end": 686.88,
+      "text": "definitely here also we'll try to"
+    },
+    {
+      "start": 684.72,
+      "end": 688.9590000000001,
+      "text": "provide the prompt. Okay. Prompt like"
+    },
+    {
+      "start": 686.88,
+      "end": 690.8,
+      "text": "what kinds of questions we need."
+    },
+    {
+      "start": 688.959,
+      "end": 692.959,
+      "text": "Definitely inside this feedback layer"
+    },
+    {
+      "start": 690.8,
+      "end": 694.399,
+      "text": "also inside this LLM also will give the"
+    },
+    {
+      "start": 692.959,
+      "end": 696.56,
+      "text": "prompt. Let's say this kinds of question"
+    },
+    {
+      "start": 694.399,
+      "end": 698.88,
+      "text": "we need. So it will try to match the"
+    },
+    {
+      "start": 696.56,
+      "end": 701.1199999999999,
+      "text": "questions we are getting from our agents"
+    },
+    {
+      "start": 698.88,
+      "end": 703.2,
+      "text": "uh the questions we are expecting okay"
+    },
+    {
+      "start": 701.12,
+      "end": 706.24,
+      "text": "from the agents whether they are same or"
+    },
+    {
+      "start": 703.2,
+      "end": 708.399,
+      "text": "not. If they're same okay if uh it is"
+    },
+    {
+      "start": 706.24,
+      "end": 711.519,
+      "text": "matching with the candidate requirements"
+    },
+    {
+      "start": 708.399,
+      "end": 712.959,
+      "text": "it will basically accept that okay it"
+    },
+    {
+      "start": 711.519,
+      "end": 715.519,
+      "text": "will accept that and whenever it will"
+    },
+    {
+      "start": 712.959,
+      "end": 718.16,
+      "text": "accept so what will happen directly"
+    },
+    {
+      "start": 715.519,
+      "end": 720.9590000000001,
+      "text": "we'll get the output that means the"
+    },
+    {
+      "start": 718.16,
+      "end": 723.12,
+      "text": "questions okay but let's say in case"
+    },
+    {
+      "start": 720.959,
+      "end": 724.7199999999999,
+      "text": "this question set is not matching okay"
+    },
+    {
+      "start": 723.12,
+      "end": 726.88,
+      "text": "this is uh this is not matching with our"
+    },
+    {
+      "start": 724.72,
+      "end": 729.2,
+      "text": "requirements so this feedback layer will"
+    },
+    {
+      "start": 726.88,
+      "end": 732.16,
+      "text": "provide the feedback okay feedback to"
+    },
+    {
+      "start": 729.2,
+      "end": 734.48,
+      "text": "the agents again okay it will give the"
+    },
+    {
+      "start": 732.16,
+      "end": 736.48,
+      "text": "feedback back to the agents again it"
+    },
+    {
+      "start": 734.48,
+      "end": 738.32,
+      "text": "will tell this question actually doesn't"
+    },
+    {
+      "start": 736.48,
+      "end": 740.0,
+      "text": "match with the requirements. So you"
+    },
+    {
+      "start": 738.32,
+      "end": 742.8000000000001,
+      "text": "still need to improve this particular"
+    },
+    {
+      "start": 740.0,
+      "end": 744.8,
+      "text": "question sets. Okay. Now how many times"
+    },
+    {
+      "start": 742.8,
+      "end": 748.079,
+      "text": "this loop will be happening unless and"
+    },
+    {
+      "start": 744.8,
+      "end": 749.68,
+      "text": "until we are not getting the required uh"
+    },
+    {
+      "start": 748.079,
+      "end": 751.4399999999999,
+      "text": "unless and until we are not getting the"
+    },
+    {
+      "start": 749.68,
+      "end": 753.4399999999999,
+      "text": "actual question sets we're expecting"
+    },
+    {
+      "start": 751.44,
+      "end": 756.5600000000001,
+      "text": "here. Okay. So this is called actually"
+    },
+    {
+      "start": 753.44,
+      "end": 758.48,
+      "text": "our loop. Okay. This is here if you see"
+    },
+    {
+      "start": 756.56,
+      "end": 760.56,
+      "text": "this is our loop actually. So this loop"
+    },
+    {
+      "start": 758.48,
+      "end": 762.72,
+      "text": "will continuously"
+    },
+    {
+      "start": 760.56,
+      "end": 765.04,
+      "text": "uh run uh will be running unless and"
+    },
+    {
+      "start": 762.72,
+      "end": 766.9590000000001,
+      "text": "until we are not get getting our actual"
+    },
+    {
+      "start": 765.04,
+      "end": 769.4399999999999,
+      "text": "question set which we are expecting from"
+    },
+    {
+      "start": 766.959,
+      "end": 771.4399999999999,
+      "text": "the agents. Okay. So this is called"
+    },
+    {
+      "start": 769.44,
+      "end": 774.639,
+      "text": "actually loop engineering. That means we"
+    },
+    {
+      "start": 771.44,
+      "end": 776.32,
+      "text": "are implementing the same AI agents only"
+    },
+    {
+      "start": 774.639,
+      "end": 778.0,
+      "text": "but we are adding a additional layer"
+    },
+    {
+      "start": 776.32,
+      "end": 780.399,
+      "text": "here which is nothing but feedback layer"
+    },
+    {
+      "start": 778.0,
+      "end": 782.399,
+      "text": "or evaluator layer. So this evaluator"
+    },
+    {
+      "start": 780.399,
+      "end": 784.32,
+      "text": "layer will try to evaluate the output we"
+    },
+    {
+      "start": 782.399,
+      "end": 786.24,
+      "text": "are getting from the agents. Okay. And"
+    },
+    {
+      "start": 784.32,
+      "end": 788.5600000000001,
+      "text": "if it feel like okay this output is"
+    },
+    {
+      "start": 786.24,
+      "end": 790.72,
+      "text": "fine. Okay, then it will accept"
+    },
+    {
+      "start": 788.56,
+      "end": 792.6389999999999,
+      "text": "otherwise it will not accept that"
+    },
+    {
+      "start": 790.72,
+      "end": 794.5600000000001,
+      "text": "particular uh output. Instead of that,"
+    },
+    {
+      "start": 792.639,
+      "end": 797.12,
+      "text": "it will again send to the feedback to"
+    },
+    {
+      "start": 794.56,
+      "end": 798.7199999999999,
+      "text": "the agents. Agents will upgrade that"
+    },
+    {
+      "start": 797.12,
+      "end": 800.079,
+      "text": "particular question set and again it"
+    },
+    {
+      "start": 798.72,
+      "end": 802.399,
+      "text": "will send it to the feedback. Feedback"
+    },
+    {
+      "start": 800.079,
+      "end": 803.8389999999999,
+      "text": "will try to verify if verification is"
+    },
+    {
+      "start": 802.399,
+      "end": 806.0,
+      "text": "fine. If let's say it is matching with"
+    },
+    {
+      "start": 803.839,
+      "end": 807.6800000000001,
+      "text": "the requirements, user will be able to"
+    },
+    {
+      "start": 806.0,
+      "end": 809.6,
+      "text": "see the actual output or let's say"
+    },
+    {
+      "start": 807.68,
+      "end": 811.279,
+      "text": "actual question set. Okay, this is"
+    },
+    {
+      "start": 809.6,
+      "end": 813.519,
+      "text": "called actually loop engineering inside"
+    },
+    {
+      "start": 811.279,
+      "end": 817.8389999999999,
+      "text": "AI agents. I hope you got it. Very"
+    },
+    {
+      "start": 813.519,
+      "end": 819.6,
+      "text": "simple, very uh important. Okay. And uh"
+    },
+    {
+      "start": 817.839,
+      "end": 821.12,
+      "text": "uh AI agents we already know that guys"
+    },
+    {
+      "start": 819.6,
+      "end": 823.6,
+      "text": "we have already implemented so many AI"
+    },
+    {
+      "start": 821.12,
+      "end": 825.92,
+      "text": "agents inside our playlist. Okay. Uh"
+    },
+    {
+      "start": 823.6,
+      "end": 827.6800000000001,
+      "text": "only the new concept is that this uh"
+    },
+    {
+      "start": 825.92,
+      "end": 829.92,
+      "text": "loop engineering because nowadays every"
+    },
+    {
+      "start": 827.68,
+      "end": 832.0,
+      "text": "agents if especially if I'm talking"
+    },
+    {
+      "start": 829.92,
+      "end": 834.16,
+      "text": "about the coding agents. Okay. Uh so"
+    },
+    {
+      "start": 832.0,
+      "end": 836.639,
+      "text": "whatever coding coding agents you have"
+    },
+    {
+      "start": 834.16,
+      "end": 839.04,
+      "text": "let's say you you are using cursor ID"
+    },
+    {
+      "start": 836.639,
+      "end": 842.0,
+      "text": "you are using uh you are using uh cloud"
+    },
+    {
+      "start": 839.04,
+      "end": 844.079,
+      "text": "code right? So if I go to the uh cloud"
+    },
+    {
+      "start": 842.0,
+      "end": 846.079,
+      "text": "code documentation guys, this is the"
+    },
+    {
+      "start": 844.079,
+      "end": 847.8389999999999,
+      "text": "cloud code documentation as you can see"
+    },
+    {
+      "start": 846.079,
+      "end": 850.16,
+      "text": "and here you uh they have a one section"
+    },
+    {
+      "start": 847.839,
+      "end": 852.0,
+      "text": "called how cloud code works. So here you"
+    },
+    {
+      "start": 850.16,
+      "end": 854.16,
+      "text": "can see uh they have a section called"
+    },
+    {
+      "start": 852.0,
+      "end": 856.48,
+      "text": "the agent loop. Okay, so here they're"
+    },
+    {
+      "start": 854.16,
+      "end": 857.92,
+      "text": "using this agentic loop right here"
+    },
+    {
+      "start": 856.48,
+      "end": 859.76,
+      "text": "they're using this loop engineering"
+    },
+    {
+      "start": 857.92,
+      "end": 862.7199999999999,
+      "text": "concept. So as you can see whenever user"
+    },
+    {
+      "start": 859.76,
+      "end": 864.959,
+      "text": "is giving a prompt so it is gathering"
+    },
+    {
+      "start": 862.72,
+      "end": 867.6,
+      "text": "the context okay it is taking the"
+    },
+    {
+      "start": 864.959,
+      "end": 869.279,
+      "text": "actions it is verifying the results."
+    },
+    {
+      "start": 867.6,
+      "end": 872.0,
+      "text": "Okay, see this is this is what your"
+    },
+    {
+      "start": 869.279,
+      "end": 873.6,
+      "text": "agents okay and whatever agents uh it is"
+    },
+    {
+      "start": 872.0,
+      "end": 875.6,
+      "text": "returning the output instead of directly"
+    },
+    {
+      "start": 873.6,
+      "end": 877.519,
+      "text": "giving that output to the user first of"
+    },
+    {
+      "start": 875.6,
+      "end": 879.44,
+      "text": "all it is verifying okay it is verifying"
+    },
+    {
+      "start": 877.519,
+      "end": 881.279,
+      "text": "whether this output is fine or not let's"
+    },
+    {
+      "start": 879.44,
+      "end": 884.639,
+      "text": "say mostly cloud code we use for the"
+    },
+    {
+      "start": 881.279,
+      "end": 886.079,
+      "text": "code generation right so definitely uh"
+    },
+    {
+      "start": 884.639,
+      "end": 887.839,
+      "text": "let's say whenever you will give give"
+    },
+    {
+      "start": 886.079,
+      "end": 889.519,
+      "text": "your first prompt it's not like that"
+    },
+    {
+      "start": 887.839,
+      "end": 891.7600000000001,
+      "text": "your large language model will give you"
+    },
+    {
+      "start": 889.519,
+      "end": 893.6,
+      "text": "the best code for you so definitely this"
+    },
+    {
+      "start": 891.76,
+      "end": 895.519,
+      "text": "code will have some kinds of bugs this"
+    },
+    {
+      "start": 893.6,
+      "end": 897.44,
+      "text": "code will have some kinds of error so"
+    },
+    {
+      "start": 895.519,
+      "end": 899.6,
+      "text": "instead of directly giving to the user"
+    },
+    {
+      "start": 897.44,
+      "end": 901.2790000000001,
+      "text": "I'll be using this evaluator or feedback"
+    },
+    {
+      "start": 899.6,
+      "end": 902.8000000000001,
+      "text": "layer and we'll try to verify this code."
+    },
+    {
+      "start": 901.279,
+      "end": 904.32,
+      "text": "We'll try to run this code in a"
+    },
+    {
+      "start": 902.8,
+      "end": 905.92,
+      "text": "different environment. We'll try to see"
+    },
+    {
+      "start": 904.32,
+      "end": 907.839,
+      "text": "whether it is generating any kinds of"
+    },
+    {
+      "start": 905.92,
+      "end": 909.199,
+      "text": "error or not. If it is generating the"
+    },
+    {
+      "start": 907.839,
+      "end": 912.24,
+      "text": "error, if it is having any kinds of"
+    },
+    {
+      "start": 909.199,
+      "end": 914.3199999999999,
+      "text": "problem, we'll send the feedback to the"
+    },
+    {
+      "start": 912.24,
+      "end": 916.0790000000001,
+      "text": "um agents again. Okay. So, agents again"
+    },
+    {
+      "start": 914.32,
+      "end": 917.6800000000001,
+      "text": "it will gather the context. Again, it"
+    },
+    {
+      "start": 916.079,
+      "end": 919.5999999999999,
+      "text": "will gather all of the information. It"
+    },
+    {
+      "start": 917.68,
+      "end": 922.0,
+      "text": "will prepare the code. Again, it will"
+    },
+    {
+      "start": 919.6,
+      "end": 923.1990000000001,
+      "text": "try to send the uh send to the feedback"
+    },
+    {
+      "start": 922.0,
+      "end": 925.44,
+      "text": "layer or verify layer. Okay. Okay,"
+    },
+    {
+      "start": 923.199,
+      "end": 926.959,
+      "text": "verify again it will run and if it"
+    },
+    {
+      "start": 925.44,
+      "end": 929.2790000000001,
+      "text": "founds this code is completely fine,"
+    },
+    {
+      "start": 926.959,
+      "end": 931.279,
+      "text": "there is no error, then it will uh show"
+    },
+    {
+      "start": 929.279,
+      "end": 933.199,
+      "text": "it to the user. It will give to the user"
+    },
+    {
+      "start": 931.279,
+      "end": 936.56,
+      "text": "otherwise this loop will continuously"
+    },
+    {
+      "start": 933.199,
+      "end": 939.519,
+      "text": "run unless and until this code is able"
+    },
+    {
+      "start": 936.56,
+      "end": 942.0,
+      "text": "to run or this code is able to fix."
+    },
+    {
+      "start": 939.519,
+      "end": 944.8,
+      "text": "Okay, but here you have to definitely"
+    },
+    {
+      "start": 942.0,
+      "end": 946.72,
+      "text": "give a uh interruption condition. Okay,"
+    },
+    {
+      "start": 944.8,
+      "end": 949.519,
+      "text": "definitely you will not uh let your"
+    },
+    {
+      "start": 946.72,
+      "end": 950.88,
+      "text": "agents run infinite loop otherwise what"
+    },
+    {
+      "start": 949.519,
+      "end": 954.24,
+      "text": "will happen? you will end up with lots"
+    },
+    {
+      "start": 950.88,
+      "end": 956.24,
+      "text": "of lots lots of cost because LLM um"
+    },
+    {
+      "start": 954.24,
+      "end": 958.0,
+      "text": "having cost right you are hitting a"
+    },
+    {
+      "start": 956.24,
+      "end": 960.399,
+      "text": "large lang based model model through a"
+    },
+    {
+      "start": 958.0,
+      "end": 962.0,
+      "text": "API request or anything so definitely"
+    },
+    {
+      "start": 960.399,
+      "end": 963.68,
+      "text": "you are ending up lots of uh you are"
+    },
+    {
+      "start": 962.0,
+      "end": 966.48,
+      "text": "ending up with lots of cost so that's"
+    },
+    {
+      "start": 963.68,
+      "end": 969.12,
+      "text": "that's that's why we are not going to"
+    },
+    {
+      "start": 966.48,
+      "end": 970.72,
+      "text": "let our agents to perform this loop"
+    },
+    {
+      "start": 969.12,
+      "end": 972.399,
+      "text": "infinite time so definitely there would"
+    },
+    {
+      "start": 970.72,
+      "end": 974.48,
+      "text": "be interrupt condition now this"
+    },
+    {
+      "start": 972.399,
+      "end": 977.6,
+      "text": "interrupt condition should be anything"
+    },
+    {
+      "start": 974.48,
+      "end": 979.759,
+      "text": "whether you can add hit that means human"
+    },
+    {
+      "start": 977.6,
+      "end": 981.279,
+      "text": "in the loop whether you can add add a"
+    },
+    {
+      "start": 979.759,
+      "end": 983.12,
+      "text": "maximum iteration. Let's say after a"
+    },
+    {
+      "start": 981.279,
+      "end": 984.88,
+      "text": "certain iteration this execution would"
+    },
+    {
+      "start": 983.12,
+      "end": 987.12,
+      "text": "be over and user will able to see that"
+    },
+    {
+      "start": 984.88,
+      "end": 989.04,
+      "text": "output. Okay. So that's how you can add"
+    },
+    {
+      "start": 987.12,
+      "end": 991.759,
+      "text": "your interruption"
+    },
+    {
+      "start": 989.04,
+      "end": 994.399,
+      "text": "condition here. Okay. So never try to uh"
+    },
+    {
+      "start": 991.759,
+      "end": 996.32,
+      "text": "let your agent uh to perform this"
+    },
+    {
+      "start": 994.399,
+      "end": 997.92,
+      "text": "particular loop in finite time otherwise"
+    },
+    {
+      "start": 996.32,
+      "end": 999.9200000000001,
+      "text": "there would be definitely some kinds of"
+    },
+    {
+      "start": 997.92,
+      "end": 1001.519,
+      "text": "issue especially the cost issue you'll"
+    },
+    {
+      "start": 999.92,
+      "end": 1003.8389999999999,
+      "text": "be ending up. Okay. So this is what"
+    },
+    {
+      "start": 1001.519,
+      "end": 1006.0,
+      "text": "actually cloud code suggesting and"
+    },
+    {
+      "start": 1003.839,
+      "end": 1007.519,
+      "text": "they're using this uh um loop"
+    },
+    {
+      "start": 1006.0,
+      "end": 1009.68,
+      "text": "engineering concept inside their"
+    },
+    {
+      "start": 1007.519,
+      "end": 1012.32,
+      "text": "development as well. Okay, I hope you"
+    },
+    {
+      "start": 1009.68,
+      "end": 1014.4799999999999,
+      "text": "get it guys. So yes, uh this is what"
+    },
+    {
+      "start": 1012.32,
+      "end": 1016.8000000000001,
+      "text": "actually our loop engineering or agentic"
+    },
+    {
+      "start": 1014.48,
+      "end": 1019.279,
+      "text": "loop whatever you say. Okay, this is"
+    },
+    {
+      "start": 1016.8,
+      "end": 1022.3199999999999,
+      "text": "what actually uh we usually use inside"
+    },
+    {
+      "start": 1019.279,
+      "end": 1024.4,
+      "text": "this agentic loop. Now you can ask me"
+    },
+    {
+      "start": 1022.32,
+      "end": 1026.559,
+      "text": "whether this is necessary to add inside"
+    },
+    {
+      "start": 1024.4,
+      "end": 1028.64,
+      "text": "all of our AI agents. The answer is no."
+    },
+    {
+      "start": 1026.559,
+      "end": 1030.559,
+      "text": "Right? So so far the agents we have"
+    },
+    {
+      "start": 1028.64,
+      "end": 1032.0790000000002,
+      "text": "implemented inside our playlist. If you"
+    },
+    {
+      "start": 1030.559,
+      "end": 1034.559,
+      "text": "have already checked my YouTube channel"
+    },
+    {
+      "start": 1032.079,
+      "end": 1036.799,
+      "text": "guys, I have already created the content"
+    },
+    {
+      "start": 1034.559,
+      "end": 1038.3999999999999,
+      "text": "related uh AI agents. Okay, lots of"
+    },
+    {
+      "start": 1036.799,
+      "end": 1040.4,
+      "text": "project implementation I have done,"
+    },
+    {
+      "start": 1038.4,
+      "end": 1042.4,
+      "text": "right? And I have a dedicated playlist"
+    },
+    {
+      "start": 1040.4,
+      "end": 1044.4,
+      "text": "on the AI agents as well. Let me show"
+    },
+    {
+      "start": 1042.4,
+      "end": 1046.24,
+      "text": "you. So this is the dedicated playlist"
+    },
+    {
+      "start": 1044.4,
+      "end": 1047.76,
+      "text": "on the agentic AI. So if you are"
+    },
+    {
+      "start": 1046.24,
+      "end": 1049.6,
+      "text": "completely new to the agentic, please"
+    },
+    {
+      "start": 1047.76,
+      "end": 1051.12,
+      "text": "try to complete this agentic playlist. I"
+    },
+    {
+      "start": 1049.6,
+      "end": 1053.28,
+      "text": "think uh you will be able to complete"
+    },
+    {
+      "start": 1051.12,
+      "end": 1055.12,
+      "text": "everything. So see whatever agents we"
+    },
+    {
+      "start": 1053.28,
+      "end": 1057.28,
+      "text": "have implemented so far, this doesn't"
+    },
+    {
+      "start": 1055.12,
+      "end": 1059.12,
+      "text": "need this kinds of looping concept."
+    },
+    {
+      "start": 1057.28,
+      "end": 1060.8799999999999,
+      "text": "Okay. So when we need this kinds of"
+    },
+    {
+      "start": 1059.12,
+      "end": 1063.6789999999999,
+      "text": "looping concept whenever you are"
+    },
+    {
+      "start": 1060.88,
+      "end": 1066.0,
+      "text": "implementing uh kinds of coding agent"
+    },
+    {
+      "start": 1063.679,
+      "end": 1067.919,
+      "text": "okay coding agents or kinds of agents"
+    },
+    {
+      "start": 1066.0,
+      "end": 1071.12,
+      "text": "you are implementing that needs actually"
+    },
+    {
+      "start": 1067.919,
+      "end": 1073.919,
+      "text": "this kinds of feedback or looping"
+    },
+    {
+      "start": 1071.12,
+      "end": 1075.76,
+      "text": "concept okay you need to verify the"
+    },
+    {
+      "start": 1073.919,
+      "end": 1078.24,
+      "text": "answer okay unless and until this is"
+    },
+    {
+      "start": 1075.76,
+      "end": 1080.559,
+      "text": "completely correct okay if you have this"
+    },
+    {
+      "start": 1078.24,
+      "end": 1082.32,
+      "text": "kinds of condition that time just try to"
+    },
+    {
+      "start": 1080.559,
+      "end": 1084.559,
+      "text": "add this looping layer okay this"
+    },
+    {
+      "start": 1082.32,
+      "end": 1085.84,
+      "text": "feedback layer inside your agents okay"
+    },
+    {
+      "start": 1084.559,
+      "end": 1088.0,
+      "text": "this is very simple you just need to"
+    },
+    {
+      "start": 1085.84,
+      "end": 1090.3999999999999,
+      "text": "write extra function For that that"
+    },
+    {
+      "start": 1088.0,
+      "end": 1091.84,
+      "text": "function will verify the agent output"
+    },
+    {
+      "start": 1090.4,
+      "end": 1093.44,
+      "text": "and definitely here you will try to"
+    },
+    {
+      "start": 1091.84,
+      "end": 1095.36,
+      "text": "provide the prompt what kinds of output"
+    },
+    {
+      "start": 1093.44,
+      "end": 1098.3200000000002,
+      "text": "you are expecting from the agent based"
+    },
+    {
+      "start": 1095.36,
+      "end": 1100.08,
+      "text": "on that it will uh select okay and"
+    },
+    {
+      "start": 1098.32,
+      "end": 1101.76,
+      "text": "otherwise it will give the feedback to"
+    },
+    {
+      "start": 1100.08,
+      "end": 1104.559,
+      "text": "the agents agent will be working on the"
+    },
+    {
+      "start": 1101.76,
+      "end": 1106.64,
+      "text": "feedback again and it will generate that"
+    },
+    {
+      "start": 1104.559,
+      "end": 1108.799,
+      "text": "particular response okay but definitely"
+    },
+    {
+      "start": 1106.64,
+      "end": 1110.4,
+      "text": "this loop should not be infinite there"
+    },
+    {
+      "start": 1108.799,
+      "end": 1112.96,
+      "text": "should be some kinds of interruption"
+    },
+    {
+      "start": 1110.4,
+      "end": 1114.88,
+      "text": "condition either you can add hit human"
+    },
+    {
+      "start": 1112.96,
+      "end": 1116.96,
+      "text": "in the loop you can ask for the human"
+    },
+    {
+      "start": 1114.88,
+      "end": 1119.6000000000001,
+      "text": "verification whether human still needs"
+    },
+    {
+      "start": 1116.96,
+      "end": 1121.76,
+      "text": "to run this loop or not or still let's"
+    },
+    {
+      "start": 1119.6,
+      "end": 1124.24,
+      "text": "say they are um or or let's say they"
+    },
+    {
+      "start": 1121.76,
+      "end": 1126.8799999999999,
+      "text": "want to stop this particular uh loop"
+    },
+    {
+      "start": 1124.24,
+      "end": 1129.36,
+      "text": "execution or you can um write a maximum"
+    },
+    {
+      "start": 1126.88,
+      "end": 1131.6000000000001,
+      "text": "iteration let's say after five to six uh"
+    },
+    {
+      "start": 1129.36,
+      "end": 1133.28,
+      "text": "iteration this particular loop will be"
+    },
+    {
+      "start": 1131.6,
+      "end": 1134.8799999999999,
+      "text": "terminated and user will be able to see"
+    },
+    {
+      "start": 1133.28,
+      "end": 1136.8799999999999,
+      "text": "the output okay so this is completely"
+    },
+    {
+      "start": 1134.88,
+      "end": 1138.48,
+      "text": "your designing pipeline uh the way you"
+    },
+    {
+      "start": 1136.88,
+      "end": 1140.16,
+      "text": "you want to design you can design okay"
+    },
+    {
+      "start": 1138.48,
+      "end": 1142.4,
+      "text": "this is completely up to you there is no"
+    },
+    {
+      "start": 1140.16,
+      "end": 1144.24,
+      "text": "fixed condition you have to follow okay"
+    },
+    {
+      "start": 1142.4,
+      "end": 1146.88,
+      "text": "but again I'm telling you guys this is"
+    },
+    {
+      "start": 1144.24,
+      "end": 1148.799,
+      "text": "not necessary this is completely I mean"
+    },
+    {
+      "start": 1146.88,
+      "end": 1150.88,
+      "text": "independent concept if you want to add"
+    },
+    {
+      "start": 1148.799,
+      "end": 1152.72,
+      "text": "inside your agents uh if you feel like"
+    },
+    {
+      "start": 1150.88,
+      "end": 1154.0,
+      "text": "okay this is important for my agents"
+    },
+    {
+      "start": 1152.72,
+      "end": 1155.3600000000001,
+      "text": "especially whenever you are creating"
+    },
+    {
+      "start": 1154.0,
+      "end": 1157.44,
+      "text": "coding agents okay that that will"
+    },
+    {
+      "start": 1155.36,
+      "end": 1158.8799999999999,
+      "text": "generate the code it will debug the code"
+    },
+    {
+      "start": 1157.44,
+      "end": 1160.4,
+      "text": "it will verify the code then it will"
+    },
+    {
+      "start": 1158.88,
+      "end": 1161.679,
+      "text": "give you the final response right if"
+    },
+    {
+      "start": 1160.4,
+      "end": 1163.8400000000001,
+      "text": "you're creating these kinds of agents"
+    },
+    {
+      "start": 1161.679,
+      "end": 1166.0,
+      "text": "that time just try to use this kinds of"
+    },
+    {
+      "start": 1163.84,
+      "end": 1168.0,
+      "text": "loop engineering concept otherwise it is"
+    },
+    {
+      "start": 1166.0,
+      "end": 1170.16,
+      "text": "not required okay it is not required for"
+    },
+    {
+      "start": 1168.0,
+      "end": 1172.64,
+      "text": "all the agents I hope you get it now"
+    },
+    {
+      "start": 1170.16,
+      "end": 1175.6000000000001,
+      "text": "guys I think I am able to um give you"
+    },
+    {
+      "start": 1172.64,
+      "end": 1177.919,
+      "text": "the highle overview of this um loop"
+    },
+    {
+      "start": 1175.6,
+      "end": 1179.4399999999998,
+      "text": "engineering Now uh let me uh discuss"
+    },
+    {
+      "start": 1177.919,
+      "end": 1181.6000000000001,
+      "text": "this loop engineering mode. I will show"
+    },
+    {
+      "start": 1179.44,
+      "end": 1183.2,
+      "text": "you some more example and don't worry I"
+    },
+    {
+      "start": 1181.6,
+      "end": 1185.36,
+      "text": "will also give you the code example."
+    },
+    {
+      "start": 1183.2,
+      "end": 1186.64,
+      "text": "We'll see one code example for the loop"
+    },
+    {
+      "start": 1185.36,
+      "end": 1188.32,
+      "text": "engineering. We'll also see one code"
+    },
+    {
+      "start": 1186.64,
+      "end": 1190.64,
+      "text": "example for the non-loop engineering."
+    },
+    {
+      "start": 1188.32,
+      "end": 1192.3999999999999,
+      "text": "Okay. So both example I'm going to show"
+    },
+    {
+      "start": 1190.64,
+      "end": 1194.24,
+      "text": "I think after seeing that example your"
+    },
+    {
+      "start": 1192.4,
+      "end": 1197.039,
+      "text": "understanding would be more clear. So"
+    },
+    {
+      "start": 1194.24,
+      "end": 1198.96,
+      "text": "guys now uh you can see on my screen I"
+    },
+    {
+      "start": 1197.039,
+      "end": 1201.6,
+      "text": "have uh written the definition for this"
+    },
+    {
+      "start": 1198.96,
+      "end": 1203.76,
+      "text": "loop engineering inside agentic AI. Loop"
+    },
+    {
+      "start": 1201.6,
+      "end": 1206.8799999999999,
+      "text": "engineering means designing an AI agent"
+    },
+    {
+      "start": 1203.76,
+      "end": 1209.12,
+      "text": "that repeatedly repeatedly uh works,"
+    },
+    {
+      "start": 1206.88,
+      "end": 1212.0,
+      "text": "checks it results, learn from feedback"
+    },
+    {
+      "start": 1209.12,
+      "end": 1215.12,
+      "text": "and tries uh tries again until the goal"
+    },
+    {
+      "start": 1212.0,
+      "end": 1217.76,
+      "text": "is achieved. Okay. So here instead of uh"
+    },
+    {
+      "start": 1215.12,
+      "end": 1220.1599999999999,
+      "text": "human um uh continuously telling the"
+    },
+    {
+      "start": 1217.76,
+      "end": 1222.96,
+      "text": "agents try again fix the problem check"
+    },
+    {
+      "start": 1220.16,
+      "end": 1224.48,
+      "text": "your answer improve the output we add"
+    },
+    {
+      "start": 1222.96,
+      "end": 1227.3600000000001,
+      "text": "the loop engineering concept and"
+    },
+    {
+      "start": 1224.48,
+      "end": 1230.32,
+      "text": "automatically that u feedback layer or"
+    },
+    {
+      "start": 1227.36,
+      "end": 1232.3999999999999,
+      "text": "the evaluator layer will try to give the"
+    },
+    {
+      "start": 1230.32,
+      "end": 1234.8799999999999,
+      "text": "feedback to the agents agents will fix"
+    },
+    {
+      "start": 1232.4,
+      "end": 1236.24,
+      "text": "that particular output and uh this will"
+    },
+    {
+      "start": 1234.88,
+      "end": 1238.0800000000002,
+      "text": "be happening unless and until we are"
+    },
+    {
+      "start": 1236.24,
+      "end": 1239.6,
+      "text": "generating the correct output okay so"
+    },
+    {
+      "start": 1238.08,
+      "end": 1242.799,
+      "text": "this is called actually loop engineering"
+    },
+    {
+      "start": 1239.6,
+      "end": 1244.9599999999998,
+      "text": "I hope you get it now here I have kept"
+    },
+    {
+      "start": 1242.799,
+      "end": 1246.559,
+      "text": "some examples Uh let me show you this"
+    },
+    {
+      "start": 1244.96,
+      "end": 1249.2,
+      "text": "example. So guys as you can see this is"
+    },
+    {
+      "start": 1246.559,
+      "end": 1250.96,
+      "text": "the example. So in our traditional uh"
+    },
+    {
+      "start": 1249.2,
+      "end": 1255.039,
+      "text": "not traditional actually in our simple"
+    },
+    {
+      "start": 1250.96,
+      "end": 1257.1200000000001,
+      "text": "agents what we do uh we give a input"
+    },
+    {
+      "start": 1255.039,
+      "end": 1259.679,
+      "text": "okay to the agents and agent generate an"
+    },
+    {
+      "start": 1257.12,
+      "end": 1262.8799999999999,
+      "text": "output and this stops the generation"
+    },
+    {
+      "start": 1259.679,
+      "end": 1264.48,
+      "text": "okay but inside uh loop engineering uh"
+    },
+    {
+      "start": 1262.88,
+      "end": 1266.0,
+      "text": "let's say whenever we add this loop"
+    },
+    {
+      "start": 1264.48,
+      "end": 1268.32,
+      "text": "engineering with the agents that uh that"
+    },
+    {
+      "start": 1266.0,
+      "end": 1271.28,
+      "text": "time what will happen if user gives any"
+    },
+    {
+      "start": 1268.32,
+      "end": 1273.36,
+      "text": "input to the agents so agents will"
+    },
+    {
+      "start": 1271.28,
+      "end": 1276.0,
+      "text": "generate some kinds of output and this"
+    },
+    {
+      "start": 1273.36,
+      "end": 1278.24,
+      "text": "output will try to send it to the"
+    },
+    {
+      "start": 1276.0,
+      "end": 1280.24,
+      "text": "evaluator Okay. Or let's say feedback"
+    },
+    {
+      "start": 1278.24,
+      "end": 1282.159,
+      "text": "layer. Feedback layer will try to check"
+    },
+    {
+      "start": 1280.24,
+      "end": 1284.64,
+      "text": "whether this particular response is fine"
+    },
+    {
+      "start": 1282.159,
+      "end": 1286.72,
+      "text": "or not. If it is not fine, again it will"
+    },
+    {
+      "start": 1284.64,
+      "end": 1288.24,
+      "text": "give the feedback to the agents. Agents"
+    },
+    {
+      "start": 1286.72,
+      "end": 1290.559,
+      "text": "will again try to generate that"
+    },
+    {
+      "start": 1288.24,
+      "end": 1293.2,
+      "text": "particular answer. Again it will come to"
+    },
+    {
+      "start": 1290.559,
+      "end": 1295.039,
+      "text": "the evaluator. Then uh if evaluator"
+    },
+    {
+      "start": 1293.2,
+      "end": 1296.559,
+      "text": "selects that it will user will be able"
+    },
+    {
+      "start": 1295.039,
+      "end": 1299.2,
+      "text": "to see the output. Okay. So this is the"
+    },
+    {
+      "start": 1296.559,
+      "end": 1301.52,
+      "text": "work of the loop engineering inside AI"
+    },
+    {
+      "start": 1299.2,
+      "end": 1303.679,
+      "text": "agents. So here you can see a normal AI"
+    },
+    {
+      "start": 1301.52,
+      "end": 1306.96,
+      "text": "call usually gives one response and"
+    },
+    {
+      "start": 1303.679,
+      "end": 1309.039,
+      "text": "stops. uh uh that is fine for simple"
+    },
+    {
+      "start": 1306.96,
+      "end": 1312.159,
+      "text": "question and answer but risky when the"
+    },
+    {
+      "start": 1309.039,
+      "end": 1313.84,
+      "text": "uh when um uh when the task has many"
+    },
+    {
+      "start": 1312.159,
+      "end": 1315.5200000000002,
+      "text": "requirement. Okay, that time actually"
+    },
+    {
+      "start": 1313.84,
+      "end": 1318.0,
+      "text": "this is super important to add this loop"
+    },
+    {
+      "start": 1315.52,
+      "end": 1320.799,
+      "text": "engineering. A loop engineering uh adds"
+    },
+    {
+      "start": 1318.0,
+      "end": 1323.12,
+      "text": "a checking st if the output fails"
+    },
+    {
+      "start": 1320.799,
+      "end": 1325.52,
+      "text": "feedback uh goes back to the agents and"
+    },
+    {
+      "start": 1323.12,
+      "end": 1327.9189999999999,
+      "text": "uh for another attempt. Okay. So what is"
+    },
+    {
+      "start": 1325.52,
+      "end": 1331.679,
+      "text": "the simple idea here? uh if I'm not"
+    },
+    {
+      "start": 1327.919,
+      "end": 1335.1200000000001,
+      "text": "using this uh agentic loop okay inside"
+    },
+    {
+      "start": 1331.679,
+      "end": 1336.96,
+      "text": "our agents that time um whatever answer"
+    },
+    {
+      "start": 1335.12,
+      "end": 1338.6399999999999,
+      "text": "we are getting uh answer once that"
+    },
+    {
+      "start": 1336.96,
+      "end": 1340.4,
+      "text": "should uh there is a possibility this"
+    },
+    {
+      "start": 1338.64,
+      "end": 1342.4,
+      "text": "answer should be risky especially for"
+    },
+    {
+      "start": 1340.4,
+      "end": 1344.5590000000002,
+      "text": "the coding agents that should be risky"
+    },
+    {
+      "start": 1342.4,
+      "end": 1346.4,
+      "text": "that's why we have to perform the check"
+    },
+    {
+      "start": 1344.559,
+      "end": 1348.24,
+      "text": "and improve operation so this is like"
+    },
+    {
+      "start": 1346.4,
+      "end": 1349.919,
+      "text": "more reliable especially the coding"
+    },
+    {
+      "start": 1348.24,
+      "end": 1352.559,
+      "text": "agents whatever we are using like claude"
+    },
+    {
+      "start": 1349.919,
+      "end": 1355.1200000000001,
+      "text": "a then google anti-gravity okay then"
+    },
+    {
+      "start": 1352.559,
+      "end": 1357.039,
+      "text": "cursor AI whatever um coding agents we"
+    },
+    {
+      "start": 1355.12,
+      "end": 1358.559,
+      "text": "are using uh in our day-to-day life"
+    },
+    {
+      "start": 1357.039,
+      "end": 1360.559,
+      "text": "especially for these kinds of agent this"
+    },
+    {
+      "start": 1358.559,
+      "end": 1362.1589999999999,
+      "text": "is super important guys okay but again"
+    },
+    {
+      "start": 1360.559,
+      "end": 1364.6399999999999,
+      "text": "I'm telling you this is not applicable"
+    },
+    {
+      "start": 1362.159,
+      "end": 1366.0800000000002,
+      "text": "for all the agents okay out there so"
+    },
+    {
+      "start": 1364.64,
+      "end": 1368.0,
+      "text": "whatever agents we have created inside"
+    },
+    {
+      "start": 1366.08,
+      "end": 1370.1589999999999,
+      "text": "our playlist uh it doesn't need any"
+    },
+    {
+      "start": 1368.0,
+      "end": 1371.52,
+      "text": "kinds of looping concept but in future"
+    },
+    {
+      "start": 1370.159,
+      "end": 1372.88,
+      "text": "definitely I'm going to create some more"
+    },
+    {
+      "start": 1371.52,
+      "end": 1374.6399999999999,
+      "text": "agents we'll be creating the coding"
+    },
+    {
+      "start": 1372.88,
+      "end": 1376.96,
+      "text": "agents as well we'll be creating some"
+    },
+    {
+      "start": 1374.64,
+      "end": 1378.5590000000002,
+      "text": "more uh let's say uh different kinds of"
+    },
+    {
+      "start": 1376.96,
+      "end": 1380.4,
+      "text": "use case that time I'll try to use this"
+    },
+    {
+      "start": 1378.559,
+      "end": 1381.6789999999999,
+      "text": "kinds of looping concept as well okay"
+    },
+    {
+      "start": 1380.4,
+      "end": 1384.88,
+      "text": "loop engineering concept inside our"
+    },
+    {
+      "start": 1381.679,
+      "end": 1387.1200000000001,
+      "text": "agent development now uh as you can see"
+    },
+    {
+      "start": 1384.88,
+      "end": 1390.159,
+      "text": "the simple Definition loop engineering"
+    },
+    {
+      "start": 1387.12,
+      "end": 1391.84,
+      "text": "is the design of the agent uh retry and"
+    },
+    {
+      "start": 1390.159,
+      "end": 1393.6000000000001,
+      "text": "improve the cycle. Loop engineering"
+    },
+    {
+      "start": 1391.84,
+      "end": 1395.76,
+      "text": "means designing an AI agents that can"
+    },
+    {
+      "start": 1393.6,
+      "end": 1397.9189999999999,
+      "text": "generate work evaluate the result and"
+    },
+    {
+      "start": 1395.76,
+      "end": 1401.52,
+      "text": "receive the feedback try again and stop"
+    },
+    {
+      "start": 1397.919,
+      "end": 1403.5200000000002,
+      "text": "when the goal is met. So it will uh"
+    },
+    {
+      "start": 1401.52,
+      "end": 1405.52,
+      "text": "generate it will first uh after that it"
+    },
+    {
+      "start": 1403.52,
+      "end": 1407.2,
+      "text": "will check then it will improve then it"
+    },
+    {
+      "start": 1405.52,
+      "end": 1409.52,
+      "text": "will repeat that particular work unless"
+    },
+    {
+      "start": 1407.2,
+      "end": 1412.24,
+      "text": "and until unless and until we don't get"
+    },
+    {
+      "start": 1409.52,
+      "end": 1413.76,
+      "text": "the final output. Okay. So for a real"
+    },
+    {
+      "start": 1412.24,
+      "end": 1415.679,
+      "text": "example guys you can consider the"
+    },
+    {
+      "start": 1413.76,
+      "end": 1418.0,
+      "text": "classroom analogy. So basically a"
+    },
+    {
+      "start": 1415.679,
+      "end": 1420.24,
+      "text": "student writes, the teacher checks, the"
+    },
+    {
+      "start": 1418.0,
+      "end": 1422.08,
+      "text": "student improves, then the final work is"
+    },
+    {
+      "start": 1420.24,
+      "end": 1423.679,
+      "text": "submitted. Okay, it's not like that at"
+    },
+    {
+      "start": 1422.08,
+      "end": 1425.4399999999998,
+      "text": "the first attempt you will be able to"
+    },
+    {
+      "start": 1423.679,
+      "end": 1428.0,
+      "text": "solve one mathematic mathematical"
+    },
+    {
+      "start": 1425.44,
+      "end": 1429.679,
+      "text": "problem or anything. So definitely you"
+    },
+    {
+      "start": 1428.0,
+      "end": 1431.28,
+      "text": "need to take the feedback from your"
+    },
+    {
+      "start": 1429.679,
+      "end": 1432.88,
+      "text": "teacher. Okay, teacher will give the"
+    },
+    {
+      "start": 1431.28,
+      "end": 1434.24,
+      "text": "feedback then again it will uh you will"
+    },
+    {
+      "start": 1432.88,
+      "end": 1436.0800000000002,
+      "text": "be working on top on top of that"
+    },
+    {
+      "start": 1434.24,
+      "end": 1438.159,
+      "text": "particular topic and you will be able to"
+    },
+    {
+      "start": 1436.08,
+      "end": 1440.0,
+      "text": "get the perfect results. Okay, so this"
+    },
+    {
+      "start": 1438.159,
+      "end": 1442.7990000000002,
+      "text": "is one real world analogy we can"
+    },
+    {
+      "start": 1440.0,
+      "end": 1444.88,
+      "text": "consider. Now here is the non-loop"
+    },
+    {
+      "start": 1442.799,
+      "end": 1447.28,
+      "text": "agents uh definition guys. As you can"
+    },
+    {
+      "start": 1444.88,
+      "end": 1449.7600000000002,
+      "text": "see the agent answer once and stops."
+    },
+    {
+      "start": 1447.28,
+      "end": 1451.6789999999999,
+      "text": "Basically user will give a prompt. It"
+    },
+    {
+      "start": 1449.76,
+      "end": 1453.679,
+      "text": "will generate once. Okay. Then it will"
+    },
+    {
+      "start": 1451.679,
+      "end": 1456.24,
+      "text": "return the answer then agent will stop."
+    },
+    {
+      "start": 1453.679,
+      "end": 1458.64,
+      "text": "Okay. Example write a customer support"
+    },
+    {
+      "start": 1456.24,
+      "end": 1461.52,
+      "text": "reply. Okay. So it will only write the"
+    },
+    {
+      "start": 1458.64,
+      "end": 1463.3600000000001,
+      "text": "customer support reply. Okay. After uh"
+    },
+    {
+      "start": 1461.52,
+      "end": 1465.2,
+      "text": "replying that it will stop. Okay. It"
+    },
+    {
+      "start": 1463.36,
+      "end": 1467.84,
+      "text": "will not see the customer let's say"
+    },
+    {
+      "start": 1465.2,
+      "end": 1470.64,
+      "text": "requirement or anything. Okay. So this"
+    },
+    {
+      "start": 1467.84,
+      "end": 1472.6399999999999,
+      "text": "is one example. Then this loop agent"
+    },
+    {
+      "start": 1470.64,
+      "end": 1475.1200000000001,
+      "text": "this agent checks its own work and"
+    },
+    {
+      "start": 1472.64,
+      "end": 1478.3200000000002,
+      "text": "improves before um returning the final"
+    },
+    {
+      "start": 1475.12,
+      "end": 1480.9599999999998,
+      "text": "result. So as you can see um the core"
+    },
+    {
+      "start": 1478.32,
+      "end": 1483.36,
+      "text": "cycle is generate an answer evaluate the"
+    },
+    {
+      "start": 1480.96,
+      "end": 1486.0,
+      "text": "answer. Okay if it fails checks the"
+    },
+    {
+      "start": 1483.36,
+      "end": 1488.0,
+      "text": "feedback try again with the uh feedback."
+    },
+    {
+      "start": 1486.0,
+      "end": 1490.64,
+      "text": "Okay stop when the uh it passes or"
+    },
+    {
+      "start": 1488.0,
+      "end": 1492.48,
+      "text": "reaches the limit. Important a loop must"
+    },
+    {
+      "start": 1490.64,
+      "end": 1495.039,
+      "text": "have a stopping rule. I already told you"
+    },
+    {
+      "start": 1492.48,
+      "end": 1497.2,
+      "text": "uh it's it should not be infinite loop"
+    },
+    {
+      "start": 1495.039,
+      "end": 1499.679,
+      "text": "loop always. it definitely it will have"
+    },
+    {
+      "start": 1497.2,
+      "end": 1502.0,
+      "text": "a stopping rule otherwise the agents may"
+    },
+    {
+      "start": 1499.679,
+      "end": 1504.3200000000002,
+      "text": "keep spending tokens and the time"
+    },
+    {
+      "start": 1502.0,
+      "end": 1506.0,
+      "text": "without reaching a better result. Okay,"
+    },
+    {
+      "start": 1504.32,
+      "end": 1507.36,
+      "text": "that is why I told you definitely"
+    },
+    {
+      "start": 1506.0,
+      "end": 1509.6,
+      "text": "whenever you are adding this kinds of"
+    },
+    {
+      "start": 1507.36,
+      "end": 1512.8799999999999,
+      "text": "looping concept you should have a stop"
+    },
+    {
+      "start": 1509.6,
+      "end": 1515.039,
+      "text": "condition there. Okay. Yeah. Now as you"
+    },
+    {
+      "start": 1512.88,
+      "end": 1517.279,
+      "text": "can see this is the anatomy of a good"
+    },
+    {
+      "start": 1515.039,
+      "end": 1519.2,
+      "text": "loop system. First of all definitely it"
+    },
+    {
+      "start": 1517.279,
+      "end": 1520.799,
+      "text": "will have the goal. It will perform the"
+    },
+    {
+      "start": 1519.2,
+      "end": 1522.0,
+      "text": "actions. It will perform the"
+    },
+    {
+      "start": 1520.799,
+      "end": 1524.08,
+      "text": "observation. It will perform the"
+    },
+    {
+      "start": 1522.0,
+      "end": 1526.24,
+      "text": "evaluation. It will uh be able to give"
+    },
+    {
+      "start": 1524.08,
+      "end": 1527.76,
+      "text": "the feedback. then uh it will have"
+    },
+    {
+      "start": 1526.24,
+      "end": 1529.279,
+      "text": "definitely a stopping rule. Okay,"
+    },
+    {
+      "start": 1527.76,
+      "end": 1532.1589999999999,
+      "text": "without a stopping rule, don't create"
+    },
+    {
+      "start": 1529.279,
+      "end": 1534.4,
+      "text": "this kinds of uh looping system inside"
+    },
+    {
+      "start": 1532.159,
+      "end": 1536.88,
+      "text": "the agent. Okay, so simple formula is"
+    },
+    {
+      "start": 1534.4,
+      "end": 1539.52,
+      "text": "loop is equal to your goal plus action"
+    },
+    {
+      "start": 1536.88,
+      "end": 1541.0390000000002,
+      "text": "plus evaluation plus feedback plus stop"
+    },
+    {
+      "start": 1539.52,
+      "end": 1543.84,
+      "text": "conditions. Okay, so if you're following"
+    },
+    {
+      "start": 1541.039,
+      "end": 1546.48,
+      "text": "these are the steps, you can imple"
+    },
+    {
+      "start": 1543.84,
+      "end": 1549.12,
+      "text": "implement a better looping"
+    },
+    {
+      "start": 1546.48,
+      "end": 1550.88,
+      "text": "uh concept inside your AI agents. Now,"
+    },
+    {
+      "start": 1549.12,
+      "end": 1553.36,
+      "text": "as you can see, this is the difference"
+    },
+    {
+      "start": 1550.88,
+      "end": 1555.0390000000002,
+      "text": "between your non-loop and loop agents."
+    },
+    {
+      "start": 1553.36,
+      "end": 1558.08,
+      "text": "So as you can see this is the non-loop"
+    },
+    {
+      "start": 1555.039,
+      "end": 1559.76,
+      "text": "agents it answer once fast and simple"
+    },
+    {
+      "start": 1558.08,
+      "end": 1561.6,
+      "text": "definitely uh whenever you are using"
+    },
+    {
+      "start": 1559.76,
+      "end": 1562.72,
+      "text": "non-loop agent the answer would be super"
+    },
+    {
+      "start": 1561.6,
+      "end": 1564.32,
+      "text": "fast because at the very first time"
+    },
+    {
+      "start": 1562.72,
+      "end": 1566.64,
+      "text": "you'll be get the answer right then"
+    },
+    {
+      "start": 1564.32,
+      "end": 1569.12,
+      "text": "lower cost no automatic self correction"
+    },
+    {
+      "start": 1566.64,
+      "end": 1571.76,
+      "text": "best low risk task okay but if you're"
+    },
+    {
+      "start": 1569.12,
+      "end": 1574.6399999999999,
+      "text": "using uh loop agents that time it can"
+    },
+    {
+      "start": 1571.76,
+      "end": 1576.799,
+      "text": "try multiple times checks output uses"
+    },
+    {
+      "start": 1574.64,
+      "end": 1580.5590000000002,
+      "text": "feedback to improve higher cost and best"
+    },
+    {
+      "start": 1576.799,
+      "end": 1583.84,
+      "text": "for multi-step task okay so at one line"
+    },
+    {
+      "start": 1580.559,
+      "end": 1585.9189999999999,
+      "text": "a non-loop agent uh answer once A loop"
+    },
+    {
+      "start": 1583.84,
+      "end": 1587.9189999999999,
+      "text": "agents work checks and improve and"
+    },
+    {
+      "start": 1585.919,
+      "end": 1589.919,
+      "text": "repeats. Okay. So this is what actually"
+    },
+    {
+      "start": 1587.919,
+      "end": 1591.919,
+      "text": "we can understand from our non-loop and"
+    },
+    {
+      "start": 1589.919,
+      "end": 1593.76,
+      "text": "loop agents."
+    },
+    {
+      "start": 1591.919,
+      "end": 1596.0,
+      "text": "Now here I have taken an example as you"
+    },
+    {
+      "start": 1593.76,
+      "end": 1598.32,
+      "text": "can see the coding agent loop. Uh the"
+    },
+    {
+      "start": 1596.0,
+      "end": 1600.72,
+      "text": "agent writes codes run test reads the"
+    },
+    {
+      "start": 1598.32,
+      "end": 1603.36,
+      "text": "error fix the code and run the test"
+    },
+    {
+      "start": 1600.72,
+      "end": 1606.559,
+      "text": "again. Okay. Until this code is fixed."
+    },
+    {
+      "start": 1603.36,
+      "end": 1610.799,
+      "text": "Typical coding loop issue generate code"
+    },
+    {
+      "start": 1606.559,
+      "end": 1614.0,
+      "text": "run test read errors fix code uh then uh"
+    },
+    {
+      "start": 1610.799,
+      "end": 1616.6399999999999,
+      "text": "retest final patch. So best uh stopping"
+    },
+    {
+      "start": 1614.0,
+      "end": 1619.2,
+      "text": "condition all test passes or the agent"
+    },
+    {
+      "start": 1616.64,
+      "end": 1620.72,
+      "text": "reaches the maximum number of prepared"
+    },
+    {
+      "start": 1619.2,
+      "end": 1622.32,
+      "text": "attempts. Okay. So these two condition"
+    },
+    {
+      "start": 1620.72,
+      "end": 1625.039,
+      "text": "you can add for the stopping condition"
+    },
+    {
+      "start": 1622.32,
+      "end": 1627.36,
+      "text": "to the agents. Okay. Now this is the"
+    },
+    {
+      "start": 1625.039,
+      "end": 1629.84,
+      "text": "example uh another example I have taken."
+    },
+    {
+      "start": 1627.36,
+      "end": 1631.52,
+      "text": "Uh this is the travel planning loop."
+    },
+    {
+      "start": 1629.84,
+      "end": 1633.36,
+      "text": "Let's say whenever user is giving a"
+    },
+    {
+      "start": 1631.52,
+      "end": 1635.84,
+      "text": "prompt, let's say user is giving create"
+    },
+    {
+      "start": 1633.36,
+      "end": 1637.6,
+      "text": "a 3-day trip plan that matches the user"
+    },
+    {
+      "start": 1635.84,
+      "end": 1639.84,
+      "text": "budget, dates, weather, preferences,"
+    },
+    {
+      "start": 1637.6,
+      "end": 1641.36,
+      "text": "hotel needs, and active styles. Okay. So"
+    },
+    {
+      "start": 1639.84,
+      "end": 1644.08,
+      "text": "here we will be checking this loop"
+    },
+    {
+      "start": 1641.36,
+      "end": 1646.08,
+      "text": "condition. Is the the it is within the"
+    },
+    {
+      "start": 1644.08,
+      "end": 1648.0,
+      "text": "budget or not? Are dates are valid or"
+    },
+    {
+      "start": 1646.08,
+      "end": 1649.84,
+      "text": "not? Is the travel time realistic or"
+    },
+    {
+      "start": 1648.0,
+      "end": 1651.6,
+      "text": "not? Are the hotels are available not?"
+    },
+    {
+      "start": 1649.84,
+      "end": 1654.08,
+      "text": "Okay. Does it follow the user constraint"
+    },
+    {
+      "start": 1651.6,
+      "end": 1655.6,
+      "text": "or not? If it uh not matching with this"
+    },
+    {
+      "start": 1654.08,
+      "end": 1657.6789999999999,
+      "text": "particular condition, we'll be"
+    },
+    {
+      "start": 1655.6,
+      "end": 1660.48,
+      "text": "continuously running this loop. Useful"
+    },
+    {
+      "start": 1657.679,
+      "end": 1662.72,
+      "text": "for multi- aents app. Once the agent"
+    },
+    {
+      "start": 1660.48,
+      "end": 1665.039,
+      "text": "proposes another checks, a supervisor"
+    },
+    {
+      "start": 1662.72,
+      "end": 1670.08,
+      "text": "decides what to retire. Okay, I think"
+    },
+    {
+      "start": 1665.039,
+      "end": 1672.799,
+      "text": "you got it. Then u for the stopping"
+    },
+    {
+      "start": 1670.08,
+      "end": 1674.32,
+      "text": "condition guys uh we'll be using some"
+    },
+    {
+      "start": 1672.799,
+      "end": 1677.36,
+      "text": "kinds of guardrails as I already told"
+    },
+    {
+      "start": 1674.32,
+      "end": 1680.32,
+      "text": "you a loop without limits can become"
+    },
+    {
+      "start": 1677.36,
+      "end": 1682.8799999999999,
+      "text": "expensive, unsafe or stuck. Okay."
+    },
+    {
+      "start": 1680.32,
+      "end": 1685.76,
+      "text": "Minimal uh minimum productions control,"
+    },
+    {
+      "start": 1682.88,
+      "end": 1688.0,
+      "text": "maximum attempts, token and cost budget,"
+    },
+    {
+      "start": 1685.76,
+      "end": 1690.559,
+      "text": "quality evaluator, safety or policy"
+    },
+    {
+      "start": 1688.0,
+      "end": 1693.039,
+      "text": "checks, human approval for risk uh risky"
+    },
+    {
+      "start": 1690.559,
+      "end": 1695.6789999999999,
+      "text": "actions. Okay. Log for debugging. So key"
+    },
+    {
+      "start": 1693.039,
+      "end": 1699.039,
+      "text": "rule never design an open-ended agent"
+    },
+    {
+      "start": 1695.679,
+      "end": 1700.799,
+      "text": "loop. Every loop needs a stop condition"
+    },
+    {
+      "start": 1699.039,
+      "end": 1702.799,
+      "text": "and fallback path. Okay, that is what I"
+    },
+    {
+      "start": 1700.799,
+      "end": 1704.1589999999999,
+      "text": "told you whenever you are designing this"
+    },
+    {
+      "start": 1702.799,
+      "end": 1706.08,
+      "text": "definitely it will have a stop"
+    },
+    {
+      "start": 1704.159,
+      "end": 1707.44,
+      "text": "condition. Okay, for this you can use"
+    },
+    {
+      "start": 1706.08,
+      "end": 1709.039,
+      "text": "any kinds of guidels. Whether you can"
+    },
+    {
+      "start": 1707.44,
+      "end": 1711.1200000000001,
+      "text": "use human in the loop, whether you can"
+    },
+    {
+      "start": 1709.039,
+      "end": 1713.44,
+      "text": "use maximum attempts, okay, token and"
+    },
+    {
+      "start": 1711.12,
+      "end": 1715.12,
+      "text": "cost budget, quality evaluator, okay,"
+    },
+    {
+      "start": 1713.44,
+      "end": 1716.799,
+      "text": "safety or policy checks, anything you"
+    },
+    {
+      "start": 1715.12,
+      "end": 1719.52,
+      "text": "can use and you can add this kinds of"
+    },
+    {
+      "start": 1716.799,
+      "end": 1721.44,
+      "text": "stop condition inside your agents. So"
+    },
+    {
+      "start": 1719.52,
+      "end": 1725.52,
+      "text": "this is the final recap guys. Uh"
+    },
+    {
+      "start": 1721.44,
+      "end": 1728.72,
+      "text": "non-loop once um one answer and stop use"
+    },
+    {
+      "start": 1725.52,
+      "end": 1731.2,
+      "text": "for simple and lowrisk task. Loop work"
+    },
+    {
+      "start": 1728.72,
+      "end": 1733.44,
+      "text": "checks improve and repeat until the"
+    },
+    {
+      "start": 1731.2,
+      "end": 1735.919,
+      "text": "result passes. Evaluator the quality"
+    },
+    {
+      "start": 1733.44,
+      "end": 1739.2,
+      "text": "checks that decides passes or retry."
+    },
+    {
+      "start": 1735.919,
+      "end": 1741.76,
+      "text": "guardrails uh limit human um approval"
+    },
+    {
+      "start": 1739.2,
+      "end": 1743.6000000000001,
+      "text": "logging and fall fallback behavior. Stop"
+    },
+    {
+      "start": 1741.76,
+      "end": 1746.48,
+      "text": "condition the rule that prevents uh the"
+    },
+    {
+      "start": 1743.6,
+      "end": 1748.6399999999999,
+      "text": "infinite loops and cost weights. Okay,"
+    },
+    {
+      "start": 1746.48,
+      "end": 1750.799,
+      "text": "so prompt engineering uh engineering"
+    },
+    {
+      "start": 1748.64,
+      "end": 1752.48,
+      "text": "designs the in instruction loop"
+    },
+    {
+      "start": 1750.799,
+      "end": 1755.279,
+      "text": "engineering designs what happens after"
+    },
+    {
+      "start": 1752.48,
+      "end": 1757.2,
+      "text": "each uh response. Okay, so this is the"
+    },
+    {
+      "start": 1755.279,
+      "end": 1759.2,
+      "text": "overall idea about the loop engineering."
+    },
+    {
+      "start": 1757.2,
+      "end": 1761.44,
+      "text": "I hope you got it. Now let me show you"
+    },
+    {
+      "start": 1759.2,
+      "end": 1764.96,
+      "text": "one code example. Uh so there I will try"
+    },
+    {
+      "start": 1761.44,
+      "end": 1766.88,
+      "text": "to see one um non loop uh example then I"
+    },
+    {
+      "start": 1764.96,
+      "end": 1768.32,
+      "text": "will show you one loop example uh and"
+    },
+    {
+      "start": 1766.88,
+      "end": 1770.48,
+      "text": "you will be able to see which one is"
+    },
+    {
+      "start": 1768.32,
+      "end": 1771.76,
+      "text": "better here. Okay. So I will open up my"
+    },
+    {
+      "start": 1770.48,
+      "end": 1774.08,
+      "text": "Google collab and let me show you the"
+    },
+    {
+      "start": 1771.76,
+      "end": 1776.0,
+      "text": "code example there. So guys as you can"
+    },
+    {
+      "start": 1774.08,
+      "end": 1778.799,
+      "text": "see here I have already taken some"
+    },
+    {
+      "start": 1776.0,
+      "end": 1780.799,
+      "text": "example. I already added this code in my"
+    },
+    {
+      "start": 1778.799,
+      "end": 1782.24,
+      "text": "uh collab notebook and this code I will"
+    },
+    {
+      "start": 1780.799,
+      "end": 1784.08,
+      "text": "share in the description. From there you"
+    },
+    {
+      "start": 1782.24,
+      "end": 1786.3990000000001,
+      "text": "can check. So this is a simple agent I"
+    },
+    {
+      "start": 1784.08,
+      "end": 1788.799,
+      "text": "have created. So to run this agent first"
+    },
+    {
+      "start": 1786.399,
+      "end": 1790.8799999999999,
+      "text": "of all I need the gro API key. So here"
+    },
+    {
+      "start": 1788.799,
+      "end": 1792.48,
+      "text": "I'm using grock API key and to use grock"
+    },
+    {
+      "start": 1790.88,
+      "end": 1795.3600000000001,
+      "text": "first of all you have to install this uh"
+    },
+    {
+      "start": 1792.48,
+      "end": 1798.0,
+      "text": "gro library. So let's install and how to"
+    },
+    {
+      "start": 1795.36,
+      "end": 1799.84,
+      "text": "collect this API key just visit this uh"
+    },
+    {
+      "start": 1798.0,
+      "end": 1802.24,
+      "text": "uh console.grock.com"
+    },
+    {
+      "start": 1799.84,
+      "end": 1803.76,
+      "text": "and if you click on API key here you'll"
+    },
+    {
+      "start": 1802.24,
+      "end": 1805.6,
+      "text": "be able to see the API key just try try"
+    },
+    {
+      "start": 1803.76,
+      "end": 1807.12,
+      "text": "to create an API key for you. So I"
+    },
+    {
+      "start": 1805.6,
+      "end": 1808.559,
+      "text": "already created my API key and don't use"
+    },
+    {
+      "start": 1807.12,
+      "end": 1811.1999999999998,
+      "text": "my API key guys I'm going to review"
+    },
+    {
+      "start": 1808.559,
+      "end": 1813.36,
+      "text": "after this session. So this is my API"
+    },
+    {
+      "start": 1811.2,
+      "end": 1815.44,
+      "text": "key. Now guys this is the example uh"
+    },
+    {
+      "start": 1813.36,
+      "end": 1817.279,
+      "text": "this example basically uh it's a"
+    },
+    {
+      "start": 1815.44,
+      "end": 1819.6000000000001,
+      "text": "non-loop agent. This generates a"
+    },
+    {
+      "start": 1817.279,
+      "end": 1821.2,
+      "text": "customer uh support reply only once."
+    },
+    {
+      "start": 1819.6,
+      "end": 1824.08,
+      "text": "Okay. So as you can see here I'm using"
+    },
+    {
+      "start": 1821.2,
+      "end": 1825.6000000000001,
+      "text": "this llama 3.37 billion versatile model"
+    },
+    {
+      "start": 1824.08,
+      "end": 1827.6,
+      "text": "and first of all I'm checking my API"
+    },
+    {
+      "start": 1825.6,
+      "end": 1829.279,
+      "text": "key. I'm initializing my client. Then"
+    },
+    {
+      "start": 1827.6,
+      "end": 1831.9189999999999,
+      "text": "this is the function I have written um"
+    },
+    {
+      "start": 1829.279,
+      "end": 1833.679,
+      "text": "called call lm. So basically here uh we"
+    },
+    {
+      "start": 1831.919,
+      "end": 1836.159,
+      "text": "are sending the prompt and it is"
+    },
+    {
+      "start": 1833.679,
+      "end": 1838.159,
+      "text": "generating the uh customer support reply"
+    },
+    {
+      "start": 1836.159,
+      "end": 1839.8400000000001,
+      "text": "for us. And this is the prompt we have"
+    },
+    {
+      "start": 1838.159,
+      "end": 1841.3600000000001,
+      "text": "given. So write a customer support reply"
+    },
+    {
+      "start": 1839.84,
+      "end": 1843.6,
+      "text": "for the following situation. A customer"
+    },
+    {
+      "start": 1841.36,
+      "end": 1844.7199999999998,
+      "text": "receives a damaged laptop order ID. This"
+    },
+    {
+      "start": 1843.6,
+      "end": 1847.76,
+      "text": "is the order ID and this is the"
+    },
+    {
+      "start": 1844.72,
+      "end": 1849.1200000000001,
+      "text": "requirements. Apologies to the customer."
+    },
+    {
+      "start": 1847.76,
+      "end": 1851.44,
+      "text": "Mention the order ID. Offer a"
+    },
+    {
+      "start": 1849.12,
+      "end": 1853.039,
+      "text": "replacement. Keep the response under 60"
+    },
+    {
+      "start": 1851.44,
+      "end": 1855.3600000000001,
+      "text": "words. Okay. And we are calling the"
+    },
+    {
+      "start": 1853.039,
+      "end": 1858.08,
+      "text": "function. Then we are uh printing the"
+    },
+    {
+      "start": 1855.36,
+      "end": 1859.84,
+      "text": "answer. Now if I execute this uh um"
+    },
+    {
+      "start": 1858.08,
+      "end": 1861.1999999999998,
+      "text": "code, as you can see, this is the final"
+    },
+    {
+      "start": 1859.84,
+      "end": 1862.799,
+      "text": "answer. We are getting sorry for the"
+    },
+    {
+      "start": 1861.2,
+      "end": 1865.52,
+      "text": "damaged laptop. This is the order ID."
+    },
+    {
+      "start": 1862.799,
+      "end": 1867.44,
+      "text": "We'll replace it uh replace it promptly."
+    },
+    {
+      "start": 1865.52,
+      "end": 1869.039,
+      "text": "Okay. Now let me show you the same"
+    },
+    {
+      "start": 1867.44,
+      "end": 1870.88,
+      "text": "example with the loop agents. Okay. Now"
+    },
+    {
+      "start": 1869.039,
+      "end": 1872.559,
+      "text": "what loop agents will try to do here? So"
+    },
+    {
+      "start": 1870.88,
+      "end": 1875.44,
+      "text": "this version checks the answer and ask"
+    },
+    {
+      "start": 1872.559,
+      "end": 1876.8799999999999,
+      "text": "the LLM to fix any problem. Okay. Now as"
+    },
+    {
+      "start": 1875.44,
+      "end": 1878.0,
+      "text": "you can see I'm doing the same thing. We"
+    },
+    {
+      "start": 1876.88,
+      "end": 1880.7990000000002,
+      "text": "are initializing the model and"
+    },
+    {
+      "start": 1878.0,
+      "end": 1883.039,
+      "text": "everything. And here to uh to make our"
+    },
+    {
+      "start": 1880.799,
+      "end": 1885.12,
+      "text": "loop uh stopped guys we are using the"
+    },
+    {
+      "start": 1883.039,
+      "end": 1886.799,
+      "text": "maximum iteration"
+    },
+    {
+      "start": 1885.12,
+      "end": 1889.039,
+      "text": "maximum iteration actually strategy."
+    },
+    {
+      "start": 1886.799,
+      "end": 1890.399,
+      "text": "Okay. And this is the order ID. Now"
+    },
+    {
+      "start": 1889.039,
+      "end": 1892.1589999999999,
+      "text": "we're checking the API key. We are"
+    },
+    {
+      "start": 1890.399,
+      "end": 1894.0,
+      "text": "initializing the client and this is the"
+    },
+    {
+      "start": 1892.159,
+      "end": 1895.7600000000002,
+      "text": "same function we have written for the"
+    },
+    {
+      "start": 1894.0,
+      "end": 1898.96,
+      "text": "answer generation and this is the"
+    },
+    {
+      "start": 1895.76,
+      "end": 1901.12,
+      "text": "evaluator or the that u feedback layer"
+    },
+    {
+      "start": 1898.96,
+      "end": 1902.799,
+      "text": "we have added. So basically it will take"
+    },
+    {
+      "start": 1901.12,
+      "end": 1906.399,
+      "text": "the answer from the agents and it will"
+    },
+    {
+      "start": 1902.799,
+      "end": 1908.8799999999999,
+      "text": "check okay whether this particular um"
+    },
+    {
+      "start": 1906.399,
+      "end": 1911.36,
+      "text": "answer having this kinds of word or not."
+    },
+    {
+      "start": 1908.88,
+      "end": 1913.0390000000002,
+      "text": "Sorry apologies. Okay apologies. Okay I"
+    },
+    {
+      "start": 1911.36,
+      "end": 1914.8799999999999,
+      "text": "told you right I have to give some kinds"
+    },
+    {
+      "start": 1913.039,
+      "end": 1916.48,
+      "text": "of uh prompt here some kinds of"
+    },
+    {
+      "start": 1914.88,
+      "end": 1918.3990000000001,
+      "text": "condition based on the condition it will"
+    },
+    {
+      "start": 1916.48,
+      "end": 1920.48,
+      "text": "decide whether it will take that input"
+    },
+    {
+      "start": 1918.399,
+      "end": 1922.6399999999999,
+      "text": "or not. Okay. So if these kinds of words"
+    },
+    {
+      "start": 1920.48,
+      "end": 1924.64,
+      "text": "are available, if uh it is having the"
+    },
+    {
+      "start": 1922.64,
+      "end": 1927.2,
+      "text": "replacement word, okay, that time this"
+    },
+    {
+      "start": 1924.64,
+      "end": 1928.3990000000001,
+      "text": "particular response should be selected."
+    },
+    {
+      "start": 1927.2,
+      "end": 1929.76,
+      "text": "That time this particular response"
+    },
+    {
+      "start": 1928.399,
+      "end": 1932.2399999999998,
+      "text": "should be selected otherwise it will not"
+    },
+    {
+      "start": 1929.76,
+      "end": 1933.84,
+      "text": "select it. Okay. Now as you can see"
+    },
+    {
+      "start": 1932.24,
+      "end": 1935.36,
+      "text": "evaluator is checking these are the"
+    },
+    {
+      "start": 1933.84,
+      "end": 1937.519,
+      "text": "things. Okay. Simply you can go through"
+    },
+    {
+      "start": 1935.36,
+      "end": 1938.799,
+      "text": "this code to understand. Now this is the"
+    },
+    {
+      "start": 1937.519,
+      "end": 1939.919,
+      "text": "task I have given. Write a customer"
+    },
+    {
+      "start": 1938.799,
+      "end": 1941.84,
+      "text": "support reply for the following"
+    },
+    {
+      "start": 1939.919,
+      "end": 1943.44,
+      "text": "situation. A customer received a damaged"
+    },
+    {
+      "start": 1941.84,
+      "end": 1944.9599999999998,
+      "text": "laptop. This is the order ID and these"
+    },
+    {
+      "start": 1943.44,
+      "end": 1947.3600000000001,
+      "text": "are the requirement. Okay. So if this"
+    },
+    {
+      "start": 1944.96,
+      "end": 1949.6000000000001,
+      "text": "requirement is not available in the"
+    },
+    {
+      "start": 1947.36,
+      "end": 1951.76,
+      "text": "response it this loop will run"
+    },
+    {
+      "start": 1949.6,
+      "end": 1953.6789999999999,
+      "text": "continuously and this is the feedback no"
+    },
+    {
+      "start": 1951.76,
+      "end": 1955.84,
+      "text": "previous feedback"
+    },
+    {
+      "start": 1953.679,
+      "end": 1957.6000000000001,
+      "text": "initially we are adding this feedback"
+    },
+    {
+      "start": 1955.84,
+      "end": 1959.279,
+      "text": "like no previous feedback because"
+    },
+    {
+      "start": 1957.6,
+      "end": 1961.6,
+      "text": "initially the feedback would be empty"
+    },
+    {
+      "start": 1959.279,
+      "end": 1963.519,
+      "text": "okay now we are running the iteration so"
+    },
+    {
+      "start": 1961.6,
+      "end": 1965.4399999999998,
+      "text": "uh if this matches with the feedback"
+    },
+    {
+      "start": 1963.519,
+      "end": 1966.72,
+      "text": "right uh if this let's say this matches"
+    },
+    {
+      "start": 1965.44,
+      "end": 1969.2,
+      "text": "with the requirement that time"
+    },
+    {
+      "start": 1966.72,
+      "end": 1971.3600000000001,
+      "text": "automatically stop otherwise this will"
+    },
+    {
+      "start": 1969.2,
+      "end": 1973.919,
+      "text": "uh this will follow this max iteration"
+    },
+    {
+      "start": 1971.36,
+      "end": 1976.7199999999998,
+      "text": "okay let's say in case it is not able to"
+    },
+    {
+      "start": 1973.919,
+      "end": 1978.3990000000001,
+      "text": "U match my requirements then it will"
+    },
+    {
+      "start": 1976.72,
+      "end": 1980.32,
+      "text": "this agent will stop based on the max"
+    },
+    {
+      "start": 1978.399,
+      "end": 1982.1589999999999,
+      "text": "iteration. Okay. If max iteration is"
+    },
+    {
+      "start": 1980.32,
+      "end": 1983.6,
+      "text": "over then my agent will be stopped that"
+    },
+    {
+      "start": 1982.159,
+      "end": 1986.0,
+      "text": "time. Now this is the prompt we are"
+    },
+    {
+      "start": 1983.6,
+      "end": 1988.1589999999999,
+      "text": "giving. Okay. Now this is the LLM call"
+    },
+    {
+      "start": 1986.0,
+      "end": 1990.08,
+      "text": "and we are doing doing the evaluation uh"
+    },
+    {
+      "start": 1988.159,
+      "end": 1991.7600000000002,
+      "text": "evaluator checks. After that we are"
+    },
+    {
+      "start": 1990.08,
+      "end": 1994.559,
+      "text": "printing the result. Now let me show you"
+    },
+    {
+      "start": 1991.76,
+      "end": 1996.24,
+      "text": "the answer. Now see this is the first"
+    },
+    {
+      "start": 1994.559,
+      "end": 1998.1589999999999,
+      "text": "iteration. This is the generated"
+    },
+    {
+      "start": 1996.24,
+      "end": 1999.44,
+      "text": "response. Now in this generated response"
+    },
+    {
+      "start": 1998.159,
+      "end": 2001.519,
+      "text": "you can see sorry for the damaged"
+    },
+    {
+      "start": 1999.44,
+      "end": 2004.3990000000001,
+      "text": "laptop. We'll replace it promptly. But"
+    },
+    {
+      "start": 2001.519,
+      "end": 2007.919,
+      "text": "it doesn't have that uh replacement."
+    },
+    {
+      "start": 2004.399,
+      "end": 2011.1999999999998,
+      "text": "Okay, it doesn't have the uh replacement"
+    },
+    {
+      "start": 2007.919,
+      "end": 2012.7990000000002,
+      "text": "uh like uh replacement word. Okay, now"
+    },
+    {
+      "start": 2011.2,
+      "end": 2013.8400000000001,
+      "text": "you can add any kinds of condition. It's"
+    },
+    {
+      "start": 2012.799,
+      "end": 2016.6399999999999,
+      "text": "up to you. So here I have added"
+    },
+    {
+      "start": 2013.84,
+      "end": 2018.08,
+      "text": "replacement word as I told you. So here"
+    },
+    {
+      "start": 2016.64,
+      "end": 2019.3600000000001,
+      "text": "this is the replacement word. Okay, it"
+    },
+    {
+      "start": 2018.08,
+      "end": 2021.4399999999998,
+      "text": "doesn't have this replacement word. It"
+    },
+    {
+      "start": 2019.36,
+      "end": 2024.1589999999999,
+      "text": "is not telling user that I will replace"
+    },
+    {
+      "start": 2021.44,
+      "end": 2027.039,
+      "text": "it. Okay. Uh that's why this evaluator"
+    },
+    {
+      "start": 2024.159,
+      "end": 2028.64,
+      "text": "is spelled. So clear uh clearly offered"
+    },
+    {
+      "start": 2027.039,
+      "end": 2030.559,
+      "text": "a replacement. Okay, it is required."
+    },
+    {
+      "start": 2028.64,
+      "end": 2032.3990000000001,
+      "text": "This is the feedback we are getting from"
+    },
+    {
+      "start": 2030.559,
+      "end": 2034.72,
+      "text": "the evaluator. Now in the second"
+    },
+    {
+      "start": 2032.399,
+      "end": 2036.1589999999999,
+      "text": "iteration, this feedback will go and"
+    },
+    {
+      "start": 2034.72,
+      "end": 2038.0,
+      "text": "generated answer. As you can see, sorry"
+    },
+    {
+      "start": 2036.159,
+      "end": 2040.0800000000002,
+      "text": "for the damage laptop. This is the order"
+    },
+    {
+      "start": 2038.0,
+      "end": 2042.559,
+      "text": "ID and we'll provide a replacement"
+    },
+    {
+      "start": 2040.08,
+      "end": 2044.24,
+      "text": "laptop. Okay. Now this replacement is"
+    },
+    {
+      "start": 2042.559,
+      "end": 2046.1589999999999,
+      "text": "available. Now this particular evaluator"
+    },
+    {
+      "start": 2044.24,
+      "end": 2048.0,
+      "text": "is passed and this is the final response"
+    },
+    {
+      "start": 2046.159,
+      "end": 2050.2400000000002,
+      "text": "we are getting. Okay. So that's how guys"
+    },
+    {
+      "start": 2048.0,
+      "end": 2052.399,
+      "text": "this loop engineering works. This loop"
+    },
+    {
+      "start": 2050.24,
+      "end": 2053.7599999999998,
+      "text": "agentic loop works. Okay. And whenever"
+    },
+    {
+      "start": 2052.399,
+      "end": 2056.0,
+      "text": "you feel like that would be necessary"
+    },
+    {
+      "start": 2053.76,
+      "end": 2057.599,
+      "text": "for you for your AI agents, you can use"
+    },
+    {
+      "start": 2056.0,
+      "end": 2059.119,
+      "text": "that. Okay. But again I'm telling you"
+    },
+    {
+      "start": 2057.599,
+      "end": 2061.04,
+      "text": "you should not be use this particular"
+    },
+    {
+      "start": 2059.119,
+      "end": 2062.56,
+      "text": "concept for all the agents. Okay only"
+    },
+    {
+      "start": 2061.04,
+      "end": 2064.56,
+      "text": "whenever you are creating these kinds of"
+    },
+    {
+      "start": 2062.56,
+      "end": 2066.0789999999997,
+      "text": "coding agents or any kinds of agents"
+    },
+    {
+      "start": 2064.56,
+      "end": 2068.48,
+      "text": "which is needs this kinds of uh"
+    },
+    {
+      "start": 2066.079,
+      "end": 2070.8,
+      "text": "evaluator you can use that. So yes guys"
+    },
+    {
+      "start": 2068.48,
+      "end": 2072.2400000000002,
+      "text": "I hope you got it. Uh I'm able to make"
+    },
+    {
+      "start": 2070.8,
+      "end": 2073.8390000000004,
+      "text": "you understand about this loop"
+    },
+    {
+      "start": 2072.24,
+      "end": 2076.6389999999997,
+      "text": "engineering concept. This is nothing"
+    },
+    {
+      "start": 2073.839,
+      "end": 2079.839,
+      "text": "else only a uh like additional layer we"
+    },
+    {
+      "start": 2076.639,
+      "end": 2081.04,
+      "text": "usually add inside our agents only and"
+    },
+    {
+      "start": 2079.839,
+      "end": 2082.7999999999997,
+      "text": "mostly whenever you will be creating"
+    },
+    {
+      "start": 2081.04,
+      "end": 2084.32,
+      "text": "deep agents coding agents that time"
+    },
+    {
+      "start": 2082.8,
+      "end": 2085.679,
+      "text": "you'll be using this concept. Okay,"
+    },
+    {
+      "start": 2084.32,
+      "end": 2087.599,
+      "text": "don't worry. I will also create deep"
+    },
+    {
+      "start": 2085.679,
+      "end": 2089.52,
+      "text": "agents uh video on my channel."
+    },
+    {
+      "start": 2087.599,
+      "end": 2091.119,
+      "text": "Definitely we'll try to understand and"
+    },
+    {
+      "start": 2089.52,
+      "end": 2092.399,
+      "text": "if you found my content useful guys,"
+    },
+    {
+      "start": 2091.119,
+      "end": 2094.0,
+      "text": "please try to subscribe to my channel"
+    },
+    {
+      "start": 2092.399,
+      "end": 2095.839,
+      "text": "and please try to share it with your"
+    },
+    {
+      "start": 2094.0,
+      "end": 2097.359,
+      "text": "friends and family. So yes guys, this is"
+    },
+    {
+      "start": 2095.839,
+      "end": 2098.72,
+      "text": "all about from this video. I hope you"
+    },
+    {
+      "start": 2097.359,
+      "end": 2100.48,
+      "text": "liked it. Thank you so much guys for"
+    },
+    {
+      "start": 2098.72,
+      "end": 2103.52,
+      "text": "watching this video and I will see you"
+    },
+    {
+      "start": 2100.48,
+      "end": 2103.52,
+      "text": "next time."
+    }
+  ],
+  "video_id": "e9xOW7mH_vY",
+  "title": "Learn Loop Engineering in 30 Minutes: Build AI Agents That Think, Check & Retry",
+  "position": 36,
+  "url": "https://www.youtube.com/watch?v=e9xOW7mH_vY"
+}
