@@ -22,6 +22,8 @@ from pathlib import Path
 
 import numpy as np
 
+from lecture_ids import citation_link
+
 PROJECT_FOLDER = Path(__file__).resolve().parent
 INDEX_FOLDER = PROJECT_FOLDER / 'data' / 'rag_index'
 
@@ -243,7 +245,9 @@ class LectureIndex:
             passage['start'], passage['end'] = span[0]['start'], span[-1]['end']
             passage['text'] = ' '.join(segment['text'] for segment in span)
             passage['label'] = f'L{passage["position"]} {format_time(passage["start"])}'
-            passage['link'] = f'{passage["url"]}&t={int(passage["start"])}s'
+            lecture = self.transcripts[passage['video_id']]
+            passage['source'] = lecture.get('lecture_source', 'youtube')
+            passage['link'] = citation_link(lecture, passage['start'])
         return merged
 
 
@@ -286,21 +290,57 @@ def call_llm(messages, temperature=0.2, max_tokens=1500, json_mode=False):
     return message.get('content') or ''
 
 
+def stream_llm(messages, temperature=0.2, max_tokens=2500):
+    """Yield ('reasoning' | 'token', text) pieces as the model generates them (server-sent events)."""
+    import requests
+    url, api_key, model = llm_settings()
+    if not api_key:
+        raise ValueError('Set OPENROUTER_API_KEY in your environment or in a .env file to generate answers.')
+    body = {'model': model, 'messages': messages, 'temperature': temperature,
+            'max_tokens': max_tokens, 'stream': True}
+    with requests.post(url, json=body, timeout=(15, 180), stream=True,
+                       headers={'Authorization': 'Bearer ' + api_key}) as response:
+        if response.status_code != 200:
+            raise ValueError(f'LLM request to {model} failed ({response.status_code}): {response.text[:300]}')
+        response.encoding = 'utf-8'
+        for line in response.iter_lines(decode_unicode=True):
+            # Blank lines separate events; lines starting with ':' are keep-alive comments.
+            if not line or not line.startswith('data:'):
+                continue
+            data = line[5:].strip()
+            if data == '[DONE]':
+                break
+            event = json.loads(data)
+            if event.get('error'):
+                raise ValueError(f'LLM error: {event["error"].get("message", event["error"])}')
+            choices = event.get('choices') or []
+            if not choices:
+                continue
+            delta = choices[0].get('delta') or {}
+            reasoning = delta.get('reasoning') or delta.get('reasoning_content')
+            if reasoning:
+                yield 'reasoning', reasoning
+            if delta.get('content'):
+                yield 'token', delta['content']
+
+
 REWRITE_PROMPT = """You prepare search queries over lecture transcripts.
-The transcripts are auto-generated YouTube captions of Hindi-English (Hinglish) lectures, written in
-Devanagari script, with English technical terms transliterated (for example "रैग इवैल्स" = "RAG evals",
-"रिट्रीवर" = "retriever", "कॉन्टेक्स्ट प्रिसिजन" = "context precision").
+The transcripts are auto-generated (YouTube captions or Whisper speech recognition) from English or
+Hindi-English (Hinglish) lectures. Hinglish may be written in Devanagari script, with English technical
+terms transliterated (for example "रैग इवैल्स" = "RAG evals", "रिट्रीवर" = "retriever"), or in Roman
+script ("retriever ka context precision kaise nikalte hain").
 
 Given the student's concept, recent chat, and new question, return JSON with:
   "query": a standalone English search query capturing what the student needs,
   "hinglish": the same query as a lecturer would say it in Hinglish, in Devanagari script,
-  "keywords": 3-8 key technical terms, each written in Devanagari transliteration as they would appear in captions.
+  "roman": the same Hinglish query written in Roman (Latin) script,
+  "keywords": 3-8 key technical terms, each given twice: in Devanagari transliteration and in English.
 Return only the JSON object."""
 
 
 def rewrite_query(question, concept='', history=()):
     """Turn a follow-up question into search queries in both scripts. Falls back to the raw question."""
-    fallback = {'query': question, 'hinglish': '', 'keywords': []}
+    fallback = {'query': question, 'hinglish': '', 'roman': '', 'keywords': []}
     if not llm_available():
         return fallback
     recent = '\n'.join(f'{turn["role"]}: {turn["content"][:400]}' for turn in list(history)[-4:])
@@ -311,20 +351,23 @@ def rewrite_query(question, concept='', history=()):
         data = json.loads(re.search(r'\{.*\}', reply, re.S).group(0))
         keywords = data.get('keywords') or []
         return {'query': str(data.get('query') or question), 'hinglish': str(data.get('hinglish') or ''),
+                'roman': str(data.get('roman') or ''),
                 'keywords': [str(word) for word in keywords if str(word).strip()] if isinstance(keywords, list) else []}
     except Exception:
         return fallback
 
 
 ANSWER_PROMPT = """You are a study assistant for a student learning from a YouTube lecture playlist.
-Answer ONLY from the transcript passages provided. The passages are auto-generated captions of
-Hinglish lectures written in Devanagari script; they contain recognition errors, so read them for meaning.
+Answer ONLY from the transcript passages provided. The passages are auto-generated (YouTube captions or
+Whisper speech recognition) in English or Hinglish, written in Devanagari or Roman script; they contain
+recognition errors, so read them for meaning.
 
 Rules:
 - Cite every claim with the passage label in square brackets, exactly as given, e.g. [L12 05:31].
 - If the passages do not cover the question, say so plainly and suggest what to look for instead. Do not
   fill gaps with outside knowledge unless you clearly mark it as "Outside the lectures:".
-- Reply in the language the student used (English by default), not in Devanagari.
+- Reply in the language the student used (English by default), not in Devanagari. Never quote the
+  Devanagari caption text; paraphrase what the lecturer said in the student's language instead.
 - Explain clearly for a student: start with the core idea, then details and any examples the lecturer used.
 {mode_rules}"""
 
@@ -335,14 +378,15 @@ COMPARISON_RULES = """- The student is comparing lectures. After the explanation
 REFERENCE_RULES = """- The student uses the whole playlist as a reference. Point them to the best moments to rewatch."""
 
 
-def answer_question(index, question, study_request, history=(), top_k=8):
-    """Run the full RAG pipeline. Returns {'answer', 'sources', 'search'}."""
+def prepare_answer(index, question, study_request, history=(), top_k=8):
+    """Retrieval half of the pipeline. Returns (llm_messages, sources, search)."""
     comparison = study_request.get('mode') == 'comparison'
     search = rewrite_query(question, study_request.get('concept', ''), history)
-    dense_queries = [search['query']] + ([search['hinglish']] if search['hinglish'] else [])
+    # Devanagari and Roman versions let both search methods match captions and Whisper text alike.
+    dense_queries = [search['query']] + [q for q in (search['hinglish'], search['roman']) if q]
     if search['query'] != question:
         dense_queries.append(question)
-    keyword_queries = [q for q in [search['hinglish'], ' '.join(search['keywords']), question] if q]
+    keyword_queries = [q for q in [search['hinglish'], search['roman'], ' '.join(search['keywords']), question] if q]
 
     hits = index.search(dense_queries, keyword_queries, top_k=top_k, per_lecture=2 if comparison else 0)
     sources = index.build_context(hits)
@@ -357,7 +401,13 @@ def answer_question(index, question, study_request, history=(), top_k=8):
     messages.append({'role': 'user', 'content':
                      (f'Concept I am struggling with: {concept}\n\n' if concept else '')
                      + f'Transcript passages:\n\n{context}\n\nQuestion: {question}'})
-    answer = call_llm(messages)
+    return messages, sources, search
+
+
+def answer_question(index, question, study_request, history=(), top_k=8):
+    """Run the full RAG pipeline without streaming. Returns {'answer', 'sources', 'search'}."""
+    messages, sources, search = prepare_answer(index, question, study_request, history, top_k)
+    answer = call_llm(messages, max_tokens=2500)
     return {'answer': link_citations(answer, sources), 'sources': sources, 'search': search}
 
 
@@ -375,13 +425,15 @@ def link_citations(answer, sources):
 # ---------------------------------------------------------------- command line check
 
 def load_saved_transcripts(video_ids=None):
-    folder = PROJECT_FOLDER / 'data' / 'youtube_transcripts'
-    transcripts = []
-    for path in sorted(folder.glob('*.json')):
-        data = json.loads(path.read_text(encoding='utf-8'))
-        if data.get('segments') and (not video_ids or data.get('video_id') in video_ids):
-            transcripts.append(data)
-    return sorted(transcripts, key=lambda t: t.get('position', 0))
+    """All saved transcripts (YouTube captions, then Whisper), one per lecture id."""
+    found = {}
+    for folder in ('youtube_transcripts', 'transcripts'):
+        for path in sorted((PROJECT_FOLDER / 'data' / folder).glob('*.json')):
+            data = json.loads(path.read_text(encoding='utf-8'))
+            if (isinstance(data, dict) and data.get('segments') and data.get('video_id') not in found
+                    and (not video_ids or data.get('video_id') in video_ids)):
+                found[data['video_id']] = data
+    return sorted(found.values(), key=lambda t: t.get('position', 0))
 
 
 if __name__ == '__main__':

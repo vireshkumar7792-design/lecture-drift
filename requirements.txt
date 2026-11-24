@@ -1,10 +1,11 @@
-# Interface
-streamlit>=1.49,<2
+# Web API (the React UI in frontend/ talks to server.py)
+fastapi>=0.115
+uvicorn>=0.30
 # Playlist titles and video links
 yt-dlp
 # Existing YouTube captions; audio transcription will be added in a later stage.
 youtube-transcript-api>=1.2,<2
-# RAG: multilingual embeddings, DeepSeek API calls, .env support
+# RAG: multilingual embeddings, LLM API calls, .env support
 sentence-transformers>=3
 numpy
 requests
