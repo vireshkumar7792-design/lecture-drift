@@ -1,3 +1,7 @@
 .env
 data/rag_index/
 __pycache__/
+# Large or machine-specific files: downloaded audio, Whisper transcripts, local file registry
+data/audio/
+data/transcripts/
+data/local_lectures.json
